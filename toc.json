@@ -1,0 +1,103 @@
+{
+  "items": [
+    {
+      "type": "item",
+      "title": "Endpoints",
+      "uri": "storeapi.json"
+    },
+    {
+      "type": "divider",
+      "title": "Concepts"
+    },
+    {
+      "type": "item",
+      "title": "Authentication & Authorisation",
+      "uri": "docs/concepts/authentication-authorisation.md"
+    },
+    {
+      "type": "item",
+      "title": "Search Queries",
+      "uri": "docs/concepts/search-queries.md"
+    },
+    {
+      "type": "item",
+      "title": "Translations",
+      "uri": "docs/concepts/translations.md"
+    },
+    {
+      "type": "item",
+      "title": "Security",
+      "uri": "docs/concepts/security.md"
+    },
+    {
+      "type": "item",
+      "title": "Error Handling",
+      "uri": "docs/concepts/error-handling.md"
+    },
+    {
+      "type": "divider",
+      "title": "Guides"
+    },
+    {
+      "type": "group",
+      "title": "Quick Start",
+      "items": [{
+        "type": "item",
+        "title": "Introduction",
+        "uri": "docs/guides/quick-start/README.md"
+      },
+      {
+        "type": "item",
+        "title": "Register a Customer",
+        "uri": "docs/guides/quick-start/register-a-customer.md"
+      },
+      {
+        "type": "item",
+        "title": "Search for products",
+        "uri": "docs/guides/quick-start/search-for-products.md"
+      },
+      {
+        "type": "item",
+        "title": "Work with the cart",
+        "uri": "docs/guides/quick-start/work-with-the-cart.md"
+      },
+      {
+        "type": "item",
+        "title": "Handle the payment",
+        "uri": "docs/guides/quick-start/handling-the-payment.md"
+      }]
+    },
+    {
+      "type": "item",
+      "title": "Using REST Clients",
+      "uri": "docs/guides/rest-clients.md"
+    },
+    {
+      "type": "item",
+      "title": "FAQ",
+      "uri": "docs/guides/faq.md"
+    },
+    {
+      "type": "divider",
+      "title": "Resources"
+    },
+    {
+      "type": "group",
+      "title": "Libraries & SDKs",
+      "items": [{
+        "type": "item",
+        "title": "Javascript",
+        "uri": "docs/resources/libraries/javascript.md"
+      }]
+    },
+    {
+      "type": "group",
+      "title": "Guidelines",
+      "items": [{
+        "type": "item",
+        "title": "API Documentation",
+        "uri": "docs/resources/guidelines/guidelines-api-documentation.md"
+      }]
+    }
+  ]
+}
