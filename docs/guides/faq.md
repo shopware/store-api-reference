@@ -30,3 +30,6 @@
 
 > Oftentimes, custom fields are used to persist data \(such as images or files\) along with products or categories. However, Shopware doesn't hydrate these as objects when products are fetched, because it cannot ensure that they are valid references or objects. Custom fields can contain any value and are only hydrated by the admin panel for management purposes. If you want to fetch the object \(e.g. a media object\) instead you can either [decorate the corresponding service](https://developer.shopware.com/docs/guides/plugins/plugins/plugin-fundamentals/adjusting-service) *(Developer Documentation)* or add these entities as an association using an [entity extension](https://developer.shopware.com/docs/guides/plugins/plugins/framework/data-handling/add-complex-data-to-existing-entities) *(Developer Documentation)*.
 
+**How can I fetch SEO URLs for requested categories or products**
+
+> When you request includes the `sw-include-seo-urls: 1` header, Shopware will automatically try to resolve relative URLs for all your categories and products. These will then be accessible in the `seoUrls` field of each record.  
