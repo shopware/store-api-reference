@@ -2,13 +2,13 @@
 
 ## Overview
 
-Any online store would be useless if it wasn't shoppable. Hence we need a cart where we can collect items which we want to buy.
+Any online store would be useless if it were not shoppable. Hence, we need a cart to collect items which we want to buy.
 
 Implicitly, a cart is associated with your `sw-context-token` header.
 
 ## Create a new cart
 
-To create a new one, make sure to set a context token header. If you want to, you can also pass a name to identify the cart later on.
+To create a new cart, make sure to set a context token header. You can also pass a name to identify the cart later if you want to.
 
 **Try it out**
 
@@ -85,11 +85,11 @@ To create a new one, make sure to set a context token header. If you want to, yo
 }
 ```
 
-If you want to delete your cart, you can sent a `DELETE` request to the same endpoint.
+If you want to delete your cart, you can send a `DELETE` request to the same endpoint.
 
 ## Adding new items to the cart
 
-The api `POST /store-api/checkout/cart/line-item` can be used to add multiple new line items.
+One can add multiple new line items into the cart using the following endpoint:
 
 ### Product
 
@@ -139,7 +139,7 @@ The api `POST /store-api/checkout/cart/line-item` can be used to add multiple ne
 }
 ```
 
-You can set following properties on a product line item: `referencedId`, `payload` and `quantity`. If the line item is misconfigured, the cart will add an error. This error is shown `error` key in the response.
+You can set following properties : `referencedId`, `payload`, and `quantity` on a product line item. If the line item is misconfigured, the cart will add an error. This error is shown as `error` key in the response.
 
 ### Promotion
 
@@ -183,16 +183,16 @@ When adding a promotion, just set the line item type to `promotion` and pass the
 
 ### Error handling
 
-Whenever an invalid configuration is passed to the cart or you try to perform an action which is not available, the cart contains errors. Reasons for errors can be various:
+Whenever an invalid configuration is passed to the cart, or you try to perform an action that is not available, the cart is prone to errors. Reasons for errors can be:
 
  * Product out of stock
  * Invalid payment method selection
  * Promotion not applicable
  * Invalid quantity
 
-These errors are not handled via HTTP response codes, but only contained in the `errors` field of your cart. Each error comes along with an error message, a message key (so you can map custom error messages) and additional information.
+These errors are not handled via HTTP response codes but are only contained in the `errors` field of your cart. Each error comes with an error message, a message key (so you can map custom error messages), and additional information.
 
-For example, when you pass invalid line item configuration to the API the cart calculation process will remove the line items again and add errors to the cart. In case of an invalid `referencedId` it would look like this:
+For example, when you pass an invalid line item configuration to the API, the cart calculation process will remove the line items again and add errors to the cart. In case of an invalid `referencedId`, it would look like this:
 
 ```javascript
 {
@@ -213,7 +213,7 @@ For example, when you pass invalid line item configuration to the API the cart c
 
 ## Updating items in the cart
 
-Use a `PATCH` request to the `/checkout/cart/line-item` endpoint to update line items in to cart.
+Use a `PATCH` request to the `/checkout/cart/line-item` endpoint to update line items into the cart.
 
 ```javascript
 // PATCH /store-api/checkout/cart/line-item
@@ -231,7 +231,7 @@ Use a `PATCH` request to the `/checkout/cart/line-item` endpoint to update line 
 
 ## Deleting items in the cart
 
-Perform a `DELETE` request to the `/checkout/cart/line-item` endpoint to remove line items from the cart
+Perform a `DELETE` request to the `/checkout/cart/line-item` endpoint to remove line items from the cart.
 
 ```javascript
 // DELETE /store-api/checkout/cart/line-item
@@ -243,9 +243,9 @@ Perform a `DELETE` request to the `/checkout/cart/line-item` endpoint to remove 
 }
 ```
 
-## Creating an order from the cart
+## Creating order from the cart
 
-The endpoint `/store-api/checkout/order` can be used to create an order from the cart. You will need items in the cart and you need to be [logged in](register-a-customer.md#logging-in) in order to create an order. This also applies to anonymous orders, where the customer has to registered as a [guest customer](register-a-customer.md#guest-customers) before the order is created.
+To create an order, you need a minimum of one item in the cart, and you need to be a [logged in](register-a-customer.md#logging-in) customer. This also applies to anonymous orders, where a user has to be registered as a [guest customer](register-a-customer.md#guest-customers) before the order is created. The following endpoint can be used to create one:
 
 **Try it out**
 
@@ -340,15 +340,15 @@ Depending on your requirements, you might need additional data from the order. Y
 
 ### `order.deliveries`
 
-Shopware's data model is capable of representing multiple deliveries or shipments within a single order. Each delivery can have a different set of items, shipping method and delivery dates. However, in our current version, Shopware doesn't support creation of multiple deliveries out of the box, so most likely, you'll just be using `order.deliveries[0]` .
+Shopware's data model is capable of representing multiple deliveries or shipments within a single order. Each delivery can have different items, shipping methods, and delivery dates. However, in our current version, Shopware does not support the creation of multiple deliveries out of the box, so most likely, you will just be using `order.deliveries[0]`.
 
 ### `order.transactions`
 
-A transaction represents a payment for an order. It contains a payment method, an amount and a state. An order can have multiple payments \(for example, if a payment fails, you can [switch methods](handling-the-payment.md#handle-exceptions) and create a second transaction with an alternative payment method\).
+A transaction represents payment for an order. It contains a payment method, an amount, and a state. An order can have multiple payment methods \(for example, if a payment fails, you can [switch methods](handling-the-payment.md#handle-exceptions) and create a second transaction with an alternative payment method\).
 
 ### `order.addresses`
 
-An order can have multipel associated addresses \(e.g. for shipping or deliverie/s\). Those will be passed in the `addresses` association. You can map them using their references in the order, such as `order.billingMethodId` or `order.deliveries[*].shippingOrderAddressId` .
+An order can have multiple associated addresses \(e.g. for shipping or delivery\). Those will be passed in the `addresses` association. You can map them using their references in the order, such as `order.billingMethodId` or `order.deliveries[*].shippingOrderAddressId` .
 
 ### `order.lineItems`
 
@@ -389,7 +389,7 @@ Additionally, the criteria parameters \(`filter`, `aggregations`, etc.\) can be 
 
 ## Shipping methods
 
-The endpoint `/store-api/shipping-method` can be used to list all payment methods of the sales channel. It behaves in the same fashion as the payment methods endpoint which is described above.
+The endpoint `/store-api/shipping-method` can be used to list all shipping methods of the sales channel. It behaves in the same fashion as the payment methods endpoint, which is described above.
 
 ```javascript
 // POST /store-api/shipping-method
