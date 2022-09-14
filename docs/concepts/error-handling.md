@@ -1,22 +1,21 @@
 # Error Handling
- The Store API works with HTTP response codes to indicate the outcome of an operation.
-There are different types of responses and knowing about them will make your work way easier.‌
+The Store API works with HTTP response codes to indicate the outcome of an operation. There are different categories of responses, and knowing them will make your work easier.‌
 
-### Success
+* 2XX - Successful
+* 4XX - Client error
+* 5XX - Server error
 
-**200 OK** This is the most common response, indicating a successful operation. Oftentimes, the API responds with the entity you just modified or simply the `success: true` field in an object.‌
+### 2XX Success
 
-**204 No Content** Some endpoints respond with a no content response if it's more applicable.‌
+This category of status codes indicates the API request was received and realized.
 
-```json json_schema
-{
-  "$ref": "../../storeapi.json#/components/schemas/SuccessResponse"
-}
-```
+**200 OK** is the most common response, indicating a successful operation. Often, the API responds with the entity you just modified or simply the `success: true` field in an object.‌
 
-### Client Error
+**204 No Content** implies the request was successful, and the response contains no data to return.
 
-The API tries to resolve client errors and give an indication of what has gone wrong. Therefore, the response usually contains an `errors` field containing one or multiple errors to help you track them down. Each error contains a summary of the issue in the `detail` field.‌
+### 4XX Client Error
+
+This category of status codes indicates that the error seems to have been caused by the requesting client. Therefore, the response usually contains the `errors` field with one or more errors to help you track them down. Each error contains a summary of the issue in the `detail` field.‌
 
 ```json json_schema
 {
@@ -24,22 +23,22 @@ The API tries to resolve client errors and give an indication of what has gone w
 }
 ```
 
-> We have focused on documenting non-generic errors for every endpoint. Generic errors for resources, such as `400 Bad Request` for missing parameters or `404 Not Found` for not found resources are not documented in every endpoint.
+**400 Bad Request** response usually indicates an issue with your request format, such as a missing parameter, violated constraints, or malformed request syntax.
 
-**400 Bad Request** This response usually indicates that there's an issue with your request format - for example a missing parameter or violated constraints.‌
+**401 Unauthorized** indicates, that your [sales channel access key](../../docs/guides/quick-start/README.md/#authentication-and-setup) is missing.‌
 
-**401 Unauthorized** The unauthorised error indicates, that your [sales channel access key](../../../../guides/integrations-api/store-api-guide/#authentication-and-setup) is missing.‌
+**403 Forbidden** indicates the request contained valid data, but you are not authorized to perform the operation. Some operations, such as _placing an order_ or _submitting a review_ require the customer to be logged in. In such cases, check your `sw-context-token` header and whether you are logged in.‌
 
-**403 Forbidden** This response indicates that you are not authorised to perform that operation. For some operations, such as _placing an order_ or _submitting a review_ you need to be logged in as a customer. In those cases, check your `sw-context-token` header and whether you're [logged in](https://app.gitbook.com/@shopware/s/shopware-1/~/drafts/-MU8LxyY2Ad3ushWb8Jl/guides/integrations-api/store-api-guide/register-a-customer#logging-in/@drafts).‌
+**405 Method Not Allowed** error occurs if the HTTP method used for the request is not valid.‌
 
-**405 Method Not Allowed** The HTTP method used for the request is not valid.‌
+**412 Precondition Failed** error occurs if your [sales channel access key](../../docs/guides/quick-start/README.md/#authentication-and-setup) is invalid. Make sure that it matches any of your configured sales channels.‌
 
-**412 Precondition Failed** This error occurs if your [sales channel access key](../../../../guides/integrations-api/store-api-guide/) is invalid. Make sure that it matches any of your configured sales channels.‌
+> We have focused on documenting non-generic errors for every endpoint. Generic errors such as `400 Bad Request` for missing parameters or `404 Not Found` for resources not found are not documented in every endpoint.
 
-### Server Error
+### 5XX Server Error
 
-**5xx** Server errors are rare, but they occur. They can be related to inconsistencies in the DB, infrastructure outages or software issues. If you cannot backtrack that issue, please create an [issue ticket to let us know](https://issues.shopware.com/).‌
+Server errors are rare, but they occur. They can be related to inconsistencies in the database, infrastructure outages, or software issues. If you cannot backtrack that issue, please create an [issue ticket to let us know](https://issues.shopware.com/).‌
 
 ## Submit reference issues
 
-If you find any issues, errors or missing parts in the reference, please create an issue or a pull request in our [Github Documentation repository](https://github.com/shopware/docs/issues).‌
+If you find any issues, errors, or missing parts in the reference guide, please create an issue or a pull request in our [Github Documentation repository](https://github.com/shopware/docs/issues).‌
