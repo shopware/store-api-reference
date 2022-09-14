@@ -2,18 +2,17 @@
 
 ## Overview
 
-If you want to place orders, manage a profile or view old orders, you have to register a customer.
+One has to be a registered customer to place orders, manage a profile or view old orders.
 
 ## Registration of a customer
 
-A customer needs some personal data and a billing address to be created. In addition to that, you have to define a storefront URL. This URL is required for Shopware to correctly assemble a confirmation link so they can confirm their registration in case of a [double opt in](register-a-customer.md#double-opt-in). This is especially required for frontends that run on a different host than the Shopware API itself.
+To register, a customer must possess some personal data and a billing address. In addition to that, you have to define a storefront URL. This URL is required for Shopware to correctly assemble a confirmation link so they can confirm their registration in case of a [double opt in](register-a-customer.md#double-opt-in). This is especially required for frontends that run on a different host than the Shopware API itself.
 
 > The customer requires a **salutationId** and a **countryId** parameter. You can fetch the different options using the `/store-api/salutation` and `/store-api/country` endpoints respectively.
 
 **Try it out**
 
 > If you get an error saying the values of `salutationId` or `countryId` are invalid, fetch them using their respective endpoints first.
->
 >  * [Salutations](../../../storeapi.json/paths/~1salutation/post)
 >  * [Countries](../../../storeapi.json/paths/~1country/post)
 
@@ -63,23 +62,23 @@ A customer needs some personal data and a billing address to be created. In addi
 }
 ```
 
-If your request is successful, the response contains a representation of the newly created customer.
+If your request is successful, the response contains the newly created customer.
 
 **Context Token**
 
-> When you're using double opt-in, please follow [these steps](register-a-customer.md#double-opt-in) before continuing.
+> When you are using double opt-in, please follow [these steps](register-a-customer.md#double-opt-in) before continuing.
 
-There's one more interesting thing. If you look at the response headers, you will find the `sw-context-token` header. Usually that header contains the token which identifies your current session. However, when you register a customer, it contains both the new and the old token, separated by a comma:
+There is one more interesting thing about the headers. Usually, `sw-context-token` header contains the token which identifies your current session. However, when you register a customer, it contains both the new and the old token, separated by a comma:
 
 ```text
 sw-context-token GP6Yin6JlKeFP55oKVpVYx8Zt4Um1fqc, YoKCWdUdMYh5FEszia4ZrcoyAh7hJNY1
 ```
 
-The first token is the new one - you can use it on subsequent requests and your customer is already logged in. The old token is still valid and contains the cart and other settings. You can pass it as an additional header `sw-context-token` to identify your requests.
+The first token is the new one you can use on subsequent requests, and your customer is already logged in. The old token is still valid and contains the cart and other settings. You can pass it as an additional header `sw-context-token` to identify your requests.
 
-> The **context token** also works for non-logged-in users. If you don't provide a context-token with each of your requests, Shopware will generate one for you and pass it as a response header.
+> The **context token** also works for non-logged-in users. If you do not provide a context token with each request, Shopware will generate one for you and pass it as a response header.
 
-You can always double check the state of your session using the `/store-api/account/customer` endpoint. If you're logged in, it returns information about the customer, otherwise it returns a **403 Forbidden** errror.
+You can always double-check the state of your session using the `/store-api/account/customer` endpoint. If you are logged in, it returns information about the customer; otherwise, it returns a **403 Forbidden** error.
 
 **Try it out**
 
@@ -122,7 +121,7 @@ Some data regulations force stores to provide a double opt-in registration. In t
 [storefrontUrl]/registration/confirm?em=[email-hash]&hash=[customer-hash]
 ```
 
-> Your frontend application has to listen on the **`/registration/confirm`** route in order to support double opt-in.
+> Your frontend application must listen on the **`/registration/confirm`** route to support double opt-in.
 
 This URL will direct the user to your application, so you have to make sure that your application calls the following endpoint to confirm the registration:
 
@@ -137,7 +136,7 @@ This URL will direct the user to your application, so you have to make sure that
 
 ## Guest Customers
 
-Guest customers are one-time customers, which simply place an order without creating an account. Technically, guest customers have to be registered as well, however the record will just be created for technical reasons. Just pass the `guest: true` to the register request in order to create a guest customer. The rest of the flow will be the same as for a normal registration. Just be aware that, for guest customers you can't re-obtain a valid session, once they've been logged out.
+Guest customers are one-time customers who simply place an order without creating an account. Technically, guest customers have to be registered as well; however, the record will just be created for technical reasons. Just pass the `guest: true` to the registration request in order to create a guest customer. The rest of the flow will be the same as a normal registration. Just be aware that you cannot re-obtain a valid session for guest customers once they have been logged out.
 
 The double opt-in procedure described above works the same for guest customers.
 
@@ -173,7 +172,7 @@ Logging in as a user is even easier. You just have to pass the user's email and 
 }
 ```
 
-The response contains your new context token identifying the logged in customer.
+The response contains your new context token identifying the logged-in customer.
 
 ```javascript
 {
@@ -182,6 +181,6 @@ The response contains your new context token identifying the logged in customer.
 }
 ```
 
-Now that we're logged in, let's look for some products. \(Not that we need to be logged in to do that, but it feels like we're getting warm now, so it's about time\).
+Now that you are logged in let us look for some products. 
 
 > Next Chapter: **[Search for products](search-for-products.md)**
