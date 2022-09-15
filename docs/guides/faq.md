@@ -20,7 +20,7 @@
 > GET /store-api/account/customer
 > ```
 >
-> If you are logged in, you should see user related information, else the response will contain a `403 Forbidden - CHECKOUT__CUSTOMER_NOT_LOGGED_IN` exception.
+> If the user is logged in, you should see their information, else the response will contain a `403 Forbidden - CHECKOUT__CUSTOMER_NOT_LOGGED_IN` exception.
 
 **Is there an SDK for the Store API?**
 
