@@ -13,7 +13,7 @@ You have to pass some type of identification for Shopware to determine the right
 
 **Context Token**
 
-Besides Access Token for identification, some endpoints of the Store API are protected and require user authentication or at least a user state. Example endpoints are the `/account/login` or the `/checkout/cart`. These endpoints would not make without the context of a **specific user** because all state changes would immediately be lost. For this reason, there is the `sw-context-token` header. Think of it like a session ID. This token is **unique** per user and must not be shared with other users.
+Besides Access Token for identification, some endpoints of the Store API are protected and require user authentication or at least a user state. Example endpoints are the `/account/login` or the `/checkout/cart`. These endpoints would not work without the context of a **specific user** because all state changes would immediately be lost. For this reason, there is the `sw-context-token` header. Think of it like a session ID. This token is **unique** per user and must not be shared with other users.
 
 You can either set it by yourself (and make sure it is unique) or use the one passed within the server's corresponding response header.
 
