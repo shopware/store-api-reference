@@ -1,0 +1,43 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  update:
+    name: "Update storeapi.json"
+    runs-on: ubuntu-latest
+    container: "shopware/development:8.1-composer-2"
+    env:
+      APP_ENV: prod
+      DATABASE_URL: mysql://root:root@database:3306/root
+      APP_URL: http://localhost:8000
+      APP_SECRET: devsecret
+      BLUE_GREEN_DEPLOYMENT: 0
+
+    services:
+      database:
+        image: mysql:5.7
+        env:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: root
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+          fetch-depth: 0
+
+    - name: Install Shopware
+      run: |
+        composer run setup
+    
+    - name: Generate storeapi.json
+      run: |
+        ./bin/console bin/console framework:schema --store-api --pretty -
