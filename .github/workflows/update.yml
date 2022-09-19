@@ -38,8 +38,9 @@ jobs:
 
     - name: Install Shopware
       run: |
-        composer run setup
+        composer install -o
+        composer run init:db
     
     - name: Generate storeapi.json
       run: |
-        ./bin/console bin/console framework:schema --store-api --pretty -
+        ./bin/console framework:schema --store-api --pretty -
