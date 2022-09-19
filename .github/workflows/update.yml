@@ -32,6 +32,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
+          name: shopware/platform
+          ref: trunk
           fetch-depth: 0
 
     - name: Install Shopware
