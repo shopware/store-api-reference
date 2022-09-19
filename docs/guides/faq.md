@@ -12,7 +12,7 @@
 > }
 > ```
 
-**How can I check whether I am currently logged in?**
+**How to check whether a user is currently logged in?**
 
 > The least you need in order to have logged in is, a `sw-context-token` header. In order to check whether you are actually logged in call the following endpoint
 >
