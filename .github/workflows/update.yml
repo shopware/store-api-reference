@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Update Store API
 
 # Controls when the workflow will run
 on:
@@ -43,4 +43,15 @@ jobs:
     
     - name: Generate storeapi.json
       run: |
-        ./bin/console framework:schema --store-api --pretty -
+        ./bin/console framework:schema --store-api --pretty storeapi.json
+        
+    - name: Commit
+      uses: peter-evans/create-pull-request@v4
+      with:
+        add-paths: storeapi.json
+        author: shopwareBot <example@example.com>
+        committer: shopwareBot <example@example.com>
+        assignees: elkmod, Christian-Rades
+        branch: schema-update
+        delete-branch: true
+        title: 'Update store API schema'
