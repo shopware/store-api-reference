@@ -40,4 +40,4 @@ jobs:
     
     - name: Generate storeapi.json
       run: |
-        ./bin/console 
+        ./bin/console bin/console framework:schema --store-api --pretty -
