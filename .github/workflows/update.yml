@@ -32,7 +32,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-          name: shopware/platform
+          repository: shopware/platform
           ref: trunk
           fetch-depth: 0
 
