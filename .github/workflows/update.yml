@@ -35,21 +35,32 @@ jobs:
           repository: shopware/platform
           ref: trunk
           fetch-depth: 0
-          path: sw
-          
-    - name: Checkout
-      uses: actions/checkout@v3
       
     - name: Generate storeapi.json
       run: |
-        cd sw
         composer install -o
         composer run init:db
-        ./bin/console framework:schema --store-api --pretty ../storeapi.json
-        cd ..
-        rm -rf sw
+        ./bin/console framework:schema --store-api --pretty storeapi.json
         
-    - name: Commit
+    - name: upload api schema
+      uses: actions/upload-artifact@v3
+      with:
+        name: store-api-schema
+        path: storeapi.json
+        
+  open-pr:
+    name: "Open a pull request"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: download api schema
+      uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
+      
+    - name: Create PR
       uses: peter-evans/create-pull-request@v4
       with:
         add-paths: storeapi.json
