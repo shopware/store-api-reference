@@ -28,10 +28,7 @@ jobs:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: root
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    
+    steps:    
     - name: Checkout Shopware
       uses: actions/checkout@v3
       with:
@@ -39,7 +36,10 @@ jobs:
           ref: trunk
           fetch-depth: 0
           path: sw
-    
+          
+    - name: Checkout
+      uses: actions/checkout@v3
+      
     - name: Generate storeapi.json
       run: |
         cd sw
