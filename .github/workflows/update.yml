@@ -52,8 +52,6 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         add-paths: storeapi.json
-        author: shopwareBot <example@example.com>
-        committer: shopwareBot <example@example.com>
         assignees: elkmod, Christian-Rades
         branch: schema-update
         delete-branch: true
