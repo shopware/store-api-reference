@@ -47,6 +47,7 @@ jobs:
         composer run init:db
         ./bin/console framework:schema --store-api --pretty ../storeapi.json
         cd ..
+        rm -rf sw
         
     - name: Commit
       uses: peter-evans/create-pull-request@v4
