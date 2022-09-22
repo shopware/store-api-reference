@@ -1,18 +1,18 @@
 # Search Queries
 
-Many endpoints provide enhanced search functionality that you can use to thin down listing results, such as
+Many endpoints provide enhanced search functionality that can thin down listing results, such as:
 
  * Products
  * Orders
  * Payment methods
 
-Likely, the most interesting case for such queries the filtering of products, but it generalizes to many other searches within our system.
+Likely, the most interesting case for such queries is the filtering of products, but it generalizes to many other searches within your system.
 
-These search queries are defined using a criteria, which can be passed within the body of your `POST` or encoded as query parameters in any `GET` request.
+These search queries are defined using criteria, passed within the body of `POST` request, or encoded as query parameters in any `GET` request.
 
 > **How should I encode the criteria for `GET` requests?**
 > 
-> Some API endpoints are using the `GET` method. In order to pass your search details here, you will have to encode and send them as query parameters. In PHP, the method [`http_build_query`](https://www.php.net/manual/en/function.http-build-query.php) will do the job for you.
+> Some API endpoints use the `GET` method. To pass your search details here, you must encode and send them as query parameters. The PHP method [`http_build_query`](https://www.php.net/manual/en/function.http-build-query.php) will do the job for you.
 >
 > For example:
 > ```json
@@ -70,7 +70,7 @@ These search queries are defined using a criteria, which can be passed within th
 
 ## Structure
 
-A search criteria follows the following schema:
+The search criteria follow the below schema:
 
 ```json json_schema
 {
@@ -78,7 +78,7 @@ A search criteria follows the following schema:
 }
 ```
 
-In the following we'll go through the different parameters, a criteria can be assembled from in-depth:
+In the following, you will go through the different parameters, a criteria can be assembled in-depth:
 
 | Parameter | Usage |
 | :--- | :--- |
@@ -88,19 +88,19 @@ In the following we'll go through the different parameters, a criteria can be as
 | [**total-count-mode**](#total-count-mode) | Defines whether a total must be determined |
 | [**page**](#page--limit) | Defines at which page the search result should start |
 | [**limit**](#page--limit) | Defines the number of entries to be determined |
-| [**filter**](#filter) | Allows you to filter the result and aggregations |
+| [**filter**](#filter) | Allows you to filter the results and aggregations |
 | [**post-filter**](#post-filter) | Allows you to filter the result, but not the aggregations |
 | [**query**](#query) | Enables you to determine a ranking for the search result |
 | [**term**](#term) | Enables you to determine a ranking for the search result |
 | [**sort**](#sort) | Defines the sorting of the search result |
-| [**aggregations**](#aggregations) | Specify aggregations to be computed on-the-fly |
+| [**aggregations**](#aggregations) | Specifies aggregations to be computed on-the-fly |
 | [**grouping**](#grouping) | Lets you group records by fields |
 
 ## Parameters
 
-### `associations`
+### ***associations***
 
-The `associations` parameter allows you to load additional data to the minimal data set of an entity without sending an extra request - similar to a SQL Join. The key of the parameter is the property name of the association in the entity. You can pass a nested criteria just for that association - e.g. to perform a sort to or apply filters within the association.
+The `associations` parameter allows you to load additional data to the minimal data set of an entity without sending another request. It is similar to SQL Join. The parameter's key is the association's property name in the entity. You can pass nested criteria just for that association, e.g., to perform a sort or to apply filters within the association.
 
 ```javascript
 {
@@ -118,13 +118,13 @@ The `associations` parameter allows you to load additional data to the minimal d
 }
 ```
 
-### `includes (apiAlias)`
+### ***includes (apiAlias)***
 
 The `includes` parameter allows you to restrict the returned fields.
 
-* Transfer only what you need - reduces response payload
+* Transfer what you only need reduces response payload
 * Easier to consume for client applications
-* When debugging, the response is smaller and you can concentrate on the essential fields
+* When debugging, the response is smaller, and you can concentrate on the essential fields
 
 ```javascript
 {
@@ -151,11 +151,11 @@ The `includes` parameter allows you to restrict the returned fields.
 }
 ```
 
->  All response types come with a `apiAlias` field which you can use to identify the type in your includes field. If you only want a categories id, add: `"category": ["id"]`. For entities, this is the entity name: `product`, `product_manufacturer`, `order_line_item`, ... For other non-entity-types like a listing result or a line item, check the full response. This pattern applies not only to simple fields but also to associations.
+>  All response types come with an `apiAlias` field which you can use to identify the type in your `includes` field. If you only want a category id, then add: `"category": ["id"]`; for entities types, the following are few - `product`, `product_manufacturer`, `order_line_item`; check the complete response for other non-entity types like a listing result or a line item. This pattern applies not only to simple fields but also to associations.
 
-#### Custom fields and includes
+#### ***Custom fields and includes***
 
-By default, custom field sets of entities are loaded in the response. You can include them as you would expect using the following payload:
+A custom field set of entities is by default loaded in the response. You can include them as you would expect using the following payload:
 
 ```javascript
 {
@@ -165,7 +165,7 @@ By default, custom field sets of entities are loaded in the response. You can in
 }
 ```
 
-However, you might have a lot of custom fields associated with your entity, but you don't want all of them to be fetched at once. In order to that, please stick to the following syntax:
+However, you might have many custom fields associated with your entity but might not want to fetch them all at once. In such as case, please stick to the following syntax:
 
 ```javascript
 {
@@ -178,7 +178,7 @@ However, you might have a lot of custom fields associated with your entity, but 
 }
 ```
 
-which will return
+this returns:
 
 ```javascript
 [
@@ -192,20 +192,21 @@ which will return
 ]
 ```
 
-#### Extensions and includes
+#### ***Extensions and includes***
 
-Shopware allows to add extensions to API payloads. You can simply use the name of the extension to project it into the response. Let's say you've added an extension named `configuratorSetting` to every `PropertyGroupOption` struct. Just use it within your includes in the same fashion as any other field:
+Shopware allows the addition of extensions to API payloads. You can simply use the extension's name to project it into the response. 
+Say you have added an extension named `configuratorSetting` to every `PropertyGroupOption` struct. Just use it within your includes in the same fashion as any other field.
 
 ```javascript
 {
-	"includes": {
-		"product_configurator_setting": ["media", "selected"],
-		"property_group_option": ["configuratorSetting"]
-	}
+  "includes": {
+    "product_configurator_setting": ["media", "selected"],
+    "property_group_option": ["configuratorSetting"]
+  }
 }
 ```
 
-The extension will then be included in the `extension` object of that specific entity:
+The extension then gets included in the `extension` object of that specific entity:
 
 ```javascript
 {
@@ -236,9 +237,9 @@ The extension will then be included in the `extension` object of that specific e
 
 
 
-### `ids`
+### ***ids***
 
-If you want to perform a simple lookup using just the ids of records, you can pass a list of those using the `ids` field:
+If you want to perform a simple lookup using just the record ids, you can pass a list of those using the `ids` field:
 
 ```javascript
 {
@@ -250,19 +251,19 @@ If you want to perform a simple lookup using just the ids of records, you can pa
 }
 ```
 
-### `total-count-mode`
+### ***total-count-mode***
 
-The `total-count-mode` parameter can be used to define whether the total for the total number of hits should be determined for the search query. This parameter supports the following values:
+The `total-count-mode` parameter defines whether the total number of hits should be determined for the search query or not. This parameter supports the following values:
 
 * `0 [default]` - No total is determined
-  * Purpose: This is the most performing mode because MySQL Server does not need to run the `SQL_CALC_FOUND_ROWS` in the background.
   * Purpose: Should be used if pagination is not required
-* `1` - An exact total is determined.
-  * Purpose: Should be used if a pagination with exact page number has to be displayed
+  * Advantage: This is the most performing mode because MySQL Server does not require running the `SQL_CALC_FOUND_ROWS` in the background.
+* `1` - An exact total is determined
+  * Purpose: Should be used if pagination with an exact page number has to be displayed
   * Disadvantage: Performance intensive. Here you have to work with `SQL_CALC_FOUND_ROWS`
 * `2` - It is determined whether there is a next page
+  * Purpose: Can be used well for infinite scrolling. With infinite scrolling, the information is enough to know if there is a next page to load
   * Advantage: Good performance, same as `0`.
-  * Purpose: Can be used well for infinite scrolling, because with infinite scrolling the information is enough to know if there is a next page to load
 
 ```javascript
 {
@@ -270,9 +271,9 @@ The `total-count-mode` parameter can be used to define whether the total for the
 }
 ```
 
-### `page & limit`
+### ***page & limit***
 
-The `page` and `limit` parameters can be used to control pagination. The `page` parameter is 1-indexed.
+The `page` and `limit` parameters are used to control pagination. The `page` parameter is 1-indexed.
 
 ```javascript
 {
@@ -281,11 +282,11 @@ The `page` and `limit` parameters can be used to control pagination. The `page` 
 }
 ```
 
-### `filter`
+### ***filter***
 
-The `filter` parameter allows you to filter the result and aggregations using a multitude of filters and parameters. The filter types are equivalent to the [filters available for the DAL](https://developer.shopware.com/docs/resources/references/core-reference/dal-reference/filters-reference).
+The `filter` parameter allows you to filter the results and aggregations using many filters and parameters. The filter types are equivalent to the [filters available for the DAL](https://developer.shopware.com/docs/resources/references/core-reference/dal-reference/filters-reference).
 
-> When you are filtering for nested values - for example you're filtering orders by their transaction state \(`order.transactions.stateMachineState`\) - make sure to fetch those in your `associations` field before.
+> When you are filtering for nested values for example, you are filtering orders by their transaction state \(`order.transactions.stateMachineState`\) make sure to fetch those in your `associations` field before.
 
 ```javascript
 {
@@ -328,11 +329,11 @@ The `filter` parameter allows you to filter the result and aggregations using a 
 }
 ```
 
-### `post-filter`
+### ***post-filter***
 
-Work the same as `filter` however, they don't apply to aggregations. This is great, when you want to work with aggregations to display facets for a filter navigation, but already filter results based on filters without making an additional request.
+This parameter works similarly to `filter` parameter. However, they do not apply to aggregations. This is great when you want to work with aggregations to display facets for a filter navigation but already filter results based on filters without making an additional request.
 
-### `query`
+### ***query***
 
 Use this parameter to create a weighted search query that returns a `_score` for each found entity. Any filter type can be used for the `query`. A `score` has to be defined for each query. The sum of the matching queries then results in the total `_score` value.
 
@@ -402,11 +403,11 @@ The resulting score is appended to every resulting record in the `extensions.sea
 }
 ```
 
-### `term`
+### ***term***
 
 Using the `term` parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the `SearchRanking` flag.
 
-> Don't use `term` parameters together with `query` parameters.
+> Do not use `term` parameters together with `query` parameters.
 
 ```javascript
 {
@@ -416,12 +417,12 @@ Using the `term` parameter, the server performs a text search on all records bas
 
 The results are formatted the same as for the `query` parameter above.
 
-## `sort`
+## ***sort***
 
-The `sort` parameter allows to control the sorting of the result. Several sorts can be transferred at the same time.
+The `sort` parameter controls the sorting of results. Several sorts can be transferred at the same time.
 
-* The `field` parameter defines which field is to be used for sorting.
-* The `order` parameter defines the sort direction.
+* The `field` parameter defines which field is used for sorting
+* The `order` parameter defines the sort direction
 * The parameter `naturalSorting` allows to use a [Natural Sorting Algorithm](https://en.wikipedia.org/wiki/Natural_sort_order)
 
 ```javascript
@@ -434,12 +435,13 @@ The `sort` parameter allows to control the sorting of the result. Several sorts 
 }
 ```
 
-## `aggregations`
+## ***aggregations***
 
-With the `aggregations` parameter, meta data can be determined for a search query. There are different types of aggregations which are listed in the reference documentation. A simple example is the determination of the average price from a product search query.
+The `aggregations` parameter can determine metadata for a search query. There are different types of aggregations listed in the reference documentation. A simple example is determining the average price from a product search query.
 
-* Purpose: Calculation of statistics and metrics
-* Purpose: Determination of possible filters
+* Purpose
+    * Calculation of statistics and metrics
+    * Determination of possible filters
 
 The aggregation types are equivalent to the [aggregations available in the DAL](https://developer.shopware.com/docs/resources/references/core-reference/dal-reference/aggregations-reference).
 
@@ -459,12 +461,12 @@ The aggregation types are equivalent to the [aggregations available in the DAL](
 }
 ```
 
-## `grouping`
+## ***grouping***
 
-The `grouping` parameter allows you to group the result over fields. It can be used to realise queries such as:
+The `grouping` parameter groups the result over fields. It can realize queries such as:
 
 * Fetch one product for each manufacturer
-* Fetch one order per day and customer
+* Fetch one order per day, and customer
 
 ```javascript
 {
