@@ -112,7 +112,7 @@ All the above transaction-related information will be assembled into a **return 
 
 #### Redirect back to Shopware
 
-After the payment has been conducted or cancelled, the payment provider will redirect the user back to the API, calling the return URL provided before.
+After the payment has been conducted or cancelled, the payment provider redirects the user back to the API, calling the return URL provided before.
 
 The endpoint called in this return URL is `/payment/finalize-transaction`. This method will internally decrypt the JWT \(which is still contained in the `_sw_payment_token` parameter\) and route the user depending on the outcome of the payment either to `finishUrl` or `errorUrl`, so that leads to your individual frontend.
 
