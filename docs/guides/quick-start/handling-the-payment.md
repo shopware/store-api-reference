@@ -108,11 +108,11 @@ In the asynchronous case, the user flow is different. Here the user gets redirec
 
 #### Redirect to payment provider/ gateway
 
-All the above transaction-related information will be assembled into a **return URL** for the external payment provider containing the token as a parameter `_sw_payment_token`. Together with this **return URL** \(neither the `finishUrl` nor the `errorUrl` - it's a Shopware endpoint\), Shopware will redirect your call to the external payment endpoint to let it conduct the payment.
+All the above transaction-related information will be assembled into a **return URL** for the external payment provider containing the token as a parameter `_sw_payment_token`. Together with this **return URL**, Shopware will redirect your call to the external payment endpoint to let it conduct the payment.
 
 #### Redirect back to Shopware
 
-After the payment has been conducted \(or if it has been cancelled\), the payment provider will redirect the user back to the API, calling the return URL provided before.
+After the payment has been conducted or cancelled, the payment provider will redirect the user back to the API, calling the return URL provided before.
 
 The endpoint called in this return URL is `/payment/finalize-transaction`. This method will internally decrypt the JWT \(which is still contained in the `_sw_payment_token` parameter\) and route the user depending on the outcome of the payment either to `finishUrl` or `errorUrl`, so that leads to your individual frontend.
 
