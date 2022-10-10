@@ -43,7 +43,7 @@ jobs:
       run: |
         composer install -o
         composer run init:db
-        ./bin/console framework:schema --store-api --pretty storeapi.json
+        ./bin/console framework:schema -s openapi3 --store-api --pretty storeapi.json
         
     - name: upload api schema
       uses: actions/upload-artifact@v3
