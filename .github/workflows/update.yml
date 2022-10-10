@@ -37,6 +37,7 @@ jobs:
           fetch-depth: 0
     - name: checkout latest release
       run: |
+        cd platform
         git checkout $(git tag | tr '.' ' ' | sort -nr -k3,4 | head -n1 | tr ' ' '.')
         
     - name: Generate storeapi.json
