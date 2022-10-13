@@ -39,7 +39,7 @@ jobs:
         
     - name: checkout commercial plugin
       run: |
-        git clone https://{{ DEPLOY_USER }}:{{ DEPLOY_TOKEN }}@gitlab.shopware.com/shopware/6/product/commercial.git custom/plugins
+        git clone https://${{ DEPLOY_USER }}:${{ DEPLOY_TOKEN }}@gitlab.shopware.com/shopware/6/product/commercial.git custom/plugins
         
     - name: Generate storeapi.json
       run: |
