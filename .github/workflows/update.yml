@@ -39,8 +39,8 @@ jobs:
         
     - name: checkout commercial plugin
       env:
-        DEPLOY_USER: ${{ DEPLOY_USER }}
-        DEPLOY_TOKEN: ${{ DEPLOY_TOKEN }}
+        DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
       run: |
         git clone https://${DEPLOY_USER}:${DEPLOY_TOKEN}@gitlab.shopware.com/shopware/6/product/commercial.git custom/plugins
         
