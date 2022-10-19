@@ -37,10 +37,18 @@ jobs:
       run: |
         git checkout $(git tag | tr '.' ' ' | sort -nr -k3,4 | head -n1 | tr ' ' '.')
         
+    - name: checkout commercial plugin
+      env:
+        DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+      run: |
+        git clone https://${DEPLOY_USER}:${DEPLOY_TOKEN}@gitlab.shopware.com/shopware/6/product/commercial.git custom/plugins/SwagCommercial
+        
     - name: Generate storeapi.json
       run: |
         composer install -o
         composer run init:db
+        ./bin/console plugin:install -a SwagCommercial 
         ./bin/console framework:schema -s openapi3 --store-api --pretty storeapi.json
         
     - name: upload api schema
