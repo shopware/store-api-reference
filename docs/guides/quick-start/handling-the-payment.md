@@ -63,7 +63,7 @@ We can initiate the payment using the `/handle-payment` endpoint as follows:
 
 Pass the `orderId` identifying the order you want to pay for. Now you end up with two cases:
 
-* Depending on the payment method and 
+* Depending on the payment method and
 * Type of integration that can occur
 
 ### Transmit additional payment details
@@ -91,7 +91,7 @@ You might need more data/ persist data along with the customer, which is either 
 
 ## Payment Flows
 
-Depending on the payment method, the user flow can differ. There are two major ways to perform a payment.
+Depending on the payment method, the user flow can differ. There are three major ways to perform a payment.
 
 ### Synchronous payment
 
@@ -117,10 +117,14 @@ After the payment has been conducted or cancelled, the payment provider redirect
 The endpoint called in this return URL is `/payment/finalize-transaction`. This method will internally decrypt the JWT \(which is still contained in the `_sw_payment_token` parameter\) and route the user depending on the outcome of the payment either to `finishUrl` or `errorUrl`, so that leads to your individual frontend.
 
 > **Why does my payment status remain open after calling** `/handle-payment`**?**
-> 
+>
 > After handling the payment, the state of your payment transaction might still remain `open`. It depends on how your payment integration \(or the payment provider\) handles the payment.
 >
 > Some providers \(e.g. PayPal\) return immediate responses about the transactions' success. Some providers \(e.g. Stripe\) set up additional webhooks that allow the payment platform to asynchronously inform your store that payment has changed state. In those cases, please consult the documentation from these providers to get further details on their specific implementation.
+
+### Prepared Payment
+
+Unlike the above payment methods, the prepared payments first obtain a transaction reference token to prove the authenticity of the transaction. The payment handler then calls the `validate` method before placing an order. This method validates the supplied data, cart, and sales channel details to check the legitimacy of the payment transaction. The `capture` method is called on successful validation to perform the actual payment. When the payment is made, it is set to paid, and the user is forwarded to the finish page.
 
 ## Handle Exceptions
 
