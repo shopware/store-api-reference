@@ -124,7 +124,11 @@ The endpoint called in this return URL is `/payment/finalize-transaction`. This 
 
 ### Prepared Payment
 
-Unlike the above payment methods, the prepared payments first obtain a transaction reference token to prove the authenticity of the transaction. The payment handler then calls the `validate` method before placing an order. This method validates the supplied data, cart, and sales channel details to check the legitimacy of the payment transaction. The `capture` method is called on successful validation to perform the actual payment. When the payment is made, it is set to paid, and the user is forwarded to the finish page.
+Unlike the above two, this payment handler pre-processes the payment line to ensure failproof online transactions. In some instances, orders fail to capture payment as the last step of order placement - for example, when the customer's credit/debit card is expired, canceled, suspended, or closed, the account is flagged by the bank, card details are incorrect, insufficient funds in the account, etc. Such aborted orders get redirected to the payment options page to re-initiate the payment process. With this, there is a high chance that customers will abandon their orders, leaving them in a canceled payment state. 
+
+Prepared payments can dissolve such situations by first authorizing the payment, validating the order, placing the order, and capturing the payment for a failproof transaction.
+
+This payment flow implements [`PreparedPaymentHandlerInterface`](https://github.com/shopware/platform/blob/trunk/src/Core/Checkout/Payment/Cart/PaymentHandler/PreparedPaymentHandlerInterface.php) before placing the order. The customer initially chooses a payment method, and the prepared payment prepares a transaction and returns a transaction reference token to prove its authenticity. The payment handler then calls the `validate` method to validate the obtained token, cart, and sales channel details to check the legitimacy of the payment transaction. The `capture` method is then called on successful validation to perform the actual payment. When the payment is made, the `stateHandler` will update the order transaction status to *paid*, and the user is forwarded to the `finishUrl` page.
 
 ## Handle Exceptions
 
