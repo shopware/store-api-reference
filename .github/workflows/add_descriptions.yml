@@ -1,0 +1,31 @@
+name: Override descriptions
+
+on:
+  workflow_dispatch
+
+jobs:
+  overrideDescriptions:
+    name: "Finalize storeapi.json"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Nix
+        uses: cachix/install-nix-action@v18
+
+      - name: Download api schema
+        uses: actions/download-artifact@v3
+        with:
+          name: store-api-schema
+
+      - name: Apply descriptions
+        run: ./.github/scripts/set_descriptions.sh
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          add-paths: storeapi.json
+          author: shopwareBot <example@example.com>
+          committer: shopwareBot <example@example.com>
+          assignees: elkmod, Christian-Rades
+          branch: schema-update
+          delete-branch: true
+          title: 'Update store API schema'
