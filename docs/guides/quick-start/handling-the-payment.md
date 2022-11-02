@@ -63,7 +63,7 @@ We can initiate the payment using the `/handle-payment` endpoint as follows:
 
 Pass the `orderId` identifying the order you want to pay for. Now you end up with two cases:
 
-* Depending on the payment method and 
+* Depending on the payment method and
 * Type of integration that can occur
 
 ### Transmit additional payment details
@@ -91,7 +91,7 @@ You might need more data/ persist data along with the customer, which is either 
 
 ## Payment Flows
 
-Depending on the payment method, the user flow can differ. There are two major ways to perform a payment.
+Depending on the payment method, the user flow can differ. There are three major ways to perform a payment.
 
 ### Synchronous payment
 
@@ -117,10 +117,20 @@ After the payment has been conducted or cancelled, the payment provider redirect
 The endpoint called in this return URL is `/payment/finalize-transaction`. This method will internally decrypt the JWT \(which is still contained in the `_sw_payment_token` parameter\) and route the user depending on the outcome of the payment either to `finishUrl` or `errorUrl`, so that leads to your individual frontend.
 
 > **Why does my payment status remain open after calling** `/handle-payment`**?**
-> 
+>
 > After handling the payment, the state of your payment transaction might still remain `open`. It depends on how your payment integration \(or the payment provider\) handles the payment.
 >
 > Some providers \(e.g. PayPal\) return immediate responses about the transactions' success. Some providers \(e.g. Stripe\) set up additional webhooks that allow the payment platform to asynchronously inform your store that payment has changed state. In those cases, please consult the documentation from these providers to get further details on their specific implementation.
+
+### Prepared Payment
+
+Unlike the above two, this payment handler pre-processes the payment line to ensure failproof online transactions. In some instances, orders fail to capture payment as the last step of order placement — for example, when the customer's credit/debit card is expired, canceled, suspended, or closed, card details are incorrect, insufficient funds in the account, etc. Such aborted orders get redirected to the payment options page to re-initiate the payment process. With this, there is a high chance that customers will abandon their orders, leaving them in a canceled payment state. 
+
+Prepared payments can dissolve such situations by first authorizing the payment, validating the order, placing the order, and capturing the payment for a failproof transaction.
+
+This payment flow implements [`PreparedPaymentHandlerInterface`](https://github.com/shopware/platform/blob/trunk/src/Core/Checkout/Payment/Cart/PaymentHandler/PreparedPaymentHandlerInterface.php) before placing the order. The customer initially chooses a payment method, then the prepared payment creates a transaction reservation and returns the reference token to prove its authenticity. The payment handler then calls the `validate` method to validate the obtained token, cart, and sales channel details to check the legitimacy of the payment transaction. The `capture` method is then called on successful validation to perform the actual payment. When the payment is made, the `stateHandler` will update the order transaction status to *paid*, and the user is forwarded to the `finishUrl` page.
+
+To handle unsuccessful validation and capturing, `ValidatePreparedPaymentException` and `CapturePreparedPaymentException` are implemented respectively. 
 
 ## Handle Exceptions
 
