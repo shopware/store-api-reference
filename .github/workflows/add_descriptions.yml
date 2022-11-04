@@ -2,6 +2,11 @@ name: Override descriptions
 
 on:
   workflow_dispatch
+  push:
+    braches:
+      - 'main'
+    paths:
+      - 'descriptions.yml'
 
 jobs:
   overrideDescriptions:
@@ -17,8 +22,6 @@ jobs:
       - name: Apply descriptions
         run: |
           ./.github/scripts/set_descriptions.sh
-          yq '.components.schemas.Criteria' storeapi.json
-          yq . -P storeapi.json
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v4
