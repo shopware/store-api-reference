@@ -2,22 +2,26 @@ name: Override descriptions
 
 on:
   workflow_dispatch
+  push:
+    braches:
+      - 'main'
+    paths:
+      - 'descriptions.yml'
 
 jobs:
   overrideDescriptions:
     name: "Finalize storeapi.json"
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Install Nix
         uses: cachix/install-nix-action@v18
 
-      - name: Download api schema
-        uses: actions/download-artifact@v3
-        with:
-          name: store-api-schema
-
       - name: Apply descriptions
-        run: ./.github/scripts/set_descriptions.sh
+        run: |
+          ./.github/scripts/set_descriptions.sh
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v4
