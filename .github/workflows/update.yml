@@ -9,7 +9,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   generate-schema:
-    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@1
+    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
     secrets: inherit
     
   update:
