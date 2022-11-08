@@ -18,7 +18,9 @@ jobs:
     needs: [generate-schema]
     steps:
     - name: write schema file
-      run: echo '${{ needs.generate-schema.outputs.schema }}' > storeapi.json
+      run: |
+        echo ${{ needs.generate-schema.outputs.schema }} > storeapi.json
+        echo ${{ needs.generate-schema.outputs.schema }} > storeapi.json
 
     - name: upload api schema
       uses: actions/upload-artifact@v3
