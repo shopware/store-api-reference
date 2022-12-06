@@ -23,7 +23,7 @@ jobs:
     - name: download api schema
       uses: actions/download-artifact@v3
       with:
-        name: ${{needs.generate-schema.outputs.schema}}
+        name: ${{needs.generate-schema.outputs.api_schema}}
       
     - name: Create PR
       uses: peter-evans/create-pull-request@v4
