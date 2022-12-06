@@ -10,6 +10,8 @@ jobs:
   # This workflow contains a single job called "build"
   generate-schema:
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
+    with:
+      api_type: storeapi
     secrets: inherit
         
   open-pr:
