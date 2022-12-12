@@ -2,8 +2,8 @@ name: Override descriptions
 
 on:
   workflow_dispatch
-  push:
-    braches:
+push:
+    branches:
       - 'main'
     paths:
       - 'descriptions.yml'
