@@ -9236,7 +9236,7 @@
             },
             "Criteria": {
                 "type": "object",
-                "description": "Search parameters. For more information, see our documentation on [Search Queries](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#structure)",
+                "description": "Criterias query entities.",
                 "properties": {
                     "page": {
                         "description": "Search result page",
@@ -13654,7 +13654,7 @@
                     "Endpoints supporting Criteria "
                 ],
                 "summary": "Fetch salutations",
-                "description": "Perform a filtered search for salutations.",
+                "description": "Fetches salutations with a criteria obj.",
                 "operationId": "readSalutation",
                 "parameters": [],
                 "requestBody": {
@@ -14125,7 +14125,7 @@
                     "Product"
                 ],
                 "summary": "Search for products (suggest)",
-                "description": "Can be used to implement search previews or suggestion listings, that don\u2019t require any interaction.",
+                "description": "Can be used to implement search previews or suggestion listings, that don’t require any interaction.",
                 "operationId": "searchSuggest",
                 "requestBody": {
                     "required": true,
