@@ -1,8 +1,8 @@
 name: Override descriptions
 
 on:
-  workflow_dispatch
-push:
+  workflow_dispatch:
+  push:
     branches:
       - 'main'
     paths:
@@ -19,6 +19,7 @@ jobs:
   overrideDescriptions:
     name: "Finalize storeapi.json"
     runs-on: ubuntu-latest
+    needs: [run-override]
     steps:
       - name: download api schema
         uses: actions/download-artifact@v3
