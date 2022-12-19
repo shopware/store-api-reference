@@ -3,3 +3,72 @@
 
 ".paths./salutation.post": >
   Fetches salutations with a criteria obj.
+  
+".components.schemas.Product.versionId":>
+ Unique identity of the product's version.
+ 
+".components.schemas.Product.parentId":>
+ Unique identity of the parent product.
+ 
+".components.schemas.Product.manufacturerId":>
+ Unique identity of the manufacturer.
+ 
+".components.schemas.Product.taxId":>
+ Unique identifier of tax.
+ 
+".components.schemas.Product.deliveryTimeId":>
+ Unique identifier of delivery time.
+
+".components.schemas.Product.productNumber":>
+Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.
+
+".components.schemas.Product.stock":>
+Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced.
+
+".components.schemas.Product.restockTime":>
+The restock time in days indicates how long it will take until a sold out item is back in stock.
+
+".components.schemas.Product.active":>
+Indicates its status for all selected sales channels. It defines whether the product is displayed in the storefront and can be purchased.
+
+".components.schemas.Product.availableStock":>
+Indicates the number of products still available. This value results from the stock minus the open orders.
+
+".components.schemas.Product.available":>
+Indicates weather the product is available or not.
+
+".components.schemas.Product.available":>
+Indicates weather the product is available or not.
+
+".components.schemas.Product.EAN":>
+Indicates EAN of the product.
+
+".components.schemas.Product.purchaseSteps":>
+Specifies the scales in which the item is to be offered. For example, a scale of 2 means that your customers can purchase 2, 4, 6 products, etc., but not 1, 3 or 5.
+
+".components.schemas.Product.maxPurchase":>
+Maxinum number of items that can be purchased.
+
+".components.schemas.Product.minPurchase":>
+Minimum number of items that can be purchased.
+
+".components.schemas.Product.shippingFree":>
+Indicates weather the shipping price is free or not.
+
+".components.schemas.Product.weight":>
+The weight of the product.
+
+".components.schemas.Product.width":>
+The width of the product.
+
+".components.schemas.Product.height":>
+The height of the product.
+
+".components.schemas.Product.length":>
+The length of the product.
+
+".components.schemas.Product.name":>
+Name of the product.
+
+".components.schemas.Product.description":>
+Description of the product.
