@@ -4,71 +4,176 @@
 ".paths./salutation.post": >
   Fetches salutations with a criteria obj.
   
-".components.schemas.Product.versionId":>
+".components.schemas.Product.properties.versionId":>
  Unique identity of the product's version.
  
-".components.schemas.Product.parentId":>
+".components.schemas.Product.properties.parentId":>
  Unique identity of the parent product.
  
-".components.schemas.Product.manufacturerId":>
+ ".components.schemas.Product.properties.parentVersionId":>
+ Unique identity of the parent product's version.
+ 
+".components.schemas.Product.properties.manufacturerId":>
  Unique identity of the manufacturer.
  
-".components.schemas.Product.taxId":>
+".components.schemas.Product.properties.productManufacturerVersionId":>
+ Unique identity of the product's manufacturer version.
+ 
+".components.schemas.Product.properties.unitId":>
+ Unique identity of the unit.
+ 
+".components.schemas.Product.properties.taxId":>
  Unique identifier of tax.
  
-".components.schemas.Product.deliveryTimeId":>
+".components.schemas.Product.properties.coverId":>
+ Unique identifier of product's cover image.
+ 
+".components.schemas.Product.properties.productMediaVersionId":>
+ Unique identifier of product's media version.
+ 
+".components.schemas.Product.properties.deliveryTimeId":>
  Unique identifier of delivery time.
+ 
+".components.schemas.Product.properties.canonicalProductId":>
+ Unique identifier of cannonical product.
+ 
+".components.schemas.Product.properties.cmsPageId":>
+ Unique identifier of CMS page.
+ 
+".components.schemas.Product.properties.cmsPageVersionId":>
+ Unique identifier of CMS page's version.
 
-".components.schemas.Product.productNumber":>
+".components.schemas.Product.properties.productNumber":>
 Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.
 
 ".components.schemas.Product.stock":>
 Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced.
 
-".components.schemas.Product.restockTime":>
+".components.schemas.Product.properties.restockTime":>
 The restock time in days indicates how long it will take until a sold out item is back in stock.
 
-".components.schemas.Product.active":>
+".components.schemas.Product.properties.active":>
 Indicates its status for all selected sales channels. It defines whether the product is displayed in the storefront and can be purchased.
 
-".components.schemas.Product.availableStock":>
+".components.schemas.Product.properties.availableStock":>
 Indicates the number of products still available. This value results from the stock minus the open orders.
 
 ".components.schemas.Product.available":>
 Indicates weather the product is available or not.
 
-".components.schemas.Product.available":>
-Indicates weather the product is available or not.
+".components.schemas.Product.isCloseout":>
+When the value is set to true, the product is hidden when sold out.
 
-".components.schemas.Product.EAN":>
+".components.schemas.Product.displayGroup":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.mainVariantId":>
+Unique identity of main variant.
+
+".components.schemas.Product.manufacturerNumber":>
+Unique number that describers the manufacturer.
+
+".components.schemas.Product.properties.ean":>
 Indicates EAN of the product.
 
-".components.schemas.Product.purchaseSteps":>
+".components.schemas.Product.properties.purchaseSteps":>
 Specifies the scales in which the item is to be offered. For example, a scale of 2 means that your customers can purchase 2, 4, 6 products, etc., but not 1, 3 or 5.
 
-".components.schemas.Product.maxPurchase":>
+".components.schemas.Product.properties.maxPurchase":>
 Maxinum number of items that can be purchased.
 
-".components.schemas.Product.minPurchase":>
+".components.schemas.Product.properties.minPurchase":>
 Minimum number of items that can be purchased.
 
-".components.schemas.Product.shippingFree":>
+".components.schemas.Product.properties.purchaseUnit":>
+Quanity of the item purchased. For example, 500ml, 2kg, etc.
+
+".components.schemas.Product.properties.referenceUnit":>
+//todo
+
+".components.schemas.Product.properties.shippingFree":>
 Indicates weather the shipping price is free or not.
 
-".components.schemas.Product.weight":>
+".components.schemas.Product.properties.markAsTopseller":>
+Indicates weather the product is top seller or not.
+
+".components.schemas.Product.properties.weight":>
 The weight of the product.
 
-".components.schemas.Product.width":>
+".components.schemas.Product.properties.width":>
 The width of the product.
 
-".components.schemas.Product.height":>
+".components.schemas.Product.properties.height":>
 The height of the product.
 
-".components.schemas.Product.length":>
+".components.schemas.Product.properties.length":>
 The length of the product.
 
-".components.schemas.Product.name":>
+".components.schemas.Product.properties.releaseDate":>
+The release date of a product or product model. This can be used to distinguish the exact variant of a product.
+
+".components.schemas.Product.properties.ratingAverage":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.categoryTree":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.propertyIds":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.optionIds":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.categoryIds":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.childCount":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.sales":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.metaDescription":>
+//todo Description of the Product displayed in search results.
+
+".components.schemas.Product.properties.name":>
 Name of the product.
 
-".components.schemas.Product.description":>
+".components.schemas.Product.properties.keywords":>
+Keywords that give additional information about the Product.
+
+".components.schemas.Product.properties.description":>
 Description of the product.
+
+".components.schemas.Product.properties.metaTitle":>
+Title information of the product.
+
+".components.schemas.Product.properties.packUnit":>
+Type of packing. For example, bottle , tin, crate, etc.
+
+".components.schemas.Product.properties.packUnitPlural":>
+Type of packing in plural. For example, bottles , tins, crates, etc.
+
+".components.schemas.Product.properties.customFields":>
+Additional fields offer the possibility to add own fields for the different program-areas.
+
+".components.schemas.Product.properties.calculatedPrice":>
+//todo
+
+".components.schemas.Product.properties.calculatedPrices":>
+//todo
+
+".components.schemas.Product.properties.calculatedMaxPurchase":>
+//todo
+
+".components.schemas.Product.properties.calculatedCheapestPrice":>
+//todo
+
+".components.schemas.Product.properties.isNew":>
+Indicates weather the product is new or old.
+
+".components.schemas.Product.properties.propertyIds":>
+Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.deliveryTime":>
+Time taken for the product to reach the customer. If a delivery time is defined in the product, it overwrites the delivery time of a shipping method.
