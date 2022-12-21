@@ -4,301 +4,302 @@
 ".paths./salutation.post": >
   Fetches salutations with a criteria obj.
   
-".components.schemas.Product.properties.versionId":>
+".components.schemas.Product.properties.versionId": >
  Unique identity of the product's version.
  
-".components.schemas.Product.properties.parentId":>
+".components.schemas.Product.properties.parentId": >
  Unique identity of the parent product.
  
- ".components.schemas.Product.properties.parentVersionId":>
+ ".components.schemas.Product.properties.parentVersionId": >
  Unique identity of the parent product's version.
  
-".components.schemas.Product.properties.manufacturerId":>
+".components.schemas.Product.properties.manufacturerId": >
  Unique identity of the manufacturer.
  
-".components.schemas.Product.properties.productManufacturerVersionId":>
+".components.schemas.Product.properties.productManufacturerVersionId": >
  Unique identity of the product's manufacturer version.
  
-".components.schemas.Product.properties.unitId":>
+".components.schemas.Product.properties.unitId": >
  Unique identity of the unit.
  
-".components.schemas.Product.properties.taxId":>
+".components.schemas.Product.properties.taxId": >
  Unique identifier of tax.
  
-".components.schemas.Product.properties.coverId":>
+".components.schemas.Product.properties.coverId": >
  Unique identifier of a ProductMedia item used as product cover.
  
-".components.schemas.Product.properties.productMediaVersionId":>
+".components.schemas.Product.properties.productMediaVersionId": >
  Unique identifier of product's media version.
  
-".components.schemas.Product.properties.deliveryTimeId":>
+".components.schemas.Product.properties.deliveryTimeId": >
  Unique identifier of delivery time.
  
-".components.schemas.Product.properties.canonicalProductId":>
+".components.schemas.Product.properties.canonicalProductId": >
  Unique identifier of cannonical product.
  
-".components.schemas.Product.properties.cmsPageId":>
+".components.schemas.Product.properties.cmsPageId": >
  Unique identifier of CMS page.
  
-".components.schemas.Product.properties.cmsPageVersionId":>
+".components.schemas.Product.properties.cmsPageVersionId": >
  Unique identifier of CMS page's version.
 
-".components.schemas.Product.properties.productNumber":>
+".components.schemas.Product.properties.productNumber": >
 Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.
 
-".components.schemas.Product.stock":>
+".components.schemas.Product.stock": >
 Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced.
 
-".components.schemas.Product.properties.restockTime":>
+".components.schemas.Product.properties.restockTime": >
 The restock time in days indicates how long it will take until a sold out item is back in stock.
 
-".components.schemas.Product.properties.active":>
+".components.schemas.Product.properties.active": >
 Indicates its status for all selected sales channels. It defines whether the product is displayed in the storefront and can be purchased.
 
-".components.schemas.Product.properties.availableStock":>
+".components.schemas.Product.properties.availableStock": >
 Indicates the number of products still available. This value results from the stock minus the open orders.
 
-".components.schemas.Product.available":>
+".components.schemas.Product.available": >
 Indicates weather the product is available or not.
 
-".components.schemas.Product.isCloseout":>
+".components.schemas.Product.isCloseout": >
 When the value is set to true, the product is hidden when sold out.
 
-".components.schemas.Product.displayGroup":>
+".components.schemas.Product.displayGroup": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.mainVariantId":>
+".components.schemas.Product.mainVariantId": >
 Unique identity of main variant.
 
-".components.schemas.Product.manufacturerNumber":>
+".components.schemas.Product.manufacturerNumber": >
 Unique number that describers the manufacturer.
 
-".components.schemas.Product.properties.ean":>
+".components.schemas.Product.properties.ean": >
 Indicates EAN of the product.
 
-".components.schemas.Product.properties.purchaseSteps":>
+".components.schemas.Product.properties.purchaseSteps": >
 Specifies the scales in which the item is to be offered. For example, a scale of 2 means that your customers can purchase 2, 4, 6 products, etc., but not 1, 3 or 5.
 
-".components.schemas.Product.properties.maxPurchase":>
+".components.schemas.Product.properties.maxPurchase": >
 Maxinum number of items that can be purchased.
 
-".components.schemas.Product.properties.minPurchase":>
+".components.schemas.Product.properties.minPurchase": >
 Minimum number of items that can be purchased.
 
-".components.schemas.Product.properties.purchaseUnit":>
+".components.schemas.Product.properties.purchaseUnit": >
 Quanity of the item purchased. For example, 500ml, 2kg, etc.
 
-".components.schemas.Product.properties.referenceUnit":>
+".components.schemas.Product.properties.referenceUnit": >
 Price of purchased item calculated as per the refernce unit. Say, you bought 500ml of milk and the price is calculated in reference to 1000ml. 
 
-".components.schemas.Product.properties.shippingFree":>
+".components.schemas.Product.properties.shippingFree": >
 Indicates weather the shipping price is free or not.
 
-".components.schemas.Product.properties.markAsTopseller":>
+".components.schemas.Product.properties.markAsTopseller": >
 Indicates weather the product is top seller or not.
 
-".components.schemas.Product.properties.weight":>
+".components.schemas.Product.properties.weight": >
 The weight of the product.
 
-".components.schemas.Product.properties.width":>
+".components.schemas.Product.properties.width": >
 The width of the product.
 
-".components.schemas.Product.properties.height":>
+".components.schemas.Product.properties.height": >
 The height of the product.
 
-".components.schemas.Product.properties.length":>
+".components.schemas.Product.properties.length": >
 The length of the product.
 
-".components.schemas.Product.properties.releaseDate":>
+".components.schemas.Product.properties.releaseDate": >
 The release date of a product or product model. This can be used to distinguish the exact variant of a product.
 
-".components.schemas.Product.properties.ratingAverage":>
+".components.schemas.Product.properties.ratingAverage": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.properties.categoryTree":>
+".components.schemas.Product.properties.categoryTree": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.properties.propertyIds":>
+".components.schemas.Product.properties.propertyIds": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.properties.optionIds":>
+".components.schemas.Product.properties.optionIds": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.properties.categoryIds":>
+".components.schemas.Product.properties.categoryIds": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.properties.childCount":>
+".components.schemas.Product.properties.childCount": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.properties.sales":>
+".components.schemas.Product.properties.sales": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.properties.metaDescription":>
+".components.schemas.Product.properties.metaDescription": >
 Product details for Google description.
-".components.schemas.Product.properties.name":>
+
+".components.schemas.Product.properties.name": >
 Name of the product.
 
-".components.schemas.Product.properties.keywords":>
+".components.schemas.Product.properties.keywords": >
 Keywords that give additional information about the Product.
 
-".components.schemas.Product.properties.description":>
+".components.schemas.Product.properties.description": >
 Description of the product.
 
-".components.schemas.Product.properties.metaTitle":>
+".components.schemas.Product.properties.metaTitle": >
 Title information of the product.
 
-".components.schemas.Product.properties.packUnit":>
+".components.schemas.Product.properties.packUnit": >
 Type of packing. For example, bottle , tin, crate, etc.
 
-".components.schemas.Product.properties.packUnitPlural":>
+".components.schemas.Product.properties.packUnitPlural": >
 Type of packing in plural. For example, bottles , tins, crates, etc.
 
-".components.schemas.Product.properties.customFields":>
+".components.schemas.Product.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
-".components.schemas.Product.properties.calculatedPrice":>
+".components.schemas.Product.properties.calculatedPrice": >
 This cannot be written via API.
 
-".components.schemas.Product.properties.calculatedPrices":>
+".components.schemas.Product.properties.calculatedPrices": >
 This cannot be written via API.
 
-".components.schemas.Product.properties.calculatedMaxPurchase":>
+".components.schemas.Product.properties.calculatedMaxPurchase": >
 This cannot be written via API.
 
-".components.schemas.Product.properties.calculatedCheapestPrice":>
+".components.schemas.Product.properties.calculatedCheapestPrice": >
 This cannot be written via API.
 
-".components.schemas.Product.properties.isNew":>
+".components.schemas.Product.properties.isNew": >
 Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.properties.translated":>
+".components.schemas.Product.properties.translated": >
 Contains the translations of all translated fields.
 
-".components.schemas.Product.properties.deliveryTime":>
+".components.schemas.Product.properties.deliveryTime": >
 Time taken for the product to reach the customer. If a delivery time is defined in the product, it overwrites the delivery time of a shipping method.
 
-".components.schemas.ProductCrossSelling.properties.name":>
+".components.schemas.ProductCrossSelling.properties.name": >
 Name defined for Product cross selling.
 
-".components.schemas.ProductCrossSelling.properties.position":>
+".components.schemas.ProductCrossSelling.properties.position": >
 The order of the tabs of your defined cross-selling actions in the storefront by entering numerical values like 1,2,3, etc.
 
-".components.schemas.ProductCrossSelling.properties.sortBy":>
+".components.schemas.ProductCrossSelling.properties.sortBy": >
 To sort the display of products by name, price or publication (descending, ascending) date.
 
-".components.schemas.ProductCrossSelling.properties.type":>
+".components.schemas.ProductCrossSelling.properties.type": >
 Type of product assignment for cross-selling. It can either be Dynamic product group or Manual assignment.
 
-".components.schemas.ProductCrossSelling.properties.active":>
+".components.schemas.ProductCrossSelling.properties.active": >
 When set to active, the cross-selling feature is enabled.
 
-".components.schemas.ProductCrossSelling.properties.limit":>
+".components.schemas.ProductCrossSelling.properties.limit": >
 The maximum number of products to be displayed in cross-selling on the item detail page of your item.
 
-".components.schemas.ProductCrossSelling.properties.translated":>
+".components.schemas.ProductCrossSelling.properties.translated": >
 Contains the translations of all translated fields.
 
-".components.schemas.ProductFeatureSet.properties.translated":>
+".components.schemas.ProductFeatureSet.properties.translated": >
 Contains the translations of all translated fields.
 
-".components.schemas.ProductKeywordDictionary.properties.languageId":>
+".components.schemas.ProductKeywordDictionary.properties.languageId": >
 Unique identity of the language.
 
-".components.schemas.ProductKeywordDictionary.properties.keyword":>
+".components.schemas.ProductKeywordDictionary.properties.keyword": >
 The keywords that help to search the product.
 
-".components.schemas.ProductManufacturer.properties.versionId":>
+".components.schemas.ProductManufacturer.properties.versionId": >
 Unique identity of the ProductManufacturer version.
 
-".components.schemas.ProductManufacturer.properties.mediaId":>
+".components.schemas.ProductManufacturer.properties.mediaId": >
 Unique identity of the media.
 
-".components.schemas.ProductManufacturer.properties.name":>
+".components.schemas.ProductManufacturer.properties.name": >
 Name of the product manufacturer.
 
-".components.schemas.ProductManufacturer.properties.description":>
+".components.schemas.ProductManufacturer.properties.description": >
 A detailed description of product manufacturer.
 
-".components.schemas.ProductManufacturer.properties.customFields":>
+".components.schemas.ProductManufacturer.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
-".components.schemas.ProductManufacturer.properties.translated":>
+".components.schemas.ProductManufacturer.properties.translated": >
 Contains the translations of all translated fields.
 
-".components.schemas.ProductMedia.properties.versionId":>
+".components.schemas.ProductMedia.properties.versionId": >
 Unique identity of the ProductMedia version.
 
-".components.schemas.ProductMedia.properties.productId":>
+".components.schemas.ProductMedia.properties.productId": >
 Unique identity of the product.
 
-".components.schemas.ProductMedia.properties.productVersionId":>
+".components.schemas.ProductMedia.properties.productVersionId": >
 Unique identity of the product's version.
 
-".components.schemas.ProductMedia.properties.mediaId":>
+".components.schemas.ProductMedia.properties.mediaId": >
 Unique identity of the media.
 
-".components.schemas.ProductMedia.properties.position":>
+".components.schemas.ProductMedia.properties.position": >
 The order of the images to be displayed for a product.
 
-".components.schemas.ProductMedia.properties.customFields":>
+".components.schemas.ProductMedia.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
-".components.schemas.ProductReview.properties.productId":>
+".components.schemas.ProductReview.properties.productId": >
 Unique identity of the product.
 
-".components.schemas.ProductReview.properties.productVersionId":>
+".components.schemas.ProductReview.properties.productVersionId": >
 Unique identity of the product's version.
 
-".components.schemas.ProductReview.properties.salesChannelId":>
+".components.schemas.ProductReview.properties.salesChannelId": >
 Unique identity of the sales channel.
 
-".components.schemas.ProductReview.properties.languageId":>
+".components.schemas.ProductReview.properties.languageId": >
 Unique identity of the language.
 
-".components.schemas.ProductReview.properties.title":>
+".components.schemas.ProductReview.properties.title": >
 Title of product review.
 
-".components.schemas.ProductReview.properties.content":>
+".components.schemas.ProductReview.properties.content": >
 Short description or subject of the project review.
 
-".components.schemas.ProductReview.properties.points":>
+".components.schemas.ProductReview.properties.points": >
 A floating point number given to rate a product.
 
-".components.schemas.ProductReview.properties.status":>
+".components.schemas.ProductReview.properties.status": >
 When status is set, the rating is made visible.
 
-".components.schemas.ProductReview.properties.comment":>
+".components.schemas.ProductReview.properties.comment": >
 Detailed review about the product.
 
-".components.schemas.ProductReview.properties.customFields":>
+".components.schemas.ProductReview.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
-".components.schemas.ProductSorting.properties.translated":>
+".components.schemas.ProductSorting.properties.translated": >
 Contains the translations of all translated fields.
 
-".components.schemas.ProductStream.properties.name":>
+".components.schemas.ProductStream.properties.name": >
 Name of the Dynamic Group to be created.
 
-".components.schemas.ProductStream.properties.description":>
+".components.schemas.ProductStream.properties.description": >
 Description of the Dynamic group to be created.
 
-".components.schemas.ProductStream.properties.customFields":>
+".components.schemas.ProductStream.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
-".components.schemas.ProductStream.properties.translated":>
+".components.schemas.ProductStream.properties.translated": >
 Contains the translations of all translated fields.
 
-".components.schemas.ProductConfiguratorSetting.properties.versionId":>
+".components.schemas.ProductConfiguratorSetting.properties.versionId": >
 Unique identity of the ProductConfiguratorSetting version.
 
-".components.schemas.ProductConfiguratorSetting.properties.productId":>
+".components.schemas.ProductConfiguratorSetting.properties.productId": >
 Unique identity of the product.
 
-".components.schemas.ProductConfiguratorSetting.properties.productVersionId":>
+".components.schemas.ProductConfiguratorSetting.properties.productVersionId": >
 Unique identity of the product's version.
 
-".components.schemas.ProductConfiguratorSetting.properties.mediaId":>
+".components.schemas.ProductConfiguratorSetting.properties.mediaId": >
 Unique identity of the media.
 
-".components.schemas.ProductConfiguratorSetting.properties.customFields":>
+".components.schemas.ProductConfiguratorSetting.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
