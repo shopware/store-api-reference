@@ -3,3 +3,72 @@
 
 ".paths./salutation.post": >
   Fetches salutations with a criteria obj.
+  
+".components.schemas.Order.properties.versionId":>
+Unique identity of order version.
+
+".components.schemas.Order.properties.autoIncrement":>
+Unique identity of order version.
+
+".components.schemas.Order.properties.orderNumber":>
+Unique number associated with every order.
+
+".components.schemas.Order.properties.billingAddressId":>
+Unique identity of the billing address.
+
+".components.schemas.Order.properties.billingAddressVersionId":>
+Unique identity of the billing address version.
+
+".components.schemas.Order.properties.currencyId":>
+Unique identity of the currency.
+
+".components.schemas.Order.properties.languageId":>
+Unique identity of the language.
+
+".components.schemas.Order.properties.salesChannelId":>
+Unique identity of the sales channel.
+
+".components.schemas.Order.properties.orderDateTime":>
+Timestamp when the order was placed.
+
+".components.schemas.Order.properties.orderDate":>
+Timestamp when the order was placed.
+
+".components.schemas.Order.properties.amountTotal":>
+Gross price of the order.
+
+".components.schemas.Order.properties.amountNet":>
+Net price of the order.
+
+".components.schemas.Order.properties.positionPrice":>
+//todo
+
+".components.schemas.Order.properties.taxStatus":>
+//todo
+
+".components.schemas.Order.properties.shippingTotal":>
+Total price of shipping.
+
+.components.schemas.Order.properties.currencyFactor":>
+Rate at which currency is exchanged.
+
+".components.schemas.Order.properties.deepLinkCode":>
+//todo
+
+".components.schemas.Order.properties.affiliateCode":>
+//todo
+
+".components.schemas.Order.properties.campaignCode":>
+//todo
+
+".components.schemas.Order.properties.customerComment":>
+Comments given by comments.
+
+".components.schemas.Order.properties.stateId":>
+Unique identity of order state.
+
+".components.schemas.Order.properties.ruleIds":>
+Unique identity of rule defined for order.
+
+".components.schemas.Order.properties.customFields":>
+Key-value pairs defined by store owner.
