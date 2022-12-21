@@ -26,7 +26,7 @@
  Unique identifier of tax.
  
 ".components.schemas.Product.properties.coverId":>
- Unique identifier of product's cover image.
+ Unique identifier of a ProductMedia item used as product cover.
  
 ".components.schemas.Product.properties.productMediaVersionId":>
  Unique identifier of product's media version.
@@ -89,7 +89,7 @@ Minimum number of items that can be purchased.
 Quanity of the item purchased. For example, 500ml, 2kg, etc.
 
 ".components.schemas.Product.properties.referenceUnit":>
-//todo
+Price of purchased item calculated as per the refernce unit. Say, you bought 500ml of milk and the price is calculated in reference to 1000ml. 
 
 ".components.schemas.Product.properties.shippingFree":>
 Indicates weather the shipping price is free or not.
@@ -134,8 +134,7 @@ Runtime field, cannot be used as part of the criteria.
 Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.metaDescription":>
-//todo Description of the Product displayed in search results.
-
+Product details for Google description.
 ".components.schemas.Product.properties.name":>
 Name of the product.
 
@@ -158,22 +157,22 @@ Type of packing in plural. For example, bottles , tins, crates, etc.
 Additional fields offer the possibility to add own fields for the different program-areas.
 
 ".components.schemas.Product.properties.calculatedPrice":>
-//todo
+This cannot be written via API.
 
 ".components.schemas.Product.properties.calculatedPrices":>
-//todo
+This cannot be written via API.
 
 ".components.schemas.Product.properties.calculatedMaxPurchase":>
-//todo
+This cannot be written via API.
 
 ".components.schemas.Product.properties.calculatedCheapestPrice":>
-//todo
+This cannot be written via API.
 
 ".components.schemas.Product.properties.isNew":>
-Indicates weather the product is new or old.
-
-".components.schemas.Product.properties.propertyIds":>
 Runtime field, cannot be used as part of the criteria.
+
+".components.schemas.Product.properties.translated":>
+Contains the translations of all translated fields.
 
 ".components.schemas.Product.properties.deliveryTime":>
 Time taken for the product to reach the customer. If a delivery time is defined in the product, it overwrites the delivery time of a shipping method.
