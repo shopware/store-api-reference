@@ -154,7 +154,7 @@ Type of packing. For example, bottle , tin, crate, etc.
 Type of packing in plural. For example, bottles , tins, crates, etc.
 
 ".components.schemas.Product.properties.customFields":>
-Additional fields offer the possibility to add own fields for the different program-areas.
+Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Product.properties.calculatedPrice":>
 This cannot be written via API.
@@ -176,3 +176,129 @@ Contains the translations of all translated fields.
 
 ".components.schemas.Product.properties.deliveryTime":>
 Time taken for the product to reach the customer. If a delivery time is defined in the product, it overwrites the delivery time of a shipping method.
+
+".components.schemas.ProductCrossSelling.properties.name":>
+Name defined for Product cross selling.
+
+".components.schemas.ProductCrossSelling.properties.position":>
+The order of the tabs of your defined cross-selling actions in the storefront by entering numerical values like 1,2,3, etc.
+
+".components.schemas.ProductCrossSelling.properties.sortBy":>
+To sort the display of products by name, price or publication (descending, ascending) date.
+
+".components.schemas.ProductCrossSelling.properties.type":>
+Type of product assignment for cross-selling. It can either be Dynamic product group or Manual assignment.
+
+".components.schemas.ProductCrossSelling.properties.active":>
+When set to active, the cross-selling feature is enabled.
+
+".components.schemas.ProductCrossSelling.properties.limit":>
+The maximum number of products to be displayed in cross-selling on the item detail page of your item.
+
+".components.schemas.ProductCrossSelling.properties.translated":>
+Contains the translations of all translated fields.
+
+".components.schemas.ProductFeatureSet.properties.translated":>
+Contains the translations of all translated fields.
+
+".components.schemas.ProductKeywordDictionary.properties.languageId":>
+Unique identity of the language.
+
+".components.schemas.ProductKeywordDictionary.properties.keyword":>
+The keywords that help to search the product.
+
+".components.schemas.ProductManufacturer.properties.versionId":>
+Unique identity of the ProductManufacturer version.
+
+".components.schemas.ProductManufacturer.properties.mediaId":>
+Unique identity of the media.
+
+".components.schemas.ProductManufacturer.properties.name":>
+Name of the product manufacturer.
+
+".components.schemas.ProductManufacturer.properties.description":>
+A detailed description of product manufacturer.
+
+".components.schemas.ProductManufacturer.properties.customFields":>
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ProductManufacturer.properties.translated":>
+Contains the translations of all translated fields.
+
+".components.schemas.ProductMedia.properties.versionId":>
+Unique identity of the ProductMedia version.
+
+".components.schemas.ProductMedia.properties.productId":>
+Unique identity of the product.
+
+".components.schemas.ProductMedia.properties.productVersionId":>
+Unique identity of the product's version.
+
+".components.schemas.ProductMedia.properties.mediaId":>
+Unique identity of the media.
+
+".components.schemas.ProductMedia.properties.position":>
+The order of the images to be displayed for a product.
+
+".components.schemas.ProductMedia.properties.customFields":>
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ProductReview.properties.productId":>
+Unique identity of the product.
+
+".components.schemas.ProductReview.properties.productVersionId":>
+Unique identity of the product's version.
+
+".components.schemas.ProductReview.properties.salesChannelId":>
+Unique identity of the sales channel.
+
+".components.schemas.ProductReview.properties.languageId":>
+Unique identity of the language.
+
+".components.schemas.ProductReview.properties.title":>
+Title of product review.
+
+".components.schemas.ProductReview.properties.content":>
+Short description or subject of the project review.
+
+".components.schemas.ProductReview.properties.points":>
+A floating point number given to rate a product.
+
+".components.schemas.ProductReview.properties.status":>
+When status is set, the rating is made visible.
+
+".components.schemas.ProductReview.properties.comment":>
+Detailed review about the product.
+
+".components.schemas.ProductReview.properties.customFields":>
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ProductSorting.properties.translated":>
+Contains the translations of all translated fields.
+
+".components.schemas.ProductStream.properties.name":>
+Name of the Dynamic Group to be created.
+
+".components.schemas.ProductStream.properties.description":>
+Description of the Dynamic group to be created.
+
+".components.schemas.ProductStream.properties.customFields":>
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ProductStream.properties.translated":>
+Contains the translations of all translated fields.
+
+".components.schemas.ProductConfiguratorSetting.properties.versionId":>
+Unique identity of the ProductConfiguratorSetting version.
+
+".components.schemas.ProductConfiguratorSetting.properties.productId":>
+Unique identity of the product.
+
+".components.schemas.ProductConfiguratorSetting.properties.productVersionId":>
+Unique identity of the product's version.
+
+".components.schemas.ProductConfiguratorSetting.properties.mediaId":>
+Unique identity of the media.
+
+".components.schemas.ProductConfiguratorSetting.properties.customFields":>
+Additional fields that offer a possibility to add own fields for the different program-areas.
