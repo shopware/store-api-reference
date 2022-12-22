@@ -28,29 +28,14 @@ Unique identity of the sales channel.
 ".components.schemas.Order.properties.orderDateTime": >
 Timestamp when the order was placed.
 
-".components.schemas.Order.properties.orderDate": >
-//todo
-
 ".components.schemas.Order.properties.price.properties.netprice": >
 Net price of the product.
 
 ".components.schemas.Order.properties.price.properties.totalPrice": >
 Gross price of the product.
 
-".components.schemas.Order.properties.price.properties.calculatedTaxes": >
-//todo
-
-".components.schemas.Order.properties.price.properties.taxRules": >
-//todo
-
 ".components.schemas.Order.properties.price.properties.positionPrice": >
-//todo
-
-".components.schemas.Order.properties.price.properties.rawTotal": >
-//todo
-
-".components.schemas.Order.properties.price.properties.taxStatus": >
-//todo
+Price of line item without the shipping cost.
 
 ".components.schemas.Order.properties.amountTotal": >
 Gross price of the order.
@@ -59,43 +44,19 @@ Gross price of the order.
 Net price of the order.
 
 ".components.schemas.Order.properties.positionPrice": >
-Price of the line item.
+Price of the line item without the shipping cost.
 
 ".components.schemas.Order.properties.taxStatus": >
-TaxStatus takes `Free`, `Net`, `Gross`.
+TaxStatus takes `Free`, `Net` or `Gross`.
 
 ".components.schemas.Order.properties.shippingCosts.properties.unitPrice": >
-Shipping cost per item.
+Shipping cost of product per item (where, quantity=1).
 
 ".components.schemas.Order.properties.shippingCosts.properties.totalPrice": >
-Total shipping cost of item based on quantity.
+Shipping cost of product based on quantity.
 
 ".components.schemas.Order.properties.shippingCosts.properties.quantity": >
-Quantity of each product.
-
-".components.schemas.Order.properties.shippingCosts.properties.calculatedTaxes": >
-//todo
-
-".components.schemas.Order.properties.shippingCosts.properties.taxRules": >
-//todo
-
-".components.schemas.Order.properties.shippingCosts.properties.referencePrice": >
-//todo
-
-".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.price": >
-//todo
-
-".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.discount": >
-//todo
-
-".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.percentage": >
-//todo
-
-".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.price": >
-//todo
-
-".components.schemas.Order.properties.shippingCosts.properties.regulationPrice.properties.price": >
-//todo
+Number of items of each product.
 
 ".components.schemas.Order.properties.shippingTotal": >
 Total shipping cost of the ordered product.
@@ -104,13 +65,13 @@ Total shipping cost of the ordered product.
 Rate at which currency is exchanged.
 
 ".components.schemas.Order.properties.deepLinkCode": >
-//todo
+It is a generated special code linked to email. It is used to access orders placed by guest customers.
 
 ".components.schemas.Order.properties.affiliateCode": >
-//todo
+An affiliate code is an identification option with which website operators can mark outgoing links.
 
 ".components.schemas.Order.properties.campaignCode": >
-//todo
+A campaign code is the globally unique identifier for a campaign
 
 ".components.schemas.Order.properties.customerComment": >
 Comments given by comments.
@@ -122,7 +83,7 @@ Unique identity of order state.
 Unique identity of rule defined for order.
 
 ".components.schemas.Order.properties.customFields": >
-//todo Key-value pairs defined by store owner.
+Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderAddress.properties.versionId": >
 Unique identity of OrderAddresses version.
@@ -158,7 +119,7 @@ Unique identity of country.
 Name of the department.
 
 ".components.schemas.OrderAddress.properties.title": >
-//todo
+Title name given to customer's order address.
 
 ".components.schemas.OrderAddress.properties.vatId": >
 Unique identity of VAT.
@@ -176,7 +137,7 @@ Additional address input if necessary.
 Additional address input if necessary.
 
 ".components.schemas.OrderAddress.properties.customFields": >
-//todo
+Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderCustomer.properties.versionId": >
 Unique identity of OrderCustomer's version.
@@ -188,7 +149,7 @@ Email address of the customer.
 Unique identity of salutation.
 
 ".components.schemas.OrderCustomer.properties.firstName": >
-Firsdt name of the customer.
+First name of the customer.
 
 ".components.schemas.OrderCustomer.properties.lastName": >
 Last name of the customer.
@@ -197,7 +158,7 @@ Last name of the customer.
 Name of the company.
 
 ".components.schemas.OrderCustomer.properties.title": >
-//todo
+Title name given to the customer's order.
 
 ".components.schemas.OrderCustomer.properties.vatIds": >
 Unique identity of VAT.
@@ -206,7 +167,7 @@ Unique identity of VAT.
 Unique number assigned to the customer.
 
 ".components.schemas.OrderCustomer.properties.customFields": >
-//todo
+Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderDelivery.properties.versionId": >
 Unique identity of OrderDelivery's version.
@@ -230,7 +191,7 @@ Unique identity of shipping method.
 Unique identity of state.
 
 ".components.schemas.OrderDelivery.properties.trackingCodes": >
-Codes used for tracking item delivery.
+Tracking code is a unique URL code assigned to each package, which allows you to monitor the movement of the parcel.
 
 ".components.schemas.OrderDelivery.properties.shippingDateEarliest": >
 Date and time of earliest delivery of products.
@@ -239,35 +200,181 @@ Date and time of earliest delivery of products.
 Date and time of latest delivery of products.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.unitPrice": >
-Shipping cost of product per item.
+Shipping cost of product per item (where, quantity=1).
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.totalPrice": >
 Shipping cost of product based on quantity.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.quantity": >
-Number of items of products
-
-".components.schemas.OrderDelivery.properties.shippingCosts.properties.calculatedTaxes": >
-//todo
-
-".components.schemas.OrderDelivery.properties.shippingCosts.properties.taxRules": >
-//todo
-
-".components.schemas.OrderDelivery.properties.shippingCosts.properties.referencePrice": >
-//todo
-
-".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.price": >
-//todo
-
-".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.discount": >
-//todo
-
-".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.percentage": >
-//todo
-
-".components.schemas.OrderDelivery.properties.shippingCosts.properties.regulationPrice.properties.price": >
-//todo
+Number of items of each product.
 
 ".components.schemas.OrderDelivery.properties.customFields": >
-//todo
+Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.OrderDeliveryPosition.properties.versionId": >
+Unique identity of OrderDeliveryPosition's version.
+
+".components.schemas.OrderDeliveryPosition.properties.orderDeliveryId": >
+Unique identity of order delivery.
+
+".components.schemas.OrderDeliveryPosition.properties.orderDeliveryVersionId": >
+Unique identity of order delivery's version.
+
+".components.schemas.OrderDeliveryPosition.properties.orderLineItemId": >
+Unique identity of line items in an order.
+
+".components.schemas.OrderDeliveryPosition.properties.orderLineItemVersionId": >
+Unique identity of line item's version in an order.
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.unitPrice": >
+Price of product per item (where, quantity=1).
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.totalPrice": >
+Cost of product based on quantity.
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.quantity": >
+Number of items of each product.
+
+".components.schemas.OrderDeliveryPosition.properties.unitPrice": >
+Price of product per item (where, quantity=1).
+
+".components.schemas.OrderDeliveryPosition.properties.totalPrice": >
+Cost of product based on quantity.
+
+".components.schemas.OrderDeliveryPosition.properties.quantity": >
+Number of items of each product.
+
+".components.schemas.OrderDeliveryPosition.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderLineItem.properties.versionId": >
+Unique identity of OrderLineItem's version.
+
+".components.schemas.OrderLineItem.properties.orderId": >
+Unique identity of order.
+
+".components.schemas.OrderLineItem.properties.orderVersionId": >
+Unique identity of order's version.
+
+".components.schemas.OrderLineItem.properties.productId": >
+Unique identity of product.
+
+".components.schemas.OrderLineItem.properties.productVersionId": >
+Unique identity of products's version.
+
+".components.schemas.OrderLineItem.properties.parentVersionId": >
+Unique identity of parent's version.
+
+".components.schemas.OrderLineItem.properties.coverId": >
+Unique identity of cover image.
+
+".components.schemas.OrderLineItem.properties.identifier": >
+It is a unique identity of an item in cart before its converted to an order.
+
+".components.schemas.OrderLineItem.properties.referencedId": >
+Unique identity of type of entity.
+
+".components.schemas.OrderLineItem.properties.quantity": >
+Number of items of product.
+
+".components.schemas.OrderLineItem.properties.label": >
+It is a typical product name given to the line item.
+
+".components.schemas.OrderLineItem.properties.payload": >
+Any data related to product is passed.
+
+".components.schemas.OrderLineItem.properties.good": >
+When set to true, it indicates the line item is physical else it is virtual.
+
+".components.schemas.OrderLineItem.properties.removable": >
+Allows the line item to be removable from the cart when set to true.
+
+".components.schemas.OrderLineItem.properties.stackable": >
+Allows to change the quantity of the line item when set to true.
+
+".components.schemas.OrderLineItem.properties.position": >
+Position of line items placed in an order.
+
+".components.schemas.OrderLineItem.properties.priceDefinition": >
+Description of how the price has to be calculated. For example, in percentage or absolute value, etc.
+
+".components.schemas.OrderLineItem.properties.unitPrice": >
+Price of product per item (where, quantity=1).
+
+".components.schemas.OrderLineItem.properties.totalPrice": >
+Cost of product based on quantity.
+
+".components.schemas.OrderLineItem.properties.description": >
+Description of line items in an order.
+
+".components.schemas.OrderLineItem.properties.type": >
+Type refers to the entity type of an item whether it is product or promotion for instance.
+
+".components.schemas.OrderLineItem.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderTag.properties.orderId": >
+Unique identity of order.
+
+".components.schemas.OrderTag.properties.orderVersionId": >
+Unique identity of order's version.
+
+".components.schemas.OrderTag.properties.tagId": >
+Unique identity of tag given for an order.
+
+".components.schemas.OrderTransaction.properties.versionId": >
+Unique identity of OrderTransaction's version.
+
+".components.schemas.OrderTransaction.properties.orderId": >
+Unique identity of an order.
+
+".components.schemas.OrderTransaction.properties.orderVersionId": >
+Unique identity of an order's version.
+
+".components.schemas.OrderTransaction.properties.paymentMethodId": >
+Unique identity of payment method.
+
+".components.schemas.OrderTransaction.properties.amount.properties.unitPrice": >
+Price of product per item (where, quantity=1).
+
+".components.schemas.OrderTransaction.properties.amount.properties.totalPrice": >
+Cost of product based on quantity.
+
+".components.schemas.OrderTransaction.properties.amount.properties.quantity": >
+Number of items of each product.
+
+".components.schemas.OrderTransaction.properties.stateId": >
+Unique identity of state.
+
+".components.schemas.OrderTransaction.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.PaymentMethod.properties.name": >
+Name of the payment method.
+
+".components.schemas.PaymentMethod.properties.distinguishableName": >
+System identifier name for payment method.
+
+".components.schemas.PaymentMethod.properties.description": >
+A short description about the payment method.
+
+".components.schemas.PaymentMethod.properties.position": >
+The order of the tabs of your defined payment methods in the storefront by entering numerical values like 1,2,3, etc.
+
+".components.schemas.PaymentMethod.properties.active": >
+When set to active, the payment method is available for usage.
+
+".components.schemas.PaymentMethod.properties.afterOrderEnabled": >
+When set to true, customers are redirected to the payment options page to rechoose a payment method on order failure.
+
+".components.schemas.PaymentMethod.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.PaymentMethod.properties.mediaId": >
+Unique identity of media.
+
+".components.schemas.PaymentMethod.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.Plugin.properties.translated": >
+Contains the translations of all translated fields.
