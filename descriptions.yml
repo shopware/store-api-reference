@@ -381,6 +381,7 @@ Contains the translations of all translated fields.
 
 ".components.schemas.Plugin.properties.translated": >
 Contains the translations of all translated fields.
+
 ".components.schemas.Product.properties.versionId": >
  Unique identity of the product's version.
  
@@ -921,20 +922,11 @@ Starting range of quantity of an item.
 ".components.schemas.ShippingMethodPrice.properties.quantityEnd": >
 Ending range of quantity of an item.
 
-".components.schemas.ShippingMethodPrice.properties.currencyPrice": >
-//todo
-
 ".components.schemas.ShippingMethodPrice.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Snippet.properties.setId": >
 Unique identity od snippet set.
-
-".components.schemas.Snippet.properties.translationKey": >
-//todo
-
-".components.schemas.Snippet.properties.value": >
-//todo
 
 ".components.schemas.Snippet.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -985,16 +977,13 @@ Technical name of Theme.
 Name of theme which is translatable.
 
 ".components.schemas.Theme.properties.author": >
-//todo
+Name of the comapany.
 
 ".components.schemas.Theme.properties.description": >
 Description of the theme.
 
 ".components.schemas.Theme.properties.labels": >
-//todo
-
-".components.schemas.Theme.properties.helpTexts": >
-//todo
+Identification label given to theme.
 
 ".components.schemas.Theme.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -1004,12 +993,6 @@ Unique identity of media used for previewing the theme.
 
 ".components.schemas.Theme.properties.parentThemeId": >
 Unique identity of parent theme.
-
-".components.schemas.Theme.properties.baseConfig": >
-//todo
-
-".components.schemas.Theme.properties.configValues": >
-//todo
 
 ".components.schemas.Theme.properties.active": >
 Created theme can be made usable when it is set to active.
@@ -1059,6 +1042,59 @@ Allows the line item to be removable from the cart when set to true.
 ".components.schemas.LineItem.properties.stackable": >
 Allows to change the quantity of the line item when set to true.
 
-".components.schemas.LineItem.properties.modified": >
-//todo
+".components.schemas.Sitemap.properties.filename": >
+Name of the file which holds a list of all URL's.
 
+".components.schemas.App.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.AppActionButton.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.Category.properties.versionId": >
+Unique identity of category's version.
+
+".components.schemas.Category.properties.parentId": >
+Unique identity of parent category.
+
+".components.schemas.Category.properties.parentVersionId": >
+Unique identity of parent category's version.
+
+".components.schemas.Category.properties.mediaId": >
+Unique identity of media.
+
+".components.schemas.Category.properties.displayNestedProducts": >
+Shows nested categories on a product category page.
+
+".components.schemas.Category.properties.breadcrumb": >
+Breadcrumbs offer the users on the website the option to quickly find their way back to the homepage or another level of the website using internal links.
+
+".components.schemas.Category.properties.childCount": >
+Number of categories below the main category.
+
+".components.schemas.Category.properties.name": >
+Name of the category.
+
+".components.schemas.Category.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Category.properties.internalLink": >
+When clicked the category, it gets redirected to internal link.
+
+".components.schemas.Category.properties.externalLink": >
+When clicked the category, it gets redirected to external link.
+
+".components.schemas.Category.properties.linkNewTab": >
+Category opens in a new tab of the browser.
+
+".components.schemas.Category.properties.description": >
+Information about the category.
+
+".components.schemas.Category.properties.cmsPageId": >
+Unique identity of CMS page.
+
+".components.schemas.Category.properties.cmsPageVersionId": >
+Unique identity of CMS page's version.
+
+".components.schemas.Category.properties.translated": >
+Contains the translations of all translated fields.
