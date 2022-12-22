@@ -34,6 +34,9 @@ Net price of the product.
 ".components.schemas.Order.properties.price.properties.totalPrice": >
 Gross price of the product.
 
+".components.schemas.Order.properties.languageId": >
+Unique identity of the language.
+
 ".components.schemas.Order.properties.price.properties.positionPrice": >
 Price of line item without the shipping cost.
 
@@ -677,3 +680,385 @@ Unique identity of the media.
 
 ".components.schemas.ProductConfiguratorSetting.properties.customFields": >
 Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Promotion.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Promotion.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.PropertyGroup.properties.name": >
+Name of the property group.
+
+".components.schemas.PropertyGroup.properties.description": >
+Description on property group.
+
+".components.schemas.PropertyGroup.properties.displayType": >
+Property groups can be displayed in the form of text, image, dropdown or color.
+
+".components.schemas.PropertyGroup.properties.sortingType": >
+Sorting the property group by name or position.
+
+".components.schemas.PropertyGroup.properties.filterable": >
+When set to true, the property will be displayed in the product filter of product lists.
+
+".components.schemas.PropertyGroup.properties.visibleOnProductDetailPage": >
+When set to true, the property groups are displayed on product detail page.
+
+".components.schemas.PropertyGroup.properties.position": >
+The order of the tabs of your defined property groups. Enter numerical values like 1,2,3, etc.to adjust their order of display.
+
+".components.schemas.PropertyGroup.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.PropertyGroup.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.PropertyGroupOption.properties.groupId": >
+Unique identity of property group.
+
+".components.schemas.PropertyGroupOption.properties.name": >
+Name of the property group option.
+
+".components.schemas.PropertyGroupOption.properties.position": >
+The order of the tabs of your defined property group options. Enter numerical values like 1,2,3, etc.to adjust their order of display.
+
+".components.schemas.PropertyGroupOption.properties.colorHexCode": >
+Property group options can be displayed in the form of color.
+
+".components.schemas.PropertyGroupOption.properties.mediaId": >
+Unique identity of media.
+
+".components.schemas.PropertyGroupOption.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.PropertyGroupOption.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.Rule.properties.name": >
+Name of the rule defined.
+
+".components.schemas.Rule.properties.description": >
+Description of the rule.
+
+".components.schemas.Rule.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.SalesChannel.properties.languageId": >
+Unique identity of language used.
+
+".components.schemas.SalesChannel.properties.customerGroupId": >
+Unique identity of customer group.
+
+".components.schemas.SalesChannel.properties.currencyId": >
+Unique identity of currency used.
+
+".components.schemas.SalesChannel.properties.paymentMethodId": >
+Unique identity of payment method used.
+
+".components.schemas.SalesChannel.properties.shippingMethodId": >
+Unique identity of shipping method.
+
+".components.schemas.SalesChannel.properties.countryId": >
+Unique identity of country.
+
+".components.schemas.SalesChannel.properties.navigationCategoryId": >
+Unique identity of navigation category.
+
+".components.schemas.SalesChannel.properties.navigationCategoryVersionId": >
+Unique identity of language used.
+
+".components.schemas.SalesChannel.properties.navigationCategoryDepth": >
+It determines the number of levels of subcategories in the storefront category menu.
+
+".components.schemas.SalesChannel.properties.footerCategoryId": >
+Unique identity of footer category.
+
+".components.schemas.SalesChannel.properties.footerCategoryVersionId": >
+Unique identity of footer category's version.
+
+".components.schemas.SalesChannel.properties.serviceCategoryId": >
+Unique identity of service category.
+
+".components.schemas.SalesChannel.properties.serviceCategoryVersionId": >
+Unique identity of service category's version.
+
+".components.schemas.SalesChannel.properties.mailHeaderFooterId": >
+Unique identity of mail header and footer.
+
+".components.schemas.SalesChannel.properties.hreflangDefaultDomainId": >
+Unique identity of hreflangDefaultDomain.
+
+".components.schemas.SalesChannel.properties.name": >
+Name of the sales channel.
+
+".components.schemas.SalesChannel.properties.shortName": >
+A short name for sales channel.
+
+".components.schemas.SalesChannel.properties.active": >
+When set to active, the sales channel is enabled.
+
+".components.schemas.SalesChannel.properties.hreflangActive": >
+When set to true, the sales channel pages are available in different lanuagues.
+
+".components.schemas.SalesChannel.properties.maintenance": >
+When set to true, it denotes the sales channel is under maintenance and one can't shop during that time.
+
+".components.schemas.SalesChannel.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.SalesChannelDomain.properties.url": >
+URL of the sales channel domain.
+
+".components.schemas.SalesChannelDomain.properties.salesChannelId": >
+Unique identity of sales channel.
+
+".components.schemas.SalesChannelDomain.properties.languageId": >
+Unique identity of language used.
+
+".components.schemas.SalesChannelDomain.properties.currencyId": >
+Unique identity of currency.
+
+".components.schemas.SalesChannelDomain.properties.snippetSetId": >
+Unique identity of snippet set.
+
+".components.schemas.SalesChannelDomain.properties.hreflangUseOnlyLocale": >
+This is used to toggle the language configurations, say between DE and DE-DE for instance.
+
+".components.schemas.SalesChannelDomain.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.SalesChannelType.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.Salutation.properties.salutationKey": >
+Technical name given to salutation.
+
+".components.schemas.Salutation.properties.displayName": >
+Name given for salutation and displayed in storefront.
+
+".components.schemas.Salutation.properties.letterName": >
+Name given for salutation and used in the mail templates.
+
+".components.schemas.Salutation.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Salutation.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.SeoUrl.properties.salesChannelId": >
+Unique identity of sales channel.
+
+".components.schemas.SeoUrl.properties.languageId": >
+Unique identity of language.
+
+".components.schemas.SeoUrl.properties.foreignKey": >
+The key that references to product or category entity ID.
+
+".components.schemas.SeoUrl.properties.isCanonical": >
+When set to true, search redirects to the main URL.
+
+".components.schemas.SeoUrl.properties.isDeleted": >
+When set to true, the URL is deleted and cannot be used any more but it is still available on table and can be restored later.
+
+".components.schemas.SeoUrl.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.SeoUrlTemplate.properties.salesChannelId": >
+Unique identity of sales channel.
+
+".components.schemas.SeoUrlTemplate.properties.isValid": >
+Created SEO URL template can be made usable by setting `isValid` to true.
+
+".components.schemas.SeoUrlTemplate.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ShippingMethod.properties.name": >
+Name of the shipping method.
+
+".components.schemas.ShippingMethod.properties.active": >
+When set to active, the shipping method is enabled.
+
+".components.schemas.ShippingMethod.properties.position": >
+The order of the tabs of your defined shipping methods in the storefront by entering numerical values like 1,2,3, etc.
+
+".components.schemas.ShippingMethod.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ShippingMethod.properties.mediaId": >
+Unique identity of media.
+
+".components.schemas.ShippingMethod.properties.deliveryTimeId": >
+Unique identity of deliveryTime.
+
+".components.schemas.ShippingMethod.properties.taxType": >
+Refers `Free`, `Net` or `Gross` type of taxes.
+
+".components.schemas.ShippingMethod.properties.description": >
+Description of each shipping method.
+
+".components.schemas.ShippingMethod.properties.trackingUrl": >
+This URL allows to track packages.
+
+".components.schemas.ShippingMethod.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.ShippingMethodPrice.properties.shippingMethodId": >
+Unique identity of shipping method.
+
+".components.schemas.ShippingMethodPrice.properties.ruleId": >
+Unique identity of rule.
+
+".components.schemas.ShippingMethodPrice.properties.calculation": >
+Shipping price calculated based on quantity, price, weight or volume of items.
+
+".components.schemas.ShippingMethodPrice.properties.calculationRuleId": >
+Unique identity of rule calculation.
+
+".components.schemas.ShippingMethodPrice.properties.quantityStart": >
+Starting range of quantity of an item.
+
+".components.schemas.ShippingMethodPrice.properties.quantityEnd": >
+Ending range of quantity of an item.
+
+".components.schemas.ShippingMethodPrice.properties.currencyPrice": >
+//todo
+
+".components.schemas.ShippingMethodPrice.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Snippet.properties.setId": >
+Unique identity od snippet set.
+
+".components.schemas.Snippet.properties.translationKey": >
+//todo
+
+".components.schemas.Snippet.properties.value": >
+//todo
+
+".components.schemas.Snippet.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.SnippetSet.properties.name": >
+Name of snippet set.
+
+".components.schemas.SnippetSet.properties.iso": >
+ISO nomenclature used to classify languages.
+
+".components.schemas.SnippetSet.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.StateMachine.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.StateMachineState.properties.technicalName": >
+Technical name of StateMachineState.
+
+".components.schemas.StateMachineState.properties.name": >
+Display name of StateMachineState.
+
+".components.schemas.StateMachineState.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.StateMachineState.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.Tax.properties.taxRate": >
+Rate of tax.
+
+".components.schemas.Tax.properties.name": >
+Name defined for a Tax.
+
+".components.schemas.Tax.properties.position": >
+The order of the tabs of your defined taxes in the storefront by entering numerical values like 1,2,3, etc.
+
+".components.schemas.Tax.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.TaxRuleType.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.Theme.properties.technicalName": >
+Technical name of Theme.
+
+".components.schemas.Theme.properties.name": >
+Name of theme which is translatable.
+
+".components.schemas.Theme.properties.author": >
+//todo
+
+".components.schemas.Theme.properties.description": >
+Description of the theme.
+
+".components.schemas.Theme.properties.labels": >
+//todo
+
+".components.schemas.Theme.properties.helpTexts": >
+//todo
+
+".components.schemas.Theme.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Theme.properties.previewMediaId": >
+Unique identity of media used for previewing the theme.
+
+".components.schemas.Theme.properties.parentThemeId": >
+Unique identity of parent theme.
+
+".components.schemas.Theme.properties.baseConfig": >
+//todo
+
+".components.schemas.Theme.properties.configValues": >
+//todo
+
+".components.schemas.Theme.properties.active": >
+Created theme can be made usable when it is set to active.
+
+".components.schemas.Theme.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.Unit.properties.shortCode": >
+Short name for unit, e.g., m, kg.
+
+".components.schemas.Unit.properties.name": >
+Full name of the unit, e.g., Meter, kilogram.
+
+".components.schemas.Unit.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Unit.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.WishlistLoadRouteResponse.properties.wishlist.properties.customerId": >
+Unique identity of the customer.
+
+".components.schemas.WishlistLoadRouteResponse.properties.wishlist.properties.salesChannelId": >
+Unique identity of the sales channel.
+
+".components.schemas.LineItem.properties.referencedId": >
+Unique identity of type of entity.
+
+".components.schemas.LineItem.properties.label": >
+It is a typical product name given to the line item.
+
+".components.schemas.LineItem.properties.quantity": >
+Number of items of product.
+
+".components.schemas.LineItem.properties.type": >
+Type refers to the entity type of an item whether it is product or promotion for instance.
+
+".components.schemas.LineItem.properties.good": >
+When set to true, it indicates the line item is physical else it is virtual.
+
+".components.schemas.LineItem.properties.description": >
+Description of line items in an order.
+
+".components.schemas.LineItem.properties.removable": >
+Allows the line item to be removable from the cart when set to true.
+
+".components.schemas.LineItem.properties.stackable": >
+Allows to change the quantity of the line item when set to true.
+
+".components.schemas.LineItem.properties.modified": >
+//todo
+
