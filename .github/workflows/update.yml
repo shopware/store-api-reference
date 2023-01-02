@@ -13,7 +13,21 @@ jobs:
     with:
       api_type: storeapi
     secrets: inherit
-        
+
+
+  run-override:
+    - name: download api schema
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{needs.generate-schema.outputs.api_schema}}
+
+    - name: override action
+      uses: shopware/docs-ci/.github/workflows/apply_overrides.yml@main
+      with:
+        override_file: descriptions.yml
+        schema_file: storeapi.json
+      secrets: inherit
+
   open-pr:
     name: "Open a pull request"
     runs-on: ubuntu-latest
@@ -25,8 +39,8 @@ jobs:
     - name: download api schema
       uses: actions/download-artifact@v3
       with:
-        name: ${{needs.generate-schema.outputs.api_schema}}
-      
+        name: storeapi.json
+
     - name: Create PR
       uses: peter-evans/create-pull-request@v4
       with:
