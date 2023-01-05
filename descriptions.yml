@@ -3,1098 +3,1098 @@
 
 ".paths./salutation.post": >
   Fetches salutations with a criteria obj.
-  
+    
 ".components.schemas.Order.properties.versionId": >
-Unique identity of order version.
+  Unique identity of order version.
 
 ".components.schemas.Order.properties.orderNumber": >
-Unique number associated with every order.
+  Unique number associated with every order.
 
 ".components.schemas.Order.properties.billingAddressId": >
-Unique identity of the billing address.
+  Unique identity of the billing address.
 
 ".components.schemas.Order.properties.billingAddressVersionId": >
-Unique identity of the billing address version.
+  Unique identity of the billing address version.
 
 ".components.schemas.Order.properties.currencyId": >
-Unique identity of the currency.
+  Unique identity of the currency.
 
 ".components.schemas.Order.properties.languageId": >
-Unique identity of the language.
+  Unique identity of the language.
 
 ".components.schemas.Order.properties.salesChannelId": >
-Unique identity of the sales channel.
+  Unique identity of the sales channel.
 
 ".components.schemas.Order.properties.orderDateTime": >
-Timestamp when the order was placed.
+  Timestamp when the order was placed.
 
 ".components.schemas.Order.properties.price.properties.netprice": >
-Net price of the product.
+  Net price of the product.
 
 ".components.schemas.Order.properties.price.properties.totalPrice": >
-Gross price of the product.
+  Gross price of the product.
 
 ".components.schemas.Order.properties.languageId": >
-Unique identity of the language.
+  Unique identity of the language.
 
 ".components.schemas.Order.properties.price.properties.positionPrice": >
-Price of line item without the shipping cost.
+  Price of line item without the shipping cost.
 
 ".components.schemas.Order.properties.amountTotal": >
-Gross price of the order.
+  Gross price of the order.
 
 ".components.schemas.Order.properties.amountNet": >
-Net price of the order.
+  Net price of the order.
 
 ".components.schemas.Order.properties.positionPrice": >
-Price of the line item without the shipping cost.
+  Price of the line item without the shipping cost.
 
 ".components.schemas.Order.properties.taxStatus": >
-TaxStatus takes `Free`, `Net` or `Gross`.
+  TaxStatus takes `Free`, `Net` or `Gross`.
 
 ".components.schemas.Order.properties.shippingCosts.properties.unitPrice": >
-Shipping cost of product per item (where, quantity=1).
+  Shipping cost of product per item (where, quantity=1).
 
 ".components.schemas.Order.properties.shippingCosts.properties.totalPrice": >
-Shipping cost of product based on quantity.
+  Shipping cost of product based on quantity.
 
 ".components.schemas.Order.properties.shippingCosts.properties.quantity": >
-Number of items of each product.
+  Number of items of each product.
 
 ".components.schemas.Order.properties.shippingTotal": >
-Total shipping cost of the ordered product.
+  Total shipping cost of the ordered product.
 
 ".components.schemas.Order.properties.currencyFactor": >
-Rate at which currency is exchanged.
+  Rate at which currency is exchanged.
 
 ".components.schemas.Order.properties.deepLinkCode": >
-It is a generated special code linked to email. It is used to access orders placed by guest customers.
+  It is a generated special code linked to email. It is used to access orders placed by guest customers.
 
 ".components.schemas.Order.properties.affiliateCode": >
-An affiliate code is an identification option with which website operators can mark outgoing links.
+  An affiliate code is an identification option with which website operators can mark outgoing links.
 
 ".components.schemas.Order.properties.campaignCode": >
-A campaign code is the globally unique identifier for a campaign
+  A campaign code is the globally unique identifier for a campaign
 
 ".components.schemas.Order.properties.customerComment": >
-Comments given by comments.
+  Comments given by comments.
 
 ".components.schemas.Order.properties.stateId": >
-Unique identity of order state.
+  Unique identity of order state.
 
 ".components.schemas.Order.properties.ruleIds": >
-Unique identity of rule defined for order.
+  Unique identity of rule defined for order.
 
 ".components.schemas.Order.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderAddress.properties.versionId": >
-Unique identity of OrderAddresses version.
+  Unique identity of OrderAddresses version.
 
 ".components.schemas.OrderAddress.properties.countryId": >
-Unique identity of country.
+  Unique identity of country.
 
 ".components.schemas.OrderAddress.properties.countryStateId": >
-Unique identity of state.
+  Unique identity of state.
 
 ".components.schemas.OrderAddress.properties.firstName": >
-First name of the customer.
+  First name of the customer.
 
 ".components.schemas.OrderAddress.properties.lastName": >
-Last name of the customer.
+  Last name of the customer.
 
 ".components.schemas.OrderAddress.properties.street": >
-Street address
+  Street address
 
 ".components.schemas.OrderAddress.properties.zipcode": >
-Zipcode of the country.
+  Zipcode of the country.
 
 ".components.schemas.OrderAddress.properties.city": >
-Name of the city.
+  Name of the city.
 
 ".components.schemas.OrderAddress.properties.company": >
-Name of the country.
+  Name of the country.
 
 ".components.schemas.OrderAddress.properties.countryId": >
-Unique identity of country.
+  Unique identity of country.
 
 ".components.schemas.OrderAddress.properties.department": >
-Name of the department.
+  Name of the department.
 
 ".components.schemas.OrderAddress.properties.title": >
-Title name given to customer's order address.
+  Title name given to customer's order address.
 
 ".components.schemas.OrderAddress.properties.vatId": >
-Unique identity of VAT.
+  Unique identity of VAT.
 
 ".components.schemas.OrderAddress.properties.countryId": >
-Unique identity of country.
+  Unique identity of country.
 
 ".components.schemas.OrderAddress.properties.phoneNumber": >
-Phone number of the customer.
+  Phone number of the customer.
 
 ".components.schemas.OrderAddress.properties.additionalAddressLine1": >
-Additional address input if necessary.
+  Additional address input if necessary.
 
 ".components.schemas.OrderAddress.properties.additionalAddressLine2": >
-Additional address input if necessary.
+  Additional address input if necessary.
 
 ".components.schemas.OrderAddress.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderCustomer.properties.versionId": >
-Unique identity of OrderCustomer's version.
+  Unique identity of OrderCustomer's version.
 
 ".components.schemas.OrderCustomer.properties.email": >
-Email address of the customer.
+  Email address of the customer.
 
 ".components.schemas.OrderCustomer.properties.salutationId": >
-Unique identity of salutation.
+  Unique identity of salutation.
 
 ".components.schemas.OrderCustomer.properties.firstName": >
-First name of the customer.
+  First name of the customer.
 
 ".components.schemas.OrderCustomer.properties.lastName": >
-Last name of the customer.
+  Last name of the customer.
 
 ".components.schemas.OrderCustomer.properties.company": >
-Name of the company.
+  Name of the company.
 
 ".components.schemas.OrderCustomer.properties.title": >
-Title name given to the customer's order.
+  Title name given to the customer's order.
 
 ".components.schemas.OrderCustomer.properties.vatIds": >
-Unique identity of VAT.
+  Unique identity of VAT.
 
 ".components.schemas.OrderCustomer.properties.customerNumber": >
-Unique number assigned to the customer.
+  Unique number assigned to the customer.
 
 ".components.schemas.OrderCustomer.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderDelivery.properties.versionId": >
-Unique identity of OrderDelivery's version.
+  Unique identity of OrderDelivery's version.
 
 ".components.schemas.OrderDelivery.properties.orderId": >
-Unique identity of order.
+  Unique identity of order.
 
 ".components.schemas.OrderDelivery.properties.orderVersionId": >
-Unique identity of order's version.
+  Unique identity of order's version.
 
 ".components.schemas.OrderDelivery.properties.shippingOrderAddressId": >
-Unique identity of order's shipping address.
+  Unique identity of order's shipping address.
 
 ".components.schemas.OrderDelivery.properties.shippingOrderAddressVersionId": >
-Unique identity of order's shipping address version.
+  Unique identity of order's shipping address version.
 
 ".components.schemas.OrderDelivery.properties.shippingMethodId": >
-Unique identity of shipping method.
+  Unique identity of shipping method.
 
 ".components.schemas.OrderDelivery.properties.stateId": >
-Unique identity of state.
+  Unique identity of state.
 
 ".components.schemas.OrderDelivery.properties.trackingCodes": >
-Tracking code is a unique URL code assigned to each package, which allows you to monitor the movement of the parcel.
+  Tracking code is a unique URL code assigned to each package, which allows you to monitor the movement of the parcel.
 
 ".components.schemas.OrderDelivery.properties.shippingDateEarliest": >
-Date and time of earliest delivery of products.
+  Date and time of earliest delivery of products.
 
 ".components.schemas.OrderDelivery.properties.shippingDateLatest": >
-Date and time of latest delivery of products.
+  Date and time of latest delivery of products.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.unitPrice": >
-Shipping cost of product per item (where, quantity=1).
+  Shipping cost of product per item (where, quantity=1).
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.totalPrice": >
-Shipping cost of product based on quantity.
+  Shipping cost of product based on quantity.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.quantity": >
-Number of items of each product.
+  Number of items of each product.
 
 ".components.schemas.OrderDelivery.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderDeliveryPosition.properties.versionId": >
-Unique identity of OrderDeliveryPosition's version.
+  Unique identity of OrderDeliveryPosition's version.
 
 ".components.schemas.OrderDeliveryPosition.properties.orderDeliveryId": >
-Unique identity of order delivery.
+  Unique identity of order delivery.
 
 ".components.schemas.OrderDeliveryPosition.properties.orderDeliveryVersionId": >
-Unique identity of order delivery's version.
+  Unique identity of order delivery's version.
 
 ".components.schemas.OrderDeliveryPosition.properties.orderLineItemId": >
-Unique identity of line items in an order.
+  Unique identity of line items in an order.
 
 ".components.schemas.OrderDeliveryPosition.properties.orderLineItemVersionId": >
-Unique identity of line item's version in an order.
+  Unique identity of line item's version in an order.
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.unitPrice": >
-Price of product per item (where, quantity=1).
+  Price of product per item (where, quantity=1).
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.totalPrice": >
-Cost of product based on quantity.
+  Cost of product based on quantity.
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.quantity": >
-Number of items of each product.
+  Number of items of each product.
 
 ".components.schemas.OrderDeliveryPosition.properties.unitPrice": >
-Price of product per item (where, quantity=1).
+  Price of product per item (where, quantity=1).
 
 ".components.schemas.OrderDeliveryPosition.properties.totalPrice": >
-Cost of product based on quantity.
+  Cost of product based on quantity.
 
 ".components.schemas.OrderDeliveryPosition.properties.quantity": >
-Number of items of each product.
+  Number of items of each product.
 
 ".components.schemas.OrderDeliveryPosition.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderLineItem.properties.versionId": >
-Unique identity of OrderLineItem's version.
+  Unique identity of OrderLineItem's version.
 
 ".components.schemas.OrderLineItem.properties.orderId": >
-Unique identity of order.
+  Unique identity of order.
 
 ".components.schemas.OrderLineItem.properties.orderVersionId": >
-Unique identity of order's version.
+  Unique identity of order's version.
 
 ".components.schemas.OrderLineItem.properties.productId": >
-Unique identity of product.
+  Unique identity of product.
 
 ".components.schemas.OrderLineItem.properties.productVersionId": >
-Unique identity of products's version.
+  Unique identity of products's version.
 
 ".components.schemas.OrderLineItem.properties.parentVersionId": >
-Unique identity of parent's version.
+  Unique identity of parent's version.
 
 ".components.schemas.OrderLineItem.properties.coverId": >
-Unique identity of cover image.
+  Unique identity of cover image.
 
 ".components.schemas.OrderLineItem.properties.identifier": >
-It is a unique identity of an item in cart before its converted to an order.
+  It is a unique identity of an item in cart before its converted to an order.
 
 ".components.schemas.OrderLineItem.properties.referencedId": >
-Unique identity of type of entity.
+  Unique identity of type of entity.
 
 ".components.schemas.OrderLineItem.properties.quantity": >
-Number of items of product.
+  Number of items of product.
 
 ".components.schemas.OrderLineItem.properties.label": >
-It is a typical product name given to the line item.
+  It is a typical product name given to the line item.
 
 ".components.schemas.OrderLineItem.properties.payload": >
-Any data related to product is passed.
+  Any data related to product is passed.
 
 ".components.schemas.OrderLineItem.properties.good": >
-When set to true, it indicates the line item is physical else it is virtual.
+  When set to true, it indicates the line item is physical else it is virtual.
 
 ".components.schemas.OrderLineItem.properties.removable": >
-Allows the line item to be removable from the cart when set to true.
+  Allows the line item to be removable from the cart when set to true.
 
 ".components.schemas.OrderLineItem.properties.stackable": >
-Allows to change the quantity of the line item when set to true.
+  Allows to change the quantity of the line item when set to true.
 
 ".components.schemas.OrderLineItem.properties.position": >
-Position of line items placed in an order.
+  Position of line items placed in an order.
 
 ".components.schemas.OrderLineItem.properties.priceDefinition": >
-Description of how the price has to be calculated. For example, in percentage or absolute value, etc.
+  Description of how the price has to be calculated. For example, in percentage or absolute value, etc.
 
 ".components.schemas.OrderLineItem.properties.unitPrice": >
-Price of product per item (where, quantity=1).
+  Price of product per item (where, quantity=1).
 
 ".components.schemas.OrderLineItem.properties.totalPrice": >
-Cost of product based on quantity.
+  Cost of product based on quantity.
 
 ".components.schemas.OrderLineItem.properties.description": >
-Description of line items in an order.
+  Description of line items in an order.
 
 ".components.schemas.OrderLineItem.properties.type": >
-Type refers to the entity type of an item whether it is product or promotion for instance.
+  Type refers to the entity type of an item whether it is product or promotion for instance.
 
 ".components.schemas.OrderLineItem.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderTag.properties.orderId": >
-Unique identity of order.
+  Unique identity of order.
 
 ".components.schemas.OrderTag.properties.orderVersionId": >
-Unique identity of order's version.
+  Unique identity of order's version.
 
 ".components.schemas.OrderTag.properties.tagId": >
-Unique identity of tag given for an order.
+  Unique identity of tag given for an order.
 
 ".components.schemas.OrderTransaction.properties.versionId": >
-Unique identity of OrderTransaction's version.
+  Unique identity of OrderTransaction's version.
 
 ".components.schemas.OrderTransaction.properties.orderId": >
-Unique identity of an order.
+  Unique identity of an order.
 
 ".components.schemas.OrderTransaction.properties.orderVersionId": >
-Unique identity of an order's version.
+  Unique identity of an order's version.
 
 ".components.schemas.OrderTransaction.properties.paymentMethodId": >
-Unique identity of payment method.
+  Unique identity of payment method.
 
 ".components.schemas.OrderTransaction.properties.amount.properties.unitPrice": >
-Price of product per item (where, quantity=1).
+  Price of product per item (where, quantity=1).
 
 ".components.schemas.OrderTransaction.properties.amount.properties.totalPrice": >
-Cost of product based on quantity.
+  Cost of product based on quantity.
 
 ".components.schemas.OrderTransaction.properties.amount.properties.quantity": >
-Number of items of each product.
+  Number of items of each product.
 
 ".components.schemas.OrderTransaction.properties.stateId": >
-Unique identity of state.
+  Unique identity of state.
 
 ".components.schemas.OrderTransaction.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.PaymentMethod.properties.name": >
-Name of the payment method.
+  Name of the payment method.
 
 ".components.schemas.PaymentMethod.properties.distinguishableName": >
-System identifier name for payment method.
+  System identifier name for payment method.
 
 ".components.schemas.PaymentMethod.properties.description": >
-A short description about the payment method.
+  A short description about the payment method.
 
 ".components.schemas.PaymentMethod.properties.position": >
-The order of the tabs of your defined payment methods in the storefront by entering numerical values like 1,2,3, etc.
+  The order of the tabs of your defined payment methods in the storefront by entering numerical values like 1,2,3, etc.
 
 ".components.schemas.PaymentMethod.properties.active": >
-When set to active, the payment method is available for usage.
+  When set to active, the payment method is available for usage.
 
 ".components.schemas.PaymentMethod.properties.afterOrderEnabled": >
-When set to true, customers are redirected to the payment options page to rechoose a payment method on order failure.
+  When set to true, customers are redirected to the payment options page to rechoose a payment method on order failure.
 
 ".components.schemas.PaymentMethod.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.PaymentMethod.properties.mediaId": >
-Unique identity of media.
+  Unique identity of media.
 
 ".components.schemas.PaymentMethod.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Plugin.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Product.properties.versionId": >
- Unique identity of the product's version.
- 
+   Unique identity of the product's version.
+   
 ".components.schemas.Product.properties.parentId": >
- Unique identity of the parent product.
- 
- ".components.schemas.Product.properties.parentVersionId": >
- Unique identity of the parent product's version.
- 
+   Unique identity of the parent product.
+   
+   ".components.schemas.Product.properties.parentVersionId": >
+   Unique identity of the parent product's version.
+   
 ".components.schemas.Product.properties.manufacturerId": >
- Unique identity of the manufacturer.
- 
+   Unique identity of the manufacturer.
+   
 ".components.schemas.Product.properties.productManufacturerVersionId": >
- Unique identity of the product's manufacturer version.
- 
+   Unique identity of the product's manufacturer version.
+   
 ".components.schemas.Product.properties.unitId": >
- Unique identity of the unit.
- 
+   Unique identity of the unit.
+   
 ".components.schemas.Product.properties.taxId": >
- Unique identifier of tax.
- 
+   Unique identifier of tax.
+   
 ".components.schemas.Product.properties.coverId": >
- Unique identifier of a ProductMedia item used as product cover.
- 
+   Unique identifier of a ProductMedia item used as product cover.
+   
 ".components.schemas.Product.properties.productMediaVersionId": >
- Unique identifier of product's media version.
- 
+   Unique identifier of product's media version.
+   
 ".components.schemas.Product.properties.deliveryTimeId": >
- Unique identifier of delivery time.
- 
+   Unique identifier of delivery time.
+   
 ".components.schemas.Product.properties.canonicalProductId": >
- Unique identifier of cannonical product.
- 
+   Unique identifier of cannonical product.
+   
 ".components.schemas.Product.properties.cmsPageId": >
- Unique identifier of CMS page.
- 
+   Unique identifier of CMS page.
+   
 ".components.schemas.Product.properties.cmsPageVersionId": >
- Unique identifier of CMS page's version.
+   Unique identifier of CMS page's version.
 
 ".components.schemas.Product.properties.productNumber": >
-Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.
+  Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.
 
 ".components.schemas.Product.stock": >
-Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced.
+  Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced.
 
 ".components.schemas.Product.properties.restockTime": >
-The restock time in days indicates how long it will take until a sold out item is back in stock.
+  The restock time in days indicates how long it will take until a sold out item is back in stock.
 
 ".components.schemas.Product.properties.active": >
-Indicates its status for all selected sales channels. It defines whether the product is displayed in the storefront and can be purchased.
+  Indicates its status for all selected sales channels. It defines whether the product is displayed in the storefront and can be purchased.
 
 ".components.schemas.Product.properties.availableStock": >
-Indicates the number of products still available. This value results from the stock minus the open orders.
+  Indicates the number of products still available. This value results from the stock minus the open orders.
 
 ".components.schemas.Product.available": >
-Indicates weather the product is available or not.
+  Indicates weather the product is available or not.
 
 ".components.schemas.Product.isCloseout": >
-When the value is set to true, the product is hidden when sold out.
+  When the value is set to true, the product is hidden when sold out.
 
 ".components.schemas.Product.displayGroup": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.mainVariantId": >
-Unique identity of main variant.
+  Unique identity of main variant.
 
 ".components.schemas.Product.manufacturerNumber": >
-Unique number that describers the manufacturer.
+  Unique number that describers the manufacturer.
 
 ".components.schemas.Product.properties.ean": >
-Indicates EAN of the product.
+  Indicates EAN of the product.
 
 ".components.schemas.Product.properties.purchaseSteps": >
-Specifies the scales in which the item is to be offered. For example, a scale of 2 means that your customers can purchase 2, 4, 6 products, etc., but not 1, 3 or 5.
+  Specifies the scales in which the item is to be offered. For example, a scale of 2 means that your customers can purchase 2, 4, 6 products, etc., but not 1, 3 or 5.
 
 ".components.schemas.Product.properties.maxPurchase": >
-Maxinum number of items that can be purchased.
+  Maxinum number of items that can be purchased.
 
 ".components.schemas.Product.properties.minPurchase": >
-Minimum number of items that can be purchased.
+  Minimum number of items that can be purchased.
 
 ".components.schemas.Product.properties.purchaseUnit": >
-Quanity of the item purchased. For example, 500ml, 2kg, etc.
+  Quanity of the item purchased. For example, 500ml, 2kg, etc.
 
 ".components.schemas.Product.properties.referenceUnit": >
-Price of purchased item calculated as per the refernce unit. Say, you bought 500ml of milk and the price is calculated in reference to 1000ml. 
+  Price of purchased item calculated as per the refernce unit. Say, you bought 500ml of milk and the price is calculated in reference to 1000ml. 
 
 ".components.schemas.Product.properties.shippingFree": >
-Indicates weather the shipping price is free or not.
+  Indicates weather the shipping price is free or not.
 
 ".components.schemas.Product.properties.markAsTopseller": >
-Indicates weather the product is top seller or not.
+  Indicates weather the product is top seller or not.
 
 ".components.schemas.Product.properties.weight": >
-The weight of the product.
+  The weight of the product.
 
 ".components.schemas.Product.properties.width": >
-The width of the product.
+  The width of the product.
 
 ".components.schemas.Product.properties.height": >
-The height of the product.
+  The height of the product.
 
 ".components.schemas.Product.properties.length": >
-The length of the product.
+  The length of the product.
 
 ".components.schemas.Product.properties.releaseDate": >
-The release date of a product or product model. This can be used to distinguish the exact variant of a product.
+  The release date of a product or product model. This can be used to distinguish the exact variant of a product.
 
 ".components.schemas.Product.properties.ratingAverage": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.categoryTree": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.propertyIds": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.optionIds": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.categoryIds": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.childCount": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.sales": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.metaDescription": >
-Product details for Google description.
+  Product details for Google description.
 
 ".components.schemas.Product.properties.name": >
-Name of the product.
+  Name of the product.
 
 ".components.schemas.Product.properties.keywords": >
-Keywords that give additional information about the Product.
+  Keywords that give additional information about the Product.
 
 ".components.schemas.Product.properties.description": >
-Description of the product.
+  Description of the product.
 
 ".components.schemas.Product.properties.metaTitle": >
-Title information of the product.
+  Title information of the product.
 
 ".components.schemas.Product.properties.packUnit": >
-Type of packing. For example, bottle , tin, crate, etc.
+  Type of packing. For example, bottle , tin, crate, etc.
 
 ".components.schemas.Product.properties.packUnitPlural": >
-Type of packing in plural. For example, bottles , tins, crates, etc.
+  Type of packing in plural. For example, bottles , tins, crates, etc.
 
 ".components.schemas.Product.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Product.properties.calculatedPrice": >
-This cannot be written via API.
+  This cannot be written via API.
 
 ".components.schemas.Product.properties.calculatedPrices": >
-This cannot be written via API.
+  This cannot be written via API.
 
 ".components.schemas.Product.properties.calculatedMaxPurchase": >
-This cannot be written via API.
+  This cannot be written via API.
 
 ".components.schemas.Product.properties.calculatedCheapestPrice": >
-This cannot be written via API.
+  This cannot be written via API.
 
 ".components.schemas.Product.properties.isNew": >
-Runtime field, cannot be used as part of the criteria.
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.Product.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Product.properties.deliveryTime": >
-Time taken for the product to reach the customer. If a delivery time is defined in the product, it overwrites the delivery time of a shipping method.
+  Time taken for the product to reach the customer. If a delivery time is defined in the product, it overwrites the delivery time of a shipping method.
 
 ".components.schemas.ProductCrossSelling.properties.name": >
-Name defined for Product cross selling.
+  Name defined for Product cross selling.
 
 ".components.schemas.ProductCrossSelling.properties.position": >
-The order of the tabs of your defined cross-selling actions in the storefront by entering numerical values like 1,2,3, etc.
+  The order of the tabs of your defined cross-selling actions in the storefront by entering numerical values like 1,2,3, etc.
 
 ".components.schemas.ProductCrossSelling.properties.sortBy": >
-To sort the display of products by name, price or publication (descending, ascending) date.
+  To sort the display of products by name, price or publication (descending, ascending) date.
 
 ".components.schemas.ProductCrossSelling.properties.type": >
-Type of product assignment for cross-selling. It can either be Dynamic product group or Manual assignment.
+  Type of product assignment for cross-selling. It can either be Dynamic product group or Manual assignment.
 
 ".components.schemas.ProductCrossSelling.properties.active": >
-When set to active, the cross-selling feature is enabled.
+  When set to active, the cross-selling feature is enabled.
 
 ".components.schemas.ProductCrossSelling.properties.limit": >
-The maximum number of products to be displayed in cross-selling on the item detail page of your item.
+  The maximum number of products to be displayed in cross-selling on the item detail page of your item.
 
 ".components.schemas.ProductCrossSelling.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.ProductFeatureSet.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.ProductKeywordDictionary.properties.languageId": >
-Unique identity of the language.
+  Unique identity of the language.
 
 ".components.schemas.ProductKeywordDictionary.properties.keyword": >
-The keywords that help to search the product.
+  The keywords that help to search the product.
 
 ".components.schemas.ProductManufacturer.properties.versionId": >
-Unique identity of the ProductManufacturer version.
+  Unique identity of the ProductManufacturer version.
 
 ".components.schemas.ProductManufacturer.properties.mediaId": >
-Unique identity of the media.
+  Unique identity of the media.
 
 ".components.schemas.ProductManufacturer.properties.name": >
-Name of the product manufacturer.
+  Name of the product manufacturer.
 
 ".components.schemas.ProductManufacturer.properties.description": >
-A detailed description of product manufacturer.
+  A detailed description of product manufacturer.
 
 ".components.schemas.ProductManufacturer.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.ProductManufacturer.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.ProductMedia.properties.versionId": >
-Unique identity of the ProductMedia version.
+  Unique identity of the ProductMedia version.
 
 ".components.schemas.ProductMedia.properties.productId": >
-Unique identity of the product.
+  Unique identity of the product.
 
 ".components.schemas.ProductMedia.properties.productVersionId": >
-Unique identity of the product's version.
+  Unique identity of the product's version.
 
 ".components.schemas.ProductMedia.properties.mediaId": >
-Unique identity of the media.
+  Unique identity of the media.
 
 ".components.schemas.ProductMedia.properties.position": >
-The order of the images to be displayed for a product.
+  The order of the images to be displayed for a product.
 
 ".components.schemas.ProductMedia.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.ProductReview.properties.productId": >
-Unique identity of the product.
+  Unique identity of the product.
 
 ".components.schemas.ProductReview.properties.productVersionId": >
-Unique identity of the product's version.
+  Unique identity of the product's version.
 
 ".components.schemas.ProductReview.properties.salesChannelId": >
-Unique identity of the sales channel.
+  Unique identity of the sales channel.
 
 ".components.schemas.ProductReview.properties.languageId": >
-Unique identity of the language.
+  Unique identity of the language.
 
 ".components.schemas.ProductReview.properties.title": >
-Title of product review.
+  Title of product review.
 
 ".components.schemas.ProductReview.properties.content": >
-Short description or subject of the project review.
+  Short description or subject of the project review.
 
 ".components.schemas.ProductReview.properties.points": >
-A floating point number given to rate a product.
+  A floating point number given to rate a product.
 
 ".components.schemas.ProductReview.properties.status": >
-When status is set, the rating is made visible.
+  When status is set, the rating is made visible.
 
 ".components.schemas.ProductReview.properties.comment": >
-Detailed review about the product.
+  Detailed review about the product.
 
 ".components.schemas.ProductReview.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.ProductSorting.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.ProductStream.properties.name": >
-Name of the Dynamic Group to be created.
+  Name of the Dynamic Group to be created.
 
 ".components.schemas.ProductStream.properties.description": >
-Description of the Dynamic group to be created.
+  Description of the Dynamic group to be created.
 
 ".components.schemas.ProductStream.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.ProductStream.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.ProductConfiguratorSetting.properties.versionId": >
-Unique identity of the ProductConfiguratorSetting version.
+  Unique identity of the ProductConfiguratorSetting version.
 
 ".components.schemas.ProductConfiguratorSetting.properties.productId": >
-Unique identity of the product.
+  Unique identity of the product.
 
 ".components.schemas.ProductConfiguratorSetting.properties.productVersionId": >
-Unique identity of the product's version.
+  Unique identity of the product's version.
 
 ".components.schemas.ProductConfiguratorSetting.properties.mediaId": >
-Unique identity of the media.
+  Unique identity of the media.
 
 ".components.schemas.ProductConfiguratorSetting.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Promotion.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Promotion.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.PropertyGroup.properties.name": >
-Name of the property group.
+  Name of the property group.
 
 ".components.schemas.PropertyGroup.properties.description": >
-Description on property group.
+  Description on property group.
 
 ".components.schemas.PropertyGroup.properties.displayType": >
-Property groups can be displayed in the form of text, image, dropdown or color.
+  Property groups can be displayed in the form of text, image, dropdown or color.
 
 ".components.schemas.PropertyGroup.properties.sortingType": >
-Sorting the property group by name or position.
+  Sorting the property group by name or position.
 
 ".components.schemas.PropertyGroup.properties.filterable": >
-When set to true, the property will be displayed in the product filter of product lists.
+  When set to true, the property will be displayed in the product filter of product lists.
 
 ".components.schemas.PropertyGroup.properties.visibleOnProductDetailPage": >
-When set to true, the property groups are displayed on product detail page.
+  When set to true, the property groups are displayed on product detail page.
 
 ".components.schemas.PropertyGroup.properties.position": >
-The order of the tabs of your defined property groups. Enter numerical values like 1,2,3, etc.to adjust their order of display.
+  The order of the tabs of your defined property groups. Enter numerical values like 1,2,3, etc.to adjust their order of display.
 
 ".components.schemas.PropertyGroup.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.PropertyGroup.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.PropertyGroupOption.properties.groupId": >
-Unique identity of property group.
+  Unique identity of property group.
 
 ".components.schemas.PropertyGroupOption.properties.name": >
-Name of the property group option.
+  Name of the property group option.
 
 ".components.schemas.PropertyGroupOption.properties.position": >
-The order of the tabs of your defined property group options. Enter numerical values like 1,2,3, etc.to adjust their order of display.
+  The order of the tabs of your defined property group options. Enter numerical values like 1,2,3, etc.to adjust their order of display.
 
 ".components.schemas.PropertyGroupOption.properties.colorHexCode": >
-Property group options can be displayed in the form of color.
+  Property group options can be displayed in the form of color.
 
 ".components.schemas.PropertyGroupOption.properties.mediaId": >
-Unique identity of media.
+  Unique identity of media.
 
 ".components.schemas.PropertyGroupOption.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.PropertyGroupOption.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Rule.properties.name": >
-Name of the rule defined.
+  Name of the rule defined.
 
 ".components.schemas.Rule.properties.description": >
-Description of the rule.
+  Description of the rule.
 
 ".components.schemas.Rule.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.SalesChannel.properties.languageId": >
-Unique identity of language used.
+  Unique identity of language used.
 
 ".components.schemas.SalesChannel.properties.customerGroupId": >
-Unique identity of customer group.
+  Unique identity of customer group.
 
 ".components.schemas.SalesChannel.properties.currencyId": >
-Unique identity of currency used.
+  Unique identity of currency used.
 
 ".components.schemas.SalesChannel.properties.paymentMethodId": >
-Unique identity of payment method used.
+  Unique identity of payment method used.
 
 ".components.schemas.SalesChannel.properties.shippingMethodId": >
-Unique identity of shipping method.
+  Unique identity of shipping method.
 
 ".components.schemas.SalesChannel.properties.countryId": >
-Unique identity of country.
+  Unique identity of country.
 
 ".components.schemas.SalesChannel.properties.navigationCategoryId": >
-Unique identity of navigation category.
+  Unique identity of navigation category.
 
 ".components.schemas.SalesChannel.properties.navigationCategoryVersionId": >
-Unique identity of language used.
+  Unique identity of language used.
 
 ".components.schemas.SalesChannel.properties.navigationCategoryDepth": >
-It determines the number of levels of subcategories in the storefront category menu.
+  It determines the number of levels of subcategories in the storefront category menu.
 
 ".components.schemas.SalesChannel.properties.footerCategoryId": >
-Unique identity of footer category.
+  Unique identity of footer category.
 
 ".components.schemas.SalesChannel.properties.footerCategoryVersionId": >
-Unique identity of footer category's version.
+  Unique identity of footer category's version.
 
 ".components.schemas.SalesChannel.properties.serviceCategoryId": >
-Unique identity of service category.
+  Unique identity of service category.
 
 ".components.schemas.SalesChannel.properties.serviceCategoryVersionId": >
-Unique identity of service category's version.
+  Unique identity of service category's version.
 
 ".components.schemas.SalesChannel.properties.mailHeaderFooterId": >
-Unique identity of mail header and footer.
+  Unique identity of mail header and footer.
 
 ".components.schemas.SalesChannel.properties.hreflangDefaultDomainId": >
-Unique identity of hreflangDefaultDomain.
+  Unique identity of hreflangDefaultDomain.
 
 ".components.schemas.SalesChannel.properties.name": >
-Name of the sales channel.
+  Name of the sales channel.
 
 ".components.schemas.SalesChannel.properties.shortName": >
-A short name for sales channel.
+  A short name for sales channel.
 
 ".components.schemas.SalesChannel.properties.active": >
-When set to active, the sales channel is enabled.
+  When set to active, the sales channel is enabled.
 
 ".components.schemas.SalesChannel.properties.hreflangActive": >
-When set to true, the sales channel pages are available in different lanuagues.
+  When set to true, the sales channel pages are available in different lanuagues.
 
 ".components.schemas.SalesChannel.properties.maintenance": >
-When set to true, it denotes the sales channel is under maintenance and one can't shop during that time.
+  When set to true, it denotes the sales channel is under maintenance and one can't shop during that time.
 
 ".components.schemas.SalesChannel.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.SalesChannelDomain.properties.url": >
-URL of the sales channel domain.
+  URL of the sales channel domain.
 
 ".components.schemas.SalesChannelDomain.properties.salesChannelId": >
-Unique identity of sales channel.
+  Unique identity of sales channel.
 
 ".components.schemas.SalesChannelDomain.properties.languageId": >
-Unique identity of language used.
+  Unique identity of language used.
 
 ".components.schemas.SalesChannelDomain.properties.currencyId": >
-Unique identity of currency.
+  Unique identity of currency.
 
 ".components.schemas.SalesChannelDomain.properties.snippetSetId": >
-Unique identity of snippet set.
+  Unique identity of snippet set.
 
 ".components.schemas.SalesChannelDomain.properties.hreflangUseOnlyLocale": >
-This is used to toggle the language configurations, say between DE and DE-DE for instance.
+  This is used to toggle the language configurations, say between DE and DE-DE for instance.
 
 ".components.schemas.SalesChannelDomain.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.SalesChannelType.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Salutation.properties.salutationKey": >
-Technical name given to salutation.
+  Technical name given to salutation.
 
 ".components.schemas.Salutation.properties.displayName": >
-Name given for salutation and displayed in storefront.
+  Name given for salutation and displayed in storefront.
 
 ".components.schemas.Salutation.properties.letterName": >
-Name given for salutation and used in the mail templates.
+  Name given for salutation and used in the mail templates.
 
 ".components.schemas.Salutation.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Salutation.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.SeoUrl.properties.salesChannelId": >
-Unique identity of sales channel.
+  Unique identity of sales channel.
 
 ".components.schemas.SeoUrl.properties.languageId": >
-Unique identity of language.
+  Unique identity of language.
 
 ".components.schemas.SeoUrl.properties.foreignKey": >
-The key that references to product or category entity ID.
+  The key that references to product or category entity ID.
 
 ".components.schemas.SeoUrl.properties.isCanonical": >
-When set to true, search redirects to the main URL.
+  When set to true, search redirects to the main URL.
 
 ".components.schemas.SeoUrl.properties.isDeleted": >
-When set to true, the URL is deleted and cannot be used any more but it is still available on table and can be restored later.
+  When set to true, the URL is deleted and cannot be used any more but it is still available on table and can be restored later.
 
 ".components.schemas.SeoUrl.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.SeoUrlTemplate.properties.salesChannelId": >
-Unique identity of sales channel.
+  Unique identity of sales channel.
 
 ".components.schemas.SeoUrlTemplate.properties.isValid": >
-Created SEO URL template can be made usable by setting `isValid` to true.
+  Created SEO URL template can be made usable by setting `isValid` to true.
 
 ".components.schemas.SeoUrlTemplate.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.ShippingMethod.properties.name": >
-Name of the shipping method.
+  Name of the shipping method.
 
 ".components.schemas.ShippingMethod.properties.active": >
-When set to active, the shipping method is enabled.
+  When set to active, the shipping method is enabled.
 
 ".components.schemas.ShippingMethod.properties.position": >
-The order of the tabs of your defined shipping methods in the storefront by entering numerical values like 1,2,3, etc.
+  The order of the tabs of your defined shipping methods in the storefront by entering numerical values like 1,2,3, etc.
 
 ".components.schemas.ShippingMethod.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.ShippingMethod.properties.mediaId": >
-Unique identity of media.
+  Unique identity of media.
 
 ".components.schemas.ShippingMethod.properties.deliveryTimeId": >
-Unique identity of deliveryTime.
+  Unique identity of deliveryTime.
 
 ".components.schemas.ShippingMethod.properties.taxType": >
-Refers `Free`, `Net` or `Gross` type of taxes.
+  Refers `Free`, `Net` or `Gross` type of taxes.
 
 ".components.schemas.ShippingMethod.properties.description": >
-Description of each shipping method.
+  Description of each shipping method.
 
 ".components.schemas.ShippingMethod.properties.trackingUrl": >
-This URL allows to track packages.
+  This URL allows to track packages.
 
 ".components.schemas.ShippingMethod.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.ShippingMethodPrice.properties.shippingMethodId": >
-Unique identity of shipping method.
+  Unique identity of shipping method.
 
 ".components.schemas.ShippingMethodPrice.properties.ruleId": >
-Unique identity of rule.
+  Unique identity of rule.
 
 ".components.schemas.ShippingMethodPrice.properties.calculation": >
-Shipping price calculated based on quantity, price, weight or volume of items.
+  Shipping price calculated based on quantity, price, weight or volume of items.
 
 ".components.schemas.ShippingMethodPrice.properties.calculationRuleId": >
-Unique identity of rule calculation.
+  Unique identity of rule calculation.
 
 ".components.schemas.ShippingMethodPrice.properties.quantityStart": >
-Starting range of quantity of an item.
+  Starting range of quantity of an item.
 
 ".components.schemas.ShippingMethodPrice.properties.quantityEnd": >
-Ending range of quantity of an item.
+  Ending range of quantity of an item.
 
 ".components.schemas.ShippingMethodPrice.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Snippet.properties.setId": >
-Unique identity od snippet set.
+  Unique identity od snippet set.
 
 ".components.schemas.Snippet.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.SnippetSet.properties.name": >
-Name of snippet set.
+  Name of snippet set.
 
 ".components.schemas.SnippetSet.properties.iso": >
-ISO nomenclature used to classify languages.
+  ISO nomenclature used to classify languages.
 
 ".components.schemas.SnippetSet.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.StateMachine.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.StateMachineState.properties.technicalName": >
-Technical name of StateMachineState.
+  Technical name of StateMachineState.
 
 ".components.schemas.StateMachineState.properties.name": >
-Display name of StateMachineState.
+  Display name of StateMachineState.
 
 ".components.schemas.StateMachineState.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.StateMachineState.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Tax.properties.taxRate": >
-Rate of tax.
+  Rate of tax.
 
 ".components.schemas.Tax.properties.name": >
-Name defined for a Tax.
+  Name defined for a Tax.
 
 ".components.schemas.Tax.properties.position": >
-The order of the tabs of your defined taxes in the storefront by entering numerical values like 1,2,3, etc.
+  The order of the tabs of your defined taxes in the storefront by entering numerical values like 1,2,3, etc.
 
 ".components.schemas.Tax.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.TaxRuleType.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Theme.properties.technicalName": >
-Technical name of Theme.
+  Technical name of Theme.
 
 ".components.schemas.Theme.properties.name": >
-Name of theme which is translatable.
+  Name of theme which is translatable.
 
 ".components.schemas.Theme.properties.author": >
-Name of the comapany.
+  Name of the comapany.
 
 ".components.schemas.Theme.properties.description": >
-Description of the theme.
+  Description of the theme.
 
 ".components.schemas.Theme.properties.labels": >
-Identification label given to theme.
+  Identification label given to theme.
 
 ".components.schemas.Theme.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Theme.properties.previewMediaId": >
-Unique identity of media used for previewing the theme.
+  Unique identity of media used for previewing the theme.
 
 ".components.schemas.Theme.properties.parentThemeId": >
-Unique identity of parent theme.
+  Unique identity of parent theme.
 
 ".components.schemas.Theme.properties.active": >
-Created theme can be made usable when it is set to active.
+  Created theme can be made usable when it is set to active.
 
 ".components.schemas.Theme.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Unit.properties.shortCode": >
-Short name for unit, e.g., m, kg.
+  Short name for unit, e.g., m, kg.
 
 ".components.schemas.Unit.properties.name": >
-Full name of the unit, e.g., Meter, kilogram.
+  Full name of the unit, e.g., Meter, kilogram.
 
 ".components.schemas.Unit.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Unit.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.WishlistLoadRouteResponse.properties.wishlist.properties.customerId": >
-Unique identity of the customer.
+  Unique identity of the customer.
 
 ".components.schemas.WishlistLoadRouteResponse.properties.wishlist.properties.salesChannelId": >
-Unique identity of the sales channel.
+  Unique identity of the sales channel.
 
 ".components.schemas.LineItem.properties.referencedId": >
-Unique identity of type of entity.
+  Unique identity of type of entity.
 
 ".components.schemas.LineItem.properties.label": >
-It is a typical product name given to the line item.
+  It is a typical product name given to the line item.
 
 ".components.schemas.LineItem.properties.quantity": >
-Number of items of product.
+  Number of items of product.
 
 ".components.schemas.LineItem.properties.type": >
-Type refers to the entity type of an item whether it is product or promotion for instance.
+  Type refers to the entity type of an item whether it is product or promotion for instance.
 
 ".components.schemas.LineItem.properties.good": >
-When set to true, it indicates the line item is physical else it is virtual.
+  When set to true, it indicates the line item is physical else it is virtual.
 
 ".components.schemas.LineItem.properties.description": >
-Description of line items in an order.
+  Description of line items in an order.
 
 ".components.schemas.LineItem.properties.removable": >
-Allows the line item to be removable from the cart when set to true.
+  Allows the line item to be removable from the cart when set to true.
 
 ".components.schemas.LineItem.properties.stackable": >
-Allows to change the quantity of the line item when set to true.
+  Allows to change the quantity of the line item when set to true.
 
 ".components.schemas.Sitemap.properties.filename": >
-Name of the file which holds a list of all URL's.
+  Name of the file which holds a list of all URL's.
 
 ".components.schemas.App.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.AppActionButton.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
 
 ".components.schemas.Category.properties.versionId": >
-Unique identity of category's version.
+  Unique identity of category's version.
 
 ".components.schemas.Category.properties.parentId": >
-Unique identity of parent category.
+  Unique identity of parent category.
 
 ".components.schemas.Category.properties.parentVersionId": >
-Unique identity of parent category's version.
+  Unique identity of parent category's version.
 
 ".components.schemas.Category.properties.mediaId": >
-Unique identity of media.
+  Unique identity of media.
 
 ".components.schemas.Category.properties.displayNestedProducts": >
-Shows nested categories on a product category page.
+  Shows nested categories on a product category page.
 
 ".components.schemas.Category.properties.breadcrumb": >
-Breadcrumbs offer the users on the website the option to quickly find their way back to the homepage or another level of the website using internal links.
+  Breadcrumbs offer the users on the website the option to quickly find their way back to the homepage or another level of the website using internal links.
 
 ".components.schemas.Category.properties.childCount": >
-Number of categories below the main category.
+  Number of categories below the main category.
 
 ".components.schemas.Category.properties.name": >
-Name of the category.
+  Name of the category.
 
 ".components.schemas.Category.properties.customFields": >
-Additional fields that offer a possibility to add own fields for the different program-areas.
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Category.properties.internalLink": >
-When clicked the category, it gets redirected to internal link.
+  When clicked the category, it gets redirected to internal link.
 
 ".components.schemas.Category.properties.externalLink": >
-When clicked the category, it gets redirected to external link.
+  When clicked the category, it gets redirected to external link.
 
 ".components.schemas.Category.properties.linkNewTab": >
-Category opens in a new tab of the browser.
+  Category opens in a new tab of the browser.
 
 ".components.schemas.Category.properties.description": >
-Information about the category.
+  Information about the category.
 
 ".components.schemas.Category.properties.cmsPageId": >
-Unique identity of CMS page.
+  Unique identity of CMS page.
 
 ".components.schemas.Category.properties.cmsPageVersionId": >
-Unique identity of CMS page's version.
+  Unique identity of CMS page's version.
 
 ".components.schemas.Category.properties.translated": >
-Contains the translations of all translated fields.
+  Contains the translations of all translated fields.
