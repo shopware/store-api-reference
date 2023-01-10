@@ -27,17 +27,17 @@ jobs:
       with:
         name: ${{needs.generate-schema.outputs.api_schema}}
 
-    - name: Install yq 
-      run: |
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
-        sudo add-apt-repository ppa:rmescandon/yq
-        sudo apt update
-        sudo apt install yq -y
+    - name: install yq
+      uses: cachix/install-nix-action@v18
 
     - name: Add custom descriptions
       run: |
+        echo $(yq '. | keys | .[]' descriptions.yml)
+        echo '##############################################'
         for k in $(yq '. | keys | .[]' descriptions.yml); do
+          echo "key: $k"
           newDescription=$(yq ".\"$k\"" descriptions.yml);
+          echo "desc: ${newDescription}"
           # Indent 4; output as json; edit in place
           yq  -I 4 -o json -i "$k.description = \"${newDescription}\"" storeapi.json
         done
