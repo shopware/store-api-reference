@@ -32,12 +32,8 @@ jobs:
 
     - name: Add custom descriptions
       run: |
-        echo $(yq '. | keys | .[]' descriptions.yml)
-        echo '##############################################'
         for k in $(yq '. | keys | .[]' descriptions.yml); do
-          echo "key: $k"
           newDescription=$(yq ".\"$k\"" descriptions.yml);
-          echo "desc: ${newDescription}"
           # Indent 4; output as json; edit in place
           yq  -I 4 -o json -i "$k.description = \"${newDescription}\"" storeapi.json
         done
