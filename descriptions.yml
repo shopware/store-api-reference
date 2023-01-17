@@ -1060,6 +1060,12 @@ Unique identity of parent category.
 ".components.schemas.Category.properties.parentVersionId": >
 Unique identity of parent category's version.
 
+".components.schemas.Category.properties.afterCategoryId": >
+Unique identity of the category under which the new category is to be created.
+
+".components.schemas.Category.properties.afterCategoryVersionId": >
+Unique identity of the category's version under which the new category is to be created.
+
 ".components.schemas.Category.properties.mediaId": >
 Unique identity of media.
 
@@ -1069,8 +1075,26 @@ Shows nested categories on a product category page.
 ".components.schemas.Category.properties.breadcrumb": >
 Breadcrumbs offer the users on the website the option to quickly find their way back to the homepage or another level of the website using internal links.
 
+".components.schemas.Category.properties.level": >
+A level is an integer value that denotes the location at which a particular category is located in an heirarchial category tree.
+
+".components.schemas.Category.properties.path": >
+A relative URL to the category.
+
 ".components.schemas.Category.properties.childCount": >
 Number of categories below the main category.
+
+".components.schemas.Category.properties.type": >
+Type of category. Accepts following values - `page`, `folder`, `link`.
+
+".components.schemas.Category.properties.productAssignmentType": >
+Type of product assignment can either be Dynamic product group or Manual assignment.
+
+".components.schemas.Category.properties.visible": >
+When set to true, the categories are displayed on category page.
+
+".components.schemas.Category.properties.active": >
+When set to active, the category is listed for selection when adding products to a category.
 
 ".components.schemas.Category.properties.name": >
 Name of the category.
@@ -1079,16 +1103,25 @@ Name of the category.
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Category.properties.internalLink": >
-When clicked the category, it gets redirected to internal link.
+When a particular category is clicked, it gets redirected to internal link.
 
 ".components.schemas.Category.properties.externalLink": >
-When clicked the category, it gets redirected to external link.
+When a particular category is clicked, it gets redirected to external link.
 
 ".components.schemas.Category.properties.linkNewTab": >
 Category opens in a new tab of the browser.
 
 ".components.schemas.Category.properties.description": >
 Information about the category.
+
+".components.schemas.Category.properties.metaTitle": >
+A page title indexed by search engines and appears in search results listings.
+
+".components.schemas.Category.properties.metaDescription": >
+A short description of the page for search results listings.
+
+".components.schemas.Category.properties.keywords": >
+Set of words that search engines can use to index the page.
 
 ".components.schemas.Category.properties.cmsPageId": >
 Unique identity of CMS page.
@@ -1097,4 +1130,601 @@ Unique identity of CMS page.
 Unique identity of CMS page's version.
 
 ".components.schemas.Category.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.AclRole.properties.id": >
+Unique identity of ACL role.
+
+".components.schemas.App.properties.id": >
+Unique identity of App.
+
+".components.schemas.App.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.AppActionButton.properties.id": >
+Unique identity of app's action button.
+
+".components.schemas.AppActionButton.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.AppAdministrationSnippet.properties.id": >
+Unique identity of app snippet.
+
+".components.schemas.AppAdministrationSnippet.properties.appId": >
+Unique identity of app in app snippet.
+
+".components.schemas.AppAdministrationSnippet.properties.localeId": >
+Unique identity that specifies the language and country.
+
+".components.schemas.AppCmsBlock.properties.id": >
+Unique identity of app's CMS block.
+
+".components.schemas.AppCmsBlock.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.AppFlowAction.properties.id": >
+Unique identity of app's flow action.
+
+".components.schemas.AppFlowAction.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.AppPaymentMethod.properties.id": >
+Unique identity of app's payment method.
+
+".components.schemas.AppScriptCondition.properties.id": >
+Unique identity of app's script condition.
+
+".components.schemas.AppScriptCondition.properties.translated": >
+Contains the translations of all translated fields.
+
+".components.schemas.AppTemplate.properties.id": >
+Unique identity of app's template.
+
+".components.schemas.CmsBlock.properties.id": >
+Unique identity of defined CMS Block.
+
+".components.schemas.CmsBlock.properties.position": >
+Sets the position of the block.
+
+".components.schemas.CmsBlock.properties.type": >
+type of block can be `sidebar`  or `fullWidth`.
+
+".components.schemas.CmsBlock.properties.name": >
+Unique name of the CMS Block.
+
+".components.schemas.CmsBlock.properties.sectionPosition": >
+Sets the position of the section . The right or left properties determine the location of positioned elements.
+
+".components.schemas.CmsBlock.properties.marginTop": >
+A CSS property sets the margin area on the top of an element.
+
+".components.schemas.CmsBlock.properties.marginBottom": >
+A CSS property sets the margin area on the bottom of an element.
+
+".components.schemas.CmsBlock.properties.marginLeft": >
+A CSS property sets the margin area on the left of an element.
+
+".components.schemas.CmsBlock.properties.marginRight": >
+A CSS property sets the margin area on the right of an element.
+
+".components.schemas.CmsBlock.properties.backgroundColor": >
+A CSS property sets the background color of an element.
+
+".components.schemas.CmsBlock.properties.backgroundMediaId": >
+Unique identity of background media.
+
+".components.schemas.CmsBlock.properties.backgroundMediaMode": >
+Background media mode accept values `cover`, `auto`, `contain`.
+
+".components.schemas.CmsBlock.properties.cssClass": >
+One or more CSS classes added and separated by spaces.
+
+".components.schemas.CmsBlock.properties.sectionId": >
+Unique identity of section.
+
+".components.schemas.CmsBlock.properties.customFields": >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.CmsBlock.properties.versionId": >
+Unique identity of CMS Block version.
+
+".components.schemas.CmsBlock.properties.cmsSectionVersionId": >
+Unique identity of CMS Section version.
+
+".components.schemas.CmsPage.properties.id: >
+Unique identity of CMS page.
+
+".components.schemas.CmsPage.properties.versionId: >
+Unique identity of CMS page version.
+
+".components.schemas.CmsPage.properties.name: >
+Name of the CMS page.
+
+".components.schemas.CmsPage.properties.type: >
+CMS page types can be `landing page`, `shop page`, `product page`, `listing page`.
+
+".components.schemas.CmsPage.properties.cssClass: >
+One or more CSS classes added and separated by spaces.
+
+".components.schemas.CmsPage.properties.config.properties.backgroundColor: >
+Background color to be set for the CMS page.
+
+".components.schemas.CmsPage.properties.previewMediaId: >
+Unique identity of media to be previewed.
+
+".components.schemas.CmsPage.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.CmsPage.properties.translated: >
+Contains the translations of all translated fields.
+
+".components.schemas.CmsSection.properties.id: >
+Unique identity of CMS section.
+
+".components.schemas.CmsSection.properties.position: >
+Sets the position of the section.
+
+".components.schemas.CmsSection.properties.name: >
+Name of the CMS section defined.
+
+".components.schemas.CmsSection.properties.sizingMode: >
+Sizing mode can be `boxed` or `full_width`.
+
+".components.schemas.CmsSection.properties.backgroundColor: >
+Background color of CMS page.
+
+".components.schemas.CmsSection.properties.backgroundMediaId: >
+Unique identity of CMS section's background media.
+
+".components.schemas.CmsSection.properties.backgroundMediaMode: >
+Background media mode accept values `cover`, `auto`, `contain`.
+
+".components.schemas.CmsSection.properties.cssClass: >
+One or more CSS classes added and separated by spaces.
+
+".components.schemas.CmsSection.properties.pageId: >
+Unique identity of page where CMS section is defined.
+
+".components.schemas.CmsSection.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.CmsSlot.properties.id: >
+Unique identity of CMS slot.
+
+".components.schemas.CmsSlot.properties.VersionId: >
+Unique identity of CMS slot's version.
+
+".components.schemas.CmsSlot.properties.slot: >
+Key-value pair to configure which element to be shown in which slot.
+
+".components.schemas.CmsSlot.properties.config: >
+Specifies detailed information about how the componenet is to be rendered.
+
+".components.schemas.CmsSlot.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.CmsSlot.properties.blockId: >
+Unique identity of CMS block where slot is defined.
+
+".components.schemas.CmsSlot.properties.cmsBlockVersionId: >
+Unique identity of CMS block version.
+
+".components.schemas.Country.properties.id: >
+Unique identity of country.
+
+".components.schemas.Country.properties.name: >
+Name of the country.
+
+".components.schemas.Country.properties.active: >
+To set the country to active status, set it to true.
+
+".components.schemas.Country.properties.shippingAvailable: >
+Set it to true, to allow shipping availability to this country.
+
+".components.schemas.Country.properties.iso3: >
+Internationally recognised country code.
+
+".components.schemas.Country.properties.displayStateInRegistration: >
+Set to true, when State of the country needs to be displayed in the address.
+
+".components.schemas.Country.properties.companyTaxFree: >
+Set to true, when a registered company is free from paying taxes.
+
+".components.schemas.Country.properties.checkVatIdPattern: >
+Verify if VAT ID is valid or not.
+
+".components.schemas.Country.properties.vatIdRequired: >
+Set to true, if VAT ID is to be made mandatory.
+
+".components.schemas.Country.properties.taxFree: >
+Set to true, if for a particular country chosen, the tax does'nt apply.
+
+".components.schemas.Country.properties.vatIdPattern: >
+Unique VAT ID with country code and numbers, for example - GB999 9999
+
+".components.schemas.Country.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Country.properties.customerTax.properties.enabled: >
+Set to true, if the tax for the customer apply.
+
+".components.schemas.Country.properties.customerTax.properties.currencyId: >
+Unique identity of currency.
+
+".components.schemas.Country.properties.customerTax.properties.amount: >
+Sum of money to be paid by customer.
+
+".components.schemas.Country.properties.companyTax.properties.enabled: >
+Set to true, if the tax for the company apply.
+
+".components.schemas.Country.properties.companyTax.properties.currencyId: >
+Unique identity of currency.
+
+".components.schemas.Country.properties.companyTax.properties.amount: >
+Sum of money to be paid by company.
+
+".components.schemas.Country.properties.postalCodeRequired: >
+Set to true if postal code is required in the address.
+
+".components.schemas.Country.properties.checkPostalCodePattern: >
+Verify for valid postal code pattern.
+
+".components.schemas.Country.properties.checkAdvancedPostalCodePattern: >
+Verify for advanced postal code pattern.
+
+".components.schemas.Country.properties.advancedPostalCodePattern: >
+Wildcard formatted zip codes to allow easy serching in the frontend based on intial constants, for example - 24****, 1856**
+
+".components.schemas.Country.properties.addressFormat: >
+The address format with recipient's name, building number, street name, city, state and ZIP code on different lines as required.
+
+".components.schemas.Country.properties.defaultPostalCodePattern: >
+Default pattern of postal or zip code.
+
+".components.schemas.Country.properties.translated: >
+Contains the translations of all translated fields.
+
+".components.schemas.CountryState.properties.id: >
+Unique identity of the state.
+
+".components.schemas.CountryState.properties.countryId: >
+Unique identity of the country.
+
+".components.schemas.CountryState.properties.shortCode: >
+An abbrevation for the country's state.
+
+".components.schemas.CountryState.properties.name: >
+Name of the country's state.
+
+".components.schemas.CountryState.properties.active: >
+To set the state to active status, set it to true.
+
+".components.schemas.CountryState.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.CountryState.properties.translated: >
+Contains the translations of all translated fields.
+
+".components.schemas.Currency.properties.factor: >
+Currency exchance rate.
+
+".components.schemas.Currency.properties.symbol: >
+A currency symbol is a graphical representation used as shorthand for a currency's name, for example Euro - €, US Dollar - $
+
+".components.schemas.Currency.properties.isoCode: >
+Standard international three digit code to represernt currency.
+
+".components.schemas.Currency.properties.shortName: >
+Acronym for international currencies.
+
+".components.schemas.Currency.properties.name: >
+Name of the currency.
+
+".components.schemas.Currency.properties.position: >
+The order of the tabs for multiple currencies defined.
+
+".components.schemas.Currency.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Currency.properties.itemRounding.properties.decimals: >
+Rounding off to the nearest decimal point.
+
+".components.schemas.Currency.properties.totalRounding.properties.decimals: >
+Rounding off to the nearest decimal point.
+
+".components.schemas.Currency.properties.translated: >
+Contains the translations of all translated fields.
+
+".components.schemas.CustomPrice.properties.productId: >
+Unique identity of the product.
+
+".components.schemas.CustomPrice.properties.productVersionId: >
+Unique identity of the product's version.
+
+".components.schemas.CustomPrice.properties.customerId: >
+Unique identity of the customer.
+
+".components.schemas.CustomPrice.properties.customerGroupId: >
+Unique identity of the customer's group.
+
+".components.schemas.CustomPrice.properties.price: >
+Detailed information of price.
+
+".components.schemas.Customer.properties.groupId: >
+Unique identity of customer group.
+
+".components.schemas.Customer.properties.defaultPaymentMethodId: >
+Unique identity of default payment method.
+
+".components.schemas.Customer.properties.salesChannelId: >
+Unique identity of salesd channel.
+
+".components.schemas.Customer.properties.languageId: >
+Unique identity of language.
+
+".components.schemas.Customer.properties.lastPaymentMethodId: >
+Unique identity of previous payment method.
+
+".components.schemas.Customer.properties.defaultBillingAddressId: >
+Unique identity of default billing address.
+
+".components.schemas.Customer.properties.defaultShippingAddressId: >
+Unique identity of default shipping address.
+
+".components.schemas.Customer.properties.customerNumber: >
+Unique  number assigned to identity a customer.
+
+".components.schemas.Customer.properties.salutationId: >
+Unique identity of salutation.
+
+".components.schemas.Customer.properties.firstName: >
+First name of the customer.
+
+".components.schemas.Customer.properties.lastName: >
+Last name of the customer.
+
+".components.schemas.Customer.properties.company: >
+Company name of the customer.
+
+".components.schemas.Customer.properties.email: >
+Email ID of the customer.
+
+".components.schemas.Customer.properties.vatIds: >
+Unique identity of VAT.
+
+".components.schemas.Customer.properties.active: >
+To keep the status of the customer active, set this parameter to `true`.
+
+".components.schemas.Customer.properties.guest: >
+Set as `true` if it is to be a guest account.
+
+".components.schemas.Customer.properties.firstLogin: >
+To capture date and time of customer's first login.
+
+".components.schemas.Customer.properties.lastLogin: >
+To capture date and time of customer's last login.
+
+".components.schemas.Customer.properties.birthday: >
+To capture customer's birthday details.
+
+".components.schemas.Customer.properties.lastOrderDate: >
+Captures last order date.
+
+".components.schemas.Customer.properties.orderCount: >
+Captures the number of orders placed.
+
+".components.schemas.Customer.properties.orderTotalAmount: >
+Sum of total amount to be paid.
+
+".components.schemas.Customer.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Customer.properties.tagIds: >
+Unique identity tag names given to the line item.
+
+".components.schemas.CustomerAddress.properties.customerId: >
+Unique identity of customer.
+
+".components.schemas.CustomerAddress.properties.countryId: >
+Unique identity of country.
+
+".components.schemas.CustomerAddress.properties.countryStateId: >
+Unique identity of country's state.
+
+".components.schemas.CustomerAddress.properties.salutationId: >
+Unique identity of salutation.
+
+".components.schemas.CustomerAddress.properties.firstName: >
+First name of the customer.
+
+".components.schemas.CustomerAddress.properties.lastName: >
+Last name of the customer.
+
+".components.schemas.CustomerAddress.properties.zipcode: >
+Postal or zipcode of customer's address.
+
+".components.schemas.CustomerAddress.properties.city: >
+Name of customer's city.
+
+".components.schemas.CustomerAddress.properties.company: >
+Name of customer's company.
+
+".components.schemas.CustomerAddress.properties.street: >
+Name of customer's street.
+
+".components.schemas.CustomerAddress.properties.department: >
+Name of customer's department.
+
+".components.schemas.CustomerAddress.properties.phoneNumber: >
+Customer's phone number.
+
+".components.schemas.CustomerAddress.properties.additionalAddressLine1: >
+Additional customer's address information.
+
+".components.schemas.CustomerAddress.properties.additionalAddressLine2: >
+Additional customer's address information.
+
+".components.schemas.CustomerAddress.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.CustomerGroup.properties.name: >
+Name of the customer group.
+
+".components.schemas.CustomerGroup.properties.displayGross: >
+Set to `true` if you want to display gross value to the customer else, net value will be displayed.
+
+".components.schemas.CustomerGroup.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.CustomerGroup.properties.registrationSeoMetaDescription: >
+A short description of the registration page for search results listings.
+
+".components.schemas.CustomerGroup.properties.translated: >
+Contains the translations of all translated fields.
+
+".components.schemas.CustomerTag.properties.customerId: >
+Unique identity of the customer.
+
+".components.schemas.CustomerTag.properties.tagId: >
+Unique identity of the tag.
+
+".components.schemas.CustomerWishlist.properties.customerId: >
+Unique identity of the customer.
+
+".components.schemas.CustomerWishlist.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.CustomerWishlistProduct.properties.productId: >
+Unique identity of the product.
+
+".components.schemas.CustomerWishlistProduct.properties.productVersionId: >
+Unique identity of the product's version.
+
+".components.schemas.DeliveryTime.properties.name: >
+Name of delivery package.
+
+".components.schemas.DeliveryTime.properties.min: >
+Minimum delivery time taken.
+
+".components.schemas.DeliveryTime.properties.max: >
+Maximum delivery time taken.
+
+".components.schemas.DeliveryTime.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.DeliveryTime.properties.translated: >
+Contains the translations of all translated fields.
+
+".components.schemas.Document.properties.documentTypeId: >
+Unique identity of document type.
+
+".components.schemas.Document.properties.fileType: >
+Type of file like PDF.
+
+".components.schemas.Document.properties.referencedDocumentId: >
+Unique identity of reference document.
+
+".components.schemas.Document.properties.orderId: >
+Unique identity of the order.
+
+".components.schemas.Document.properties.documentMediaFileId: >
+Unique identity of document media file.
+
+".components.schemas.Document.properties.orderVersionId: >
+Unique identity of the order's version.
+
+".components.schemas.Document.properties.sent: >
+This parameter is set to `true` when the document is sent.
+
+".components.schemas.Document.properties.static: >
+This parameter is set to `true` when the document is static in nature.
+
+".components.schemas.Document.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.DocumentBaseConfig.properties.documentTypeId: >
+Unique identity of the document type.
+
+".components.schemas.DocumentBaseConfig.properties.logoId: >
+Unique identity of the company logo.
+
+".components.schemas.DocumentBaseConfig.properties.name: >
+Name of the document.
+
+".components.schemas.DocumentBaseConfig.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.MailTemplateMedia.properties.mailTemplateId: >
+Unique identity of Mail template.
+
+".components.schemas.MailTemplateMedia.properties.languageId: >
+Unique identity of language.
+
+".components.schemas.MailTemplateMedia.properties.mediaId: >
+Unique identity of the media.
+
+".components.schemas.MailTemplateMedia.properties.position: >
+The order of the tabs for multiple media templates defined. The order is specified using numerical values like 1,2,3, etc.
+
+".components.schemas.MailTemplateType.properties.name: >
+Name of the mail template.
+
+".components.schemas.MailTemplateType.properties.technicalName: >
+Technical name of mail template.
+
+".components.schemas.MailTemplateType.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.MailTemplateType.properties.translated: >
+Contains the translations of all translated fields.
+
+".components.schemas.MainCategory.properties.productId: >
+Unique identity of the product.
+
+".components.schemas.MainCategory.properties.productVersionId: >
+Unique identity of the product's version.
+
+".components.schemas.MainCategory.properties.categoryId: >
+Unique identity of the category.
+
+".components.schemas.MainCategory.properties.categoryVersionId: >
+Unique identity of the category's version.
+
+".components.schemas.Media.properties.alt: >
+Alternate text for media.
+
+".components.schemas.Media.properties.title: >
+Title name give to the media.
+
+".components.schemas.Media.properties.private: >
+Set the parameter to `true`, if you want to keep the media display private.
+
+".components.schemas.Media.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Media.properties.translated: >
+Contains the translations of all translated fields.
+
+".components.schemas.MediaTag.properties.mediaId: >
+Unique identity of the media.
+
+".components.schemas.MediaTag.properties.tagId: >
+Unique identity of the tag.
+
+".components.schemas.MediaThumbnail.properties.mediaId: >
+Unique identity of media.
+
+".components.schemas.MediaThumbnail.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.MediaThumbnailSize.properties.width: >
+Width of the thumbnail.
+
+".components.schemas.MediaThumbnailSize.properties.height: >
+Height of the thumbnail.
+
+".components.schemas.MediaThumbnailSize.properties.customFields: >
+Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.NumberRange.properties.translated: >
 Contains the translations of all translated fields.
