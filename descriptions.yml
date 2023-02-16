@@ -1421,6 +1421,9 @@ Specifies detailed information about how the component is to be rendered.
 ".components.schemas.CmsSlot.properties.customFields: >
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.CmsSlot.properties.data: >
+Each cms slot (element) has a config that has values defined in the admin. When cms loads, each Resolver class adds the resolved config data to this value.
+
 ".components.schemas.CmsSlot.properties.blockId: >
 Unique identity of CMS block where slot is defined.
 
@@ -1551,10 +1554,22 @@ The order of the tabs for multiple currencies defined.
 Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Currency.properties.itemRounding.properties.decimals: >
-Rounding off to the nearest decimal point. If set to 2, then it rounds off to two significant decimal points.
+It defines the cash round off applied on the cart line items to the nearest decimal points. If set to 2, it rounds off to two significant decimal points.
+
+".components.schemas.Currency.properties.itemRounding.properties.interval: >
+The interval of item rounding defines the cash rounding interval in terms of how high or low should it be rounded. For example, 0.05 signifies the value gets rounded off to nearest 5 cents.
+
+".components.schemas.Currency.properties.itemRounding.properties.roundForNet: >
+The cash rounding applied on net prices. 
 
 ".components.schemas.Currency.properties.totalRounding.properties.decimals: >
-Rounding off to the nearest decimal point. If set to 2, then it rounds off to two significant decimal points.
+It defines the round off amount to the nearest decimal points applied on the cart’s total amount. If set to 2, it rounds off to two significant decimal points.
+
+".components.schemas.Currency.properties.totalRounding.properties.interval: >
+The interval defines the cart’s total amount round off interval in terms of how high or low should it be rounded. For example, 0.05 signifies the value gets rounded off to nearest 5 cents.
+
+".components.schemas.Currency.properties.totalRounding.properties.roundForNet: >
+The cash rounding applied on cart’s total net prices. 
 
 ".components.schemas.Currency.properties.taxFreeFrom: >
 The value from which the tax must be exempted.
