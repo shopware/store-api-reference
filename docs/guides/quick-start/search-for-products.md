@@ -354,7 +354,7 @@ The following request provides us with a response containing the most essential 
 // POST /store-api/search
 
 {
-    "search": "breaburn",
+    "search": "braeburn",
     "includes": {
       "product_sorting": ["id", "translated"],
       "product_manufacturer": ["id", "translated"],
