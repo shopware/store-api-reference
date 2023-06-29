@@ -133,7 +133,7 @@ The `includes` parameter allows you to restrict the returned fields.
     }
 }
 
-// Reponse
+// Response
 {
     "total": 120,
     "data": [
@@ -165,7 +165,7 @@ A custom field set of entities is by default loaded in the response. You can inc
 }
 ```
 
-However, you might have many custom fields associated with your entity but might not want to fetch them all at once. In such as case, please stick to the following syntax:
+However, you might have many custom fields associated with your entity but might not want to fetch them all at once. In such a case, please stick to the following syntax:
 
 ```javascript
 {
