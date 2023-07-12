@@ -1,40 +1,6 @@
 {
   "items": [
     {
-      "type": "item",
-      "title": "Endpoints",
-      "uri": "storeapi.json"
-    },
-    {
-      "type": "divider",
-      "title": "Concepts"
-    },
-    {
-      "type": "item",
-      "title": "Authentication & Authorisation",
-      "uri": "docs/concepts/authentication-authorisation.md"
-    },
-    {
-      "type": "item",
-      "title": "Search Queries",
-      "uri": "docs/concepts/search-queries.md"
-    },
-    {
-      "type": "item",
-      "title": "Translations",
-      "uri": "docs/concepts/translations.md"
-    },
-    {
-      "type": "item",
-      "title": "Security",
-      "uri": "docs/concepts/security.md"
-    },
-    {
-      "type": "item",
-      "title": "Error Handling",
-      "uri": "docs/concepts/error-handling.md"
-    },
-    {
       "type": "divider",
       "title": "Guides"
     },
@@ -68,6 +34,35 @@
       }]
     },
     {
+      "type": "divider",
+      "title": "Concepts"
+    },
+    {
+      "type": "item",
+      "title": "Authentication & Authorisation",
+      "uri": "docs/concepts/authentication-authorisation.md"
+    },
+    {
+      "type": "item",
+      "title": "Search Queries",
+      "uri": "docs/concepts/search-queries.md"
+    },
+    {
+      "type": "item",
+      "title": "Translations",
+      "uri": "docs/concepts/translations.md"
+    },
+    {
+      "type": "item",
+      "title": "Security",
+      "uri": "docs/concepts/security.md"
+    },
+    {
+      "type": "item",
+      "title": "Error Handling",
+      "uri": "docs/concepts/error-handling.md"
+    },
+    {
       "type": "item",
       "title": "Using REST Clients",
       "uri": "docs/guides/rest-clients.md"
@@ -88,6 +83,11 @@
         "type": "item",
         "title": "Javascript",
         "uri": "docs/resources/libraries/javascript.md"
+      },
+      {
+        "type": "item",
+        "title": "Python",
+        "uri": "docs/resources/libraries/python.md"
       }]
     },
     {
@@ -98,6 +98,15 @@
         "title": "API Documentation",
         "uri": "docs/resources/guidelines/guidelines-api-documentation.md"
       }]
+    },
+    {
+      "type": "divider",
+      "title": "REFERENCE"
+    },
+    {
+      "type": "item",
+      "title": "Endpoints",
+      "uri": "storeapi.json"
     }
   ]
 }

@@ -1,5 +1,5 @@
 ".components.schemas.Criteria": >
-  Criterias query entities.
+  Criteria to query entities.
 
 ".paths./salutation.post": >
   Fetches salutations with a criteria obj.
@@ -437,7 +437,7 @@
   When set to active, the payment method is available for usage.
 
 ".components.schemas.PaymentMethod.properties.afterOrderEnabled": >
-  When set to true, customers are redirected to the payment options page to rechoose a payment method on order failure.
+  When set to true, customers are redirected to the payment options page to choose a new payment method on order failure.
 
 ".components.schemas.PaymentMethod.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -518,7 +518,7 @@
   Unique identity of main variant.
 
 ".components.schemas.Product.manufacturerNumber": >
-  Unique number that describers the manufacturer.
+  Unique number that describes the manufacturer.
 
 ".components.schemas.Product.properties.ean": >
   Indicates EAN of the product.
@@ -527,16 +527,16 @@
   Specifies the scales in which the item is to be offered. For example, a scale of 2 means that your customers can purchase 2, 4, 6 products, etc., but not 1, 3 or 5.
 
 ".components.schemas.Product.properties.maxPurchase": >
-  Maxinum number of items that can be purchased.
+  Maximum number of items that can be purchased.
 
 ".components.schemas.Product.properties.minPurchase": >
   Minimum number of items that can be purchased.
 
 ".components.schemas.Product.properties.purchaseUnit": >
-  Quanity of the item purchased. For example, 500ml, 2kg, etc.
+  Quantity of the item purchased. For example, 500ml, 2kg, etc.
 
 ".components.schemas.Product.properties.referenceUnit": >
-  Price of purchased item calculated as per the refernce unit. Say, you bought 500ml of milk and the price is calculated in reference to 1000ml. 
+  Price of purchased item calculated as per the reference unit. Say, you bought 500ml of milk and the price is calculated in reference to 1000ml. 
 
 ".components.schemas.Product.properties.shippingFree": >
   Indicates weather the shipping price is free or not.
@@ -599,10 +599,10 @@
   A page title indexed by search engines and appears in search results listings.
 
 ".components.schemas.Product.properties.packUnit": >
-  Type of packing. For example, bottle , tin, crate, etc.
+  Type of packing. For example, bottle, tin, crate, etc.
 
 ".components.schemas.Product.properties.packUnitPlural": >
-  Type of packing in plural. For example, bottles , tins, crates, etc.
+  Type of packing in plural. For example, bottles, tins, crates, etc.
 
 ".components.schemas.Product.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -897,7 +897,7 @@
   When set to active, the sales channel is enabled.
 
 ".components.schemas.SalesChannel.properties.hreflangActive": >
-  When set to true, the sales channel pages are available in different lanuagues.
+  When set to true, the sales channel pages are available in different languages.
 
 ".components.schemas.SalesChannel.properties.maintenance": >
   When set to true, it denotes the sales channel is under maintenance and one can't shop during that time.
@@ -1089,7 +1089,7 @@
   Name of theme which is translatable.
 
 ".components.schemas.Theme.properties.author": >
-  Name of the comapany.
+  Name of the company.
 
 ".components.schemas.Theme.properties.description": >
   Description of the theme.

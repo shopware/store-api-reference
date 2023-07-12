@@ -32,4 +32,4 @@
 
 **How can I fetch SEO URLs for requested categories or products**
 
-> When you request include the `sw-include-seo-urls: 1` header. Shopware will automatically try to resolve relative URLs for all your categories and products. These will then be accessible in the `seoUrls` field of each record.  
+> When your request includes the `sw-include-seo-urls: 1` header Shopware will automatically try to resolve relative URLs for all your categories and products. These will then be accessible in the `seoUrls` field of each record.  
