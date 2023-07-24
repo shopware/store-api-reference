@@ -37,9 +37,6 @@
 ".components.schemas.Order.properties.price.properties.totalPrice": >
   Gross price of the product.
 
-".components.schemas.Order.properties.languageId": >
-  Unique identity of the language.
-
 ".components.schemas.Order.properties.price.properties.positionPrice": >
   Price of line item without the shipping cost.
 
@@ -1160,9 +1157,6 @@
 ".components.schemas.App.properties.translated": >
   Contains the translations of all translated fields.
 
-".components.schemas.AppActionButton.properties.translated": >
-  Contains the translations of all translated fields.
-
 ".components.schemas.Category.properties.versionId": >
   Unique identity of category's version.
 
@@ -1252,9 +1246,6 @@
 
 ".components.schemas.App.properties.id": >
   Unique identity of App.
-
-".components.schemas.App.properties.translated": >
-  Contains the translations of all translated fields.
 
 ".components.schemas.AppActionButton.properties.id": >
   Unique identity of app's action button.
@@ -1905,12 +1896,6 @@
 
 ".components.schemas.LandingPage.properties.translated": >
   Contains the translations of all translated fields.
-
-".components.schemas.MailTemplateMedia.properties.mailTemplateId": >
-  Unique identity of Mail template.
-
-".components.schemas.MailTemplateMedia.properties.languageId": >
-  Unique identity of language.
 
 ".components.schemas.Language.properties.parentId": >
   Unique identity of parent language.
