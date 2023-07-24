@@ -370,7 +370,8 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of ACL role."
                     },
                     "createdAt": {
                         "type": "string",
@@ -394,7 +395,8 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of App."
                     },
                     "createdAt": {
                         "type": "string",
@@ -422,7 +424,8 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of app's action button."
                     },
                     "createdAt": {
                         "type": "string",
@@ -452,18 +455,21 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of app snippet."
                     },
                     "value": {
                         "type": "string"
                     },
                     "appId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of app in app snippet."
                     },
                     "localeId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity that specifies the language and country."
                     },
                     "createdAt": {
                         "type": "string",
@@ -487,7 +493,8 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of app's CMS block."
                     },
                     "createdAt": {
                         "type": "string",
@@ -500,7 +507,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -514,7 +522,8 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of app's flow action."
                     },
                     "createdAt": {
                         "type": "string",
@@ -527,7 +536,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -563,7 +573,8 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of app's payment method."
                     },
                     "createdAt": {
                         "type": "string",
@@ -587,7 +598,8 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of app's script condition."
                     },
                     "createdAt": {
                         "type": "string",
@@ -600,7 +612,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -963,16 +976,18 @@
                     },
                     "afterCategoryId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the category under which the new category is to be created."
                     },
                     "afterCategoryVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the category's version under which the new category is to be created."
                     },
                     "mediaId": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "description": "Unique identity of media."
+                        "description": "Unique identity of media added to identify category."
                     },
                     "displayNestedProducts": {
                         "type": "boolean",
@@ -990,11 +1005,13 @@
                     "level": {
                         "type": "integer",
                         "format": "int64",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "An integer value that denotes the level of nesting of a particular category located in an heirarchial category tree. "
                     },
                     "path": {
                         "type": "string",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "A relative URL to the category."
                     },
                     "childCount": {
                         "type": "integer",
@@ -1003,16 +1020,20 @@
                         "description": "Number of categories below the main category."
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of category. Accepts following values - `page`, `folder`, `link`."
                     },
                     "productAssignmentType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of product assignment can either be Dynamic product group or Manual assignment and accepts value : `product` or `product_stream`."
                     },
                     "visible": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set to true, the categories are displayed on category page."
                     },
                     "active": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set to active, the category is listed for selection when adding products to a category."
                     },
                     "cmsPageIdSwitched": {
                         "description": "Runtime field, cannot be used as part of the criteria.",
@@ -1032,16 +1053,17 @@
                         "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "linkType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Accepts type : `external`, `category`, `product`, `landing_page`."
                     },
                     "internalLink": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "description": "When clicked the category, it gets redirected to internal link."
+                        "description": "When a particular category is clicked, it gets redirected to internal link."
                     },
                     "externalLink": {
                         "type": "string",
-                        "description": "When clicked the category, it gets redirected to external link."
+                        "description": "When a particular category is clicked, it gets redirected to external link."
                     },
                     "linkNewTab": {
                         "type": "boolean",
@@ -1052,13 +1074,16 @@
                         "description": "Information about the category."
                     },
                     "metaTitle": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A page title indexed by search engines and appears in search results listings."
                     },
                     "metaDescription": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A short description of the page for search results listings."
                     },
                     "keywords": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The keywords that help to search the category."
                     },
                     "cmsPageId": {
                         "type": "string",
@@ -1121,41 +1146,53 @@
                     },
                     "position": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Sets the position of the block."
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "type of block can be `sidebar`  or `fullWidth`."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Unique name of the CMS Block."
                     },
                     "sectionPosition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Sets the position of the section . The right or left properties determine the location of positioned elements."
                     },
                     "marginTop": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A CSS property sets the margin area on the top of an element."
                     },
                     "marginBottom": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A CSS property sets the margin area on the bottom of an element."
                     },
                     "marginLeft": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A CSS property sets the margin area on the left of an element."
                     },
                     "marginRight": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A CSS property sets the margin area on the right of an element."
                     },
                     "backgroundColor": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A CSS property sets the background color of an element."
                     },
                     "backgroundMediaId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of background media."
                     },
                     "backgroundMediaMode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Background media mode accept values `cover`, `auto`, `contain`."
                     },
                     "cssClass": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "One or more CSS classes added and separated by spaces."
                     },
                     "visibility": {
                         "properties": {
@@ -1173,18 +1210,22 @@
                     },
                     "sectionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of section."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "versionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of CMS Block version."
                     },
                     "cmsSectionVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of CMS Section version."
                     },
                     "createdAt": {
                         "type": "string",
@@ -1218,34 +1259,42 @@
                     },
                     "versionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of CMS page version."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the CMS page."
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "CMS page types can be `landingpage`, `page`, `product_list`, `product_detail`."
                     },
                     "entity": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "This field will be implemented in the future."
                     },
                     "cssClass": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "One or more CSS classes added and separated by spaces."
                     },
                     "config": {
                         "properties": {
                             "backgroundColor": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "Background color to be set for the CMS page."
                             }
                         },
                         "type": "object"
                     },
                     "previewMediaId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of media to be previewed."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -1258,7 +1307,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     },
                     "sections": {
                         "$ref": "#/components/schemas/CmsSection"
@@ -1287,36 +1337,46 @@
                     },
                     "position": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Sets the position of the section."
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Two types of sections can be created `sidebar` and `fullwidth`."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the CMS section defined."
                     },
                     "sizingMode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Sizing mode can be `boxed` or `full_width`."
                     },
                     "mobileBehavior": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Unused field. To be removed in future."
                     },
                     "backgroundColor": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Background color of CMS page."
                     },
                     "backgroundMediaId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of CMS section's background media."
                     },
                     "backgroundMediaMode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Background media mode accept values `cover`, `auto`, `contain`."
                     },
                     "cssClass": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "One or more CSS classes added and separated by spaces."
                     },
                     "pageId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of page where CMS section is defined."
                     },
                     "visibility": {
                         "properties": {
@@ -1333,11 +1393,13 @@
                         "type": "object"
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "cmsPageVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of CMS page version."
                     },
                     "createdAt": {
                         "type": "string",
@@ -1379,34 +1441,42 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "It indicates the types of content that can be defined within the slot which includes `image`, `text`, `form`, `product-listing`, `category-navigation`, `product-box`, `buy-box`, `sidebar-filter`, etc."
                     },
                     "slot": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Key-value pair to configure which element to be shown in which slot."
                     },
                     "locked": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Boolean value that determines the CMS slot movement."
                     },
                     "config": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Specifies detailed information about how the component is to be rendered."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "data": {
                         "type": "object",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Each cms slot (element) has a config that has values defined in the admin. When cms loads, each Resolver class adds the resolved config data to this value."
                     },
                     "blockId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of CMS block where slot is defined."
                     },
                     "fieldConfig": {
                         "type": "object"
                     },
                     "cmsBlockVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of CMS block version."
                     },
                     "createdAt": {
                         "type": "string",
@@ -1419,10 +1489,14 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     },
                     "block": {
                         "$ref": "#/components/schemas/CmsBlock"
+                    },
+                    "VersionId": {
+                        "description": "Unique identity of CMS slot's version."
                     }
                 },
                 "type": "object"
@@ -1606,41 +1680,52 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the country."
                     },
                     "iso": {
                         "type": "string"
                     },
                     "position": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Numerical value that indicates the order in which the defined countries must be displayed in the frontend."
                     },
                     "active": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "To set the country to active status, set it to true."
                     },
                     "shippingAvailable": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set it to true, to allow shipping availability to this country."
                     },
                     "iso3": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Internationally recognised country code."
                     },
                     "displayStateInRegistration": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set to `true`, when State of the country needs to be displayed in the address."
                     },
                     "forceStateInRegistration": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set to `true` to force include the state details in the address."
                     },
                     "checkVatIdPattern": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Verify if VAT ID is valid or not."
                     },
                     "vatIdRequired": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set to true, if VAT ID is to be made mandatory."
                     },
                     "vatIdPattern": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Unique VAT ID with country code and numbers, for example - GB999 9999"
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "customerTax": {
                         "required": [
@@ -1650,14 +1735,17 @@
                         ],
                         "properties": {
                             "enabled": {
-                                "type": "boolean"
+                                "type": "boolean",
+                                "description": "Set to true, if the tax for the customer apply."
                             },
                             "currencyId": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "Unique identity of currency."
                             },
                             "amount": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "Sum of money to be paid by customer."
                             }
                         },
                         "type": "object"
@@ -1670,35 +1758,44 @@
                         ],
                         "properties": {
                             "enabled": {
-                                "type": "boolean"
+                                "type": "boolean",
+                                "description": "Set to true, if the tax for the company apply."
                             },
                             "currencyId": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "Unique identity of currency."
                             },
                             "amount": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "Sum of money to be paid by company."
                             }
                         },
                         "type": "object"
                     },
                     "postalCodeRequired": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set to true if postal code is required in the address."
                     },
                     "checkPostalCodePattern": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Verify for valid postal code pattern."
                     },
                     "checkAdvancedPostalCodePattern": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Verify for advanced postal code pattern."
                     },
                     "advancedPostalCodePattern": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Wildcard formatted zip codes to allow easy serching in the frontend based on intial constants, for example - 24****, 1856**"
                     },
                     "addressFormat": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "The address format with recipient's name, building number, street name, city, state and ZIP code on different lines as required."
                     },
                     "defaultPostalCodePattern": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Default pattern of postal or zip code."
                     },
                     "createdAt": {
                         "type": "string",
@@ -1711,10 +1808,17 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     },
                     "states": {
                         "$ref": "#/components/schemas/CountryState"
+                    },
+                    "companyTaxFree": {
+                        "description": "Set to true, when a registered company is free from paying taxes."
+                    },
+                    "taxFree": {
+                        "description": "Set to true, if for a particular country chosen, the tax does'nt apply."
                     }
                 },
                 "type": "object"
@@ -1790,23 +1894,29 @@
                     },
                     "countryId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the country."
                     },
                     "shortCode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "An abbrevation for the country's state."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the country's state."
                     },
                     "position": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Numerical value that indicates the order in which the defined states must be displayed in the frontend."
                     },
                     "active": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "To set the state to active status, set it to true."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -1819,7 +1929,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -1946,23 +2057,29 @@
                     },
                     "factor": {
                         "type": "number",
-                        "format": "float"
+                        "format": "float",
+                        "description": "Currency exchance rate."
                     },
                     "symbol": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A currency symbol is a graphical representation used as shorthand for a currency's name, for example US Dollar - $"
                     },
                     "isoCode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Standard international three digit code to represernt currency. For example, USD."
                     },
                     "shortName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Acronym for international currencies. For example, USD."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Full name of the currency. For example, US-Dollar."
                     },
                     "position": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "The order of the tabs for multiple currencies defined."
                     },
                     "isSystemDefault": {
                         "description": "Runtime field, cannot be used as part of the criteria.",
@@ -1970,23 +2087,28 @@
                     },
                     "taxFreeFrom": {
                         "type": "number",
-                        "format": "float"
+                        "format": "float",
+                        "description": "The value from which the tax must be exempted."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "itemRounding": {
                         "properties": {
                             "decimals": {
                                 "type": "integer",
-                                "format": "int64"
+                                "format": "int64",
+                                "description": "It defines the cash round off applied on the cart line items to the nearest decimal points. If set to 2, it rounds off to two significant decimal points."
                             },
                             "interval": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "The interval of item rounding defines the cash rounding interval in terms of how high or low should it be rounded. For example, 0.05 signifies the value gets rounded off to nearest 5 cents."
                             },
                             "roundForNet": {
-                                "type": "boolean"
+                                "type": "boolean",
+                                "description": "The cash rounding applied on net prices. "
                             }
                         },
                         "type": "object"
@@ -1995,14 +2117,17 @@
                         "properties": {
                             "decimals": {
                                 "type": "integer",
-                                "format": "int64"
+                                "format": "int64",
+                                "description": "It defines the round off amount to the nearest decimal points applied on the cart’s total amount. If set to 2, it rounds off to two significant decimal points."
                             },
                             "interval": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "The interval defines the cart’s total amount round off interval in terms of how high or low should it be rounded. For example, 0.05 signifies the value gets rounded off to nearest 5 cents."
                             },
                             "roundForNet": {
-                                "type": "boolean"
+                                "type": "boolean",
+                                "description": "The cash rounding applied on cart’s total net prices. "
                             }
                         },
                         "type": "object"
@@ -2018,7 +2143,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -2152,22 +2278,27 @@
                     },
                     "productId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the product."
                     },
                     "productVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the product's version."
                     },
                     "customerId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the customer."
                     },
                     "customerGroupId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the customer's group."
                     },
                     "price": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Detailed information of price."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2214,50 +2345,63 @@
                     },
                     "groupId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of customer group."
                     },
                     "defaultPaymentMethodId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of default payment method."
                     },
                     "salesChannelId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of salesd channel."
                     },
                     "languageId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of language."
                     },
                     "lastPaymentMethodId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of previous payment method."
                     },
                     "defaultBillingAddressId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of default billing address."
                     },
                     "defaultShippingAddressId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of default shipping address."
                     },
                     "customerNumber": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Unique  number assigned to identity a customer."
                     },
                     "salutationId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of salutation."
                     },
                     "firstName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "First name of the customer."
                     },
                     "lastName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Last name of the customer."
                     },
                     "company": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Company name of the customer."
                     },
                     "email": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Email ID of the customer."
                     },
                     "title": {
                         "type": "string"
@@ -2266,59 +2410,74 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Unique identity of VAT."
                     },
                     "affiliateCode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "An affiliate code is an identification option with which website operators can mark outgoing links."
                     },
                     "campaignCode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A campaign code is the globally unique identifier for a campaign."
                     },
                     "active": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "To keep the status of the customer active, set this parameter to `true`."
                     },
                     "doubleOptInRegistration": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set to `true` to allow user subscriptions to an email marketing list."
                     },
                     "doubleOptInEmailSentDate": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "description": "Date and time when the double opt-in email was sent."
                     },
                     "doubleOptInConfirmDate": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "description": "Date and time when the double opt-in email was confirmed."
                     },
                     "hash": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Password hash for account recovery."
                     },
                     "guest": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set as `true` if it is to be a guest account."
                     },
                     "firstLogin": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "description": "To capture date and time of customer's first login."
                     },
                     "lastLogin": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "description": "To capture date and time of customer's last login."
                     },
                     "birthday": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "To capture customer's birthday details."
                     },
                     "lastOrderDate": {
                         "type": "string",
                         "format": "date-time",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Captures last order date."
                     },
                     "orderCount": {
                         "type": "integer",
                         "format": "int64",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Captures the number of orders placed."
                     },
                     "orderTotalAmount": {
                         "type": "number",
                         "format": "float",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Sum of total amount to be paid."
                     },
                     "reviewCount": {
                         "type": "integer",
@@ -2326,7 +2485,8 @@
                         "readOnly": true
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "tagIds": {
                         "type": "array",
@@ -2334,7 +2494,8 @@
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$"
                         },
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Unique identity tag names given to the line item."
                     },
                     "accountType": {
                         "type": "string"
@@ -2402,55 +2563,71 @@
                     },
                     "customerId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of customer."
                     },
                     "countryId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of country."
                     },
                     "countryStateId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of country's state."
                     },
                     "salutationId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of salutation."
                     },
                     "firstName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "First name of the customer."
                     },
                     "lastName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Last name of the customer."
                     },
                     "zipcode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Postal or zipcode of customer's address."
                     },
                     "city": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of customer's city."
                     },
                     "company": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of customer's company."
                     },
                     "street": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of customer's street."
                     },
                     "department": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of customer's department."
                     },
                     "title": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Title given to a customer’s address"
                     },
                     "phoneNumber": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Customer's phone number."
                     },
                     "additionalAddressLine1": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Additional customer's address information."
                     },
                     "additionalAddressLine2": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Additional customer's address information."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2486,28 +2663,36 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the customer group."
                     },
                     "displayGross": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set to `true` if you want to display gross value to the customer else, net value will be displayed."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "registrationActive": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "To enable the registration of partner customer group."
                     },
                     "registrationTitle": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Title defined for the customer group during registration."
                     },
                     "registrationIntroduction": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A brief description about the registration."
                     },
                     "registrationOnlyCompanyRegistration": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Register as a company rather than as a private customer group."
                     },
                     "registrationSeoMetaDescription": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A short description of the registration page for search results listings."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2520,7 +2705,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -2561,11 +2747,13 @@
                     },
                     "customerId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the customer."
                     },
                     "tagId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the tag."
                     },
                     "tag": {
                         "$ref": "#/components/schemas/Tag"
@@ -2586,10 +2774,12 @@
                     },
                     "customerId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the customer."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2617,11 +2807,13 @@
                     },
                     "productId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the product."
                     },
                     "productVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the product's version."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2651,21 +2843,26 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name given to delivery time."
                     },
                     "min": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Minimum delivery time taken."
                     },
                     "max": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Maximum delivery time taken."
                     },
                     "unit": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Unit in which the delivery time is defined. For example, days or hours."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2678,7 +2875,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -2700,41 +2898,52 @@
                     },
                     "documentTypeId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of document type."
                     },
                     "fileType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of file like PDF."
                     },
                     "referencedDocumentId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of reference document."
                     },
                     "orderId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the order."
                     },
                     "documentMediaFileId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of document media file."
                     },
                     "orderVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the order's version."
                     },
                     "config": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Specifies detailed information about how the component is to be rendered."
                     },
                     "sent": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When `true`, the document is already sent to the customer."
                     },
                     "static": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When `true`, the document is uploaded else it is generated by the system."
                     },
                     "deepLinkCode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "It is a generated special code linked to email. It is used to access details of guest customer actions."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2779,29 +2988,37 @@
                     },
                     "documentTypeId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the document type."
                     },
                     "logoId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the company logo."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the document."
                     },
                     "filenamePrefix": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A prefix name added to the file name separated by an underscore."
                     },
                     "filenameSuffix": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A suffix name added to the file name separated by an underscore."
                     },
                     "global": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set to `true`, the document can be used across all sales channels."
                     },
                     "documentNumber": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Unique number associated with every document."
                     },
                     "config": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Specifies detailed information about the component."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2809,7 +3026,8 @@
                         "readOnly": true
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "updatedAt": {
                         "type": "string",
@@ -2835,15 +3053,18 @@
                     },
                     "documentBaseConfigId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of document's base config."
                     },
                     "salesChannelId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of sales channel."
                     },
                     "documentTypeId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of document type."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2871,10 +3092,12 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the document type."
                     },
                     "technicalName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Technical name of document type."
                     },
                     "createdAt": {
                         "type": "string",
@@ -2887,10 +3110,12 @@
                         "readOnly": true
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -3209,39 +3434,49 @@
                     },
                     "versionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of landing page version."
                     },
                     "active": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Active landing pages are enlisted for use."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of landing page."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "slotConfig": {
                         "type": "object"
                     },
                     "metaTitle": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A page title indexed by search engines and appears in search results listings."
                     },
                     "metaDescription": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A short description of the page for search results listings."
                     },
                     "keywords": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The keywords that help to search the landing page."
                     },
                     "url": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "URL of the landing page."
                     },
                     "cmsPageId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the CMS Page."
                     },
                     "cmsPageVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the CMS Page's version."
                     },
                     "createdAt": {
                         "type": "string",
@@ -3254,7 +3489,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     },
                     "cmsPage": {
                         "$ref": "#/components/schemas/CmsPage"
@@ -3452,7 +3688,8 @@
                     },
                     "parentId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of parent language."
                     },
                     "localeId": {
                         "type": "string",
@@ -3460,13 +3697,16 @@
                     },
                     "translationCodeId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of translation code."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the language."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -3507,16 +3747,20 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "code": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Code given to the locale. For example: en-CA."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the locale. For example: English."
                     },
                     "territory": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the location. For example: Canada."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -3529,7 +3773,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -3569,25 +3814,32 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "systemDefault": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Unused field. To be removed in future."
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the MailHeaderFooter."
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Description of the MailHeaderFooter."
                     },
                     "headerHtml": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "HTML header content."
                     },
                     "headerPlain": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Textual header content."
                     },
                     "footerHtml": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "HTML footer content."
                     },
                     "footerPlain": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Textual footer content."
                     },
                     "createdAt": {
                         "type": "string",
@@ -3600,7 +3852,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -3619,19 +3872,24 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "systemDefault": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Unused field. To be removed in future."
                     },
                     "senderName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the sender in the mail."
                     },
                     "contentHtml": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "HTML content in the mail."
                     },
                     "contentPlain": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Textual content in the mail."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -3644,7 +3902,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     },
                     "mailTemplateType": {
                         "$ref": "#/components/schemas/MailTemplateType"
@@ -3669,19 +3928,23 @@
                     },
                     "mailTemplateId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the mail template."
                     },
                     "languageId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the language."
                     },
                     "mediaId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the media."
                     },
                     "position": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "The order of multiple media templates defined is specified using numerical values like 1,2,3, etc."
                     },
                     "media": {
                         "$ref": "#/components/schemas/Media"
@@ -3702,13 +3965,16 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the mail template."
                     },
                     "technicalName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Technical name of mail template."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -3721,7 +3987,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -3794,23 +4061,28 @@
                     },
                     "productId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the product."
                     },
                     "productVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the product's version."
                     },
                     "categoryId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the category."
                     },
                     "categoryVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the category's version."
                     },
                     "salesChannelId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the sales channel."
                     },
                     "createdAt": {
                         "type": "string",
@@ -3837,35 +4109,43 @@
                     },
                     "mimeType": {
                         "type": "string",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "A string sent along with a file indicating the type of the file. For example: image/jpeg."
                     },
                     "fileExtension": {
                         "type": "string",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Type of file indication. For example: jpeg, png."
                     },
                     "uploadedAt": {
                         "type": "string",
                         "format": "date-time",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Date and time at which media was added."
                     },
                     "fileName": {
                         "type": "string",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Name of the media file uploaded."
                     },
                     "fileSize": {
                         "type": "integer",
                         "format": "int64",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Size of the file media file uploaded."
                     },
                     "metaData": {
                         "type": "object",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Details of the media file uploaded."
                     },
                     "alt": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Alternate text for media."
                     },
                     "title": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Title name give to the media."
                     },
                     "url": {
                         "description": "Runtime field, cannot be used as part of the criteria.",
@@ -3876,10 +4156,12 @@
                         "type": "boolean"
                     },
                     "private": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Set the parameter to `true`, if you want to keep the media display private."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -3892,7 +4174,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     },
                     "extensions": {
                         "properties": {
@@ -4052,11 +4335,13 @@
                     },
                     "mediaId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the media."
                     },
                     "tagId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of the tag."
                     },
                     "media": {
                         "$ref": "#/components/schemas/Media"
@@ -4082,24 +4367,28 @@
                     },
                     "mediaId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of media."
                     },
                     "width": {
                         "type": "integer",
                         "format": "int64",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Width of the thumbnail."
                     },
                     "height": {
                         "type": "integer",
                         "format": "int64",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Height of the thumbnail."
                     },
                     "url": {
                         "description": "Runtime field, cannot be used as part of the criteria.",
                         "type": "string"
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -4128,14 +4417,17 @@
                     },
                     "width": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Width of the thumbnail."
                     },
                     "height": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Height of the thumbnail."
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -4248,7 +4540,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -4321,7 +4614,8 @@
                         "readOnly": true
                     },
                     "translated": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Contains the translations of all translated fields."
                     }
                 },
                 "type": "object"
@@ -4383,7 +4677,8 @@
                     },
                     "orderDate": {
                         "type": "string",
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Date when the order was placed."
                     },
                     "price": {
                         "required": [
@@ -4416,10 +4711,12 @@
                             },
                             "rawTotal": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "The total value before rounding off."
                             },
                             "taxStatus": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "TaxStatus takes `Free`, `Net` or `Gross` as values."
                             },
                             "netprice": {
                                 "description": "Net price of the product."
@@ -4448,7 +4745,7 @@
                     "taxStatus": {
                         "type": "string",
                         "readOnly": true,
-                        "description": "TaxStatus takes `Free`, `Net` or `Gross`."
+                        "description": "TaxStatus takes `Free`, `Net` or `Gross` as values."
                     },
                     "shippingCosts": {
                         "required": [
@@ -4531,7 +4828,7 @@
                     },
                     "campaignCode": {
                         "type": "string",
-                        "description": "A campaign code is the globally unique identifier for a campaign"
+                        "description": "A campaign code is the globally unique identifier for a campaign."
                     },
                     "customerComment": {
                         "type": "string",
@@ -5147,7 +5444,8 @@
                     },
                     "parentId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of parent product."
                     },
                     "parentVersionId": {
                         "type": "string",
@@ -5856,15 +6154,18 @@
                     },
                     "orderTransactionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of order transaction."
                     },
                     "orderTransactionVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of order transaction version."
                     },
                     "stateId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of order state."
                     },
                     "externalReference": {
                         "type": "string"
@@ -5878,15 +6179,18 @@
                         "properties": {
                             "unitPrice": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "Price of product per item (where, quantity=1)."
                             },
                             "totalPrice": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "Cost of product based on quantity."
                             },
                             "quantity": {
                                 "type": "integer",
-                                "format": "int64"
+                                "format": "int64",
+                                "description": "Number of items of each product."
                             },
                             "calculatedTaxes": {
                                 "type": "object"
@@ -5927,7 +6231,8 @@
                         "type": "object"
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -5966,17 +6271,20 @@
                     },
                     "captureId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of order transaction capture."
                     },
                     "stateId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of order state."
                     },
                     "externalReference": {
                         "type": "string"
                     },
                     "reason": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Reason for refunding the amount for an order."
                     },
                     "amount": {
                         "required": [
@@ -5987,15 +6295,18 @@
                         "properties": {
                             "unitPrice": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "Price of product per item (where, quantity=1)."
                             },
                             "totalPrice": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "Cost of product based on quantity."
                             },
                             "quantity": {
                                 "type": "integer",
-                                "format": "int64"
+                                "format": "int64",
+                                "description": "Number of items of each product."
                             },
                             "calculatedTaxes": {
                                 "type": "object"
@@ -6036,7 +6347,8 @@
                         "type": "object"
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -6075,25 +6387,30 @@
                     },
                     "refundId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of order transaction capture refund."
                     },
                     "orderLineItemId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of order line item."
                     },
                     "orderLineItemVersionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of order line item version."
                     },
                     "externalReference": {
                         "type": "string"
                     },
                     "reason": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Reason for refunding the amount for an order."
                     },
                     "quantity": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "Quantity of line item to be refunded."
                     },
                     "amount": {
                         "required": [
@@ -6104,15 +6421,18 @@
                         "properties": {
                             "unitPrice": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "Price of product per item (where, quantity=1)."
                             },
                             "totalPrice": {
                                 "type": "number",
-                                "format": "float"
+                                "format": "float",
+                                "description": "Cost of product based on quantity."
                             },
                             "quantity": {
                                 "type": "integer",
-                                "format": "int64"
+                                "format": "int64",
+                                "description": "Number of items of each product."
                             },
                             "calculatedTaxes": {
                                 "type": "object"
@@ -6153,7 +6473,8 @@
                         "type": "object"
                     },
                     "customFields": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
                     },
                     "createdAt": {
                         "type": "string",
@@ -7488,7 +7809,7 @@
                     "canonicalProductId": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "description": "Unique identifier of canonical product."
+                        "description": "Unique identifier of cannonical product."
                     },
                     "cmsPageId": {
                         "type": "string",
@@ -7638,7 +7959,8 @@
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$"
                         },
-                        "readOnly": true
+                        "readOnly": true,
+                        "description": "Runtime field, cannot be used as part of the criteria."
                     },
                     "categoryIds": {
                         "type": "array",
@@ -7670,7 +7992,7 @@
                     },
                     "metaDescription": {
                         "type": "string",
-                        "description": "Product details for Google description."
+                        "description": "A short description of the product for search results listings."
                     },
                     "name": {
                         "type": "string",
@@ -7686,7 +8008,7 @@
                     },
                     "metaTitle": {
                         "type": "string",
-                        "description": "Title information of the product."
+                        "description": "A page title indexed by search engines and appears in search results listings."
                     },
                     "packUnit": {
                         "type": "string",
@@ -7702,7 +8024,7 @@
                     },
                     "calculatedPrice": {
                         "type": "object",
-                        "description": "This cannot be written via API."
+                        "description": "Runtime field, cannot be used as part of the criteria."
                     },
                     "calculatedPrices": {
                         "type": "array",
@@ -7710,16 +8032,16 @@
                             "type": "object",
                             "additionalProperties": false
                         },
-                        "description": "This cannot be written via API."
+                        "description": "Runtime field, cannot be used as part of the criteria."
                     },
                     "calculatedMaxPurchase": {
-                        "description": "This cannot be written via API.",
+                        "description": "Runtime field, cannot be used as part of the criteria.",
                         "type": "integer",
                         "format": "int64"
                     },
                     "calculatedCheapestPrice": {
                         "type": "object",
-                        "description": "This cannot be written via API."
+                        "description": "Runtime field, cannot be used as part of the criteria."
                     },
                     "isNew": {
                         "description": "Runtime field, cannot be used as part of the criteria.",
@@ -7881,30 +8203,32 @@
                     "versionId": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "description": "Unique identity of the ProductConfiguratorSetting version."
+                        "description": "Unique identity of ProductConfiguratorSetting version."
                     },
                     "productId": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "description": "Unique identity of the product."
+                        "description": "Unique identity of product."
                     },
                     "productVersionId": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "description": "Unique identity of the product's version."
+                        "description": "Unique identity of product version."
                     },
                     "mediaId": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "description": "Unique identity of the media."
+                        "description": "Unique identity of media."
                     },
                     "optionId": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{32}$"
+                        "pattern": "^[0-9a-f]{32}$",
+                        "description": "Unique identity of option."
                     },
                     "position": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "The order of the tabs of your defined product configuration settings in the storefront by entering numerical values like 1,2,3, etc."
                     },
                     "customFields": {
                         "type": "object",
@@ -7956,7 +8280,8 @@
                         "description": "To sort the display of products by name, price or publication (descending, ascending) date."
                     },
                     "sortDirection": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "To sort the display of products by ascending or descending order."
                     },
                     "type": {
                         "type": "string",
@@ -8161,7 +8486,8 @@
                         "description": "Unique identity of the media."
                     },
                     "link": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "URL of the manufacturer’s portal."
                     },
                     "name": {
                         "type": "string",
@@ -8479,14 +8805,17 @@
                         "pattern": "^[0-9a-f]{32}$"
                     },
                     "key": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A keyword associated to identify product sorting."
                     },
                     "priority": {
                         "type": "integer",
-                        "format": "int64"
+                        "format": "int64",
+                        "description": "A numerical value to prioritize the product sorting."
                     },
                     "label": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Label given to a product sorting."
                     },
                     "createdAt": {
                         "type": "string",
@@ -8855,7 +9184,7 @@
                     },
                     "colorHexCode": {
                         "type": "string",
-                        "description": "Property group options can be displayed in the form of color."
+                        "description": "Property group options can be displayed in the form of color. For example: #98e3f5ff."
                     },
                     "mediaId": {
                         "type": "string",
@@ -9087,7 +9416,8 @@
                         "description": "A short name for sales channel."
                     },
                     "taxCalculationType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Tax calculation types are `horizontal` and `vertical`."
                     },
                     "configuration": {
                         "type": "object"
@@ -9337,15 +9667,15 @@
                     },
                     "salutationKey": {
                         "type": "string",
-                        "description": "Technical name given to salutation."
+                        "description": "Technical name given to salutation. For example: mr"
                     },
                     "displayName": {
                         "type": "string",
-                        "description": "Name given for salutation and displayed in storefront."
+                        "description": "Name given for salutation and displayed in storefront. For example: Mr"
                     },
                     "letterName": {
                         "type": "string",
-                        "description": "Name given for salutation and used in the mail templates."
+                        "description": "Name given for salutation and used in the mail templates. For example, Dear Mr"
                     },
                     "customFields": {
                         "type": "object",
@@ -9521,13 +9851,16 @@
                         "description": "The key that references to product or category entity ID."
                     },
                     "routeName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A destination routeName that has been registered somewhere in the app's router. For example: \"frontend.detail.page\""
                     },
                     "pathInfo": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Path to product URL. For example: \"/detail/bbf36734504741c79a3bbe3795b91564\""
                     },
                     "seoPathInfo": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Seo path to product. For example: \"Pepper-white-ground-Muntok-pearl/SW10098\""
                     },
                     "isCanonical": {
                         "type": "boolean",
@@ -10017,10 +10350,12 @@
                         "description": "Unique identity od snippet set."
                     },
                     "translationKey": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Reference to the snippet in the template."
                     },
                     "value": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Value of the key."
                     },
                     "customFields": {
                         "type": "object",
@@ -15807,7 +16142,7 @@
                     "Endpoints supporting Criteria "
                 ],
                 "summary": "Fetch salutations",
-                "description": "Fetches salutations with a criteria obj.\n  ",
+                "description": "Fetches salutations with a criteria obj.",
                 "operationId": "readSalutation",
                 "parameters": [],
                 "requestBody": {
