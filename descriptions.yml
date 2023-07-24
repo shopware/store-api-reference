@@ -349,13 +349,13 @@
 ".components.schemas.OrderTransaction.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
-".components.schemas. OrderTransactionCapture.properties.orderTransactionId": >
+".components.schemas.OrderTransactionCapture.properties.orderTransactionId": >
   Unique identity of order transaction.
 
-".components.schemas. OrderTransactionCapture.properties.orderTransactionVersionId": >
+".components.schemas.OrderTransactionCapture.properties.orderTransactionVersionId": >
   Unique identity of order transaction version.
 
-".components.schemas. OrderTransactionCapture.properties.stateId": >
+".components.schemas.OrderTransactionCapture.properties.stateId": >
   Unique identity of order state.
 
 ".components.schemas.OrderTransactionCapture.properties.amount.properties.unitPrice": >
@@ -369,13 +369,13 @@
 ".components.schemas.OrderTransactionCapture.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
-".components.schemas. OrderTransactionCaptureRefund.properties.captureId": >
+".components.schemas.OrderTransactionCaptureRefund.properties.captureId": >
   Unique identity of order transaction capture.
 
-".components.schemas. OrderTransactionCaptureRefund.properties.stateId": >
+".components.schemas.OrderTransactionCaptureRefund.properties.stateId": >
   Unique identity of order state.
 
-".components.schemas. OrderTransactionCaptureRefund.properties.reason": >
+".components.schemas.OrderTransactionCaptureRefund.properties.reason": >
   Reason for refunding the amount for an order.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.amount.properties.unitPrice": >
@@ -390,20 +390,19 @@
 ".components.schemas.OrderTransactionCaptureRefund.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
-".components.schemas. OrderTransactionCaptureRefundPosition.properties.refundId": >
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.refundId": >
   Unique identity of order transaction capture refund.
 
-".components.schemas. OrderTransactionCaptureRefundPosition.properties.orderLineItemId": >
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.orderLineItemId": >
   Unique identity of order line item.
 
-".components.schemas. OrderTransactionCaptureRefundPosition.properties.orderLineItemVersionId": >
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.orderLineItemVersionId": >
   Unique identity of order line item version.
 
-
-".components.schemas. OrderTransactionCaptureRefundPosition.properties.reason": >
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.reason": >
   Reason for refunding the amount for an order.
 
-".components.schemas. OrderTransactionCaptureRefundPosition.properties.quantity": >
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.quantity": >
   Quantity of line item to be refunded.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.amount.properties.unitPrice": >
