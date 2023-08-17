@@ -318,7 +318,7 @@ All parameters are **optional** and can be passed within the request body.
 
 A single-product response from the search endpoint already measures ~11KB. That is because many fields from the product are loaded eagerly. However, you can restrict the response to only the fields you need.
 
-Take a look at the search response from above. Most of the objects contain a `apiAlias` key. You can use this key to refer to a list of fields you want to include in your response.
+Take a look at the search response from above. Most of the objects contain an `apiAlias` key. You can use this key to refer to a list of fields you want to include in your response.
 
 The following request provides us with a response containing the most essential fields we need to display a simple product listing that only measures ~2.5KB for a single-product listing.
 
