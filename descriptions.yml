@@ -1190,16 +1190,16 @@
   Number of categories below the main category.
 
 ".components.schemas.Category.properties.type": >
-  Type of category. Accepts following values - `page`, `folder`, `link`.
+  Type of categories like `page`, `folder`, `link`.
 
 ".components.schemas.Category.properties.productAssignmentType": >
-  Type of product assignment can either be Dynamic product group or Manual assignment and accepts value : `product` or `product_stream`.
+  Type of product assignment: Dynamic product group as or `product_stream` or Manual assignment as `product`.
 
 ".components.schemas.Category.properties.visible": >
-  When set to true, the categories are displayed on category page.
+  Displays categories on category page when true.
 
 ".components.schemas.Category.properties.active": >
-  When set to active, the category is listed for selection when adding products to a category.
+  Lists the category for selection when adding products to a category when true.
 
 ".components.schemas.Category.properties.name": >
   Name of the category.
@@ -1208,7 +1208,7 @@
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Category.properties.linkType": >
-  Accepts type : `external`, `category`, `product`, `landing_page`.
+  linkType : `external`, `category`, `product`, `landing_page`.
 
 ".components.schemas.Category.properties.internalLink": >
   When a particular category is clicked, it gets redirected to internal link.
@@ -1229,7 +1229,7 @@
   A short description of the page for search results listings.
 
 ".components.schemas.Category.properties.keywords": >
-  The keywords that help to search the category.
+  Keywords that help to search the category.
 
 ".components.schemas.Category.properties.cmsPageId": >
   Unique identity of CMS page.
@@ -1261,6 +1261,9 @@
 ".components.schemas.AppAdministrationSnippet.properties.localeId": >
   Unique identity that specifies the language and country.
 
+".components.schemas.AppAdministrationSnippet.properties.value": >
+//
+
 ".components.schemas.AppCmsBlock.properties.id": >
   Unique identity of app's CMS block.
 
@@ -1281,6 +1284,12 @@
 
 ".components.schemas.AppScriptCondition.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.AppFlowEvent.properties.id": >
+  Unique identity of App flow event.
+
+".components.schemas.AppTemplate.properties.id": >
+  Unique identity of App template.
 
 ".components.schemas.CmsBlock.properties.position": >
   Sets the position of the block.
