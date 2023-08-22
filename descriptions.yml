@@ -1292,10 +1292,10 @@
   Unique identity of App template.
 
 ".components.schemas.CmsBlock.properties.position": >
-  Sets the position of the block.
+  Order of the block indicated by number like 1, 2,...
 
 ".components.schemas.CmsBlock.properties.type": >
-  type of block can be `sidebar`  or `fullWidth`.
+  type of block can be `sidebar` or `fullWidth`.
 
 ".components.schemas.CmsBlock.properties.name": >
   Unique name of the CMS Block.
