@@ -1292,31 +1292,31 @@
   Unique identity of App template.
 
 ".components.schemas.CmsBlock.properties.position": >
-  Order of the block indicated by number like 1, 2,...
+  Order of the block indicated by number like 0, 1, 2,...
 
 ".components.schemas.CmsBlock.properties.type": >
-  type of block can be `sidebar` or `fullWidth`.
+  // type of block can be 'image`, `text`, 'product-listing`, `image-two-column`, etc.
 
 ".components.schemas.CmsBlock.properties.name": >
   Unique name of the CMS Block.
 
 ".components.schemas.CmsBlock.properties.sectionPosition": >
-  Position of the section.
+  // Position of the section. It can either be `main` or `sidebar` or `null` ? type.
 
 ".components.schemas.CmsBlock.properties.marginTop": >
-  A CSS property sets the margin area on the top of an element.
+  Defines the margin area on the top of an element.
 
 ".components.schemas.CmsBlock.properties.marginBottom": >
-  A CSS property sets the margin area on the bottom of an element.
+  Defines for the margin area on the bottom of an element.
 
 ".components.schemas.CmsBlock.properties.marginLeft": >
-  A CSS property sets the margin area on the left of an element.
+  Defines for the margin area on the left of an element.
 
 ".components.schemas.CmsBlock.properties.marginRight": >
-  A CSS property sets the margin area on the right of an element.
+  Defines the margin area on the right of an element.
 
 ".components.schemas.CmsBlock.properties.backgroundColor": >
-  A CSS property sets the background color of an element.
+  Defines the background color of an element.
 
 ".components.schemas.CmsBlock.properties.backgroundMediaId": >
   Unique identity of background media.
@@ -1349,13 +1349,13 @@
   CMS page types can be `landingpage`, `page`, `product_list`, `product_detail`.
 
 ".components.schemas.CmsPage.properties.entity": >
-  This field will be implemented in the future.
+  // This field will be implemented in the future.
 
 ".components.schemas.CmsPage.properties.cssClass": >
   One or more CSS classes added and separated by spaces.
 
 ".components.schemas.CmsPage.properties.config.properties.backgroundColor": >
-  Background color to be set for the CMS page.
+  Background color of the CMS page.
 
 ".components.schemas.CmsPage.properties.previewMediaId": >
   Unique identity of media to be previewed.
@@ -1367,7 +1367,7 @@
   Contains the translations of all translated fields.
 
 ".components.schemas.CmsSection.properties.position": >
-  Sets the position of the section.
+  Position of the section.
 
 ".components.schemas.CmsSection.properties.type": >
   Two types of sections can be created `sidebar` and `fullwidth`.
