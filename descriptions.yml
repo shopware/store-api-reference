@@ -4,6 +4,9 @@
 ".paths./salutation.post": >
   Fetches salutations with a criteria obj.
 
+".components.schemas.Order.properties.id": >
+  Unique identity of order.
+
 ".components.schemas.Order.properties.versionId": >
   Unique identity of order version.
 
@@ -33,6 +36,9 @@
 
 ".components.schemas.Order.properties.price.properties.netprice": >
   Net price of the product.
+
+".components.schemas.Order.properties.price.properties.netPrice": >
+  // this is displayed twice with only Price casing different.
 
 ".components.schemas.Order.properties.price.properties.totalPrice": >
   Gross price of the product.
@@ -67,6 +73,27 @@
 ".components.schemas.Order.properties.shippingCosts.properties.quantity": >
   Number of items of each product.
 
+".components.schemas.Order.properties.shippingCosts.properties.calculatedTaxes": >
+  //
+
+".components.schemas.Order.properties.shippingCosts.properties.taxRules": >
+  //
+
+".components.schemas.Order.properties.shippingCosts.properties.referencePrice": >
+  //
+
+".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.price": >
+  //
+
+".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.discount": >
+  //
+
+".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.percentage": >
+  //
+
+".components.schemas.Order.properties.shippingCosts.properties.regulationPrice.properties.price": >
+  //
+
 ".components.schemas.Order.properties.shippingTotal": >
   Total shipping cost of the ordered product.
 
@@ -85,8 +112,17 @@
 ".components.schemas.Order.properties.customerComment": >
   Comments given by comments.
 
+".components.schemas.Order.properties.source": >
+  //
+
+".components.schemas.Order.properties.extensions": >
+  //
+
 ".components.schemas.Order.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderAddress.properties.id": >
+  Unique identity of order's address.
 
 ".components.schemas.OrderAddress.properties.versionId": >
   Unique identity of OrderAddresses version.
@@ -136,6 +172,9 @@
 ".components.schemas.OrderAddress.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.OrderCustomer.properties.id": >
+  //
+
 ".components.schemas.OrderCustomer.properties.versionId": >
   Unique identity of OrderCustomer's version.
 
@@ -165,6 +204,9 @@
 
 ".components.schemas.OrderCustomer.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderDelivery.properties.id": >
+  Unique identity of Order's delivery.
 
 ".components.schemas.OrderDelivery.properties.versionId": >
   Unique identity of OrderDelivery's version.
@@ -205,8 +247,32 @@
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.quantity": >
   Number of items of each product.
 
+".components.schemas.OrderDelivery.properties.shippingCosts.properties.calculatedTaxes": >
+  //
+
+".components.schemas.OrderDelivery.properties.shippingCosts.properties.taxRules": >
+  //
+
+".components.schemas.OrderDelivery.properties.shippingCosts.properties.referencePrice": >
+  //
+
+".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.price": >
+  //
+
+".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.discount": >
+  //
+
+".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.percentage": >
+  //
+
+".components.schemas.OrderDelivery.properties.shippingCosts.properties.regulationPrice.properties.price": >
+  //
+
 ".components.schemas.OrderDelivery.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderDeliveryPosition.properties.id": >
+  //
 
 ".components.schemas.OrderDeliveryPosition.properties.versionId": >
   Unique identity of OrderDeliveryPosition's version.
@@ -232,6 +298,27 @@
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.quantity": >
   Number of items of each product.
 
+".components.schemas.OrderDeliveryPosition.properties.price.properties.calculatedTaxes": >
+  //
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.taxRules": >
+  //
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.referencePrice": >
+  //
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.listPrice.properties.price": >
+  //
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.listPrice.properties.discount": >
+  //
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.listPrice.properties.percentage": >
+  //
+
+".components.schemas.OrderDeliveryPosition.properties.price.properties.regulationPrice.properties.price": >
+  //
+
 ".components.schemas.OrderDeliveryPosition.properties.unitPrice": >
   Price of product per item (where, quantity=1).
 
@@ -243,6 +330,9 @@
 
 ".components.schemas.OrderDeliveryPosition.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderLineItem.properties.id": >
+  Unique identity of OrderLineItem.
 
 ".components.schemas.OrderLineItem.properties.versionId": >
   Unique identity of OrderLineItem's version.
@@ -295,6 +385,9 @@
 ".components.schemas.OrderLineItem.properties.position": >
   Position of line items placed in an order.
 
+".components.schemas.OrderLineItem.properties.states": >
+  //
+
 ".components.schemas.OrderLineItem.properties.priceDefinition": >
   Description of how the price has to be calculated. For example, in percentage or absolute value, etc.
 
@@ -311,6 +404,33 @@
   Type refers to the entity type of an item whether it is product or promotion for instance.
 
 ".components.schemas.OrderLineItem.properties.customFields": >
+  Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderLineItem.properties.extensions": >
+  //
+
+".components.schemas.OrderLineItemDownload.properties.id": >
+  Unique identity of Order line item downloaded.
+
+".components.schemas.OrderLineItemDownload.properties.versionId": >
+  Unique identity of Order line item downloaded version.
+
+".components.schemas.OrderLineItemDownload.properties.orderLineItemId": >
+  Unique identity of Order line item.
+
+".components.schemas.OrderLineItemDownload.properties.orderLineItemVersionId": >
+  Unique identity of Order line item's version.
+
+".components.schemas.OrderLineItemDownload.properties.mediaId": >
+  Unique identity of media.
+
+".components.schemas.OrderLineItemDownload.properties.position": >
+  //
+
+".components.schemas.OrderLineItemDownload.properties.accessGranted": >
+  //
+
+".components.schemas.OrderLineItemDownload.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderTag.properties.orderId": >
@@ -1339,6 +1459,9 @@
 ".components.schemas.CmsBlock.properties.cmsSectionVersionId": >
   Unique identity of CMS Section version.
 
+".components.schemas.CmsPage.properties.id": >
+  Unique identity of CMS page.
+
 ".components.schemas.CmsPage.properties.versionId": >
   Unique identity of CMS page version.
 
@@ -1366,11 +1489,14 @@
 ".components.schemas.CmsPage.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.CmsSection.properties.id": >
+  Unique identity of CMS section.
+
 ".components.schemas.CmsSection.properties.position": >
-  Position of the section.
+  Position of occurrence of each section denoted by numerical values 0, 1, 2...
 
 ".components.schemas.CmsSection.properties.type": >
-  Two types of sections can be created `sidebar` and `fullwidth`.
+  Types of sections can be `sidebar` or `fullwidth`.
 
 ".components.schemas.CmsSection.properties.name": >
   Name of the CMS section defined.
@@ -1379,7 +1505,7 @@
   Sizing mode can be `boxed` or `full_width`.
 
 ".components.schemas.CmsSection.properties.mobileBehavior": >
-  Unused field. To be removed in future.
+  // Unused field. To be removed in future.
 
 ".components.schemas.CmsSection.properties.backgroundColor": >
   Background color of CMS page.
@@ -1388,7 +1514,7 @@
   Unique identity of CMS section's background media.
 
 ".components.schemas.CmsSection.properties.backgroundMediaMode": >
-  Background media mode accept values `cover`, `auto`, `contain`.
+  Background media mode can be `cover`, `auto` or `contain`.
 
 ".components.schemas.CmsSection.properties.cssClass": >
   One or more CSS classes added and separated by spaces.
@@ -1396,11 +1522,23 @@
 ".components.schemas.CmsSection.properties.pageId": >
   Unique identity of page where CMS section is defined.
 
+".components.schemas.CmsSection.properties.visibility.properties.mobile": >
+  // Applies layout to fit mobile view when boolean value is `true`.
+
+".components.schemas.CmsSection.properties.visibility.properties.desktop": >
+  // Applies layout to fit desktop view when boolean value is `true`.
+
+".components.schemas.CmsSection.properties.visibility.properties.tablet": >
+  // Applies layout to fit tablet view when boolean value is `true`.
+
 ".components.schemas.CmsSection.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.CmsSection.properties.cmsPageVersionId": >
   Unique identity of CMS page version.
+
+".components.schemas.CmsSlot.properties.id": >
+  Unique identity of CMS slot.
 
 ".components.schemas.CmsSlot.properties.VersionId": >
   Unique identity of CMS slot's version.
@@ -1412,7 +1550,7 @@
   Key-value pair to configure which element to be shown in which slot.
 
 ".components.schemas.CmsSlot.properties.locked": >
-  Boolean value that determines the CMS slot movement.
+  // Boolean value that determines the CMS slot movement.
 
 ".components.schemas.CmsSlot.properties.config": >
   Specifies detailed information about how the component is to be rendered.
@@ -1426,44 +1564,47 @@
 ".components.schemas.CmsSlot.properties.blockId": >
   Unique identity of CMS block where slot is defined.
 
+".components.schemas.CmsSlot.properties.fieldConfig": >
+  // this ojbect is nt defined in json
+
 ".components.schemas.CmsSlot.properties.cmsBlockVersionId": >
   Unique identity of CMS block version.
 
 ".components.schemas.CmsSlot.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Country.properties.id": >
+  Unique identity of the country.
+
 ".components.schemas.Country.properties.name": >
   Name of the country.
+
+".components.schemas.Country.properties.iso": >
+  // why iso when iso3 is present.
 
 ".components.schemas.Country.properties.position": >
   Numerical value that indicates the order in which the defined countries must be displayed in the frontend.
 
 ".components.schemas.Country.properties.active": >
-  To set the country to active status, set it to true.
+  // To set the country to active status, set it to true. OR to make teh country available set it to true
 
 ".components.schemas.Country.properties.shippingAvailable": >
-  Set it to true, to allow shipping availability to this country.
+  The shipping availability for a country is enabled when boolean value is `true`.
 
 ".components.schemas.Country.properties.iso3": >
-  Internationally recognised country code.
+  Internationally recognized country code.
 
 ".components.schemas.Country.properties.displayStateInRegistration": >
-  Set to `true`, when State of the country needs to be displayed in the address.
+  The country's state is displayed in the address when boolean value is `true`.
 
 ".components.schemas.Country.properties.forceStateInRegistration": >
-  Set to `true` to force include the state details in the address.
-
-".components.schemas.Country.properties.companyTaxFree": >
-  Set to true, when a registered company is free from paying taxes.
+  State details in the address are force included when boolean value is `true`.
 
 ".components.schemas.Country.properties.checkVatIdPattern": >
   Verify if VAT ID is valid or not.
 
 ".components.schemas.Country.properties.vatIdRequired": >
   Set to true, if VAT ID is to be made mandatory.
-
-".components.schemas.Country.properties.taxFree": >
-  Set to true, if for a particular country chosen, the tax does'nt apply.
 
 ".components.schemas.Country.properties.vatIdPattern": >
   Unique VAT ID with country code and numbers, for example - GB999 9999
@@ -1472,25 +1613,25 @@
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Country.properties.customerTax.properties.enabled": >
-  Set to true, if the tax for the customer apply.
+  The boolean value is `true` if the tax for the customer apply.
 
 ".components.schemas.Country.properties.customerTax.properties.currencyId": >
   Unique identity of currency.
 
 ".components.schemas.Country.properties.customerTax.properties.amount": >
-  Sum of money to be paid by customer.
+  Sum of money to be paid by the customer.
 
 ".components.schemas.Country.properties.companyTax.properties.enabled": >
-  Set to true, if the tax for the company apply.
+  The boolean value is `true`, if the tax for the company apply.
 
 ".components.schemas.Country.properties.companyTax.properties.currencyId": >
   Unique identity of currency.
 
 ".components.schemas.Country.properties.companyTax.properties.amount": >
-  Sum of money to be paid by company.
+  Sum of money to be paid by the company.
 
 ".components.schemas.Country.properties.postalCodeRequired": >
-  Set to true if postal code is required in the address.
+  The postal code is made mandatory specification in the address, when boolean value is `true`.
 
 ".components.schemas.Country.properties.checkPostalCodePattern": >
   Verify for valid postal code pattern.
@@ -1499,7 +1640,7 @@
   Verify for advanced postal code pattern.
 
 ".components.schemas.Country.properties.advancedPostalCodePattern": >
-  Wildcard formatted zip codes to allow easy serching in the frontend based on intial constants, for example - 24****, 1856**
+  Wildcard formatted zip codes to allow easy searching in the frontend based on initial constants, for example - 24****, 1856**.
 
 ".components.schemas.Country.properties.addressFormat": >
   The address format with recipient's name, building number, street name, city, state and ZIP code on different lines as required.
@@ -1510,11 +1651,20 @@
 ".components.schemas.Country.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Country.properties.taxFree": >
+  When tax doesn't apply for a particular country, then the boolean value is `true`.
+
+".components.schemas.Country.properties.companyTaxFree": >
+  When a registered company is free from paying taxes, then the boolean value is `true`.
+
+".components.schemas.CountryState.properties.id": >
+  Unique identity of the country's state.
+
 ".components.schemas.CountryState.properties.countryId": >
   Unique identity of the country.
 
 ".components.schemas.CountryState.properties.shortCode": >
-  An abbrevation for the country's state.
+  An abbreviation for the country's state.
 
 ".components.schemas.CountryState.properties.name": >
   Name of the country's state.
@@ -1523,7 +1673,7 @@
   Numerical value that indicates the order in which the defined states must be displayed in the frontend.
 
 ".components.schemas.CountryState.properties.active": >
-  To set the state to active status, set it to true.
+  // To set the state to active status, set it to true. OR to make a state available for selection under a country, the boolean value is`true`
 
 ".components.schemas.CountryState.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -1531,14 +1681,17 @@
 ".components.schemas.CountryState.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Currency.properties.id": >
+  Unique identity of currency.
+
 ".components.schemas.Currency.properties.factor": >
-  Currency exchance rate.
+  Currency exchange rate.
 
 ".components.schemas.Currency.properties.symbol": >
   A currency symbol is a graphical representation used as shorthand for a currency's name, for example US Dollar - $
 
 ".components.schemas.Currency.properties.isoCode": >
-  Standard international three digit code to represernt currency. For example, USD.
+  Standard international three digit code to represent currency. For example, USD.
 
 ".components.schemas.Currency.properties.shortName": >
   Acronym for international currencies. For example, USD.
@@ -1576,6 +1729,24 @@
 ".components.schemas.Currency.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.CurrencyCountryRounding.properties.id": >
+  Unique identity of the country's currency rounding.
+
+".components.schemas.CustomEntity.properties.id": >
+  Unique identity of a custom entity.
+
+".components.schemas.CustomField.properties.id": >
+  Unique identity of a custom field.
+
+".components.schemas.CustomFieldSet.properties.id": >
+  Unique identity of a custom field set.
+
+".components.schemas.CustomFieldSetRelation.properties.id": >
+  Unique identity of a custom field set relation.
+
+".components.schemas.CustomPrice.properties.id": >
+  Unique identity of the custom price.
+
 ".components.schemas.CustomPrice.properties.productId": >
   Unique identity of the product.
 
@@ -1591,6 +1762,9 @@
 ".components.schemas.CustomPrice.properties.price": >
   Detailed information of price.
 
+".components.schemas.Customer.properties.id": >
+  Unique identity of the customer.
+
 ".components.schemas.Customer.properties.groupId": >
   Unique identity of customer group.
 
@@ -1598,7 +1772,7 @@
   Unique identity of default payment method.
 
 ".components.schemas.Customer.properties.salesChannelId": >
-  Unique identity of salesd channel.
+  Unique identity of sales channel.
 
 ".components.schemas.Customer.properties.languageId": >
   Unique identity of language.
@@ -1630,6 +1804,9 @@
 ".components.schemas.Customer.properties.email": >
   Email ID of the customer.
 
+".components.schemas.Customer.properties.title": >
+  // Titles or honorifics like Mr, Mrs, etc.
+
 ".components.schemas.Customer.properties.vatIds": >
   Unique identity of VAT.
 
@@ -1655,7 +1832,7 @@
   Password hash for account recovery.
 
 ".components.schemas.Customer.properties.guest": >
-  Set as `true` if it is to be a guest account.
+  Boolean value is `true` if it is to be a guest account.
 
 ".components.schemas.Customer.properties.firstLogin": >
   To capture date and time of customer's first login.
@@ -1675,11 +1852,23 @@
 ".components.schemas.Customer.properties.orderTotalAmount": >
   Sum of total amount to be paid.
 
+".components.schemas.Customer.properties.reviewCount": >
+  //
+
 ".components.schemas.Customer.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Customer.properties.tagIds": >
   Unique identity tag names given to the line item.
+
+".components.schemas.Customer.properties.accountType": >
+  //
+
+".components.schemas.Customer.properties.extensions.properties.specificFeatures": >
+  //
+
+".components.schemas.CustomerAddress.properties.id": >
+  Unique identity of customer's address.
 
 ".components.schemas.CustomerAddress.properties.customerId": >
   Unique identity of customer.
@@ -1698,6 +1887,7 @@
 
 ".components.schemas.CustomerAddress.properties.lastName": >
   Last name of the customer.
+
 ".components.schemas.CustomerAddress.properties.zipcode": >
   Postal or zipcode of customer's address.
 
@@ -1714,7 +1904,7 @@
   Name of customer's department.
 
 ".components.schemas.CustomerAddress.properties.title": >
-  Title given to a customer’s address
+  // Title given to a customer’s address OR customer ?
 
 ".components.schemas.CustomerAddress.properties.phoneNumber": >
   Customer's phone number.
@@ -1728,11 +1918,14 @@
 ".components.schemas.CustomerAddress.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.CustomerGroup.properties.id": >
+  Unique identity of the customer's group.
+
 ".components.schemas.CustomerGroup.properties.name": >
   Name of the customer group.
 
 ".components.schemas.CustomerGroup.properties.displayGross": >
-  Set to `true` if you want to display gross value to the customer else, net value will be displayed.
+  If boolean value is `true` gross value is displayed else, net value will be displayed to the customer.
 
 ".components.schemas.CustomerGroup.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -1755,11 +1948,26 @@
 ".components.schemas.CustomerGroup.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.CustomerRecovery.properties.id": >
+  Unique identity of the customer recovery account.
+
+".components.schemas.CustomerSpecificFeatures.properties.id": >
+  Unique identity of the customer specific features.
+
+".components.schemas.CustomerSpecificFeatures.properties.customerId": >
+  Unique identity of the customer.
+
+".components.schemas.CustomerTag.properties.id": >
+  Unique identity of the customer tag.
+
 ".components.schemas.CustomerTag.properties.customerId": >
   Unique identity of the customer.
 
 ".components.schemas.CustomerTag.properties.tagId": >
   Unique identity of the tag.
+
+".components.schemas.CustomerWishlist.properties.id": >
+  Unique identity of the customer's wishlist.
 
 ".components.schemas.CustomerWishlist.properties.customerId": >
   Unique identity of the customer.
@@ -1767,11 +1975,17 @@
 ".components.schemas.CustomerWishlist.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.CustomerWishlistProduct.properties.id": >
+  Unique identity of the product in customer wishlist.
+
 ".components.schemas.CustomerWishlistProduct.properties.productId": >
   Unique identity of the product.
 
 ".components.schemas.CustomerWishlistProduct.properties.productVersionId": >
   Unique identity of the product's version.
+
+".components.schemas.DeliveryTime.properties.id": >
+  Unique identity of delivery time.
 
 ".components.schemas.DeliveryTime.properties.name": >
   Name given to delivery time.
@@ -1790,6 +2004,9 @@
 
 ".components.schemas.DeliveryTime.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.Document.properties.id": >
+  Unique identity of document.
 
 ".components.schemas.Document.properties.documentTypeId": >
   Unique identity of document type.
@@ -1824,6 +2041,9 @@
 ".components.schemas.Document.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.DocumentBaseConfig.properties.id": >
+  Unique identity of the document base config.
+
 ".components.schemas.DocumentBaseConfig.properties.documentTypeId": >
   Unique identity of the document type.
 
@@ -1851,6 +2071,12 @@
 ".components.schemas.DocumentBaseConfig.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.DocumentBaseConfig.properties.logo": >
+  // wrongly referenced in json.
+
+".components.schemas.DocumentBaseConfigSalesChannel.properties.id": >
+  Unique identity of document's base config sales channel.
+
 ".components.schemas.DocumentBaseConfigSalesChannel.properties.documentBaseConfigId": >
   Unique identity of document's base config.
 
@@ -1859,6 +2085,9 @@
 
 ".components.schemas.DocumentBaseConfigSalesChannel.properties.documentTypeId": >
   Unique identity of document type.
+
+".components.schemas.DocumentType.properties.id": >
+  Unique identity of the document type.
 
 ".components.schemas.DocumentType.properties.name": >
   Name of the document type.
@@ -1872,11 +2101,35 @@
 ".components.schemas.DocumentType.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Flow.properties.id": >
+  Unique identity of flow.
+
+".components.schemas.FlowSequence.properties.id": >
+  Unique identity of flow.
+
+".components.schemas.FlowTemplate.properties.id": >
+  Unique identity of flow template.
+
+".components.schemas.ImportExportFile.properties.id": >
+  Unique identity of import-export file.
+
+".components.schemas.ImportExportLog.properties.id": >
+  Unique identity of import-export log.
+
+".components.schemas.ImportExportProfile.properties.id": >
+  Unique identity of import-export profile.
+
+".components.schemas.ImportExportProfile.properties.Integration": >
+  Unique identity of integration.
+
+".components.schemas.LandingPage.properties.id": >
+  Unique identity of landing page.
+
 ".components.schemas.LandingPage.properties.versionId": >
   Unique identity of landing page version.
 
 ".components.schemas.LandingPage.properties.active": >
-  Active landing pages are enlisted for use.
+  When `true`, respective landing pages are enlisted for use.
 
 ".components.schemas.LandingPage.properties.name": >
   Name of landing page.
@@ -1905,8 +2158,14 @@
 ".components.schemas.LandingPage.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Language.properties.id": >
+  Unique identity of language.
+
 ".components.schemas.Language.properties.parentId": >
   Unique identity of parent language.
+
+".components.schemas.Language.properties.localeId": >
+  Unique identity of locale.
 
 ".components.schemas.Language.properties.translationCodeId": >
   Unique identity of translation code.
@@ -1916,6 +2175,9 @@
 
 ".components.schemas.Language.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Locale.properties.id": >
+  Unique identity of locale.
 
 ".components.schemas.Locale.properties.code": >
   Code given to the locale. For example: en-CA.
@@ -1931,6 +2193,12 @@
 
 ".components.schemas.Locale.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.LogEntry.properties.id": >
+  Unique identity of log entry.
+
+".components.schemas.MailHeaderFooter.properties.id": >
+  Unique identity of mail's header and footer component.
 
 ".components.schemas.MailHeaderFooter.properties.systemDefault": >
   Unused field. To be removed in future.
@@ -1956,6 +2224,9 @@
 ".components.schemas.MailHeaderFooter.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.MailTemplate.properties.id": >
+  Unique identity of mail template.
+
 ".components.schemas.MailTemplate.properties.systemDefault": >
   Unused field. To be removed in future.
 
@@ -1974,6 +2245,9 @@
 ".components.schemas.MailTemplate.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.MailTemplateMedia.properties.id": >
+  Unique identity of mail template's media.
+
 ".components.schemas.MailTemplateMedia.properties.mailTemplateId": >
   Unique identity of the mail template.
 
@@ -1986,6 +2260,9 @@
 ".components.schemas.MailTemplateMedia.properties.position": >
   The order of multiple media templates defined is specified using numerical values like 1,2,3, etc.
 
+".components.schemas.MailTemplateType.properties.id": >
+  Unique identity of mail template type.
+
 ".components.schemas.MailTemplateType.properties.name": >
   Name of the mail template.
 
@@ -1997,6 +2274,9 @@
 
 ".components.schemas.MailTemplateType.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.MainCategory.properties.id": >
+  Unique identity of main category.
 
 ".components.schemas.MainCategory.properties.productId": >
   Unique identity of the product.
@@ -2012,6 +2292,9 @@
 
 ".components.schemas.MainCategory.properties.salesChannelId": >
   Unique identity of the sales channel.
+
+".components.schemas.Media.properties.id": >
+  Unique identity of media.
 
 ".components.schemas.Media.properties.mimeType": >
   A string sent along with a file indicating the type of the file. For example: image/jpeg.
@@ -2038,7 +2321,7 @@
   Title name give to the media.
 
 ".components.schemas.Media.properties.private": >
-  Set the parameter to `true`, if you want to keep the media display private.
+  When `true`, the media display is kept private.
 
 ".components.schemas.Media.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -2046,11 +2329,38 @@
 ".components.schemas.Media.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Media.properties.extensions": >
+  //
+
+".components.schemas.MediaAiTag.properties.id": >
+  Unique identity of the AI media tag.
+
+".components.schemas.MediaAiTag.properties.tag": >
+  //
+
+".components.schemas.MediaAiTag.properties.translated": >
+  Contains the translations of all translated fields.
+
+".components.schemas.MediaDefaultFolder.properties.id": >
+  Unique identity of media default folder.
+
+".components.schemas.MediaFolder.properties.id": >
+  Unique identity of media folder.
+
+".components.schemas.MediaFolderConfiguration.properties.id": >
+  Unique identity of media folder configuration.
+
+".components.schemas.MediaTag.properties.id": >
+  Unique identity of the media tag.
+
 ".components.schemas.MediaTag.properties.mediaId": >
   Unique identity of the media.
 
 ".components.schemas.MediaTag.properties.tagId": >
   Unique identity of the tag.
+
+".components.schemas.MediaThumbnail.properties.id": >
+  Unique identity of media thumbnail.
 
 ".components.schemas.MediaThumbnail.properties.mediaId": >
   Unique identity of media.
@@ -2061,8 +2371,14 @@
 ".components.schemas.MediaThumbnail.properties.height": >
   Height of the thumbnail.
 
+".components.schemas.MediaThumbnail.properties.url": >
+ //
+
 ".components.schemas.MediaThumbnail.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.MediaThumbnailSize.properties.id": >
+  Unique identity of media thumbnail size defined.
 
 ".components.schemas.MediaThumbnailSize.properties.width": >
   Width of the thumbnail.
@@ -2073,8 +2389,26 @@
 ".components.schemas.MediaThumbnailSize.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.NewsletterRecipient.properties.id": >
+  Unique identity of newsletter recipient.
+
+".components.schemas.Notification.properties.id": >
+  Unique identity of notification.
+
+".components.schemas.NumberRange.properties.id": >
+  Unique identity of number range.
+
 ".components.schemas.NumberRange.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.NumberRangeSalesChannel.properties.id": >
+  Unique identity of Sales channels's number rage.
+
+".components.schemas.NumberRangeState.properties.id": >
+  Unique identity of number range's state.
+
+".components.schemas.NumberRangeType.properties.id": >
+  Unique identity of number range's type.
 
 ".components.schemas.NumberRangeType.properties.translated": >
   Contains the translations of all translated fields.
