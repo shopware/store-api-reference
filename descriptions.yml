@@ -433,6 +433,144 @@
 ".components.schemas.OrderLineItemDownload.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.OrderProductWarehouse.properties.id": >
+  Unique identity of order's product warehouse.
+
+".components.schemas.OrderReturn.properties.id": >
+  Unique identity of order return.
+
+".components.schemas.OrderReturn.properties.versionId": >
+  Unique identity of order return's version.
+
+".components.schemas.OrderReturn.properties.orderId": >
+  Unique identity of order.
+
+".components.schemas.OrderReturn.properties.orderVersionId": >
+  Unique identity of order return version.
+
+".components.schemas.OrderReturn.properties.price.properties.netPrice": >
+  //
+
+".components.schemas.OrderReturn.properties.price.properties.totalPrice": >
+  //
+
+".components.schemas.OrderReturn.properties.price.properties.calculatedTaxes": >
+  //
+
+".components.schemas.OrderReturn.properties.price.properties.taxRules": >
+  //
+
+".components.schemas.OrderReturn.properties.price.properties.positionPrice": >
+  //
+
+".components.schemas.OrderReturn.properties.price.properties.rawTotal": >
+  //
+
+".components.schemas.OrderReturn.properties.price.properties.taxStatus": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.unitPrice": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.totalPrice": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.quantity": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.calculatedTaxes": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.taxRules": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.referencePrice": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.listPrice.properties.price": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.listPrice.properties.discount": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.listPrice.properties.percentage": >
+  //
+
+".components.schemas.OrderReturn.properties.shippingCosts.properties.regulationPrice.properties.price": >
+  //
+
+".components.schemas.OrderReturn.properties.stateId": >
+  //
+
+".components.schemas.OrderReturn.properties.returnNumber": >
+  //
+
+".components.schemas.OrderReturn.properties.requestedAt": >
+  //
+
+".components.schemas.OrderReturn.properties.amountTotal": >
+  //
+
+".components.schemas.OrderReturn.properties.amountNet": >
+  //
+
+".components.schemas.OrderReturn.properties.createdById": >
+  //
+
+".components.schemas.OrderReturn.properties.updatedById": >
+  //
+
+".components.schemas.OrderReturnLineItem.properties.id": >
+  Unique identity of order return line item.
+
+".components.schemas.OrderReturnLineItem.properties.versionId": >
+  Unique identity of order return line item's version.
+
+".components.schemas.OrderReturnLineItem.properties.orderReturnId": >
+  Unique identity of order return.
+
+".components.schemas.OrderReturnLineItem.properties.orderReturnVersionId": >
+  Unique identity of order return version.
+
+".components.schemas.OrderReturnLineItem.properties.orderLineItemId": >
+  Unique identity of order line item.
+
+".components.schemas.OrderReturnLineItem.properties.orderLineItemVersionId": >
+  Unique identity of order line items's version.
+
+".components.schemas.OrderReturnLineItem.properties.reasonId": >
+  Unique identity of reason for return.
+
+".components.schemas.OrderReturnLineItem.properties.quantity": >
+  Number of line items returned.
+
+".components.schemas.OrderReturnLineItem.properties.refundAmount": >
+  Amount to be refunded.
+
+".components.schemas.OrderReturnLineItem.properties.restockQuantity": >
+  // Updation of the stock after the return of those line items are initiated.
+
+".components.schemas.OrderReturnLineItem.properties.customFields": >
+  Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderReturnLineItem.properties.stateId": >
+  //
+
+".components.schemas.OrderReturnLineItemReason.properties.id": >
+  Unique identity for reason of return.
+
+".components.schemas.OrderReturnLineItemReason.properties.reasonKey": >
+  //
+
+".components.schemas.OrderReturnLineItemReason.properties.content": >
+  Description of the reason of return.
+
+".components.schemas.OrderReturnLineItemReason.properties.translated": >
+  Contains the translations of all translated fields.
+
+".components.schemas.OrderTag.properties.id": >
+  Unique identity of order tag.
+
 ".components.schemas.OrderTag.properties.orderId": >
   Unique identity of order.
 
@@ -441,6 +579,9 @@
 
 ".components.schemas.OrderTag.properties.tagId": >
   Unique identity of tag given for an order.
+
+".components.schemas.OrderTransaction.properties.id": >
+  Unique identity of order transaction.
 
 ".components.schemas.OrderTransaction.properties.versionId": >
   Unique identity of OrderTransaction's version.
@@ -463,11 +604,38 @@
 ".components.schemas.OrderTransaction.properties.amount.properties.quantity": >
   Number of items of each product.
 
+".components.schemas.OrderTransaction.properties.shippingCosts.properties.calculatedTaxes": >
+  //
+
+".components.schemas.OrderTransaction.properties.shippingCosts.properties.taxRules": >
+  //
+
+".components.schemas.OrderTransaction.properties.shippingCosts.properties.referencePrice": >
+  //
+
+".components.schemas.OrderTransaction.properties.shippingCosts.properties.listPrice.properties.price": >
+  //
+
+".components.schemas.OrderTransaction.properties.shippingCosts.properties.listPrice.properties.discount": >
+  //
+
+".components.schemas.OrderTransaction.properties.shippingCosts.properties.listPrice.properties.percentage": >
+  //
+
+".components.schemas.OrderTransaction.properties.shippingCosts.properties.regulationPrice.properties.price": >
+  //
+
 ".components.schemas.OrderTransaction.properties.stateId": >
   Unique identity of state.
 
 ".components.schemas.OrderTransaction.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderTransactionCapture.properties.id": >
+  Unique identity of order transaction capture.
+
+".components.schemas.OrderTransactionCapture.properties.versionId": >
+  Unique identity of order transaction capture's version.
 
 ".components.schemas.OrderTransactionCapture.properties.orderTransactionId": >
   Unique identity of order transaction.
@@ -478,6 +646,9 @@
 ".components.schemas.OrderTransactionCapture.properties.stateId": >
   Unique identity of order state.
 
+".components.schemas.OrderTransactionCapture.properties.externalReference": >
+  //
+
 ".components.schemas.OrderTransactionCapture.properties.amount.properties.unitPrice": >
   Price of product per item (where, quantity=1).
 
@@ -486,14 +657,48 @@
 
 ".components.schemas.OrderTransactionCapture.properties.amount.properties.quantity": >
   Number of items of each product.
+
+".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.calculatedTaxes": >
+  //
+
+".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.taxRules": >
+  //
+
+".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.referencePrice": >
+  //
+
+".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.listPrice.properties.price": >
+  //
+
+".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.listPrice.properties.discount": >
+  //
+
+".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.listPrice.properties.percentage": >
+  //
+
+".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.regulationPrice.properties.price": >
+  //
+
 ".components.schemas.OrderTransactionCapture.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderTransactionCaptureRefund.properties.id": >
+  Unique identity of order transaction capture refund.
+
+".components.schemas.OrderTransactionCaptureRefund.properties.versionId": >
+  Unique identity of order transaction capture refund's version.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.captureId": >
   Unique identity of order transaction capture.
 
+".components.schemas.OrderTransactionCaptureRefund.properties.captureVersionId": >
+  Unique identity of order transaction capture's version.
+
 ".components.schemas.OrderTransactionCaptureRefund.properties.stateId": >
   Unique identity of order state.
+
+".components.schemas.OrderTransactionCaptureRefund.properties.externalReference": >
+  // 
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.reason": >
   Reason for refunding the amount for an order.
@@ -507,17 +712,50 @@
 ".components.schemas.OrderTransactionCaptureRefund.properties.amount.properties.quantity": >
   Number of items of each product.
 
+".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.calculatedTaxes": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.taxRules": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.referencePrice": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.listPrice.properties.price": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.listPrice.properties.discount": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.listPrice.properties.percentage": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.regulationPrice.properties.price": >
+  //
+
 ".components.schemas.OrderTransactionCaptureRefund.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.id": >
+  Unique identity of order transaction capture refund position.
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.versionId": >
+  Unique identity of order transaction capture refund position's version.
+
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.refundId": >
   Unique identity of order transaction capture refund.
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.refundVersionId": >
+  Unique identity of order transaction capture refund's version.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.orderLineItemId": >
   Unique identity of order line item.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.orderLineItemVersionId": >
   Unique identity of order line item version.
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.externalReference": >
+  //
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.reason": >
   Reason for refunding the amount for an order.
@@ -534,8 +772,35 @@
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.amount.properties.quantity": >
   Number of items of each product.
 
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.calculatedTaxes": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.taxRules": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.referencePrice": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.listPrice.properties.price": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.listPrice.properties.discount": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.listPrice.properties.percentage": >
+  //
+
+".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.regulationPrice.properties.price": >
+  //
+
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.OrderWarehouseGroup.properties.id": >
+  Unique identity of order warehouse group.
+
+".components.schemas.PaymentMethod.properties.id": >
+  Unique identity of payment method.
 
 ".components.schemas.PaymentMethod.properties.name": >
   Name of the payment method.
@@ -564,8 +829,14 @@
 ".components.schemas.PaymentMethod.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Plugin.properties.id": >
+  Unique identity of a plugin.
+
 ".components.schemas.Plugin.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.Product.properties.id": >
+  Unique identity of the product.
 
 ".components.schemas.Product.properties.versionId": >
   Unique identity of the product's version.
@@ -598,7 +869,7 @@
   Unique identifier of delivery time.
 
 ".components.schemas.Product.properties.canonicalProductId": >
-  Unique identifier of cannonical product.
+  Unique identifier of canonical product.
 
 ".components.schemas.Product.properties.cmsPageId": >
   Unique identifier of CMS page.
@@ -741,18 +1012,29 @@
 ".components.schemas.Product.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Product.properties.sortedProperties": >
+  //
+
+".components.schemas.Product.properties.externalReference": >
+  //
+
+".components.schemas.Product.properties.states": >
+  //
+
 ".components.schemas.Product.properties.deliveryTime": >
   Time taken for the product to reach the customer. If a delivery time is defined in the product, it overwrites the delivery time of a shipping method.
 
+".components.schemas.ProductConfiguratorSetting.properties.id": >
+  Unique identity of Product configurator setting.
+
 ".components.schemas.ProductConfiguratorSetting.properties.versionId": >
-  Unique identity of ProductConfiguratorSetting version.
+  Unique identity of Product configurator setting version.
 
 ".components.schemas.ProductConfiguratorSetting.properties.productId": >
   Unique identity of product.
 
 ".components.schemas.ProductConfiguratorSetting.properties.productVersionId": >
   Unique identity of product version.
-
 
 ".components.schemas.ProductConfiguratorSetting.properties.mediaId": >
   Unique identity of media.
@@ -765,6 +1047,9 @@
 
 ".components.schemas.ProductConfiguratorSetting.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ProductCrossSelling.properties.id": >
+  Unique identity of product cross selling.
 
 ".components.schemas.ProductCrossSelling.properties.name": >
   Name defined for Product cross selling.
@@ -790,8 +1075,41 @@
 ".components.schemas.ProductCrossSelling.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.ProductCrossSellingAssignedProducts.properties.id": >
+  // Unique identity of Product CrossSelling Assigned Products.
+
+".components.schemas.ProductDownload.properties.id": >
+  Unique identity downloaded product.
+
+".components.schemas.ProductDownload.properties.versionId": >
+  Unique identity of downloaded product's version.
+
+".components.schemas.ProductDownload.properties.productId": >
+  Unique identity of Product.
+
+".components.schemas.ProductDownload.properties.productVersionId": >
+  Unique identity of Product version.
+
+".components.schemas.ProductDownload.properties.mediaId": >
+  Unique identity of media.
+
+".components.schemas.ProductDownload.properties.position": >
+  //
+
+".components.schemas.ProductDownload.properties.customFields": >
+  Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ProductExport.properties.id": >
+  Unique identity of Exported Product.
+
+".components.schemas.ProductFeatureSet.properties.id": >
+  Unique identity of product feature set.
+
 ".components.schemas.ProductFeatureSet.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.ProductKeywordDictionary.properties.id": >
+  Unique identity of product keyword.
 
 ".components.schemas.ProductKeywordDictionary.properties.languageId": >
   Unique identity of the language.
@@ -799,14 +1117,17 @@
 ".components.schemas.ProductKeywordDictionary.properties.keyword": >
   The keywords that help to search the product.
 
+".components.schemas.ProductManufacturer.properties.id": >
+  Unique identity of the Product Manufacturer.
+
 ".components.schemas.ProductManufacturer.properties.versionId": >
-  Unique identity of the ProductManufacturer version.
+  Unique identity of the ProductManufacturer's version.
 
 ".components.schemas.ProductManufacturer.properties.mediaId": >
   Unique identity of the media.
 
 ".components.schemas.ProductManufacturer.properties.link": >
-  URL of the manufacturer’s portal.
+  URL of the manufacturer's portal.
 
 ".components.schemas.ProductManufacturer.properties.name": >
   Name of the product manufacturer.
@@ -819,6 +1140,9 @@
 
 ".components.schemas.ProductManufacturer.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.ProductMedia.properties.id": >
+  Unique identity of the Product Media.
 
 ".components.schemas.ProductMedia.properties.versionId": >
   Unique identity of the ProductMedia version.
@@ -837,6 +1161,12 @@
 
 ".components.schemas.ProductMedia.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ProductPrice.properties.id": >
+  Unique identity of the product's price.
+
+".components.schemas.ProductReview.properties.id": >
+  Unique identity of the product's review.
 
 ".components.schemas.ProductReview.properties.productId": >
   Unique identity of the product.
@@ -868,6 +1198,36 @@
 ".components.schemas.ProductReview.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.ProductReviewSummary.properties.id": >
+  Unique identity of products's review summary.
+
+".components.schemas.ProductReviewSummary.properties.productId": >
+  Unique identity of products.
+
+".components.schemas.ProductReviewSummary.properties.salesChannelId": >
+  Unique identity of sales channel.
+
+".components.schemas.ProductReviewSummary.properties.summary": >
+  Unique identity of products's review summary.
+
+".components.schemas.ProductReviewSummary.properties.visible": >
+  //
+
+".components.schemas.ProductReviewSummary.properties.translated": >
+  Contains the translations of all translated fields.
+
+".components.schemas.ProductSearchConfig.properties.id": >
+  Unique identity of Product Search Configuration.
+
+".components.schemas.ProductSearchConfigField.properties.id": >
+  Unique identity of Product Search Configuration field.
+
+".components.schemas.ProductSearchKeyword.properties.id": >
+  Unique identity of Product Search Keyword.
+
+".components.schemas.ProductSorting.properties.id": >
+  Unique identity of Product sorting.
+
 ".components.schemas.ProductSorting.properties.key": >
   A keyword associated to identify product sorting.
 
@@ -879,6 +1239,9 @@
 
 ".components.schemas.ProductSorting.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.ProductStream.properties.id": >
+  Unique identity of product stream.
 
 ".components.schemas.ProductStream.properties.name": >
   Name of the Dynamic Group to be created.
@@ -892,11 +1255,41 @@
 ".components.schemas.ProductStream.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.ProductStreamFilter.properties.id": >
+  Unique identity of product stream filter.
+
+".components.schemas.ProductVisibility.properties.id": >
+  Unique identity of product visibility.
+
+".components.schemas.ProductWarehouse.properties.id": >
+  Unique identity of warehouse of product.
+
+".components.schemas.Promotion.properties.id": >
+  Unique identity of promotion.
+
 ".components.schemas.Promotion.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Promotion.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.PromotionDiscount.properties.id": >
+  Unique identity of promotion discount.
+
+".components.schemas.PromotionDiscountPrices.properties.id": >
+  Unique identity of promotion discount price.
+
+".components.schemas.PromotionIndividualCode.properties.id": >
+  //
+
+".components.schemas.PromotionSalesChannel.properties.id": >
+  Unique identity of promotion on sales channel.
+
+".components.schemas.PromotionSetgroup.properties.id": >
+  //
+
+".components.schemas.PropertyGroup.properties.id": >
+  Unique identity of property group.
 
 ".components.schemas.PropertyGroup.properties.name": >
   Name of the property group.
