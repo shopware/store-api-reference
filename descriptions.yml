@@ -1318,6 +1318,9 @@
 ".components.schemas.PropertyGroup.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.PropertyGroupOption.properties.id": >
+  Unique identity of property group option.
+
 ".components.schemas.PropertyGroupOption.properties.groupId": >
   Unique identity of property group.
 
@@ -1339,6 +1342,9 @@
 ".components.schemas.PropertyGroupOption.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.Rule.properties.id": >
+  Unique identity of rule.
+
 ".components.schemas.Rule.properties.name": >
   Name of the rule defined.
 
@@ -1347,6 +1353,15 @@
 
 ".components.schemas.Rule.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Rule.properties.extensions": >
+  //
+
+".components.schemas.RuleCondition.properties.id": >
+  Unique identity of rule condition.
+
+".components.schemas.SalesChannel.properties.id": >
+  Unique identity of sales channel.
 
 ".components.schemas.SalesChannel.properties.languageId": >
   Unique identity of language used.
@@ -1414,6 +1429,15 @@
 ".components.schemas.SalesChannel.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.SalesChannel.properties.translated": >
+  Contains the translations of all translated fields.
+
+".components.schemas.SalesChannelAnalytics.properties.id": >
+  Unique identity of sales channel analytics.
+
+".components.schemas.SalesChannelDomain.properties.id": >
+  Unique identity of sales channel domain.
+
 ".components.schemas.SalesChannelDomain.properties.url": >
   URL of the sales channel domain.
 
@@ -1435,8 +1459,14 @@
 ".components.schemas.SalesChannelDomain.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.SalesChannelType.properties.id": >
+  Unique identity of sales channel type.
+
 ".components.schemas.SalesChannelType.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.Salutation.properties.id": >
+  Unique identity of salutation.
 
 ".components.schemas.Salutation.properties.salutationKey": >
   Technical name given to salutation. For example: mr
@@ -1452,6 +1482,15 @@
 
 ".components.schemas.Salutation.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.ScheduledTask.properties.id": >
+  Unique identity of scheduled task.
+
+".components.schemas.Script.properties.id": >
+  Unique identity of a script.
+
+".components.schemas.SeoUrl.properties.id": >
+  Unique identity of Seo Url.
 
 ".components.schemas.SeoUrl.properties.salesChannelId": >
   Unique identity of sales channel.
@@ -1474,11 +1513,17 @@
 ".components.schemas.SeoUrl.properties.isCanonical": >
   When set to true, search redirects to the main URL.
 
+".components.schemas.SeoUrl.properties.isModified": >
+  //
+
 ".components.schemas.SeoUrl.properties.isDeleted": >
   When set to true, the URL is deleted and cannot be used any more but it is still available on table and can be restored later.
 
 ".components.schemas.SeoUrl.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.SeoUrlTemplate.properties.id": >
+  Unique identity of Seo Url template.
 
 ".components.schemas.SeoUrlTemplate.properties.salesChannelId": >
   Unique identity of sales channel.
@@ -1488,6 +1533,9 @@
 
 ".components.schemas.SeoUrlTemplate.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.ShippingMethod.properties.id": >
+  Unique identity of shipping method.
 
 ".components.schemas.ShippingMethod.properties.name": >
   Name of the shipping method.
@@ -1519,6 +1567,9 @@
 ".components.schemas.ShippingMethod.properties.translated": >
   Contains the translations of all translated fields.
 
+".components.schemas.ShippingMethodPrice.properties.id": >
+  Unique identity of shipping method price.
+
 ".components.schemas.ShippingMethodPrice.properties.shippingMethodId": >
   Unique identity of shipping method.
 
@@ -1537,8 +1588,14 @@
 ".components.schemas.ShippingMethodPrice.properties.quantityEnd": >
   Ending range of quantity of an item.
 
+".components.schemas.ShippingMethodPrice.properties.currencyPrice": >
+  //
+
 ".components.schemas.ShippingMethodPrice.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.Snippet.properties.id": >
+  Unique identity of snippet.
 
 ".components.schemas.Snippet.properties.setId": >
   Unique identity od snippet set.
@@ -1552,6 +1609,9 @@
 ".components.schemas.Snippet.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.SnippetSet.properties.id": >
+  Unique identity of snippet set.
+
 ".components.schemas.SnippetSet.properties.name": >
   Name of snippet set.
 
@@ -1561,8 +1621,17 @@
 ".components.schemas.SnippetSet.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.StateMachine.properties.id": >
+  Unique identity of state machine.
+
 ".components.schemas.StateMachine.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.StateMachineHistory.properties.id": >
+  Unique identity of state machine history.
+
+".components.schemas.StateMachineState.properties.id": >
+  Unique identity of state machine state.
 
 ".components.schemas.StateMachineState.properties.technicalName": >
   Technical name of StateMachineState.
@@ -1575,6 +1644,12 @@
 
 ".components.schemas.StateMachineState.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.StateMachineTransition.properties.id": >
+  Unique identity of state machine transition.
+
+".components.schemas.Subscription.properties.id": >
+  // this is not generated in store api but present in schema.
 
 ".components.schemas.Tax.properties.taxRate": >
   Rate of tax.
