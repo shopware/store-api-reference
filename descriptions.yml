@@ -8,19 +8,19 @@
   Unique identity of cart.
 
 ".components.schemas.Cart.properties.errors.properties.key": >
-  //
+  //It is a message key unique to every message.
 
 ".components.schemas.Cart.properties.errors.properties.level": >
-  //
+  //Types of level - Notice, warning and error.  
 
 ".components.schemas.Cart.properties.errors.properties.message": >
-  A description of error.
+  //A persistent error passed from the shopping cart calculation processes to the user end.
 
 ".components.schemas.Cart.properties.transactions.properties.paymentMethodId": >
   Unique identity of payment method.
 
 ".components.schemas.Cart.properties.modified": >
-  //
+  //It signifies changes to cart.
 
 ".components.schemas.SalesChannelContext.properties.currentCustomerGroup.properties.name": >
   //
@@ -419,6 +419,234 @@
   //
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.translations.properties.description": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.orderId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.shippingOrderAddressId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.shippingMethodId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.shippingDateEarliest": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.shippingDateLatest": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.stateId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.stateId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.languageId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.currencyId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.paymentMethodId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.shippingMethodId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.countryId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.navigationCategoryId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.navigationCategoryDepth": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.footerCategoryId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.serviceCategoryId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.name": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.shortName": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.accessKey": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.active": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.maintenance": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.maintenanceIpWhitelist": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.mailHeaderFooterId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.customerGroupId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.hreflangActive": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.hreflangDefaultDomainId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.stateId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.languageId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.currencyId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.paymentMethodId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.shippingMethodId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.countryId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.navigationCategoryId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.navigationCategoryDepth": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.footerCategoryId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.serviceCategoryId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.name": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.shortName": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.accessKey": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.active": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.maintenance": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.maintenanceIpWhitelist": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.mailHeaderFooterId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.customerGroupId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.hreflangActive": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.hreflangDefaultDomainId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRule.properties.name": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRule.properties.description": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRule.properties.priority": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRule.properties.invalid": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRuleId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.shippingMethodId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.currencyId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.ruleId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.calculation": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.quantityStart": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.quantityEnd": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.price": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.calculationRuleId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.mediaId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.userId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.mimeType": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.fileExtension": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.fileSize": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.title": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.metaDataRaw": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.mediaTypeRaw": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.alt": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.url": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.fileName": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.mediaFolderId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.private": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.thumbnailsRo": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.tags.properties.name": >
+  //
+
+".components.schemas.FindProductVariantRouteResponse.properties.foundCombination.properties.variantId": >
+  //
+
+".components.schemas.FindProductVariantRouteResponse.properties.foundCombination.properties.options": >
   //
 
 ".components.schemas.Order.properties.id": >
