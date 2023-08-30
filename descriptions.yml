@@ -4,6 +4,423 @@
 ".paths./salutation.post": >
   Fetches salutations with a criteria obj.
 
+".components.schemas.Cart.properties.id": >
+  Unique identity of cart.
+
+".components.schemas.Cart.properties.errors.properties.key": >
+  //
+
+".components.schemas.Cart.properties.errors.properties.level": >
+  //
+
+".components.schemas.Cart.properties.errors.properties.message": >
+  A description of error.
+
+".components.schemas.Cart.properties.transactions.properties.paymentMethodId": >
+  Unique identity of payment method.
+
+".components.schemas.Cart.properties.modified": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currentCustomerGroup.properties.name": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currentCustomerGroup.properties.displayGross": >
+  //
+
+".components.schemas.SalesChannelContext.properties.fallbackCustomerGroup.properties.name": >
+  //
+
+".components.schemas.SalesChannelContext.properties.fallbackCustomerGroup.properties.displayGross": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currency.properties.isoCode": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currency.properties.factor": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currency.properties.symbol": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currency.properties.shortName": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currency.properties.name": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currency.properties.position": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currency.properties.decimalPrecision": >
+  //
+
+".components.schemas.SalesChannelContext.properties.currency.properties.isSystemDefault": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.typeId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.languageId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.currencyId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.paymentMethodId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.shippingMethodId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.countryId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.navigationCategoryId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.navigationCategoryDepth": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.footerCategoryId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.serviceCategoryId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.name": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.shortName": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.accessKey": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.active": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.maintenance": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.maintenanceIpWhitelist": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.mailHeaderFooterId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.customerGroupId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.hreflangActive": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.hreflangDefaultDomainId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.salesChannel.properties.analyticsId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.taxRules.properties.taxRate": >
+  //
+
+".components.schemas.SalesChannelContext.properties.taxRules.properties.name": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.groupId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.defaultPaymentMethodId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.salesChannelId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.languageId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.lastPaymentMethodId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.defaultBillingAddressId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.defaultShippingAddressId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.customerNumber": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.salutationId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.firstName": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.lastName": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.company": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.password": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.email": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.title": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.affiliateCode": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.campaignCode": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.active": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.doubleOptInRegistration": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.doubleOptInEmailSentDate": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.doubleOptInConfirmDate": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.hash": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.guest": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.firstLogin": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.lastLogin": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.newsletter": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.birthday": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.lastOrderDate": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.orderCount": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.legacyEncoder": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.legacyPassword": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.autoIncrement": >
+  //
+
+".components.schemas.SalesChannelContext.properties.customer.properties.remoteAddress": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.pluginId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.handlerIdentifier": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.name": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.description": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.position": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.active": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.availabilityRuleId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.mediaId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.paymentMethod.properties.formattedHandlerIdentifier": >
+  //
+
+".components.schemas.SalesChannelContext.properties.shippingMethod.properties.name": >
+  //
+
+".components.schemas.SalesChannelContext.properties.shippingMethod.properties.active": >
+  //
+
+".components.schemas.SalesChannelContext.properties.shippingMethod.properties.description": >
+  //
+
+".components.schemas.SalesChannelContext.properties.shippingMethod.properties.trackingUrl": >
+  //
+
+".components.schemas.SalesChannelContext.properties.shippingMethod.properties.deliveryTimeId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.shippingMethod.properties.availabilityRuleId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.shippingMethod.properties.mediaId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.context.properties.versionId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.context.properties.currencyId": >
+  //
+
+".components.schemas.SalesChannelContext.properties.context.properties.currencyFactor": >
+  //
+
+".components.schemas.SalesChannelContext.properties.context.properties.currencyPrecision": >
+  //
+
+".components.schemas.SalesChannelContext.properties.context.properties.scope": >
+  //
+
+".components.schemas.SalesChannelContext.properties.context.properties.source": >
+  //
+
+".components.schemas.SalesChannelContext.properties.context.properties.taxState": >
+  //
+
+".components.schemas.SalesChannelContext.properties.context.properties.useCache": >
+  //
+
+".components.schemas.ProductListingResult.properties.": >
+  // name of the object itself is not generated
+
+".components.schemas.OrderRouteResponse.properties.orders": >
+  // object is not expandable
+
+".components.schemas.AccountNewsletterRecipientResult.properties.status": >
+  //
+
+".components.schemas.ProductDetailResponse.properties.id": >
+  Unique identity of product detail response.
+
+".components.schemas.ProductDetailResponse.properties.available": >
+  //
+
+".components.schemas.ProductDetailResponse.properties.isCloseout": >
+  //
+
+".components.schemas.ProductDetailResponse.properties.displayGroup": >
+  //
+
+".components.schemas.ProductDetailResponse.properties.manufacturerNumber": >
+  //
+
+".components.schemas.ProductDetailResponse.properties.stock": >
+  //
+
+".components.schemas.ProductDetailResponse.properties.sortedProperties": >
+  //
+
+".components.schemas.Criteria.properties.filter.properties.type": >
+  //
+
+".components.schemas.Criteria.properties.filter.properties.field": >
+  //
+
+".components.schemas.Criteria.properties.filter.properties.value": >
+  //
+
+".components.schemas.Criteria.properties.sort.properties.field": >
+  //
+
+".components.schemas.Criteria.properties.sort.properties.order": >
+  //
+
+".components.schemas.Criteria.properties.sort.properties.naturalSorting": >
+  //
+
+".components.schemas.Criteria.properties.post-filter.properties.type": >
+  //
+
+".components.schemas.Criteria.properties.post-filter.properties.field": >
+  //
+
+".components.schemas.Criteria.properties.post-filter.properties.value": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.filter.properties.type": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.filter.properties.field": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.filter.properties.value": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.sort.properties.field": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.sort.properties.order": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.sort.properties.naturalSorting": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.post-filter.properties.type": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.post-filter.properties.field": >
+  //
+
+".components.schemas.ProductListingCriteria.properties.post-filter.properties.value": >
+  //
+
+".components.schemas.CartItems.properties.items.properties.id": >
+  Unique identity of cart item.
+
+".components.schemas.CartItems.properties.items.properties.modified": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.name": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.active": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.description": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTimeId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTime.properties.name": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTime.properties.min": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTime.properties.max": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTime.properties.unit": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.translations.properties.shippingMethodId": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.translations.properties.name": >
+  //
+
+".components.schemas.ShippingMethodPageRouteResponse.properties.translations.properties.description": >
+  //
+
 ".components.schemas.Order.properties.id": >
   Unique identity of order.
 
@@ -1651,6 +2068,54 @@
 ".components.schemas.Subscription.properties.id": >
   // this is not generated in store api but present in schema.
 
+".components.schemas.SubscriptionAddress.properties.id": >
+  // this is not generated in store api but present in schema.
+
+".components.schemas.SubscriptionCustomer.properties.id": >
+  // this is not generated in store api but present in schema.
+
+".components.schemas.SubscriptionInterval.properties.id": >
+  // this is not generated in store api but present in schema.
+
+".components.schemas.SubscriptionPlan.properties.id": >
+  // this is not generated in store api but present in schema.
+
+".components.schemas.SubscriptionPlanIntervalMapping.properties.id": >
+  // this is not generated in store api but present in schema.
+
+".components.schemas.SubscriptionPlanProductMapping.properties.id": >
+  // this is not generated in store api but present in schema.
+
+".components.schemas.SubscriptionTagMapping.properties.id": >
+  // this is not generated in store api but present in schema.
+
+".components.schemas.SwagDelayAction.properties.id": >
+  // Unique identity of swag delay action or plugin delay action.
+
+".components.schemas.SwagDelayAction.properties.orderId": >
+  Unique identity of order.
+
+".components.schemas.SwagDelayAction.properties.customerId": >
+  Unique identity of customer.
+
+".components.schemas.SystemConfig.properties.id": >
+  Unique identity of system configuration.
+
+".components.schemas.SystemConfig.properties.configurationKey": >
+  //
+
+".components.schemas.SystemConfig.properties.configurationValue.properties._value": >
+  //
+
+".components.schemas.SystemConfig.properties.salesChannelId": >
+  Unique identity of sales channel.
+
+".components.schemas.Tag.properties.id": >
+  Unique identity of tag.
+
+".components.schemas.Tax.properties.id": >
+  Unique identity of tax.
+
 ".components.schemas.Tax.properties.taxRate": >
   Rate of tax.
 
@@ -1663,8 +2128,41 @@
 ".components.schemas.Tax.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
+".components.schemas.TaxProvider.properties.id": >
+  Unique identity of tax provider.
+
+".components.schemas.TaxProvider.properties.active": >
+  //
+
+".components.schemas.TaxProvider.properties.name": >
+  Name of the tax provider.
+
+".components.schemas.TaxProvider.properties.priority": >
+  //
+
+".components.schemas.TaxProvider.properties.processUrl": >
+  //
+
+".components.schemas.TaxProvider.properties.appId": >
+  Unique identity of app.
+
+".components.schemas.TaxProvider.properties.customFields": >
+  Additional fields that offer a possibility to add own fields for the different program-areas.
+
+".components.schemas.TaxProvider.properties.translated": >
+  Contains the translations of all translated fields.
+
+".components.schemas.TaxRule.properties.id": >
+  Unique identity of tax rule.
+
+".components.schemas.TaxRuleType.properties.id": >
+  Unique identity of tax rule type.
+
 ".components.schemas.TaxRuleType.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.Theme.properties.id": >
+  Unique identity of Theme.
 
 ".components.schemas.Theme.properties.technicalName": >
   Technical name of Theme.
@@ -1681,6 +2179,9 @@
 ".components.schemas.Theme.properties.labels": >
   Identification label given to theme.
 
+".components.schemas.Theme.properties.helpTexts": >
+  //
+
 ".components.schemas.Theme.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
@@ -1690,11 +2191,20 @@
 ".components.schemas.Theme.properties.parentThemeId": >
   Unique identity of parent theme.
 
+".components.schemas.Theme.properties.baseConfig": >
+  //
+
+".components.schemas.Theme.properties.ConfigValues": >
+  //
+
 ".components.schemas.Theme.properties.active": >
   Created theme can be made usable when it is set to active.
 
 ".components.schemas.Theme.properties.translated": >
   Contains the translations of all translated fields.
+
+".components.schemas.Unit.properties.id": >
+  Unique identity of Unit.
 
 ".components.schemas.Unit.properties.shortCode": >
   Short name for unit, e.g., m, kg.
@@ -1708,11 +2218,32 @@
 ".components.schemas.Unit.properties.translated": >
   Contains the translations of all translated fields.
 
-".components.schemas.WishlistLoadRouteResponse.properties.wishlist.properties.customerId": >
-  Unique identity of the customer.
+".components.schemas.User.properties.id": >
+  Unique identity of user.
 
-".components.schemas.WishlistLoadRouteResponse.properties.wishlist.properties.salesChannelId": >
-  Unique identity of the sales channel.
+".components.schemas.UserAccessKey.properties.id": >
+  Unique identity of user access key.
+
+".components.schemas.UserConfig.properties.id": >
+  Unique identity of user configuration.
+
+".components.schemas.UserRecovery.properties.id": >
+  Unique identity of user recovery.
+
+".components.schemas.Warehouse.properties.id": >
+  Unique identity of warehouse.
+
+".components.schemas.WarehouseGroup.properties.id": >
+  Unique identity of warehouse group.
+
+".components.schemas.Webhook.properties.id": >
+  Unique identity of webhook.
+
+".components.schemas.WebhookEventLog.properties.id": >
+  Unique identity of webhook event log.
+
+".components.schemas.LineItem.properties.id": >
+  Unique identity of line item.
 
 ".components.schemas.LineItem.properties.referencedId": >
   Unique identity of type of entity.
@@ -1737,6 +2268,21 @@
 
 ".components.schemas.LineItem.properties.stackable": >
   Allows to change the quantity of the line item when set to true.
+
+".components.schemas.LineItem.properties.modified": >
+  //
+
+".components.schemas.CrossSellingElementCollection.properties.total": >
+  //
+
+".components.schemas.NavigationRouteResponse.properties.id": >
+  Unique identity of navigation route response.
+
+".components.schemas.WishlistLoadRouteResponse.properties.wishlist.properties.customerId": >
+  Unique identity of the customer.
+
+".components.schemas.WishlistLoadRouteResponse.properties.wishlist.properties.salesChannelId": >
+  Unique identity of the sales channel.
 
 ".components.schemas.Sitemap.properties.filename": >
   Name of the file which holds a list of all URL's.
@@ -1850,7 +2396,7 @@
   Unique identity that specifies the language and country.
 
 ".components.schemas.AppAdministrationSnippet.properties.value": >
-//
+  //
 
 ".components.schemas.AppCmsBlock.properties.id": >
   Unique identity of app's CMS block.
