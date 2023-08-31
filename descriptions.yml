@@ -8,343 +8,331 @@
   Unique identity of cart.
 
 ".components.schemas.Cart.properties.errors.properties.key": >
-  //It is a message key unique to every message.
+  Unique key for every message.
 
 ".components.schemas.Cart.properties.errors.properties.level": >
-  //Types of level - Notice, warning and error.  
+  Types of level - Notice, warning and error.  
 
 ".components.schemas.Cart.properties.errors.properties.message": >
-  //A persistent error passed from the shopping cart calculation processes to the user end.
+  // A persistent error passed from the shopping cart calculation processes to the user end.
 
 ".components.schemas.Cart.properties.transactions.properties.paymentMethodId": >
   Unique identity of payment method.
 
 ".components.schemas.Cart.properties.modified": >
-  //It signifies changes to cart.
+  It signifies any changes to cart.
 
 ".components.schemas.SalesChannelContext.properties.currentCustomerGroup.properties.name": >
-  //
+  Name of customer group to which the customer belongs within the specific sales channel they are currently interacting with.
 
 ".components.schemas.SalesChannelContext.properties.currentCustomerGroup.properties.displayGross": >
-  //
-
-".components.schemas.SalesChannelContext.properties.fallbackCustomerGroup.properties.name": >
-  //
-
-".components.schemas.SalesChannelContext.properties.fallbackCustomerGroup.properties.displayGross": >
-  //
+  When `true`, product's gross price is displayed for that customer group who belongs to the specific sales channel they are currently interacting with.
 
 ".components.schemas.SalesChannelContext.properties.currency.properties.isoCode": >
-  //
+  Standard international three digit code to represent currency in a given sales channel. For example, USD.
 
 ".components.schemas.SalesChannelContext.properties.currency.properties.factor": >
-  //
+  Currency exchange rate in a specific sales channel the customer is currently interacting with.
 
 ".components.schemas.SalesChannelContext.properties.currency.properties.symbol": >
-  //
+  A currency symbol is a graphical representation used as shorthand for a currency's name, for example US Dollar - $ in a given sales channel.
 
 ".components.schemas.SalesChannelContext.properties.currency.properties.shortName": >
-  //
+  Acronym for international currencies, for example, USD in a given sales channel.
 
 ".components.schemas.SalesChannelContext.properties.currency.properties.name": >
-  //
+  Full name of the currency in a given sales channel. For example, US-Dollar.
 
 ".components.schemas.SalesChannelContext.properties.currency.properties.position": >
-  //
+  The order of the tabs for multiple currencies defined in a given sales channel.
 
 ".components.schemas.SalesChannelContext.properties.currency.properties.decimalPrecision": >
-  //
+  It defines the round off value for currency to the nearest decimal point in a given sales channel. If set to 2, it rounds off to two significant decimal points.
 
 ".components.schemas.SalesChannelContext.properties.currency.properties.isSystemDefault": >
-  //
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.typeId": >
-  //
+  Unique identity of a sales channel's type within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.languageId": >
-  //
+  Unique identity of a sales channel's language within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.currencyId": >
-  //
+  Unique identity of a sales channel's currency within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.paymentMethodId": >
-  //
+  Unique identity of a sales channel's payment method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.shippingMethodId": >
-  //
+  Unique identity of a sales channel's shipping method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.countryId": >
-  //
+  Unique identity of a sales channel's country within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.navigationCategoryId": >
-  //
+  Unique identity of a sales channel's navigation category within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.navigationCategoryDepth": >
-  //
+  It determines the number of levels of subcategories in the storefront category menu within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.footerCategoryId": >
-  //
+  Unique identity of a sales channel's footer category within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.serviceCategoryId": >
-  //
+  Unique identity of a sales channel's service category within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.name": >
-  //
+  Name of the sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.shortName": >
-  //
+  A short name for sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.accessKey": >
-  //
+  Access key to store api.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.active": >
-  //
+  When `true`, the sales channel is enabled.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.maintenance": >
-  //
+  When `true`, it indicates that the sales channel is undergoing maintenance, and shopping is temporarily unavailable during this period.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.maintenanceIpWhitelist": >
-  //
+  Array of IP address allowed to access the sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.mailHeaderFooterId": >
-  //
+  Unique identity of a sales channel's mail header and footer within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.customerGroupId": >
-  //
+  Unique identity of a sales channel's customer group within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.hreflangActive": >
-  //
+  When `true`, the sales channel pages are available in different languages within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.hreflangDefaultDomainId": >
-  //
+  Unique identity of a sales channel's hreflangDefaultDomain within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.salesChannel.properties.analyticsId": >
-  //
+  Unique identity of a sales channel's analytics within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.taxRules.properties.taxRate": >
-  //
+  Rate of tax within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.taxRules.properties.name": >
-  //
+  Name defined for a Tax within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.groupId": >
-  //
+  Unique identity of a customer's group within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.defaultPaymentMethodId": >
-  //
+  Unique identity of a customer's default payment method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.salesChannelId": >
-  //
+  Unique identity of sales channel the customer is currently interacting with.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.languageId": >
-  //
+  Unique identity of language within a specific sales channel the customer is interacting.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.lastPaymentMethodId": >
-  //
+  Unique identity of customer's last payment method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.defaultBillingAddressId": >
-  //
+  Unique identity of customer's default billing address within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.defaultShippingAddressId": >
-  //
+  Unique identity of customer's default shipping address within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.customerNumber": >
-  //
+  Name of the customer within a specific sales channel the customer is interacting.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.salutationId": >
-  //
+  Unique identity of customer's default shipping address within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.firstName": >
-  //
+  First name of the customer within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.lastName": >
-  //
+  Last name of the customer within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.company": >
-  //
+  Company name of the customer within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.password": >
-  //
+  Password of the customer within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.email": >
-  //
+  Email of the customer within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.title": >
-  //
+  Customer's title or honorifics like Mr, Mrs, etc within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.affiliateCode": >
-  //
+  An affiliate code is an identification option with which website operators can mark outgoing links within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.campaignCode": >
-  //
+  A unique identifier for a campaign within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.active": >
-  //
+  When `true`, the status of the customer is set active within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.doubleOptInRegistration": >
-  //
+  When `true`, user subscriptions to an email marketing list is allowed within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.doubleOptInEmailSentDate": >
-  //
+  Date and time when the double opt-in email was sent within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.doubleOptInConfirmDate": >
-  //
+  Date and time when the double opt-in email was confirmed within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.hash": >
-  //
+  Password hash for account recovery within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.guest": >
-  //
+  Boolean value is `true` for a guest account within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.firstLogin": >
-  //
+  Captures date and time of customer's first login within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.lastLogin": >
-  //
+  Captures date and time of customer's last login within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.newsletter": >
-  //
+  When `true`, then the customer gets subscribe to the newsletter
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.birthday": >
-  //
+  Captures customer's birthday details within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.lastOrderDate": >
-  //
+  Captures customer's last order date within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.orderCount": >
-  //
+  Captures the number of orders placed by a customer within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.legacyEncoder": >
-  //
+  encapsulates shop credentials when needed to migrate shop system from old instance to new instance
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.legacyPassword": >
-  //
+  Hashed password of the old shop system
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.autoIncrement": >
-  //
+  Internal field. 
 
 ".components.schemas.SalesChannelContext.properties.customer.properties.remoteAddress": >
-  //
+  Anonymous IP address of the customer for last session.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.pluginId": >
-  //
+  Unique identity of payment plugin within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.handlerIdentifier": >
-  //
+  Internal field that contains system identifier details for payment methods like Paypal.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.name": >
-  //
+  Name of the payment method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.description": >
-  //
+  A short description about the payment method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.position": >
-  //
+  The order of the tabs of your defined payment methods in the storefront by entering numerical values like 1,2,3, etc within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.active": >
-  //
+  When `true`, the payment method is available for usage within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.availabilityRuleId": >
-  //
+  Unique identity of the rule for the payment method.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.mediaId": >
-  //
+  Unique identity of media used in payment method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.paymentMethod.properties.formattedHandlerIdentifier": >
-  //
+  Internal field that contains system identifier details for payment methods like Paypal.
 
 ".components.schemas.SalesChannelContext.properties.shippingMethod.properties.name": >
-  //
+  Name of the shipping method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.shippingMethod.properties.active": >
-  //
+  When `true`, the shipping method is available for usage within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.shippingMethod.properties.description": >
-  //
+  A short description about the shipping method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.shippingMethod.properties.trackingUrl": >
-  //
+  URL that allows to track packages for a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.shippingMethod.properties.deliveryTimeId": >
-  //
+  Unique identity of deliveryTime within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.shippingMethod.properties.availabilityRuleId": >
-  //
+  Unique identity of the rule for the payment method.
 
 ".components.schemas.SalesChannelContext.properties.shippingMethod.properties.mediaId": >
-  //
+  Unique identity of media used in shipping method within a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.context.properties.versionId": >
-  //
+  Unique identity of context's version in a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.context.properties.currencyId": >
-  //
+  Unique identity of currency context in a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.context.properties.currencyFactor": >
-  //
+  Unique identity of currency factor context in a specific sales channel.
 
 ".components.schemas.SalesChannelContext.properties.context.properties.currencyPrecision": >
-  //
+  It defines the round off value of currency to the nearest decimal point. If set to 2, it rounds off to two significant decimal points.
 
 ".components.schemas.SalesChannelContext.properties.context.properties.scope": >
-  //
+  Scope defines if its related to system or user context.
 
 ".components.schemas.SalesChannelContext.properties.context.properties.source": >
-  //
+  When context is related to user in the source, then there is userId.
 
 ".components.schemas.SalesChannelContext.properties.context.properties.taxState": >
-  //
+  Tax state can either be `gross` or `net`.
 
 ".components.schemas.SalesChannelContext.properties.context.properties.useCache": >
-  //
-
-".components.schemas.ProductListingResult.properties.": >
-  // name of the object itself is not generated
-
-".components.schemas.OrderRouteResponse.properties.orders": >
-  // object is not expandable
+  When boolean value is `true`, caching is used.
 
 ".components.schemas.AccountNewsletterRecipientResult.properties.status": >
-  //
+  Status indicates if the customer has subscribed to the news letter or not.
 
 ".components.schemas.ProductDetailResponse.properties.id": >
   Unique identity of product detail response.
 
 ".components.schemas.ProductDetailResponse.properties.available": >
-  //
+  When boolean value is true, the product is available for purchase.
 
 ".components.schemas.ProductDetailResponse.properties.isCloseout": >
-  //
+  Boolean value to check if the product is still buyable when stock value is 0.
 
 ".components.schemas.ProductDetailResponse.properties.displayGroup": >
-  //
+  Internal field.
 
 ".components.schemas.ProductDetailResponse.properties.manufacturerNumber": >
-  //
+  Unique number of the product manufacturer.
 
 ".components.schemas.ProductDetailResponse.properties.stock": >
-  //
+  Quantity of product available.
 
 ".components.schemas.ProductDetailResponse.properties.sortedProperties": >
-  //
+  Properties of the product that are sorted
 
 ".components.schemas.Criteria.properties.filter.properties.type": >
-  //
+  Filter type can be ==, >=, etc.
 
 ".components.schemas.Criteria.properties.filter.properties.field": >
-  //
+  //Filter by field.
 
 ".components.schemas.Criteria.properties.filter.properties.value": >
-  //
+  //Filter by value.
 
 ".components.schemas.Criteria.properties.sort.properties.field": >
-  //
+  //Filter by field.
 
 ".components.schemas.Criteria.properties.sort.properties.order": >
-  //
+  //Filter by order.
 
 ".components.schemas.Criteria.properties.sort.properties.naturalSorting": >
-  //
+  // Default sorting.
 
 ".components.schemas.Criteria.properties.post-filter.properties.type": >
   //
@@ -356,22 +344,22 @@
   //
 
 ".components.schemas.ProductListingCriteria.properties.filter.properties.type": >
-  //
+  //Filter products by type.
 
 ".components.schemas.ProductListingCriteria.properties.filter.properties.field": >
-  //
+  //Filter products by field.
 
 ".components.schemas.ProductListingCriteria.properties.filter.properties.value": >
-  //
+  //Filter products by value.
 
 ".components.schemas.ProductListingCriteria.properties.sort.properties.field": >
-  //
+  // Sort products by field.
 
 ".components.schemas.ProductListingCriteria.properties.sort.properties.order": >
-  //
+  // Sort products by order.
 
 ".components.schemas.ProductListingCriteria.properties.sort.properties.naturalSorting": >
-  //
+  // Default sorting of products.
 
 ".components.schemas.ProductListingCriteria.properties.post-filter.properties.type": >
   //
@@ -386,265 +374,265 @@
   Unique identity of cart item.
 
 ".components.schemas.CartItems.properties.items.properties.modified": >
-  //
+  When boolean value is `true`, the cart is said to be modified.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.name": >
-  //
+  Name of the shipping method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.active": >
-  //
+  When boolean value is `true`, the shipping methods are available for selection in the storefront.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.description": >
-  //
+  The order of the tabs of your defined shipping methods in the storefront by entering numerical values like 1,2,3, etc.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTimeId": >
-  //
+  Unique identity of the delivery time.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTime.properties.name": >
-  //
+  Name given to delivery time.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTime.properties.min": >
-  //
+  Minimum delivery time taken.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTime.properties.max": >
-  //
+  Maximum delivery time taken.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.deliveryTime.properties.unit": >
-  //
+  Unit in which the delivery time is defined. For example, days or hours.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.translations.properties.shippingMethodId": >
-  //
+  Unique identity of shipping method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.translations.properties.name": >
-  //
+  Name of the shipping method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.translations.properties.description": >
-  //
+  A short description of the shipping method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.orderId": >
-  //
+  Unique identity of order.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.shippingOrderAddressId": >
-  //
+  Unique identity of shipping order address.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.shippingMethodId": >
-  //
+  Unique identity of shipping method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.shippingDateEarliest": >
-  //
+  Date and time of earliest delivery of products.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.shippingDateLatest": >
-  //
+  Date and time of latest delivery of products.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.orderDeliveries.properties.stateId": >
-  //
+  Unique identity of state.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.stateId": >
-  //
+  Unique identity of state.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.languageId": >
-  //
+  Unique identity of language.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.currencyId": >
-  //
+  Unique identity of currency.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.paymentMethodId": >
-  //
+  Unique identity of payment method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.shippingMethodId": >
-  //
+  Unique identity of shipping method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.countryId": >
-  //
+  Unique identity of country.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.navigationCategoryId": >
-  //
+  Unique identity of navigation category.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.navigationCategoryDepth": >
-  //
+  It determines the number of levels of subcategories in the storefront category menu.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.footerCategoryId": >
-  //
+  Unique identity of footer category.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.serviceCategoryId": >
-  //
+  Unique identity of service category.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.name": >
-  //
+  Name of the sales channel.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.shortName": >
-  //
+  A short name for sales channel.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.accessKey": >
-  //
+  Access key to store api.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.active": >
-  //
+  When boolean value is `true`, the shipping methods are available for selection in the sales channel's storefront.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.maintenance": >
-  //
+  When `true`, it indicates that the sales channel is undergoing maintenance, and shopping is temporarily unavailable during this period.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.maintenanceIpWhitelist": >
-  //
+  Array of IP address allowed to access the sales channel.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.mailHeaderFooterId": >
-  //
+  Unique identity of mail header and footer.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.customerGroupId": >
-  //
+  Unique identity of customer group.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.hreflangActive": >
-  //
+  When boolean value is `true`, the sales channel pages are available in different languages.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannelDefaultAssignments.properties.hreflangDefaultDomainId": >
-  //
+  Unique identity of hreflangDefaultDomain.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.stateId": >
-  //
+  Unique identity of state.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.languageId": >
-  //
+  Unique identity of language.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.currencyId": >
-  //
+  Unique identity of currency.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.paymentMethodId": >
-  //
+  Unique identity of payment method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.shippingMethodId": >
-  //
+  Unique identity of shipping method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.countryId": >
-  //
+  Unique identity of country.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.navigationCategoryId": >
-  //
+  Unique identity of navigation category.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.navigationCategoryDepth": >
-  //
+  It determines the number of levels of subcategories in the storefront category menu.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.footerCategoryId": >
-  //
+  Unique identity of footer category.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.serviceCategoryId": >
-  //
+  Unique identity of service category.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.name": >
-  //
+  Name of the sales channel.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.shortName": >
-  //
+  A short name for sales channel.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.accessKey": >
-  //
+  Access key to store api.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.active": >
-  //
+  When boolean value is `true`, the shipping methods are available for selection in the storefront.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.maintenance": >
-  //
+  When `true`, it indicates that the sales channel is undergoing maintenance, and shopping is temporarily unavailable during this period.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.maintenanceIpWhitelist": >
-  //
+  Array of IP address allowed to access the sales channel.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.mailHeaderFooterId": >
-  //
+  Unique identity of mail header and footer.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.customerGroupId": >
-  //
+  Unique identity of customer group.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.hreflangActive": >
-  //
+  When boolean value is `true``, the sales channel pages are available in different languages.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.salesChannels.properties.hreflangDefaultDomainId": >
-  //
+  Unique identity of hreflangDefaultDomain.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRule.properties.name": >
-  //
+  Unique name for the rule.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRule.properties.description": >
-  //
+  A short description about the rule.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRule.properties.priority": >
-  //
+  A numerical value to prioritize one of the rules from the list.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRule.properties.invalid": >
-  //
+  When the boolean value is `true`, the rule is no more available for usage.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.availabilityRuleId": >
-  //
+  Unique identity of availability rule.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.shippingMethodId": >
-  //
+  Unique identity of shipping method.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.currencyId": >
-  //
+  Unique identity of currency.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.ruleId": >
-  //
+  Unique identity of rule.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.calculation": >
-  //
+  Shipping price calculated based on quantity, price, weight or volume of items.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.quantityStart": >
-  //
+  Starting range of quantity of an item.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.quantityEnd": >
-  //
+  Ending range of quantity of an item.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.price": >
   //
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.prices.properties.calculationRuleId": >
-  //
+  Unique identity of calculation rule.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.mediaId": >
-  //
+  Unique identity of media.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.userId": >
-  //
+  Unique identity of user.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.mimeType": >
-  //
+  A string sent along with a file indicating the type of the file. For example: image/jpeg.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.fileExtension": >
-  //
+  Type of file indication. For example: jpeg, png.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.fileSize": >
-  //
+  Size of the file media file uploaded.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.title": >
-  //
+  Title name give to the media.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.metaDataRaw": >
-  //
+  Details of the media file uploaded.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.mediaTypeRaw": >
   //
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.alt": >
-  //
+  Alternate text for media.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.url": >
-  //
+  Runtime field, cannot be used as part of the criteria.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.fileName": >
-  //
+  Name of the media file uploaded.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.mediaFolderId": >
-  //
+  Unique identity of media folder.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.private": >
-  //
+  Boolean value is `true` to keep the media display private.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.thumbnailsRo": >
   //
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.tags.properties.name": >
-  //
+  Name of the tag.
 
 ".components.schemas.FindProductVariantRouteResponse.properties.foundCombination.properties.variantId": >
-  //
+  Unique identity of a variant.
 
 ".components.schemas.FindProductVariantRouteResponse.properties.foundCombination.properties.options": >
   //
@@ -679,11 +667,8 @@
 ".components.schemas.Order.properties.orderDate": >
   Date when the order was placed.
 
-".components.schemas.Order.properties.price.properties.netprice": >
-  Net price of the product.
-
 ".components.schemas.Order.properties.price.properties.netPrice": >
-  // this is displayed twice with only Price casing different.
+  Net price of the product.
 
 ".components.schemas.Order.properties.price.properties.totalPrice": >
   Gross price of the product.
@@ -719,25 +704,25 @@
   Number of items of each product.
 
 ".components.schemas.Order.properties.shippingCosts.properties.calculatedTaxes": >
-  //
+  Contains calculated taxes based on shipping costs/methods.
 
 ".components.schemas.Order.properties.shippingCosts.properties.taxRules": >
-  //
+  Pricing based on shipping cost rate of tax.
 
 ".components.schemas.Order.properties.shippingCosts.properties.referencePrice": >
-  //
+  Original cost price of the product.
 
 ".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.price": >
-  //
+  Price of each line item.
 
 ".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.discount": >
-  //
+  Discount on each line item.
 
 ".components.schemas.Order.properties.shippingCosts.properties.listPrice.properties.percentage": >
   //
 
 ".components.schemas.Order.properties.shippingCosts.properties.regulationPrice.properties.price": >
-  //
+  Contains cheapest price from last 30 days as per EU law
 
 ".components.schemas.Order.properties.shippingTotal": >
   Total shipping cost of the ordered product.
@@ -758,10 +743,10 @@
   Comments given by comments.
 
 ".components.schemas.Order.properties.source": >
-  //
+  Source of orders either via normal order placement or subscriptions.
 
 ".components.schemas.Order.properties.extensions": >
-  //
+  To store additional data to an order from extensions.
 
 ".components.schemas.Order.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -788,19 +773,19 @@
   Street address
 
 ".components.schemas.OrderAddress.properties.zipcode": >
-  Zipcode of the country.
+  Zip code of the country.
 
 ".components.schemas.OrderAddress.properties.city": >
   Name of the city.
 
 ".components.schemas.OrderAddress.properties.company": >
-  Name of the country.
+  Name of the company.
 
 ".components.schemas.OrderAddress.properties.department": >
   Name of the department.
 
 ".components.schemas.OrderAddress.properties.title": >
-  Title name given to customer's order address.
+  Title name given to customer like DR. , Prof., etc.
 
 ".components.schemas.OrderAddress.properties.vatId": >
   Unique identity of VAT.
@@ -818,7 +803,7 @@
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderCustomer.properties.id": >
-  //
+  Unique identity of order customer.
 
 ".components.schemas.OrderCustomer.properties.versionId": >
   Unique identity of OrderCustomer's version.
@@ -839,7 +824,7 @@
   Name of the company.
 
 ".components.schemas.OrderCustomer.properties.title": >
-  Title name given to the customer's order.
+  Title name given to the customer like Dr, prof. etc.
 
 ".components.schemas.OrderCustomer.properties.vatIds": >
   Unique identity of VAT.
@@ -893,31 +878,31 @@
   Number of items of each product.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.calculatedTaxes": >
-  //
+  Contains calculated taxes based on shipping costs/methods.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.taxRules": >
-  //
+  Pricing based on shipping cost rate of tax.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.referencePrice": >
-  //
+  Original cost price of the product.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.price": >
-  //
+  Price of each line item.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.discount": >
-  //
+  Discount on each line item.
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.listPrice.properties.percentage": >
   //
 
 ".components.schemas.OrderDelivery.properties.shippingCosts.properties.regulationPrice.properties.price": >
-  //
+  Contains cheapest price from last 30 days as per EU law.
 
 ".components.schemas.OrderDelivery.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderDeliveryPosition.properties.id": >
-  //
+  Unique identity of order delivery position.
 
 ".components.schemas.OrderDeliveryPosition.properties.versionId": >
   Unique identity of OrderDeliveryPosition's version.
@@ -944,25 +929,25 @@
   Number of items of each product.
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.calculatedTaxes": >
-  //
+  Contains calculated taxes based on order delivery price.
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.taxRules": >
-  //
+  Pricing based on rate of tax.
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.referencePrice": >
-  //
+  Original cost price of the product.
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.listPrice.properties.price": >
-  //
+  Price of each line item.
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.listPrice.properties.discount": >
-  //
+  Discount on each line item.
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.listPrice.properties.percentage": >
   //
 
 ".components.schemas.OrderDeliveryPosition.properties.price.properties.regulationPrice.properties.price": >
-  //
+  Contains cheapest price from last 30 days as per EU law.
 
 ".components.schemas.OrderDeliveryPosition.properties.unitPrice": >
   Price of product per item (where, quantity=1).
@@ -1031,7 +1016,7 @@
   Position of line items placed in an order.
 
 ".components.schemas.OrderLineItem.properties.states": >
-  //
+  Internal field.
 
 ".components.schemas.OrderLineItem.properties.priceDefinition": >
   Description of how the price has to be calculated. For example, in percentage or absolute value, etc.
@@ -1052,10 +1037,10 @@
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderLineItem.properties.extensions": >
-  //
+  To store additional data to an order line item from extensions.
 
 ".components.schemas.OrderLineItemDownload.properties.id": >
-  Unique identity of Order line item downloaded.
+  Unique identity of Order line item downloaded digital products.
 
 ".components.schemas.OrderLineItemDownload.properties.versionId": >
   Unique identity of Order line item downloaded version.
@@ -1070,10 +1055,10 @@
   Unique identity of media.
 
 ".components.schemas.OrderLineItemDownload.properties.position": >
-  //
+  The order of downloaded digital products displayed in the storefront by mentioning numerical values like 1,2,3, etc.
 
 ".components.schemas.OrderLineItemDownload.properties.accessGranted": >
-  //
+  When boolean value is `true`, the digital product is allowed to download.
 
 ".components.schemas.OrderLineItemDownload.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -1094,76 +1079,70 @@
   Unique identity of order return version.
 
 ".components.schemas.OrderReturn.properties.price.properties.netPrice": >
-  //
+  Net price of the product.
 
 ".components.schemas.OrderReturn.properties.price.properties.totalPrice": >
-  //
+  Gross price of the product.
 
 ".components.schemas.OrderReturn.properties.price.properties.calculatedTaxes": >
-  //
+  Contains calculated tax on order delivery price.
 
 ".components.schemas.OrderReturn.properties.price.properties.taxRules": >
-  //
+  Pricing based on rate of tax.
 
 ".components.schemas.OrderReturn.properties.price.properties.positionPrice": >
-  //
+  //Price of line item without the shipping cost.
 
 ".components.schemas.OrderReturn.properties.price.properties.rawTotal": >
-  //
+  //The total value before rounding off.
 
 ".components.schemas.OrderReturn.properties.price.properties.taxStatus": >
-  //
+  //TaxStatus takes Free, Net or Gross as values.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.unitPrice": >
-  //
+  //Shipping cost of product per item (where, quantity=1).
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.totalPrice": >
-  //
+  //Shipping cost of product based on quantity.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.quantity": >
-  //
+  //Number of items of each product.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.calculatedTaxes": >
-  //
+  //Contains calculated taxes based on shipping costs/methods.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.taxRules": >
-  //
+  //Pricing based on rate of tax.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.referencePrice": >
-  //
+  Original cost price of the product.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.listPrice.properties.price": >
-  //
+  Price of each line item.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.listPrice.properties.discount": >
-  //
+  Discount on each line item.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.listPrice.properties.percentage": >
   //
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.regulationPrice.properties.price": >
-  //
+  Contains cheapest price from last 30 days as per EU law.
 
 ".components.schemas.OrderReturn.properties.stateId": >
-  //
+  Unique identity of state.
 
 ".components.schemas.OrderReturn.properties.returnNumber": >
-  //
+  Reference number for returning order.
 
 ".components.schemas.OrderReturn.properties.requestedAt": >
-  //
+  Date and time when the order return was requested.
 
 ".components.schemas.OrderReturn.properties.amountTotal": >
-  //
+  Gross price of the order.
 
 ".components.schemas.OrderReturn.properties.amountNet": >
-  //
-
-".components.schemas.OrderReturn.properties.createdById": >
-  //
-
-".components.schemas.OrderReturn.properties.updatedById": >
-  //
+  Net price of the order.
 
 ".components.schemas.OrderReturnLineItem.properties.id": >
   Unique identity of order return line item.
@@ -1199,13 +1178,13 @@
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.OrderReturnLineItem.properties.stateId": >
-  //
+  Unique identity of state.
 
 ".components.schemas.OrderReturnLineItemReason.properties.id": >
   Unique identity for reason of return.
 
 ".components.schemas.OrderReturnLineItemReason.properties.reasonKey": >
-  //
+  Unique key associated with reason for the order return. 
 
 ".components.schemas.OrderReturnLineItemReason.properties.content": >
   Description of the reason of return.
@@ -1250,25 +1229,25 @@
   Number of items of each product.
 
 ".components.schemas.OrderTransaction.properties.shippingCosts.properties.calculatedTaxes": >
-  //
+  Contains calculated taxes based on shipping costs/methods.
 
 ".components.schemas.OrderTransaction.properties.shippingCosts.properties.taxRules": >
-  //
+  Pricing based on rate of tax.
 
 ".components.schemas.OrderTransaction.properties.shippingCosts.properties.referencePrice": >
-  //
+  Original cost price of the product.
 
 ".components.schemas.OrderTransaction.properties.shippingCosts.properties.listPrice.properties.price": >
-  //
+  Price of each line item.
 
 ".components.schemas.OrderTransaction.properties.shippingCosts.properties.listPrice.properties.discount": >
-  //
+  Discount on each line item.
 
 ".components.schemas.OrderTransaction.properties.shippingCosts.properties.listPrice.properties.percentage": >
   //
 
 ".components.schemas.OrderTransaction.properties.shippingCosts.properties.regulationPrice.properties.price": >
-  //
+  Contains cheapest price from last 30 days as per EU law.
 
 ".components.schemas.OrderTransaction.properties.stateId": >
   Unique identity of state.
@@ -1304,25 +1283,25 @@
   Number of items of each product.
 
 ".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.calculatedTaxes": >
-  //
+  Contains calculated taxes based on shipping costs/methods.
 
 ".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.taxRules": >
-  //
+  Pricing based on rate of tax.
 
 ".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.referencePrice": >
-  //
+  Original cost price of the product.
 
 ".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.listPrice.properties.price": >
-  //
+  Price of each line item.
 
 ".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.listPrice.properties.discount": >
-  //
+  Discount on each line item.
 
 ".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.listPrice.properties.percentage": >
   //
 
 ".components.schemas.OrderTransactionCapture.properties.shippingCosts.properties.regulationPrice.properties.price": >
-  //
+  Contains cheapest price from last 30 days as per EU law.
 
 ".components.schemas.OrderTransactionCapture.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -1358,25 +1337,25 @@
   Number of items of each product.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.calculatedTaxes": >
-  //
+  Contains calculated taxes based on shipping costs/methods.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.taxRules": >
-  //
+  Pricing based on rate of tax.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.referencePrice": >
-  //
+  Original cost price of the product.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.listPrice.properties.price": >
-  //
+  Price of each line item.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.listPrice.properties.discount": >
-  //
+  Discount on each line item.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.listPrice.properties.percentage": >
   //
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.shippingCosts.properties.regulationPrice.properties.price": >
-  //
+  Contains cheapest price from last 30 days as per EU law.
 
 ".components.schemas.OrderTransactionCaptureRefund.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -1418,25 +1397,25 @@
   Number of items of each product.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.calculatedTaxes": >
-  //
+  Contains calculated taxes based on shipping costs/methods.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.taxRules": >
-  //
+  Pricing based on rate of tax.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.referencePrice": >
-  //
+  Original cost price of the product.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.listPrice.properties.price": >
-  //
+  Price of each line item.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.listPrice.properties.discount": >
-  //
+  Discount on each line item.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.listPrice.properties.percentage": >
   //
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.shippingCosts.properties.regulationPrice.properties.price": >
-  //
+  Contains cheapest price from last 30 days as per EU law.
 
 ".components.schemas.OrderTransactionCaptureRefundPosition.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -1460,7 +1439,7 @@
   The order of the tabs of your defined payment methods in the storefront by entering numerical values like 1,2,3, etc.
 
 ".components.schemas.PaymentMethod.properties.active": >
-  When set to active, the payment method is available for usage.
+  When boolean value is `true`, the payment methods are available for selection in the storefront.
 
 ".components.schemas.PaymentMethod.properties.afterOrderEnabled": >
   When set to true, customers are redirected to the payment options page to choose a new payment method on order failure.
@@ -1532,7 +1511,7 @@
   The restock time in days indicates how long it will take until a sold out item is back in stock.
 
 ".components.schemas.Product.properties.active": >
-  Indicates its status for all selected sales channels. It defines whether the product is displayed in the storefront and can be purchased.
+  When boolean value is `true`, the products are available for selection in the storefront for purchase.
 
 ".components.schemas.Product.properties.availableStock": >
   Indicates the number of products still available. This value results from the stock minus the open orders.
@@ -1658,13 +1637,13 @@
   Contains the translations of all translated fields.
 
 ".components.schemas.Product.properties.sortedProperties": >
-  //
+  // 
 
 ".components.schemas.Product.properties.externalReference": >
   //
 
 ".components.schemas.Product.properties.states": >
-  //
+  Internal field.
 
 ".components.schemas.Product.properties.deliveryTime": >
   Time taken for the product to reach the customer. If a delivery time is defined in the product, it overwrites the delivery time of a shipping method.
@@ -1721,7 +1700,7 @@
   Contains the translations of all translated fields.
 
 ".components.schemas.ProductCrossSellingAssignedProducts.properties.id": >
-  // Unique identity of Product CrossSelling Assigned Products.
+  Unique identity of Product CrossSelling Assigned Products.
 
 ".components.schemas.ProductDownload.properties.id": >
   Unique identity downloaded product.
@@ -1739,7 +1718,7 @@
   Unique identity of media.
 
 ".components.schemas.ProductDownload.properties.position": >
-  //
+  The order in which the digital products are downloaded, like 1,2,3, etc.to adjust their order of display.
 
 ".components.schemas.ProductDownload.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -1856,7 +1835,7 @@
   Unique identity of products's review summary.
 
 ".components.schemas.ProductReviewSummary.properties.visible": >
-  //
+  When boolean value is `true`, the review is displayed to the customer.
 
 ".components.schemas.ProductReviewSummary.properties.translated": >
   Contains the translations of all translated fields.
@@ -1925,13 +1904,13 @@
   Unique identity of promotion discount price.
 
 ".components.schemas.PromotionIndividualCode.properties.id": >
-  //
+  Unique identity of promotion individual code.
 
 ".components.schemas.PromotionSalesChannel.properties.id": >
   Unique identity of promotion on sales channel.
 
 ".components.schemas.PromotionSetgroup.properties.id": >
-  //
+  Unique identity of promotion set group.
 
 ".components.schemas.PropertyGroup.properties.id": >
   Unique identity of property group.
@@ -2000,7 +1979,7 @@
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.Rule.properties.extensions": >
-  //
+  To store additional data to a rule from extensions.
 
 ".components.schemas.RuleCondition.properties.id": >
   Unique identity of rule condition.
@@ -2030,7 +2009,7 @@
   Unique identity of navigation category.
 
 ".components.schemas.SalesChannel.properties.navigationCategoryVersionId": >
-  Unique identity of language used.
+  Unique identity of navigation category's version.
 
 ".components.schemas.SalesChannel.properties.navigationCategoryDepth": >
   It determines the number of levels of subcategories in the storefront category menu.
@@ -2063,13 +2042,13 @@
   Tax calculation types are `horizontal` and `vertical`.
 
 ".components.schemas.SalesChannel.properties.active": >
-  When set to active, the sales channel is enabled.
+  When boolean value is `true`, the sales channel is enabled.
 
 ".components.schemas.SalesChannel.properties.hreflangActive": >
   When set to true, the sales channel pages are available in different languages.
 
 ".components.schemas.SalesChannel.properties.maintenance": >
-  When set to true, it denotes the sales channel is under maintenance and one can't shop during that time.
+  When `true`, it indicates that the sales channel is undergoing maintenance, and shopping is temporarily unavailable during this period.
 
 ".components.schemas.SalesChannel.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -2159,7 +2138,7 @@
   When set to true, search redirects to the main URL.
 
 ".components.schemas.SeoUrl.properties.isModified": >
-  //
+  When boolean value is `true`, the seo url is changed.
 
 ".components.schemas.SeoUrl.properties.isDeleted": >
   When set to true, the URL is deleted and cannot be used any more but it is still available on table and can be restored later.
@@ -2186,7 +2165,7 @@
   Name of the shipping method.
 
 ".components.schemas.ShippingMethod.properties.active": >
-  When set to active, the shipping method is enabled.
+  When boolean value is `true`, the shipping methods are available for selection in the storefront.
 
 ".components.schemas.ShippingMethod.properties.position": >
   The order of the tabs of your defined shipping methods in the storefront by entering numerical values like 1,2,3, etc.
@@ -2234,7 +2213,7 @@
   Ending range of quantity of an item.
 
 ".components.schemas.ShippingMethodPrice.properties.currencyPrice": >
-  //
+  Contains currency-based price.
 
 ".components.schemas.ShippingMethodPrice.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -2294,31 +2273,220 @@
   Unique identity of state machine transition.
 
 ".components.schemas.Subscription.properties.id": >
-  // this is not generated in store api but present in schema.
+  Unique identity of subscription.
+
+".components.schemas.Subscription.properties.convertedOrder": >
+  //
+
+".components.schemas.Subscription.properties.subscriptionNumber": >
+  Unique number associated with subscription.
+
+".components.schemas.Subscription.properties.nextSchedule": >
+  Date and time of next scheduled subscription for example: `yyyy-mm-dd hh:mm:ss` - `2023-08-15 15:25:32`.
+
+".components.schemas.Subscription.properties.salesChannelId": >
+  Unique identity of sales channel.
+
+".components.schemas.Subscription.properties.subscriptionPlanId": >
+  Unique identity of subscription plan.
+
+".components.schemas.Subscription.properties.subscriptionPlanName": >
+  Unique name for subscription plan.
+
+".components.schemas.Subscription.properties.subscriptionIntervalId": >
+  Unique identity for subscription interval.
+
+".components.schemas.Subscription.properties.subscriptionIntervalName": >
+  Unique name for subscription interval.
+
+".components.schemas.Subscription.properties.dateInterval": >
+  //Unique identity of subscription.
+
+".components.schemas.Subscription.properties.cronInterval": >
+  //How often the subscritoon is runnuing
+
+".components.schemas.Subscription.properties.billingAddressId": >
+  Unique identity of billing address.
+
+".components.schemas.Subscription.properties.shippingAddressId": >
+  Unique identity of shipping address.
+
+".components.schemas.Subscription.properties.shippingMethodId": >
+  Unique identity of shipping method.
+
+".components.schemas.Subscription.properties.paymentMethodId": >
+  Unique identity of payment method.
+
+".components.schemas.Subscription.properties.currencyId": >
+  Unique identity of currency.
+
+".components.schemas.Subscription.properties.languageId": >
+  Unique identity of language.
+
+".components.schemas.Subscription.properties.customFields": >
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.SubscriptionAddress.properties.id": >
-  // this is not generated in store api but present in schema.
+  Unique identity of subscription address.
+
+".components.schemas.SubscriptionAddress.properties.countryId": >
+  Unique identity of country.
+
+".components.schemas.SubscriptionAddress.properties.subscriptionId": >
+  Unique identity of subscription.
+
+".components.schemas.SubscriptionAddress.properties.countryStateId": >
+  Unique identity of state of the country.
+
+".components.schemas.SubscriptionAddress.properties.salutationId": >
+  Unique identity of salutation.
+
+".components.schemas.SubscriptionAddress.properties.firstName": >
+  First name of the subscribed customer.
+
+".components.schemas.SubscriptionAddress.properties.lastName": >
+  Last name of the subscribed customer.
+
+".components.schemas.SubscriptionAddress.properties.street": >
+  Street address
+
+".components.schemas.SubscriptionAddress.properties.zipcode": >
+  Zipcode of the country.
+
+".components.schemas.SubscriptionAddress.properties.company": >
+  Name of the company.
+
+".components.schemas.SubscriptionAddress.properties.department": >
+  Name of the department.
+
+".components.schemas.SubscriptionAddress.properties.title": >
+  Title name given to customer's order address.
+
+".components.schemas.SubscriptionAddress.properties.vatId": >
+  Unique identity of VAT.
+
+".components.schemas.SubscriptionAddress.properties.phoneNumber": >
+  Phone number of the customer.
+
+".components.schemas.SubscriptionAddress.properties.additionalAddressLine1": >
+  Additional address input if necessary.
+
+".components.schemas.SubscriptionAddress.properties.additionalAddressLine2": >
+  Additional address input if necessary.
+
+".components.schemas.SubscriptionAddress.properties.customFields": >
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.SubscriptionCustomer.properties.id": >
-  // this is not generated in store api but present in schema.
+  Unique identity of subscription customer.
+
+".components.schemas.SubscriptionCustomer.properties.customerId": >
+  Unique identity of the customer.
+
+".components.schemas.SubscriptionCustomer.properties.salutationId": >
+  Unique identity of salutation.
+
+".components.schemas.SubscriptionAddress.properties.email": >
+  Last name of the subscribed customer. 
+
+".components.schemas.SubscriptionCustomer.properties.firstName": >
+  Email address of the subscribed customer.
+
+".components.schemas.SubscriptionCustomer.properties.lastName": >
+  Last name of the subscribed customer. 
+
+".components.schemas.SubscriptionCustomer.properties.company": >
+  Name of the company.
+
+".components.schemas.SubscriptionCustomer.properties.title": >
+  Title name given to customer's order address.
+
+".components.schemas.SubscriptionCustomer.properties.customerNumber": >
+  Unique number for subscribed customer.
+
+".components.schemas.SubscriptionCustomer.properties.vatId": >
+  Unique identity of VAT.
+
+".components.schemas.SubscriptionCustomer.properties.customFields": >
+  Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.SubscriptionInterval.properties.id": >
-  // this is not generated in store api but present in schema.
+  Unique identity of subscription interval.
+
+".components.schemas.SubscriptionInterval.properties.name": >
+  Name of the subscription interval.
+
+".components.schemas.SubscriptionInterval.properties.active": >
+  When `true`, the defined subscription interval is available for selection in storefront.
+
+".components.schemas.SubscriptionInterval.properties.dateInterval": >
+  //
+
+".components.schemas.SubscriptionInterval.properties.cronInterval": >
+  //
+
+".components.schemas.SubscriptionInterval.properties.availabilityRuleId": >
+  Unique identity of rule.
+
+".components.schemas.SubscriptionInterval.properties.translated": >
+  Contains the translations of all translated fields.
 
 ".components.schemas.SubscriptionPlan.properties.id": >
-  // this is not generated in store api but present in schema.
+  Unique identity of subscription plan.
+
+".components.schemas.SubscriptionPlan.properties.name": >
+  Name of the subscription plan.
+
+".components.schemas.SubscriptionPlan.properties.description": >
+  A short description about the subscription plan.
+
+".components.schemas.SubscriptionPlan.properties.active": >
+  When `true`, the subscription plan is available for selection in storefront.
+
+".components.schemas.SubscriptionPlan.properties.activeStorefrontLabel": >
+  Label that can overwrite the active plan name.
+
+".components.schemas.SubscriptionPlan.properties.availabilityRuleId": >
+  Unique identity of rule.
+
+".components.schemas.SubscriptionPlan.properties.label": >
+  // Unique identity of subscription plan.
+
+".components.schemas.SubscriptionPlan.properties.translated": >
+  Contains the translations of all translated fields.
 
 ".components.schemas.SubscriptionPlanIntervalMapping.properties.id": >
-  // this is not generated in store api but present in schema.
+  Unique identity of subscription plan interval mapping.
+
+".components.schemas.SubscriptionPlanIntervalMapping.properties.subscriptionIntervalId": >
+  Unique identity of subscription interval.
+
+".components.schemas.SubscriptionPlanIntervalMapping.properties.subscriptionPlanId": >
+  Unique identity of subscription plan.
 
 ".components.schemas.SubscriptionPlanProductMapping.properties.id": >
-  // this is not generated in store api but present in schema.
+  Unique identity of subscription plan for product.
+
+".components.schemas.SubscriptionPlanProductMapping.properties.productId": >
+  Unique identity of subscribed product.
+
+".components.schemas.SubscriptionPlanProductMapping.properties.productVersionId": >
+  Unique identity of subscribed product's version.
+
+".components.schemas.SubscriptionPlanProductMapping.properties.subscriptionPlanId": >
+  Unique identity of subscription plan.
 
 ".components.schemas.SubscriptionTagMapping.properties.id": >
-  // this is not generated in store api but present in schema.
+  Unique identity of subscription tag.
+
+".components.schemas.SubscriptionTagMapping.properties.subscriptionId": >
+  Unique identity of subscription.
+
+".components.schemas.SubscriptionTagMapping.properties.tagId": >
+  Unique identity of subscription tag.
 
 ".components.schemas.SwagDelayAction.properties.id": >
-  // Unique identity of swag delay action or plugin delay action.
+  Unique identity of swag delay action for flow builder
 
 ".components.schemas.SwagDelayAction.properties.orderId": >
   Unique identity of order.
@@ -2330,10 +2498,10 @@
   Unique identity of system configuration.
 
 ".components.schemas.SystemConfig.properties.configurationKey": >
-  //
+  Config key for shop configurations.
 
 ".components.schemas.SystemConfig.properties.configurationValue.properties._value": >
-  //
+  Config value for shop configurations.
 
 ".components.schemas.SystemConfig.properties.salesChannelId": >
   Unique identity of sales channel.
@@ -2360,16 +2528,16 @@
   Unique identity of tax provider.
 
 ".components.schemas.TaxProvider.properties.active": >
-  //
+  When boolean value is `true`, the tax providers are available for selection in the storefront.
 
 ".components.schemas.TaxProvider.properties.name": >
   Name of the tax provider.
 
 ".components.schemas.TaxProvider.properties.priority": >
-  //
+  A numerical value to prioritize one the tax providers from the list.
 
 ".components.schemas.TaxProvider.properties.processUrl": >
-  //
+  External URL makes request to get tax info.
 
 ".components.schemas.TaxProvider.properties.appId": >
   Unique identity of app.
@@ -2408,7 +2576,7 @@
   Identification label given to theme.
 
 ".components.schemas.Theme.properties.helpTexts": >
-  //
+  Texts from config element.
 
 ".components.schemas.Theme.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -2420,13 +2588,13 @@
   Unique identity of parent theme.
 
 ".components.schemas.Theme.properties.baseConfig": >
-  //
+  Config elements of theme like header, color, etc
 
 ".components.schemas.Theme.properties.ConfigValues": >
-  //
+  Chosen values for the configuration.
 
 ".components.schemas.Theme.properties.active": >
-  Created theme can be made usable when it is set to active.
+  When boolean value is `true`, the created theme can be made usable.
 
 ".components.schemas.Theme.properties.translated": >
   Contains the translations of all translated fields.
@@ -2498,10 +2666,10 @@
   Allows to change the quantity of the line item when set to true.
 
 ".components.schemas.LineItem.properties.modified": >
-  //
+  When boolean value is `true`, line items are said to be modified.
 
 ".components.schemas.CrossSellingElementCollection.properties.total": >
-  //
+  Number of cross selling elements found.
 
 ".components.schemas.NavigationRouteResponse.properties.id": >
   Unique identity of navigation route response.
@@ -2543,7 +2711,7 @@
   Breadcrumbs offer the users on the website the option to quickly find their way back to the homepage or another level of the website using internal links.
 
 ".components.schemas.Category.properties.level": >
-  An integer value that denotes the level of nesting of a particular category located in an heirarchial category tree. 
+  An integer value that denotes the level of nesting of a particular category located in an hierarchical category tree. 
 
 ".components.schemas.Category.properties.path": >
   A relative URL to the category.
@@ -2561,7 +2729,7 @@
   Displays categories on category page when true.
 
 ".components.schemas.Category.properties.active": >
-  Lists the category for selection when adding products to a category when true.
+  When boolean value is `true`, the category is listed for selection.
 
 ".components.schemas.Category.properties.name": >
   Name of the category.
@@ -2624,7 +2792,7 @@
   Unique identity that specifies the language and country.
 
 ".components.schemas.AppAdministrationSnippet.properties.value": >
-  //
+  Value of App Administration Snippet.
 
 ".components.schemas.AppCmsBlock.properties.id": >
   Unique identity of app's CMS block.
@@ -2657,13 +2825,13 @@
   Order of the block indicated by number like 0, 1, 2,...
 
 ".components.schemas.CmsBlock.properties.type": >
-  // type of block can be 'image`, `text`, 'product-listing`, `image-two-column`, etc.
+  Type of block can be 'image`, `text`, 'product-listing`, `image-two-column`, etc.
 
 ".components.schemas.CmsBlock.properties.name": >
   Unique name of the CMS Block.
 
 ".components.schemas.CmsBlock.properties.sectionPosition": >
-  // Position of the section. It can either be `main` or `sidebar` or `null` ? type.
+  //Position of the section. It can either be `main` or `sidebar` or `null` type. -> Niklas
 
 ".components.schemas.CmsBlock.properties.marginTop": >
   Defines the margin area on the top of an element.
@@ -2765,13 +2933,13 @@
   Unique identity of page where CMS section is defined.
 
 ".components.schemas.CmsSection.properties.visibility.properties.mobile": >
-  // Applies layout to fit mobile view when boolean value is `true`.
+  When `true`, CMS layout can be viewed in mobile mode.
 
 ".components.schemas.CmsSection.properties.visibility.properties.desktop": >
-  // Applies layout to fit desktop view when boolean value is `true`.
+  When `true`, CMS layout can be viewed in desktop mode.
 
 ".components.schemas.CmsSection.properties.visibility.properties.tablet": >
-  // Applies layout to fit tablet view when boolean value is `true`.
+  When `true`, CMS layout can be viewed in tablet mode.
 
 ".components.schemas.CmsSection.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -2792,7 +2960,7 @@
   Key-value pair to configure which element to be shown in which slot.
 
 ".components.schemas.CmsSlot.properties.locked": >
-  // Boolean value that determines the CMS slot movement.
+  When locked, then CMS slot config element cannot be configured.
 
 ".components.schemas.CmsSlot.properties.config": >
   Specifies detailed information about how the component is to be rendered.
@@ -2807,7 +2975,7 @@
   Unique identity of CMS block where slot is defined.
 
 ".components.schemas.CmsSlot.properties.fieldConfig": >
-  // this ojbect is nt defined in json
+  Con info of cms slot
 
 ".components.schemas.CmsSlot.properties.cmsBlockVersionId": >
   Unique identity of CMS block version.
@@ -2828,7 +2996,7 @@
   Numerical value that indicates the order in which the defined countries must be displayed in the frontend.
 
 ".components.schemas.Country.properties.active": >
-  // To set the country to active status, set it to true. OR to make teh country available set it to true
+  When boolean value is `true`, the country is available for selection in the storefront.
 
 ".components.schemas.Country.properties.shippingAvailable": >
   The shipping availability for a country is enabled when boolean value is `true`.
@@ -2915,7 +3083,7 @@
   Numerical value that indicates the order in which the defined states must be displayed in the frontend.
 
 ".components.schemas.CountryState.properties.active": >
-  // To set the state to active status, set it to true. OR to make a state available for selection under a country, the boolean value is`true`
+  When boolean value is `true`, the country's state is available for selection in the storefront.
 
 ".components.schemas.CountryState.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -3047,7 +3215,7 @@
   Email ID of the customer.
 
 ".components.schemas.Customer.properties.title": >
-  // Titles or honorifics like Mr, Mrs, etc.
+  Titles or honorifics like Mr, Mrs, etc.
 
 ".components.schemas.Customer.properties.vatIds": >
   Unique identity of VAT.
@@ -3059,7 +3227,7 @@
   A campaign code is the globally unique identifier for a campaign.
 
 ".components.schemas.Customer.properties.active": >
-  To keep the status of the customer active, set this parameter to `true`.
+  To keep the status of the customer active, the boolean value is set to `true`.
 
 ".components.schemas.Customer.properties.doubleOptInRegistration": >
   Set to `true` to allow user subscriptions to an email marketing list.
@@ -3095,7 +3263,7 @@
   Sum of total amount to be paid.
 
 ".components.schemas.Customer.properties.reviewCount": >
-  //
+  Number of reviews the customer has given.
 
 ".components.schemas.Customer.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -3104,10 +3272,10 @@
   Unique identity tag names given to the line item.
 
 ".components.schemas.Customer.properties.accountType": >
-  //
+  Account type can be personal or business.
 
 ".components.schemas.Customer.properties.extensions.properties.specificFeatures": >
-  //
+  To store additional data to a customer from extensions.
 
 ".components.schemas.CustomerAddress.properties.id": >
   Unique identity of customer's address.
@@ -3131,7 +3299,7 @@
   Last name of the customer.
 
 ".components.schemas.CustomerAddress.properties.zipcode": >
-  Postal or zipcode of customer's address.
+  Postal or zip code of customer's address.
 
 ".components.schemas.CustomerAddress.properties.city": >
   Name of customer's city.
@@ -3146,7 +3314,7 @@
   Name of customer's department.
 
 ".components.schemas.CustomerAddress.properties.title": >
-  // Title given to a customer’s address OR customer ?
+  Titles given to customer like Dr. , Prof., etc
 
 ".components.schemas.CustomerAddress.properties.phoneNumber": >
   Customer's phone number.
@@ -3314,7 +3482,7 @@
   Additional fields that offer a possibility to add own fields for the different program-areas.
 
 ".components.schemas.DocumentBaseConfig.properties.logo": >
-  // wrongly referenced in json.
+  Logo in the document at the top-right corner.
 
 ".components.schemas.DocumentBaseConfigSalesChannel.properties.id": >
   Unique identity of document's base config sales channel.
@@ -3371,7 +3539,7 @@
   Unique identity of landing page version.
 
 ".components.schemas.LandingPage.properties.active": >
-  When `true`, respective landing pages are enlisted for use.
+  When boolean value is `true`, respective landing pages are enlisted for use.
 
 ".components.schemas.LandingPage.properties.name": >
   Name of landing page.
@@ -3572,13 +3740,13 @@
   Contains the translations of all translated fields.
 
 ".components.schemas.Media.properties.extensions": >
-  //
+  To store additional data to a media from extensions.
 
 ".components.schemas.MediaAiTag.properties.id": >
   Unique identity of the AI media tag.
 
 ".components.schemas.MediaAiTag.properties.tag": >
-  //
+  Tag that indicates if the media is made by AI or not.
 
 ".components.schemas.MediaAiTag.properties.translated": >
   Contains the translations of all translated fields.
@@ -3614,7 +3782,7 @@
   Height of the thumbnail.
 
 ".components.schemas.MediaThumbnail.properties.url": >
- //
+  Public url of media thumbnail.
 
 ".components.schemas.MediaThumbnail.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
