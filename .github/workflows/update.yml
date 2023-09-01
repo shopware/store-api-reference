@@ -39,7 +39,10 @@ jobs:
         done
 
     - name: Prettify
-      run: jq . storeapi.json | sponge storeapi.json
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y moreutils
+        jq . storeapi.json | sponge storeapi.json
       
     - name: Create PR
       uses: peter-evans/create-pull-request@v4
