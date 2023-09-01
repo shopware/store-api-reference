@@ -14,7 +14,7 @@
   Types of level - Notice, warning and error.  
 
 ".components.schemas.Cart.properties.errors.properties.message": >
-  // A persistent error passed from the shopping cart calculation processes to the user end.
+  A persistent error passed from the shopping cart calculation processes to the user end.
 
 ".components.schemas.Cart.properties.transactions.properties.paymentMethodId": >
   Unique identity of payment method.
@@ -608,7 +608,7 @@
   Details of the media file uploaded.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.mediaTypeRaw": >
-  // Niklas MideaiType and mediaTypeRaw must not be in API
+  //
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.alt": >
   Alternate text for media.
@@ -626,7 +626,7 @@
   Boolean value is `true` to keep the media display private.
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.media.properties.thumbnailsRo": >
-   // Niklas MideaiType and mediaTypeRaw MUST NOT BE IN api
+   //
 
 ".components.schemas.ShippingMethodPageRouteResponse.properties.tags.properties.name": >
   Name of the tag.
@@ -1636,9 +1636,6 @@
 ".components.schemas.Product.properties.translated": >
   Contains the translations of all translated fields.
 
-".components.schemas.Product.properties.sortedProperties": >
-  // 
-
 ".components.schemas.Product.properties.externalReference": >
   External payment provider token.
 
@@ -2132,7 +2129,7 @@
   Path to product URL. For example: \"/detail/bbf36734504741c79a3bbe3795b91564\"
 
 ".components.schemas.SeoUrl.properties.seoPathInfo": >
-  Seo path to product. For example: \"Pepper-white-ground-Muntok-pearl/SW10098\"
+  Seo path to product. For example: \"Pepper-white-ground-pearl/SW10098\"
 
 ".components.schemas.SeoUrl.properties.isCanonical": >
   When set to true, search redirects to the main URL.
@@ -2351,7 +2348,7 @@
   Street address
 
 ".components.schemas.SubscriptionAddress.properties.zipcode": >
-  Zipcode of the country.
+  Zip code of the country.
 
 ".components.schemas.SubscriptionAddress.properties.company": >
   Name of the company.
@@ -2990,7 +2987,7 @@
   Name of the country.
 
 ".components.schemas.Country.properties.iso": >
-  // why iso when iso3 is present.
+  Internationally recognized two-letter country codes. For example, DE, IN, NO, etc.
 
 ".components.schemas.Country.properties.position": >
   Numerical value that indicates the order in which the defined countries must be displayed in the frontend.
@@ -3002,7 +2999,7 @@
   The shipping availability for a country is enabled when boolean value is `true`.
 
 ".components.schemas.Country.properties.iso3": >
-  Internationally recognized country code.
+  Internationally recognized three-letter country codes. For example, DEU, IND, NOR, etc.
 
 ".components.schemas.Country.properties.displayStateInRegistration": >
   The country's state is displayed in the address when boolean value is `true`.
