@@ -1097,19 +1097,19 @@
   //The total value before rounding off.
 
 ".components.schemas.OrderReturn.properties.price.properties.taxStatus": >
-  //TaxStatus takes Free, Net or Gross as values.
+  TaxStatus takes `Free`, `Net` or `Gross` as values.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.unitPrice": >
-  //Shipping cost of product per item (where, quantity=1).
+  Shipping cost of product per item (where, quantity=1).
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.totalPrice": >
-  //Shipping cost of product based on quantity.
+  Shipping cost of product based on quantity.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.quantity": >
-  //Number of items of each product.
+  Number of items of each product.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.calculatedTaxes": >
-  //Contains calculated taxes based on shipping costs/methods.
+  Contains calculated taxes based on shipping costs/methods.
 
 ".components.schemas.OrderReturn.properties.shippingCosts.properties.taxRules": >
   //Pricing based on rate of tax.
@@ -1172,7 +1172,7 @@
   Amount to be refunded.
 
 ".components.schemas.OrderReturnLineItem.properties.restockQuantity": >
-  // Updation of the stock after the return of those line items are initiated.
+  Update of stock quantity after the return of certain line items are initiated.
 
 ".components.schemas.OrderReturnLineItem.properties.customFields": >
   Additional fields that offer a possibility to add own fields for the different program-areas.
@@ -2831,7 +2831,7 @@
   Unique name of the CMS Block.
 
 ".components.schemas.CmsBlock.properties.sectionPosition": >
-  //Position of the section. It can either be `main` or `sidebar` or `null` type. -> Niklas
+  Position of the section. It can either be `main` or `sidebar`.
 
 ".components.schemas.CmsBlock.properties.marginTop": >
   Defines the margin area on the top of an element.
