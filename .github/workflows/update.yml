@@ -37,6 +37,9 @@ jobs:
           # Indent 4; output as json; edit in place
           yq  -I 4 -o json -i "$k.description = \"${newDescription}\"" storeapi.json
         done
+
+    - name: Prettify
+      run: jq . storeapi.json | sponge storeapi.json
       
     - name: Create PR
       uses: peter-evans/create-pull-request@v4
