@@ -387,7 +387,6 @@
         "type": "object"
       },
       "AdvancedSearchConfig": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -454,7 +453,6 @@
         "type": "object"
       },
       "AdvancedSearchConfigField": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -886,7 +884,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a504f45ff72a292548536ca7b4b90/parent"
+                            "example": "/category/018a5a15f71572388e12fdb9fab7c586/parent"
                           }
                         }
                       },
@@ -900,7 +898,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f460070bc8bad0b6dff876332"
+                            "example": "018a5a15f71673f7aa86af979d317d01"
                           }
                         }
                       }
@@ -915,7 +913,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a504f45ff72a292548536ca7b4b90/children"
+                            "example": "/category/018a5a15f71572388e12fdb9fab7c586/children"
                           }
                         }
                       },
@@ -930,7 +928,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f460070bc8bad0b6e000fe90e"
+                              "example": "018a5a15f71673f7aa86af979d85cc36"
                             }
                           }
                         }
@@ -946,7 +944,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a504f45ff72a292548536ca7b4b90/media"
+                            "example": "/category/018a5a15f71572388e12fdb9fab7c586/media"
                           }
                         }
                       },
@@ -960,7 +958,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f460070bc8bad0b6e00a7b9ab"
+                            "example": "018a5a15f71673f7aa86af979e7c4a49"
                           }
                         }
                       }
@@ -975,7 +973,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a504f45ff72a292548536ca7b4b90/cmsPage"
+                            "example": "/category/018a5a15f71572388e12fdb9fab7c586/cmsPage"
                           }
                         }
                       },
@@ -989,7 +987,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f460070bc8bad0b6e014ae19a"
+                            "example": "018a5a15f71673f7aa86af979ea2cfe4"
                           }
                         }
                       }
@@ -1004,7 +1002,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a504f45ff72a292548536ca7b4b90/seoUrls"
+                            "example": "/category/018a5a15f71572388e12fdb9fab7c586/seoUrls"
                           }
                         }
                       },
@@ -1019,7 +1017,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f460070bc8bad0b6e01c8cdb4"
+                              "example": "018a5a15f71673f7aa86af979f926bf3"
                             }
                           }
                         }
@@ -1207,7 +1205,10 @@
             "$ref": "#/components/schemas/Category"
           },
           "children": {
-            "$ref": "#/components/schemas/Category"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
           },
           "media": {
             "$ref": "#/components/schemas/Media"
@@ -1216,7 +1217,10 @@
             "$ref": "#/components/schemas/CmsPage"
           },
           "seoUrls": {
-            "$ref": "#/components/schemas/SeoUrl"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SeoUrl"
+            }
           }
         },
         "type": "object"
@@ -1331,7 +1335,10 @@
             "$ref": "#/components/schemas/Media"
           },
           "slots": {
-            "$ref": "#/components/schemas/CmsSlot"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CmsSlot"
+            }
           }
         },
         "type": "object"
@@ -1401,13 +1408,19 @@
             "description": "Contains the translations of all translated fields."
           },
           "sections": {
-            "$ref": "#/components/schemas/CmsSection"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CmsSection"
+            }
           },
           "previewMedia": {
             "$ref": "#/components/schemas/Media"
           },
           "landingPages": {
-            "$ref": "#/components/schemas/LandingPage"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LandingPage"
+            }
           }
         },
         "type": "object"
@@ -1508,7 +1521,10 @@
             "$ref": "#/components/schemas/Media"
           },
           "blocks": {
-            "$ref": "#/components/schemas/CmsBlock"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CmsBlock"
+            }
           }
         },
         "type": "object"
@@ -1726,7 +1742,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/country/018a504f460170ce8e6d225c95f4f564/states"
+                            "example": "/country/018a5a15f71873f9970101c71ddb2be2/states"
                           }
                         }
                       },
@@ -1741,7 +1757,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f460273ada9cf5ab0358ce5c7"
+                              "example": "018a5a15f71970cf9e5d44554f637620"
                             }
                           }
                         }
@@ -1902,7 +1918,10 @@
             "description": "Contains the translations of all translated fields."
           },
           "states": {
-            "$ref": "#/components/schemas/CountryState"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryState"
+            }
           },
           "companyTaxFree": {
             "description": "Set to true, when a registered company is free from paying taxes."
@@ -2355,7 +2374,6 @@
         "type": "object"
       },
       "CustomPrice": {
-        "description": "Added since version: ",
         "required": [
           "productId",
           "price",
@@ -2618,7 +2636,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/customer/018a504f460371e88aa2f6fb5731edb6/specificFeatures"
+                        "example": "/customer/018a5a15f71a709da1fe5369579f95e0/specificFeatures"
                       }
                     }
                   },
@@ -2632,7 +2650,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a504f460471648a40188494ab9197"
+                        "example": "018a5a15f71b7375b10327bd7446c34d"
                       }
                     }
                   }
@@ -2664,7 +2682,10 @@
             "$ref": "#/components/schemas/Salutation"
           },
           "addresses": {
-            "$ref": "#/components/schemas/CustomerAddress"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerAddress"
+            }
           }
         },
         "type": "object"
@@ -2859,7 +2880,6 @@
         "type": "object"
       },
       "CustomerSpecificFeatures": {
-        "description": "Added since version: ",
         "required": [
           "customerId",
           "createdAt"
@@ -3120,7 +3140,10 @@
             "$ref": "#/components/schemas/Document"
           },
           "dependentDocuments": {
-            "$ref": "#/components/schemas/Document"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Document"
+            }
           },
           "documentMediaFile": {
             "$ref": "#/components/schemas/Media"
@@ -3515,7 +3538,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/landing-page/018a504f46077210b53e4a32cbb7234b/cmsPage"
+                            "example": "/landing-page/018a5a15f71e7158acc973cba669a12a/cmsPage"
                           }
                         }
                       },
@@ -3529,7 +3552,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46077210b53e4a32cc0f7011"
+                            "example": "018a5a15f71e7158acc973cba6ecf7a9"
                           }
                         }
                       }
@@ -3544,7 +3567,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/landing-page/018a504f46077210b53e4a32cbb7234b/seoUrls"
+                            "example": "/landing-page/018a5a15f71e7158acc973cba669a12a/seoUrls"
                           }
                         }
                       },
@@ -3559,7 +3582,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46077210b53e4a32cca71e9d"
+                              "example": "018a5a15f71e7158acc973cba7a59aa6"
                             }
                           }
                         }
@@ -3651,7 +3674,10 @@
             "$ref": "#/components/schemas/CmsPage"
           },
           "seoUrls": {
-            "$ref": "#/components/schemas/SeoUrl"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SeoUrl"
+            }
           }
         },
         "type": "object"
@@ -3711,7 +3737,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a504f46077210b53e4a32cd12dbca/parent"
+                            "example": "/language/018a5a15f71e7158acc973cba912f28a/parent"
                           }
                         }
                       },
@@ -3725,7 +3751,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46077210b53e4a32cde60c19"
+                            "example": "018a5a15f71f7084be0e80c2b1f2e65b"
                           }
                         }
                       }
@@ -3740,7 +3766,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a504f46077210b53e4a32cd12dbca/locale"
+                            "example": "/language/018a5a15f71e7158acc973cba912f28a/locale"
                           }
                         }
                       },
@@ -3754,7 +3780,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46077210b53e4a32cecafa8f"
+                            "example": "018a5a15f71f7084be0e80c2b23ad65b"
                           }
                         }
                       }
@@ -3769,7 +3795,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a504f46077210b53e4a32cd12dbca/translationCode"
+                            "example": "/language/018a5a15f71e7158acc973cba912f28a/translationCode"
                           }
                         }
                       },
@@ -3783,7 +3809,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46077210b53e4a32cf75db10"
+                            "example": "018a5a15f71f7084be0e80c2b2598698"
                           }
                         }
                       }
@@ -3798,7 +3824,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a504f46077210b53e4a32cd12dbca/children"
+                            "example": "/language/018a5a15f71e7158acc973cba912f28a/children"
                           }
                         }
                       },
@@ -3813,7 +3839,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46077210b53e4a32cfd96d38"
+                              "example": "018a5a15f71f7084be0e80c2b2b41f69"
                             }
                           }
                         }
@@ -3883,7 +3909,10 @@
             "$ref": "#/components/schemas/Locale"
           },
           "children": {
-            "$ref": "#/components/schemas/Language"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Language"
+            }
           }
         },
         "type": "object"
@@ -4064,7 +4093,10 @@
             "$ref": "#/components/schemas/MailTemplateType"
           },
           "media": {
-            "$ref": "#/components/schemas/MailTemplateMedia"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MailTemplateMedia"
+            }
           }
         },
         "type": "object"
@@ -4342,7 +4374,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/media/018a504f460972ed879fb4762391d3b1/mediaAiTag"
+                        "example": "/media/018a5a15f7207218a95bd2fe9255f05b/mediaAiTag"
                       }
                     }
                   },
@@ -4356,7 +4388,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a504f460972ed879fb47624730e4e"
+                        "example": "018a5a15f7207218a95bd2fe934c9ad4"
                       }
                     }
                   }
@@ -4367,13 +4399,15 @@
             "type": "object"
           },
           "thumbnails": {
-            "$ref": "#/components/schemas/MediaThumbnail"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MediaThumbnail"
+            }
           }
         },
         "type": "object"
       },
       "MediaAiTag": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -5024,7 +5058,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order/018a504f460a73f4b74099f84f025bc8/subscription"
+                        "example": "/order/018a5a15f72273fab65302c8cb7aa7c0/subscription"
                       }
                     }
                   },
@@ -5038,7 +5072,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a504f460b728ab396ab097c7ec20a"
+                        "example": "018a5a15f723704eb482f9a099e13360"
                       }
                     }
                   }
@@ -5053,7 +5087,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order/018a504f460a73f4b74099f84f025bc8/returns"
+                        "example": "/order/018a5a15f72273fab65302c8cb7aa7c0/returns"
                       }
                     }
                   },
@@ -5068,7 +5102,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a504f460b728ab396ab097d678163"
+                          "example": "018a5a15f723704eb482f9a09ad7f118"
                         }
                       }
                     }
@@ -5092,25 +5126,43 @@
             "$ref": "#/components/schemas/Language"
           },
           "addresses": {
-            "$ref": "#/components/schemas/OrderAddress"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderAddress"
+            }
           },
           "billingAddress": {
             "$ref": "#/components/schemas/OrderAddress"
           },
           "deliveries": {
-            "$ref": "#/components/schemas/OrderDelivery"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDelivery"
+            }
           },
           "lineItems": {
-            "$ref": "#/components/schemas/OrderLineItem"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderLineItem"
+            }
           },
           "transactions": {
-            "$ref": "#/components/schemas/OrderTransaction"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderTransaction"
+            }
           },
           "documents": {
-            "$ref": "#/components/schemas/Document"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Document"
+            }
           },
           "tags": {
-            "$ref": "#/components/schemas/Tag"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
           }
         },
         "type": "object"
@@ -5446,7 +5498,10 @@
             "$ref": "#/components/schemas/ShippingMethod"
           },
           "positions": {
-            "$ref": "#/components/schemas/OrderDeliveryPosition"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDeliveryPosition"
+            }
           }
         },
         "type": "object"
@@ -5727,7 +5782,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order-line-item/018a504f460c71818e4898b7c53a2bc5/returns"
+                        "example": "/order-line-item/018a5a15f724701a91ad5770006e4910/returns"
                       }
                     }
                   },
@@ -5742,7 +5797,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a504f460d7352a21e9a3d493c829d"
+                          "example": "018a5a15f724701a91ad577003b775e3"
                         }
                       }
                     }
@@ -5758,7 +5813,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order-line-item/018a504f460c71818e4898b7c53a2bc5/state"
+                        "example": "/order-line-item/018a5a15f724701a91ad5770006e4910/state"
                       }
                     }
                   },
@@ -5772,7 +5827,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a504f460d7352a21e9a3d49cc2938"
+                        "example": "018a5a15f724701a91ad57700481a76e"
                       }
                     }
                   }
@@ -5786,16 +5841,25 @@
             "$ref": "#/components/schemas/Media"
           },
           "orderDeliveryPositions": {
-            "$ref": "#/components/schemas/OrderDeliveryPosition"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDeliveryPosition"
+            }
           },
           "downloads": {
-            "$ref": "#/components/schemas/OrderLineItemDownload"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderLineItemDownload"
+            }
           },
           "parent": {
             "$ref": "#/components/schemas/OrderLineItem"
           },
           "children": {
-            "$ref": "#/components/schemas/OrderLineItem"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderLineItem"
+            }
           }
         },
         "type": "object"
@@ -5860,7 +5924,6 @@
         "type": "object"
       },
       "OrderProductWarehouse": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -5883,7 +5946,6 @@
         "type": "object"
       },
       "OrderReturn": {
-        "description": "Added since version: ",
         "required": [
           "orderId",
           "stateId",
@@ -6043,13 +6105,15 @@
             "$ref": "#/components/schemas/StateMachineState"
           },
           "lineItems": {
-            "$ref": "#/components/schemas/OrderReturnLineItem"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderReturnLineItem"
+            }
           }
         },
         "type": "object"
       },
       "OrderReturnLineItem": {
-        "description": "Added since version: ",
         "required": [
           "orderReturnId",
           "orderLineItemId",
@@ -6126,7 +6190,6 @@
         "type": "object"
       },
       "OrderReturnLineItemReason": {
-        "description": "Added since version: ",
         "required": [
           "reasonKey",
           "createdAt",
@@ -6314,7 +6377,10 @@
             "$ref": "#/components/schemas/PaymentMethod"
           },
           "captures": {
-            "$ref": "#/components/schemas/OrderTransactionCapture"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderTransactionCapture"
+            }
           }
         },
         "type": "object"
@@ -6435,7 +6501,10 @@
             "$ref": "#/components/schemas/OrderTransaction"
           },
           "refunds": {
-            "$ref": "#/components/schemas/OrderTransactionCaptureRefund"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderTransactionCaptureRefund"
+            }
           }
         },
         "type": "object"
@@ -6559,7 +6628,10 @@
             "$ref": "#/components/schemas/OrderTransactionCapture"
           },
           "positions": {
-            "$ref": "#/components/schemas/OrderTransactionCaptureRefundPosition"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderTransactionCaptureRefundPosition"
+            }
           }
         },
         "type": "object"
@@ -6696,7 +6768,6 @@
         "type": "object"
       },
       "OrderWarehouseGroup": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -6813,7 +6884,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/payment-method/018a504f461270e6b850c9f2457bc36f/media"
+                            "example": "/payment-method/018a5a15f72a7290860802de267e6e02/media"
                           }
                         }
                       },
@@ -6827,7 +6898,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f461270e6b850c9f2462ae010"
+                            "example": "018a5a15f72a7290860802de26f4cdd6"
                           }
                         }
                       }
@@ -7251,7 +7322,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/reviewSummaries"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/reviewSummaries"
                           }
                         }
                       },
@@ -7266,7 +7337,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71bee0d524c"
+                              "example": "018a5a15f72c7084b443dbc43e31ae89"
                             }
                           }
                         }
@@ -7287,7 +7358,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/downloads"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/downloads"
                           }
                         }
                       },
@@ -7302,7 +7373,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71be3d3a40a"
+                              "example": "018a5a15f72c7084b443dbc433039d05"
                             }
                           }
                         }
@@ -7318,7 +7389,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/parent"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/parent"
                           }
                         }
                       },
@@ -7332,7 +7403,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71be491be1a"
+                            "example": "018a5a15f72c7084b443dbc433d1b012"
                           }
                         }
                       }
@@ -7347,7 +7418,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/children"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/children"
                           }
                         }
                       },
@@ -7362,7 +7433,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71be558e28d"
+                              "example": "018a5a15f72c7084b443dbc43437e6f8"
                             }
                           }
                         }
@@ -7378,7 +7449,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/deliveryTime"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/deliveryTime"
                           }
                         }
                       },
@@ -7392,7 +7463,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71be623af3a"
+                            "example": "018a5a15f72c7084b443dbc434814dd5"
                           }
                         }
                       }
@@ -7407,7 +7478,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/tax"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/tax"
                           }
                         }
                       },
@@ -7421,7 +7492,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71be6fdd181"
+                            "example": "018a5a15f72c7084b443dbc4355f1c04"
                           }
                         }
                       }
@@ -7436,7 +7507,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/manufacturer"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/manufacturer"
                           }
                         }
                       },
@@ -7450,7 +7521,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71be754d8bb"
+                            "example": "018a5a15f72c7084b443dbc4358cb4dd"
                           }
                         }
                       }
@@ -7465,7 +7536,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/unit"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/unit"
                           }
                         }
                       },
@@ -7479,7 +7550,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71be78b929e"
+                            "example": "018a5a15f72c7084b443dbc4367a88fe"
                           }
                         }
                       }
@@ -7494,7 +7565,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/cover"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/cover"
                           }
                         }
                       },
@@ -7508,7 +7579,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71be7e239c6"
+                            "example": "018a5a15f72c7084b443dbc436c8c7d7"
                           }
                         }
                       }
@@ -7523,7 +7594,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/cmsPage"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/cmsPage"
                           }
                         }
                       },
@@ -7537,7 +7608,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71be832fdb1"
+                            "example": "018a5a15f72c7084b443dbc437279978"
                           }
                         }
                       }
@@ -7552,7 +7623,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/canonicalProduct"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/canonicalProduct"
                           }
                         }
                       },
@@ -7566,7 +7637,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71be893258b"
+                            "example": "018a5a15f72c7084b443dbc4376c0939"
                           }
                         }
                       }
@@ -7581,7 +7652,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/media"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/media"
                           }
                         }
                       },
@@ -7596,7 +7667,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71be908a1bb"
+                              "example": "018a5a15f72c7084b443dbc438412d63"
                             }
                           }
                         }
@@ -7612,7 +7683,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/crossSellings"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/crossSellings"
                           }
                         }
                       },
@@ -7627,7 +7698,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71be92e43fb"
+                              "example": "018a5a15f72c7084b443dbc4387b7d2d"
                             }
                           }
                         }
@@ -7643,7 +7714,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/configuratorSettings"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/configuratorSettings"
                           }
                         }
                       },
@@ -7658,7 +7729,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71be9fe4449"
+                              "example": "018a5a15f72c7084b443dbc438a7cd61"
                             }
                           }
                         }
@@ -7674,7 +7745,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/productReviews"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/productReviews"
                           }
                         }
                       },
@@ -7689,7 +7760,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71bea5ee91d"
+                              "example": "018a5a15f72c7084b443dbc439268c53"
                             }
                           }
                         }
@@ -7705,7 +7776,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/mainCategories"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/mainCategories"
                           }
                         }
                       },
@@ -7720,7 +7791,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71bea9477a1"
+                              "example": "018a5a15f72c7084b443dbc439e17479"
                             }
                           }
                         }
@@ -7736,7 +7807,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/seoUrls"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/seoUrls"
                           }
                         }
                       },
@@ -7751,7 +7822,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71beb6483d4"
+                              "example": "018a5a15f72c7084b443dbc43ad9978f"
                             }
                           }
                         }
@@ -7767,7 +7838,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/options"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/options"
                           }
                         }
                       },
@@ -7782,7 +7853,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71bec37392d"
+                              "example": "018a5a15f72c7084b443dbc43adb4b43"
                             }
                           }
                         }
@@ -7798,7 +7869,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/properties"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/properties"
                           }
                         }
                       },
@@ -7813,7 +7884,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71bec6c86dd"
+                              "example": "018a5a15f72c7084b443dbc43aef1c44"
                             }
                           }
                         }
@@ -7829,7 +7900,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/categories"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/categories"
                           }
                         }
                       },
@@ -7844,7 +7915,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71bec9f8435"
+                              "example": "018a5a15f72c7084b443dbc43b921775"
                             }
                           }
                         }
@@ -7860,7 +7931,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/streams"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/streams"
                           }
                         }
                       },
@@ -7875,7 +7946,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71bed7455c5"
+                              "example": "018a5a15f72c7084b443dbc43c874440"
                             }
                           }
                         }
@@ -7891,7 +7962,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/categoriesRo"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/categoriesRo"
                           }
                         }
                       },
@@ -7906,7 +7977,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f46147134bd58b71bed8b9af4"
+                              "example": "018a5a15f72c7084b443dbc43c8bdd95"
                             }
                           }
                         }
@@ -7922,7 +7993,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a504f461270e6b850c9f246fe9635/seoCategory"
+                            "example": "/product/018a5a15f72a7290860802de287eed6a/seoCategory"
                           }
                         }
                       },
@@ -7936,7 +8007,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f46147134bd58b71bedee8c0d"
+                            "example": "018a5a15f72c7084b443dbc43d5ec3ff"
                           }
                         }
                       }
@@ -8282,7 +8353,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/product/018a504f461270e6b850c9f246fe9635/reviewSummaries"
+                        "example": "/product/018a5a15f72a7290860802de287eed6a/reviewSummaries"
                       }
                     }
                   },
@@ -8297,7 +8368,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a504f46147134bd58b71bee0d524c"
+                          "example": "018a5a15f72c7084b443dbc43e31ae89"
                         }
                       }
                     }
@@ -8309,13 +8380,19 @@
             "type": "object"
           },
           "downloads": {
-            "$ref": "#/components/schemas/ProductDownload"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDownload"
+            }
           },
           "parent": {
             "$ref": "#/components/schemas/Product"
           },
           "children": {
-            "$ref": "#/components/schemas/Product"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
           },
           "deliveryTime": {
             "$ref": "#/components/schemas/DeliveryTime",
@@ -8340,37 +8417,70 @@
             "$ref": "#/components/schemas/Product"
           },
           "media": {
-            "$ref": "#/components/schemas/ProductMedia"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductMedia"
+            }
           },
           "crossSellings": {
-            "$ref": "#/components/schemas/ProductCrossSelling"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductCrossSelling"
+            }
           },
           "configuratorSettings": {
-            "$ref": "#/components/schemas/ProductConfiguratorSetting"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductConfiguratorSetting"
+            }
           },
           "productReviews": {
-            "$ref": "#/components/schemas/ProductReview"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductReview"
+            }
           },
           "mainCategories": {
-            "$ref": "#/components/schemas/MainCategory"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MainCategory"
+            }
           },
           "seoUrls": {
-            "$ref": "#/components/schemas/SeoUrl"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SeoUrl"
+            }
           },
           "options": {
-            "$ref": "#/components/schemas/PropertyGroupOption"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyGroupOption"
+            }
           },
           "properties": {
-            "$ref": "#/components/schemas/PropertyGroupOption"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyGroupOption"
+            }
           },
           "categories": {
-            "$ref": "#/components/schemas/Category"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
           },
           "streams": {
-            "$ref": "#/components/schemas/ProductStream"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductStream"
+            }
           },
           "categoriesRo": {
-            "$ref": "#/components/schemas/Category"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
           },
           "seoCategory": {
             "$ref": "#/components/schemas/Category"
@@ -8883,7 +8993,6 @@
         "type": "object"
       },
       "ProductReviewSummary": {
-        "description": "Added since version: ",
         "required": [
           "productId",
           "salesChannelId",
@@ -9129,7 +9238,6 @@
         "type": "object"
       },
       "ProductWarehouse": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -9359,7 +9467,10 @@
             "description": "Contains the translations of all translated fields."
           },
           "options": {
-            "$ref": "#/components/schemas/PropertyGroupOption"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyGroupOption"
+            }
           }
         },
         "type": "object"
@@ -9469,7 +9580,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/rule/018a504f46187189998de2ced451c50d/warehouseGroup"
+                        "example": "/rule/018a5a15f73071e3ac950fbccb7647d4/warehouseGroup"
                       }
                     }
                   },
@@ -9484,7 +9595,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a504f46187189998de2ced4d6f9da"
+                          "example": "018a5a15f73071e3ac950fbccbabafe8"
                         }
                       }
                     }
@@ -9675,7 +9786,10 @@
             "$ref": "#/components/schemas/Country"
           },
           "domains": {
-            "$ref": "#/components/schemas/SalesChannelDomain"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SalesChannelDomain"
+            }
           },
           "navigationCategory": {
             "$ref": "#/components/schemas/Category"
@@ -10213,7 +10327,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a504f461a71e08bb7d7c064501edf/deliveryTime"
+                            "example": "/shipping-method/018a5a15f73273f1958c75a8465037b9/deliveryTime"
                           }
                         }
                       },
@@ -10227,7 +10341,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f461a71e08bb7d7c064986f21"
+                            "example": "018a5a15f73273f1958c75a846989f3f"
                           }
                         }
                       }
@@ -10242,7 +10356,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a504f461a71e08bb7d7c064501edf/availabilityRule"
+                            "example": "/shipping-method/018a5a15f73273f1958c75a8465037b9/availabilityRule"
                           }
                         }
                       },
@@ -10256,7 +10370,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f461a71e08bb7d7c064b78bfb"
+                            "example": "018a5a15f73273f1958c75a8474f43b7"
                           }
                         }
                       }
@@ -10271,7 +10385,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a504f461a71e08bb7d7c064501edf/prices"
+                            "example": "/shipping-method/018a5a15f73273f1958c75a8465037b9/prices"
                           }
                         }
                       },
@@ -10286,7 +10400,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f461a71e08bb7d7c064c1bc94"
+                              "example": "018a5a15f73273f1958c75a8482c420a"
                             }
                           }
                         }
@@ -10302,7 +10416,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a504f461a71e08bb7d7c064501edf/media"
+                            "example": "/shipping-method/018a5a15f73273f1958c75a8465037b9/media"
                           }
                         }
                       },
@@ -10316,7 +10430,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f461a71e08bb7d7c064c60873"
+                            "example": "018a5a15f73273f1958c75a848fdab53"
                           }
                         }
                       }
@@ -10331,7 +10445,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a504f461a71e08bb7d7c064501edf/tags"
+                            "example": "/shipping-method/018a5a15f73273f1958c75a8465037b9/tags"
                           }
                         }
                       },
@@ -10346,7 +10460,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a504f461a71e08bb7d7c064d2325f"
+                              "example": "018a5a15f73273f1958c75a849371f4f"
                             }
                           }
                         }
@@ -10362,7 +10476,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a504f461a71e08bb7d7c064501edf/tax"
+                            "example": "/shipping-method/018a5a15f73273f1958c75a8465037b9/tax"
                           }
                         }
                       },
@@ -10376,7 +10490,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a504f461a71e08bb7d7c064fda958"
+                            "example": "018a5a15f73273f1958c75a84a1fcf88"
                           }
                         }
                       }
@@ -10464,13 +10578,19 @@
             "$ref": "#/components/schemas/Rule"
           },
           "prices": {
-            "$ref": "#/components/schemas/ShippingMethodPrice"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShippingMethodPrice"
+            }
           },
           "media": {
             "$ref": "#/components/schemas/Media"
           },
           "tags": {
-            "$ref": "#/components/schemas/Tag"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
           },
           "tax": {
             "$ref": "#/components/schemas/Tax"
@@ -10617,7 +10737,10 @@
             "readOnly": true
           },
           "snippets": {
-            "$ref": "#/components/schemas/Snippet"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Snippet"
+            }
           }
         },
         "type": "object"
@@ -10648,10 +10771,16 @@
             "description": "Contains the translations of all translated fields."
           },
           "states": {
-            "$ref": "#/components/schemas/StateMachineState"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateMachineState"
+            }
           },
           "transitions": {
-            "$ref": "#/components/schemas/StateMachineTransition"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateMachineTransition"
+            }
           }
         },
         "type": "object"
@@ -10750,7 +10879,6 @@
         "type": "object"
       },
       "Subscription": {
-        "description": "Added since version: ",
         "required": [
           "convertedOrder",
           "subscriptionNumber",
@@ -10860,7 +10988,10 @@
             "$ref": "#/components/schemas/SubscriptionAddress"
           },
           "addresses": {
-            "$ref": "#/components/schemas/SubscriptionAddress"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubscriptionAddress"
+            }
           },
           "paymentMethod": {
             "$ref": "#/components/schemas/PaymentMethod"
@@ -10872,10 +11003,16 @@
             "$ref": "#/components/schemas/StateMachineState"
           },
           "orders": {
-            "$ref": "#/components/schemas/Order"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
           },
           "tags": {
-            "$ref": "#/components/schemas/Tag"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
           },
           "currency": {
             "$ref": "#/components/schemas/Currency"
@@ -10887,7 +11024,6 @@
         "type": "object"
       },
       "SubscriptionAddress": {
-        "description": "Added since version: ",
         "required": [
           "countryId",
           "subscriptionId",
@@ -10989,7 +11125,6 @@
         "type": "object"
       },
       "SubscriptionCustomer": {
-        "description": "Added since version: ",
         "required": [
           "salutationId",
           "email",
@@ -11054,7 +11189,6 @@
         "type": "object"
       },
       "SubscriptionInterval": {
-        "description": "Added since version: ",
         "required": [
           "name",
           "active",
@@ -11097,13 +11231,15 @@
             "type": "object"
           },
           "subscriptions": {
-            "$ref": "#/components/schemas/Subscription"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription"
+            }
           }
         },
         "type": "object"
       },
       "SubscriptionPlan": {
-        "description": "Added since version: ",
         "required": [
           "name",
           "active",
@@ -11148,13 +11284,15 @@
             "type": "object"
           },
           "subscriptions": {
-            "$ref": "#/components/schemas/Subscription"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription"
+            }
           }
         },
         "type": "object"
       },
       "SubscriptionPlanIntervalMapping": {
-        "description": "Added since version: ",
         "required": [
           "subscriptionIntervalId",
           "subscriptionPlanId"
@@ -11182,7 +11320,6 @@
         "type": "object"
       },
       "SubscriptionPlanProductMapping": {
-        "description": "Added since version: ",
         "required": [
           "productId",
           "subscriptionPlanId"
@@ -11214,7 +11351,6 @@
         "type": "object"
       },
       "SubscriptionTagMapping": {
-        "description": "Added since version: ",
         "required": [
           "subscriptionId",
           "tagId"
@@ -11242,7 +11378,6 @@
         "type": "object"
       },
       "SwagDelayAction": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -11556,7 +11691,10 @@
             "description": "Contains the translations of all translated fields."
           },
           "media": {
-            "$ref": "#/components/schemas/Media"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Media"
+            }
           }
         },
         "type": "object"
@@ -11695,7 +11833,6 @@
         "type": "object"
       },
       "Warehouse": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -11718,7 +11855,6 @@
         "type": "object"
       },
       "WarehouseGroup": {
-        "description": "Added since version: ",
         "required": [
           "createdAt"
         ],
@@ -12535,7 +12671,7 @@
         "type": "object",
         "properties": {
           "orders": {
-            "type": "object",
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/Order"
             }
@@ -13603,7 +13739,6 @@
                     "$ref": "#/components/schemas/Criteria"
                   },
                   {
-                    "type": "object",
                     "allOf": [
                       {
                         "properties": {
@@ -13951,7 +14086,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -14009,7 +14143,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -14067,7 +14200,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -14128,7 +14260,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -14280,7 +14411,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -14876,7 +15006,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/ProductListingCriteria"
@@ -15013,7 +15142,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -15082,7 +15210,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -16615,7 +16742,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -16724,7 +16850,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "allOf": [
                   {
                     "required": [
@@ -16781,7 +16906,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "allOf": [
                   {
                     "required": [
@@ -16846,7 +16970,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "allOf": [
                   {
                     "properties": {
@@ -17009,7 +17132,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
