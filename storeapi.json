@@ -386,6 +386,28 @@
         },
         "type": "object"
       },
+      "AdvancedSearchBoosting": {
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "AdvancedSearchConfig": {
         "required": [
           "createdAt"
@@ -453,6 +475,50 @@
         "type": "object"
       },
       "AdvancedSearchConfigField": {
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "AdvancedSearchEntityStream": {
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "AdvancedSearchEntityStreamFilter": {
         "required": [
           "createdAt"
         ],
@@ -884,7 +950,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a6eafd8c9710b9b96b9f65d235bc5/parent"
+                            "example": "/category/018a8d96a9c87114bb79adcab872537c/parent"
                           }
                         }
                       },
@@ -898,7 +964,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8cb734daac4cd97ad65c140"
+                            "example": "018a8d96a9c9717fa15da7abf9a48a6a"
                           }
                         }
                       }
@@ -913,7 +979,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a6eafd8c9710b9b96b9f65d235bc5/children"
+                            "example": "/category/018a8d96a9c87114bb79adcab872537c/children"
                           }
                         }
                       },
@@ -928,7 +994,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8cb734daac4cd97ad7c19c6"
+                              "example": "018a8d96a9ca73f68ae02fe5b9602832"
                             }
                           }
                         }
@@ -944,7 +1010,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a6eafd8c9710b9b96b9f65d235bc5/media"
+                            "example": "/category/018a8d96a9c87114bb79adcab872537c/media"
                           }
                         }
                       },
@@ -958,7 +1024,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8cb734daac4cd97ae1f7008"
+                            "example": "018a8d96a9ca73f68ae02fe5b988a1a6"
                           }
                         }
                       }
@@ -973,7 +1039,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a6eafd8c9710b9b96b9f65d235bc5/cmsPage"
+                            "example": "/category/018a8d96a9c87114bb79adcab872537c/cmsPage"
                           }
                         }
                       },
@@ -987,7 +1053,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8cb734daac4cd97ae6eacdc"
+                            "example": "018a8d96a9ca73f68ae02fe5b9c99f11"
                           }
                         }
                       }
@@ -1002,7 +1068,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a6eafd8c9710b9b96b9f65d235bc5/seoUrls"
+                            "example": "/category/018a8d96a9c87114bb79adcab872537c/seoUrls"
                           }
                         }
                       },
@@ -1017,7 +1083,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8cb734daac4cd97af4d5957"
+                              "example": "018a8d96a9ca73f68ae02fe5b9fe8c5c"
                             }
                           }
                         }
@@ -1742,7 +1808,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/country/018a6eafd8cd7235813328aa0fe08006/states"
+                            "example": "/country/018a8d96a9cb7010ac7986e0784d4bca/states"
                           }
                         }
                       },
@@ -1757,7 +1823,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8cd7235813328aa102f51c2"
+                              "example": "018a8d96a9cc72a3be8f6bfc1e76c664"
                             }
                           }
                         }
@@ -2636,7 +2702,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/customer/018a6eafd8cf7031a98318a2712f22cf/specificFeatures"
+                        "example": "/customer/018a8d96a9ce7175a94dc5d934493140/specificFeatures"
                       }
                     }
                   },
@@ -2650,7 +2716,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a6eafd8d07182974df54062289836"
+                        "example": "018a8d96a9cf71af9510da42204d3a5d"
                       }
                     }
                   }
@@ -2675,7 +2741,13 @@
           "defaultBillingAddress": {
             "$ref": "#/components/schemas/CustomerAddress"
           },
+          "activeBillingAddress": {
+            "$ref": "#/components/schemas/CustomerAddress"
+          },
           "defaultShippingAddress": {
+            "$ref": "#/components/schemas/CustomerAddress"
+          },
+          "activeShippingAddress": {
             "$ref": "#/components/schemas/CustomerAddress"
           },
           "salutation": {
@@ -3538,7 +3610,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/landing-page/018a6eafd8d271f99bbba47df48b8463/cmsPage"
+                            "example": "/landing-page/018a8d96a9d372de8517e66c1ce064e1/cmsPage"
                           }
                         }
                       },
@@ -3552,7 +3624,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8d271f99bbba47df555220c"
+                            "example": "018a8d96a9d372de8517e66c1cefde60"
                           }
                         }
                       }
@@ -3567,7 +3639,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/landing-page/018a6eafd8d271f99bbba47df48b8463/seoUrls"
+                            "example": "/landing-page/018a8d96a9d372de8517e66c1ce064e1/seoUrls"
                           }
                         }
                       },
@@ -3582,7 +3654,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8d271f99bbba47df5d5da44"
+                              "example": "018a8d96a9d372de8517e66c1dd12de0"
                             }
                           }
                         }
@@ -3737,7 +3809,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a6eafd8d3702bbb193156918be393/parent"
+                            "example": "/language/018a8d96a9d372de8517e66c1fde70d5/parent"
                           }
                         }
                       },
@@ -3751,7 +3823,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8d3702bbb193156920871e4"
+                            "example": "018a8d96a9d4724db3899423b17661b0"
                           }
                         }
                       }
@@ -3766,7 +3838,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a6eafd8d3702bbb193156918be393/locale"
+                            "example": "/language/018a8d96a9d372de8517e66c1fde70d5/locale"
                           }
                         }
                       },
@@ -3780,7 +3852,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8d3702bbb1931569303c538"
+                            "example": "018a8d96a9d4724db3899423b2217b9d"
                           }
                         }
                       }
@@ -3795,7 +3867,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a6eafd8d3702bbb193156918be393/translationCode"
+                            "example": "/language/018a8d96a9d372de8517e66c1fde70d5/translationCode"
                           }
                         }
                       },
@@ -3809,7 +3881,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8d3702bbb19315693d87c5d"
+                            "example": "018a8d96a9d4724db3899423b28eefe9"
                           }
                         }
                       }
@@ -3824,7 +3896,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a6eafd8d3702bbb193156918be393/children"
+                            "example": "/language/018a8d96a9d372de8517e66c1fde70d5/children"
                           }
                         }
                       },
@@ -3839,7 +3911,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8d3702bbb19315694a9b7d3"
+                              "example": "018a8d96a9d4724db3899423b3460125"
                             }
                           }
                         }
@@ -4374,7 +4446,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/media/018a6eafd8d570eeac4bdad99d9fa7e9/mediaAiTag"
+                        "example": "/media/018a8d96a9d5700cbfd807eebce72fe6/mediaAiTag"
                       }
                     }
                   },
@@ -4388,7 +4460,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a6eafd8d570eeac4bdad99dfe3fc6"
+                        "example": "018a8d96a9d673d6a074ac1ddcbd4581"
                       }
                     }
                   }
@@ -5058,7 +5130,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order/018a6eafd8d673a48c9fad02153976ab/subscription"
+                        "example": "/order/018a8d96a9d871a6ac629d86ba4abe2f/subscription"
                       }
                     }
                   },
@@ -5072,7 +5144,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a6eafd8d7715ab3d924b588c933f5"
+                        "example": "018a8d96a9d972668c04d5d102868b49"
                       }
                     }
                   }
@@ -5087,7 +5159,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order/018a6eafd8d673a48c9fad02153976ab/returns"
+                        "example": "/order/018a8d96a9d871a6ac629d86ba4abe2f/returns"
                       }
                     }
                   },
@@ -5102,7 +5174,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a6eafd8d7715ab3d924b588f67cef"
+                          "example": "018a8d96a9d972668c04d5d10377e6db"
                         }
                       }
                     }
@@ -5782,7 +5854,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order-line-item/018a6eafd8d87282b8f2da195a2b5968/returns"
+                        "example": "/order-line-item/018a8d96a9db7234af61ab44cefbf55a/returns"
                       }
                     }
                   },
@@ -5797,7 +5869,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a6eafd8d9704b8a3e9e28337cc89d"
+                          "example": "018a8d96a9db7234af61ab44d16399e0"
                         }
                       }
                     }
@@ -5813,7 +5885,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order-line-item/018a6eafd8d87282b8f2da195a2b5968/state"
+                        "example": "/order-line-item/018a8d96a9db7234af61ab44cefbf55a/state"
                       }
                     }
                   },
@@ -5827,7 +5899,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a6eafd8d9704b8a3e9e283431094b"
+                        "example": "018a8d96a9db7234af61ab44d2162cbe"
                       }
                     }
                   }
@@ -6884,7 +6956,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/payment-method/018a6eafd8df70cb8898b2ce76a7ef9b/media"
+                            "example": "/payment-method/018a8d96a9e272f59c79ca2a1d95cd0c/media"
                           }
                         }
                       },
@@ -6898,7 +6970,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8df70cb8898b2ce77278b41"
+                            "example": "018a8d96a9e272f59c79ca2a1e73049b"
                           }
                         }
                       }
@@ -7322,7 +7394,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/reviewSummaries"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/reviewSummaries"
                           }
                         }
                       },
@@ -7337,7 +7409,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce693d5ff"
+                              "example": "018a8d96a9e5708298a904f977edba61"
                             }
                           }
                         }
@@ -7358,7 +7430,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/downloads"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/downloads"
                           }
                         }
                       },
@@ -7373,7 +7445,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e070e4bdc2034741132757"
+                              "example": "018a8d96a9e471448960bdf09110a4c5"
                             }
                           }
                         }
@@ -7389,7 +7461,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/parent"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/parent"
                           }
                         }
                       },
@@ -7403,7 +7475,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569cdd1213bf"
+                            "example": "018a8d96a9e471448960bdf0913ecb33"
                           }
                         }
                       }
@@ -7418,7 +7490,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/children"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/children"
                           }
                         }
                       },
@@ -7433,7 +7505,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569cddd762a8"
+                              "example": "018a8d96a9e471448960bdf091572e9c"
                             }
                           }
                         }
@@ -7449,7 +7521,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/deliveryTime"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/deliveryTime"
                           }
                         }
                       },
@@ -7463,7 +7535,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569cde089895"
+                            "example": "018a8d96a9e471448960bdf091f6ec50"
                           }
                         }
                       }
@@ -7478,7 +7550,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/tax"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/tax"
                           }
                         }
                       },
@@ -7492,7 +7564,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569cded8a2f1"
+                            "example": "018a8d96a9e471448960bdf092cf5031"
                           }
                         }
                       }
@@ -7507,7 +7579,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/manufacturer"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/manufacturer"
                           }
                         }
                       },
@@ -7521,7 +7593,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569cdf1e788e"
+                            "example": "018a8d96a9e471448960bdf09348c25a"
                           }
                         }
                       }
@@ -7536,7 +7608,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/unit"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/unit"
                           }
                         }
                       },
@@ -7550,7 +7622,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569cdf519e90"
+                            "example": "018a8d96a9e471448960bdf093fe85ae"
                           }
                         }
                       }
@@ -7565,7 +7637,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/cover"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/cover"
                           }
                         }
                       },
@@ -7579,7 +7651,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569ce01f595e"
+                            "example": "018a8d96a9e471448960bdf0945fbb9d"
                           }
                         }
                       }
@@ -7594,7 +7666,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/cmsPage"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/cmsPage"
                           }
                         }
                       },
@@ -7608,7 +7680,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569ce0c1aa4c"
+                            "example": "018a8d96a9e471448960bdf09558512b"
                           }
                         }
                       }
@@ -7623,7 +7695,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/canonicalProduct"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/canonicalProduct"
                           }
                         }
                       },
@@ -7637,7 +7709,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569ce0cdfc44"
+                            "example": "018a8d96a9e471448960bdf0961442c6"
                           }
                         }
                       }
@@ -7652,7 +7724,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/media"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/media"
                           }
                         }
                       },
@@ -7667,7 +7739,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce12ec080"
+                              "example": "018a8d96a9e471448960bdf0965e86c7"
                             }
                           }
                         }
@@ -7683,7 +7755,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/crossSellings"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/crossSellings"
                           }
                         }
                       },
@@ -7698,7 +7770,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce1f25870"
+                              "example": "018a8d96a9e471448960bdf096a4150d"
                             }
                           }
                         }
@@ -7714,7 +7786,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/configuratorSettings"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/configuratorSettings"
                           }
                         }
                       },
@@ -7729,7 +7801,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce2399427"
+                              "example": "018a8d96a9e471448960bdf09736454c"
                             }
                           }
                         }
@@ -7745,7 +7817,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/productReviews"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/productReviews"
                           }
                         }
                       },
@@ -7760,7 +7832,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce28ed8d6"
+                              "example": "018a8d96a9e471448960bdf09834ae99"
                             }
                           }
                         }
@@ -7776,7 +7848,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/mainCategories"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/mainCategories"
                           }
                         }
                       },
@@ -7791,7 +7863,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce3363cbc"
+                              "example": "018a8d96a9e471448960bdf099137b75"
                             }
                           }
                         }
@@ -7807,7 +7879,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/seoUrls"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/seoUrls"
                           }
                         }
                       },
@@ -7822,7 +7894,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce3a73650"
+                              "example": "018a8d96a9e471448960bdf0993f5e1d"
                             }
                           }
                         }
@@ -7838,7 +7910,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/options"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/options"
                           }
                         }
                       },
@@ -7853,7 +7925,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce3b434e3"
+                              "example": "018a8d96a9e471448960bdf0999e10d9"
                             }
                           }
                         }
@@ -7869,7 +7941,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/properties"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/properties"
                           }
                         }
                       },
@@ -7884,7 +7956,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce404584d"
+                              "example": "018a8d96a9e471448960bdf09a6fa8b1"
                             }
                           }
                         }
@@ -7900,7 +7972,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/categories"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/categories"
                           }
                         }
                       },
@@ -7915,7 +7987,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce4c3dff3"
+                              "example": "018a8d96a9e471448960bdf09b05e6a7"
                             }
                           }
                         }
@@ -7931,7 +8003,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/streams"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/streams"
                           }
                         }
                       },
@@ -7946,7 +8018,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce4d2cf9b"
+                              "example": "018a8d96a9e471448960bdf09bc84c8f"
                             }
                           }
                         }
@@ -7962,7 +8034,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/categoriesRo"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/categoriesRo"
                           }
                         }
                       },
@@ -7977,7 +8049,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e1700c996e569ce5677bf6"
+                              "example": "018a8d96a9e471448960bdf09c4c87c7"
                             }
                           }
                         }
@@ -7993,7 +8065,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/seoCategory"
+                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/seoCategory"
                           }
                         }
                       },
@@ -8007,7 +8079,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e1700c996e569ce605d664"
+                            "example": "018a8d96a9e471448960bdf09cd63f58"
                           }
                         }
                       }
@@ -8353,7 +8425,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/product/018a6eafd8df70cb8898b2ce78e259f2/reviewSummaries"
+                        "example": "/product/018a8d96a9e37251bb11fad496d984b7/reviewSummaries"
                       }
                     }
                   },
@@ -8368,7 +8440,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a6eafd8e1700c996e569ce693d5ff"
+                          "example": "018a8d96a9e5708298a904f977edba61"
                         }
                       }
                     }
@@ -9580,7 +9652,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/rule/018a6eafd8e573cd881fa176fab8b124/warehouseGroup"
+                        "example": "/rule/018a8d96a9e973349a7cc415958d006a/warehouseGroup"
                       }
                     }
                   },
@@ -9595,7 +9667,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a6eafd8e573cd881fa176fba899f1"
+                          "example": "018a8d96a9e973349a7cc415960bfc14"
                         }
                       }
                     }
@@ -10327,7 +10399,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a6eafd8e7735185d9ad23f295c310/deliveryTime"
+                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/deliveryTime"
                           }
                         }
                       },
@@ -10341,7 +10413,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e7735185d9ad23f3055e40"
+                            "example": "018a8d96a9ed73f497ca40c2505f2847"
                           }
                         }
                       }
@@ -10356,7 +10428,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a6eafd8e7735185d9ad23f295c310/availabilityRule"
+                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/availabilityRule"
                           }
                         }
                       },
@@ -10370,7 +10442,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e7735185d9ad23f3753d43"
+                            "example": "018a8d96a9ed73f497ca40c250f14d82"
                           }
                         }
                       }
@@ -10385,7 +10457,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a6eafd8e7735185d9ad23f295c310/prices"
+                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/prices"
                           }
                         }
                       },
@@ -10400,7 +10472,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e7735185d9ad23f4053d17"
+                              "example": "018a8d96a9ed73f497ca40c25100e20f"
                             }
                           }
                         }
@@ -10416,7 +10488,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a6eafd8e7735185d9ad23f295c310/media"
+                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/media"
                           }
                         }
                       },
@@ -10430,7 +10502,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e7735185d9ad23f478ff65"
+                            "example": "018a8d96a9ed73f497ca40c251789e90"
                           }
                         }
                       }
@@ -10445,7 +10517,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a6eafd8e7735185d9ad23f295c310/tags"
+                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/tags"
                           }
                         }
                       },
@@ -10460,7 +10532,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a6eafd8e7735185d9ad23f5137142"
+                              "example": "018a8d96a9ed73f497ca40c25219bd7b"
                             }
                           }
                         }
@@ -10476,7 +10548,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a6eafd8e7735185d9ad23f295c310/tax"
+                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/tax"
                           }
                         }
                       },
@@ -10490,7 +10562,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a6eafd8e7735185d9ad23f5826ea7"
+                            "example": "018a8d96a9ed73f497ca40c252faaf3f"
                           }
                         }
                       }
@@ -10888,6 +10960,8 @@
           "subscriptionIntervalName",
           "dateInterval",
           "cronInterval",
+          "initialExecutionCount",
+          "remainingExecutionCount",
           "billingAddressId",
           "shippingAddressId",
           "shippingMethodId",
@@ -10934,6 +11008,14 @@
           },
           "cronInterval": {
             "type": "string"
+          },
+          "initialExecutionCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "remainingExecutionCount": {
+            "type": "integer",
+            "format": "int64"
           },
           "billingAddressId": {
             "type": "string",
@@ -11259,6 +11341,10 @@
           },
           "active": {
             "type": "boolean"
+          },
+          "minimumExecutionCount": {
+            "type": "integer",
+            "format": "int64"
           },
           "activeStorefrontLabel": {
             "type": "boolean"
@@ -12407,6 +12493,18 @@
                   },
                   "defaultShippingAddressId": {
                     "type": "string"
+                  },
+                  "defaultBillingAddress": {
+                    "$ref": "#/components/schemas/CustomerAddress"
+                  },
+                  "defaultShippingAddress": {
+                    "$ref": "#/components/schemas/CustomerAddress"
+                  },
+                  "activeBillingAddress": {
+                    "$ref": "#/components/schemas/CustomerAddress"
+                  },
+                  "activeShippingAddress": {
+                    "$ref": "#/components/schemas/CustomerAddress"
                   },
                   "customerNumber": {
                     "type": "string"
