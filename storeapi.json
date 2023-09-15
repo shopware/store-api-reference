@@ -950,7 +950,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a8d96a9c87114bb79adcab872537c/parent"
+                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/parent"
                           }
                         }
                       },
@@ -964,7 +964,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9c9717fa15da7abf9a48a6a"
+                            "example": "d0e45878043844ffc41aac437e86b602"
                           }
                         }
                       }
@@ -979,7 +979,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a8d96a9c87114bb79adcab872537c/children"
+                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/children"
                           }
                         }
                       },
@@ -994,7 +994,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9ca73f68ae02fe5b9602832"
+                              "example": "268184c12df027f536154d099d497b31"
                             }
                           }
                         }
@@ -1010,7 +1010,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a8d96a9c87114bb79adcab872537c/media"
+                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/media"
                           }
                         }
                       },
@@ -1024,7 +1024,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9ca73f68ae02fe5b988a1a6"
+                            "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
                           }
                         }
                       }
@@ -1039,7 +1039,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a8d96a9c87114bb79adcab872537c/cmsPage"
+                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/cmsPage"
                           }
                         }
                       },
@@ -1053,7 +1053,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9ca73f68ae02fe5b9c99f11"
+                            "example": "7b1460918b1abb93311108f3dc021c9b"
                           }
                         }
                       }
@@ -1068,7 +1068,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/018a8d96a9c87114bb79adcab872537c/seoUrls"
+                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/seoUrls"
                           }
                         }
                       },
@@ -1083,7 +1083,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9ca73f68ae02fe5b9fe8c5c"
+                              "example": "5321b5a71127b8b98cdd4b068ad56c4c"
                             }
                           }
                         }
@@ -1808,7 +1808,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/country/018a8d96a9cb7010ac7986e0784d4bca/states"
+                            "example": "/country/59716c97497eb9694541f7c3d37b1a4d/states"
                           }
                         }
                       },
@@ -1823,7 +1823,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9cc72a3be8f6bfc1e76c664"
+                              "example": "34d955a0df5f7af9c9b4e4dccb3c3564"
                             }
                           }
                         }
@@ -2702,7 +2702,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/customer/018a8d96a9ce7175a94dc5d934493140/specificFeatures"
+                        "example": "/customer/ce26601dac0dea138b7295f02b7620a7/specificFeatures"
                       }
                     }
                   },
@@ -2716,7 +2716,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a8d96a9cf71af9510da42204d3a5d"
+                        "example": "5cfb6fcb7542e25892e1a35cd6a06c54"
                       }
                     }
                   }
@@ -3610,7 +3610,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/landing-page/018a8d96a9d372de8517e66c1ce064e1/cmsPage"
+                            "example": "/landing-page/815c27537bec3b60c50a2ae4d2ce875d/cmsPage"
                           }
                         }
                       },
@@ -3624,7 +3624,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9d372de8517e66c1cefde60"
+                            "example": "7b1460918b1abb93311108f3dc021c9b"
                           }
                         }
                       }
@@ -3639,7 +3639,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/landing-page/018a8d96a9d372de8517e66c1ce064e1/seoUrls"
+                            "example": "/landing-page/815c27537bec3b60c50a2ae4d2ce875d/seoUrls"
                           }
                         }
                       },
@@ -3654,7 +3654,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9d372de8517e66c1dd12de0"
+                              "example": "5321b5a71127b8b98cdd4b068ad56c4c"
                             }
                           }
                         }
@@ -3809,7 +3809,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a8d96a9d372de8517e66c1fde70d5/parent"
+                            "example": "/language/4994a8ffeba4ac3140beb89e8d41f174/parent"
                           }
                         }
                       },
@@ -3823,7 +3823,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9d4724db3899423b17661b0"
+                            "example": "d0e45878043844ffc41aac437e86b602"
                           }
                         }
                       }
@@ -3838,7 +3838,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a8d96a9d372de8517e66c1fde70d5/locale"
+                            "example": "/language/4994a8ffeba4ac3140beb89e8d41f174/locale"
                           }
                         }
                       },
@@ -3852,7 +3852,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9d4724db3899423b2217b9d"
+                            "example": "fb216d9e8791e63c8d12bdc420956839"
                           }
                         }
                       }
@@ -3867,7 +3867,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a8d96a9d372de8517e66c1fde70d5/translationCode"
+                            "example": "/language/4994a8ffeba4ac3140beb89e8d41f174/translationCode"
                           }
                         }
                       },
@@ -3881,7 +3881,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9d4724db3899423b28eefe9"
+                            "example": "6ef2035242b8fcb7b61c3a41850e60b3"
                           }
                         }
                       }
@@ -3896,7 +3896,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/018a8d96a9d372de8517e66c1fde70d5/children"
+                            "example": "/language/4994a8ffeba4ac3140beb89e8d41f174/children"
                           }
                         }
                       },
@@ -3911,7 +3911,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9d4724db3899423b3460125"
+                              "example": "268184c12df027f536154d099d497b31"
                             }
                           }
                         }
@@ -4446,7 +4446,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/media/018a8d96a9d5700cbfd807eebce72fe6/mediaAiTag"
+                        "example": "/media/3b563524fdb17b4a86590470d40bef74/mediaAiTag"
                       }
                     }
                   },
@@ -4460,7 +4460,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a8d96a9d673d6a074ac1ddcbd4581"
+                        "example": "3c88197809d464216a8c40a8db191b38"
                       }
                     }
                   }
@@ -5130,7 +5130,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order/018a8d96a9d871a6ac629d86ba4abe2f/subscription"
+                        "example": "/order/a240fa27925a635b08dc28c9e4f9216d/subscription"
                       }
                     }
                   },
@@ -5144,7 +5144,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a8d96a9d972668c04d5d102868b49"
+                        "example": "b48b13e73a6ac2a86dc54425dd24d9ff"
                       }
                     }
                   }
@@ -5159,7 +5159,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order/018a8d96a9d871a6ac629d86ba4abe2f/returns"
+                        "example": "/order/a240fa27925a635b08dc28c9e4f9216d/returns"
                       }
                     }
                   },
@@ -5174,7 +5174,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a8d96a9d972668c04d5d10377e6db"
+                          "example": "7fff84525c6516919851a9005373f87e"
                         }
                       }
                     }
@@ -5854,7 +5854,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order-line-item/018a8d96a9db7234af61ab44cefbf55a/returns"
+                        "example": "/order-line-item/40b401ac0b29ac5c5c8ffce649fdef62/returns"
                       }
                     }
                   },
@@ -5869,7 +5869,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a8d96a9db7234af61ab44d16399e0"
+                          "example": "7fff84525c6516919851a9005373f87e"
                         }
                       }
                     }
@@ -5885,7 +5885,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/order-line-item/018a8d96a9db7234af61ab44cefbf55a/state"
+                        "example": "/order-line-item/40b401ac0b29ac5c5c8ffce649fdef62/state"
                       }
                     }
                   },
@@ -5899,7 +5899,7 @@
                       "id": {
                         "type": "string",
                         "pattern": "^[0-9a-f]{32}$",
-                        "example": "018a8d96a9db7234af61ab44d2162cbe"
+                        "example": "9ed39e2ea931586b6a985a6942ef573e"
                       }
                     }
                   }
@@ -6956,7 +6956,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/payment-method/018a8d96a9e272f59c79ca2a1d95cd0c/media"
+                            "example": "/payment-method/da8da1569e6bef3249a7064261df833f/media"
                           }
                         }
                       },
@@ -6970,7 +6970,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e272f59c79ca2a1e73049b"
+                            "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
                           }
                         }
                       }
@@ -7394,7 +7394,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/reviewSummaries"
+                            "example": "/product/deb10517653c255364175796ace3553f/reviewSummaries"
                           }
                         }
                       },
@@ -7409,7 +7409,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e5708298a904f977edba61"
+                              "example": "c9c718522e64ffa5effb26cef94f4849"
                             }
                           }
                         }
@@ -7430,7 +7430,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/downloads"
+                            "example": "/product/deb10517653c255364175796ace3553f/downloads"
                           }
                         }
                       },
@@ -7445,7 +7445,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf09110a4c5"
+                              "example": "d07d50a751bc6ddf12bf3af0efee9b45"
                             }
                           }
                         }
@@ -7461,7 +7461,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/parent"
+                            "example": "/product/deb10517653c255364175796ace3553f/parent"
                           }
                         }
                       },
@@ -7475,7 +7475,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf0913ecb33"
+                            "example": "d0e45878043844ffc41aac437e86b602"
                           }
                         }
                       }
@@ -7490,7 +7490,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/children"
+                            "example": "/product/deb10517653c255364175796ace3553f/children"
                           }
                         }
                       },
@@ -7505,7 +7505,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf091572e9c"
+                              "example": "268184c12df027f536154d099d497b31"
                             }
                           }
                         }
@@ -7521,7 +7521,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/deliveryTime"
+                            "example": "/product/deb10517653c255364175796ace3553f/deliveryTime"
                           }
                         }
                       },
@@ -7535,7 +7535,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf091f6ec50"
+                            "example": "8c888ae25a7bd42057370e31f7e01044"
                           }
                         }
                       }
@@ -7550,7 +7550,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/tax"
+                            "example": "/product/deb10517653c255364175796ace3553f/tax"
                           }
                         }
                       },
@@ -7564,7 +7564,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf092cf5031"
+                            "example": "06565e5611f23fdf8cc43e5077b92b54"
                           }
                         }
                       }
@@ -7579,7 +7579,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/manufacturer"
+                            "example": "/product/deb10517653c255364175796ace3553f/manufacturer"
                           }
                         }
                       },
@@ -7593,7 +7593,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf09348c25a"
+                            "example": "c2904bca62b22443d6cf5e9d89cab204"
                           }
                         }
                       }
@@ -7608,7 +7608,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/unit"
+                            "example": "/product/deb10517653c255364175796ace3553f/unit"
                           }
                         }
                       },
@@ -7622,7 +7622,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf093fe85ae"
+                            "example": "3e34bdebd9bd5edda27e8728904a2552"
                           }
                         }
                       }
@@ -7637,7 +7637,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/cover"
+                            "example": "/product/deb10517653c255364175796ace3553f/cover"
                           }
                         }
                       },
@@ -7651,7 +7651,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf0945fbb9d"
+                            "example": "41d0e299ca1abeb2094852da042165c7"
                           }
                         }
                       }
@@ -7666,7 +7666,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/cmsPage"
+                            "example": "/product/deb10517653c255364175796ace3553f/cmsPage"
                           }
                         }
                       },
@@ -7680,7 +7680,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf09558512b"
+                            "example": "7b1460918b1abb93311108f3dc021c9b"
                           }
                         }
                       }
@@ -7695,7 +7695,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/canonicalProduct"
+                            "example": "/product/deb10517653c255364175796ace3553f/canonicalProduct"
                           }
                         }
                       },
@@ -7709,7 +7709,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf0961442c6"
+                            "example": "023995a50b56c0de077323e958b2bbcd"
                           }
                         }
                       }
@@ -7724,7 +7724,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/media"
+                            "example": "/product/deb10517653c255364175796ace3553f/media"
                           }
                         }
                       },
@@ -7739,7 +7739,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf0965e86c7"
+                              "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
                             }
                           }
                         }
@@ -7755,7 +7755,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/crossSellings"
+                            "example": "/product/deb10517653c255364175796ace3553f/crossSellings"
                           }
                         }
                       },
@@ -7770,7 +7770,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf096a4150d"
+                              "example": "89936e14544d1b403cecef938101b6b0"
                             }
                           }
                         }
@@ -7786,7 +7786,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/configuratorSettings"
+                            "example": "/product/deb10517653c255364175796ace3553f/configuratorSettings"
                           }
                         }
                       },
@@ -7801,7 +7801,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf09736454c"
+                              "example": "c0827fee13725d41f1fd7e292243f5aa"
                             }
                           }
                         }
@@ -7817,7 +7817,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/productReviews"
+                            "example": "/product/deb10517653c255364175796ace3553f/productReviews"
                           }
                         }
                       },
@@ -7832,7 +7832,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf09834ae99"
+                              "example": "01e78541ea343ed72424a5222796a4cd"
                             }
                           }
                         }
@@ -7848,7 +7848,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/mainCategories"
+                            "example": "/product/deb10517653c255364175796ace3553f/mainCategories"
                           }
                         }
                       },
@@ -7863,7 +7863,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf099137b75"
+                              "example": "1fb731fc4139cbb575429e28846f0c39"
                             }
                           }
                         }
@@ -7879,7 +7879,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/seoUrls"
+                            "example": "/product/deb10517653c255364175796ace3553f/seoUrls"
                           }
                         }
                       },
@@ -7894,7 +7894,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf0993f5e1d"
+                              "example": "5321b5a71127b8b98cdd4b068ad56c4c"
                             }
                           }
                         }
@@ -7910,7 +7910,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/options"
+                            "example": "/product/deb10517653c255364175796ace3553f/options"
                           }
                         }
                       },
@@ -7925,7 +7925,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf0999e10d9"
+                              "example": "93da65a9fd0004d9477aeac024e08e15"
                             }
                           }
                         }
@@ -7941,7 +7941,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/properties"
+                            "example": "/product/deb10517653c255364175796ace3553f/properties"
                           }
                         }
                       },
@@ -7956,7 +7956,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf09a6fa8b1"
+                              "example": "74693d2fc58b46bd06410f278e39aa71"
                             }
                           }
                         }
@@ -7972,7 +7972,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/categories"
+                            "example": "/product/deb10517653c255364175796ace3553f/categories"
                           }
                         }
                       },
@@ -7987,7 +7987,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf09b05e6a7"
+                              "example": "b0b5ccb4a195a07fd3eed14affb8695f"
                             }
                           }
                         }
@@ -8003,7 +8003,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/streams"
+                            "example": "/product/deb10517653c255364175796ace3553f/streams"
                           }
                         }
                       },
@@ -8018,7 +8018,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf09bc84c8f"
+                              "example": "2f6f4768f1c2d7c8f1f54823723f1a70"
                             }
                           }
                         }
@@ -8034,7 +8034,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/categoriesRo"
+                            "example": "/product/deb10517653c255364175796ace3553f/categoriesRo"
                           }
                         }
                       },
@@ -8049,7 +8049,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9e471448960bdf09c4c87c7"
+                              "example": "7f0702d3a90d965b8c9158c451f43fdb"
                             }
                           }
                         }
@@ -8065,7 +8065,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/018a8d96a9e37251bb11fad496d984b7/seoCategory"
+                            "example": "/product/deb10517653c255364175796ace3553f/seoCategory"
                           }
                         }
                       },
@@ -8079,7 +8079,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9e471448960bdf09cd63f58"
+                            "example": "9354d004d12e03d35ad8292bf0bb234d"
                           }
                         }
                       }
@@ -8425,7 +8425,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/product/018a8d96a9e37251bb11fad496d984b7/reviewSummaries"
+                        "example": "/product/deb10517653c255364175796ace3553f/reviewSummaries"
                       }
                     }
                   },
@@ -8440,7 +8440,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a8d96a9e5708298a904f977edba61"
+                          "example": "c9c718522e64ffa5effb26cef94f4849"
                         }
                       }
                     }
@@ -9652,7 +9652,7 @@
                       "related": {
                         "type": "string",
                         "format": "uri-reference",
-                        "example": "/rule/018a8d96a9e973349a7cc415958d006a/warehouseGroup"
+                        "example": "/rule/ab7a485ebe75b6dd7243ad719f23c7de/warehouseGroup"
                       }
                     }
                   },
@@ -9667,7 +9667,7 @@
                         },
                         "id": {
                           "type": "string",
-                          "example": "018a8d96a9e973349a7cc415960bfc14"
+                          "example": "1768e3071b62161d415e0c24332055ed"
                         }
                       }
                     }
@@ -10399,7 +10399,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/deliveryTime"
+                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/deliveryTime"
                           }
                         }
                       },
@@ -10413,7 +10413,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9ed73f497ca40c2505f2847"
+                            "example": "8c888ae25a7bd42057370e31f7e01044"
                           }
                         }
                       }
@@ -10428,7 +10428,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/availabilityRule"
+                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/availabilityRule"
                           }
                         }
                       },
@@ -10442,7 +10442,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9ed73f497ca40c250f14d82"
+                            "example": "9fbb7961d1cb158094924c679e1b302c"
                           }
                         }
                       }
@@ -10457,7 +10457,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/prices"
+                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/prices"
                           }
                         }
                       },
@@ -10472,7 +10472,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9ed73f497ca40c25100e20f"
+                              "example": "afae32efe0f84fece3f96b377b768b33"
                             }
                           }
                         }
@@ -10488,7 +10488,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/media"
+                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/media"
                           }
                         }
                       },
@@ -10502,7 +10502,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9ed73f497ca40c251789e90"
+                            "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
                           }
                         }
                       }
@@ -10517,7 +10517,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/tags"
+                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/tags"
                           }
                         }
                       },
@@ -10532,7 +10532,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "018a8d96a9ed73f497ca40c25219bd7b"
+                              "example": "d57ac45256849d9b13e2422d91580fb9"
                             }
                           }
                         }
@@ -10548,7 +10548,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/018a8d96a9ed73f497ca40c24fc92fea/tax"
+                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/tax"
                           }
                         }
                       },
@@ -10562,7 +10562,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "018a8d96a9ed73f497ca40c252faaf3f"
+                            "example": "06565e5611f23fdf8cc43e5077b92b54"
                           }
                         }
                       }
@@ -12008,65 +12008,29 @@
         },
         "type": "object"
       },
-      "ProductListingFlags": {
+      "Struct": {
         "type": "object",
-        "description": "Additional flags for product listings",
         "properties": {
-          "no-aggregations": {
-            "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
+          "apiAlias": {
             "type": "string",
-            "nullable": true
-          },
-          "only-aggregations": {
-            "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
-            "type": "string",
-            "nullable": true
+            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
           }
         }
       },
-      "LineItem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
+      "AccountNewsletterRecipientResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Struct"
           },
-          "referencedId": {
-            "type": "string",
-            "description": "Unique identity of type of entity."
-          },
-          "label": {
-            "type": "string",
-            "description": "It is a typical product name given to the line item."
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "description": "Number of items of product."
-          },
-          "type": {
-            "type": "string",
-            "description": "Type refers to the entity type of an item whether it is product or promotion for instance."
-          },
-          "good": {
-            "type": "boolean",
-            "description": "When set to true, it indicates the line item is physical else it is virtual."
-          },
-          "description": {
-            "type": "string",
-            "description": "Description of line items in an order."
-          },
-          "removable": {
-            "type": "boolean",
-            "description": "Allows the line item to be removable from the cart when set to true."
-          },
-          "stackable": {
-            "type": "boolean",
-            "description": "Allows to change the quantity of the line item when set to true."
-          },
-          "modified": {
-            "type": "boolean"
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              }
+            }
           }
-        }
+        ]
       },
       "CrossSellingElementCollection": {
         "type": "array",
@@ -12120,24 +12084,7 @@
           }
         }
       },
-      "SuccessResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        }
-      },
-      "NavigationRouteResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/Category"
-        }
-      },
-      "ArrayStruct": {
-        "$ref": "#/components/schemas/Struct"
-      },
-      "Sitemap": {
+      "CartItems": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ArrayStruct"
@@ -12145,79 +12092,15 @@
           {
             "type": "object",
             "properties": {
-              "filename": {
-                "type": "string"
-              },
-              "created": {
-                "type": "string",
-                "format": "date-time"
-              }
-            }
-          }
-        ],
-        "properties": {
-          "filename": {
-            "description": "Name of the file which holds a list of all URL's."
-          }
-        }
-      },
-      "EntitySearchResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "entity": {
-                "type": "string"
-              },
-              "total": {
-                "type": "integer",
-                "description": "The total number of found entities"
-              },
-              "aggregations": {
+              "items": {
                 "type": "array",
-                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
                 "items": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/LineItem"
                 }
-              },
-              "page": {
-                "type": "integer",
-                "description": "The actual page. This can be used for pagination."
-              },
-              "limit": {
-                "type": "integer",
-                "description": "The actual limit. This is used for pagination and goes together with the page."
               }
             }
           }
         ]
-      },
-      "WishlistLoadRouteResponse": {
-        "type": "object",
-        "properties": {
-          "wishlist": {
-            "type": "object",
-            "properties": {
-              "customerId": {
-                "type": "string",
-                "description": "Unique identity of the customer."
-              },
-              "salesChannelId": {
-                "type": "string",
-                "description": "Unique identity of the sales channel."
-              }
-            }
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductListingResult"
-            }
-          }
-        }
       },
       "Cart": {
         "allOf": [
@@ -12314,6 +12197,258 @@
             }
           }
         ]
+      },
+      "NavigationRouteResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Category"
+        }
+      },
+      "EntitySearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArrayStruct"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "entity": {
+                "type": "string"
+              },
+              "total": {
+                "type": "integer",
+                "description": "The total number of found entities"
+              },
+              "aggregations": {
+                "type": "array",
+                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "page": {
+                "type": "integer",
+                "description": "The actual page. This can be used for pagination."
+              },
+              "limit": {
+                "type": "integer",
+                "description": "The actual limit. This is used for pagination and goes together with the page."
+              }
+            }
+          }
+        ]
+      },
+      "WishlistLoadRouteResponse": {
+        "type": "object",
+        "properties": {
+          "wishlist": {
+            "type": "object",
+            "properties": {
+              "customerId": {
+                "type": "string",
+                "description": "Unique identity of the customer."
+              },
+              "salesChannelId": {
+                "type": "string",
+                "description": "Unique identity of the sales channel."
+              }
+            }
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductListingResult"
+            }
+          }
+        }
+      },
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Criteria": {
+        "type": "object",
+        "description": "Criteria to query entities.",
+        "properties": {
+          "page": {
+            "description": "Search result page",
+            "type": "integer"
+          },
+          "limit": {
+            "description": "Number of items per result page",
+            "type": "integer"
+          },
+          "filter": {
+            "type": "array",
+            "description": "List of filters to restrict the search result. For more information, see [Search Queries > Filter](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#filter)",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "field": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "field",
+                "value"
+              ]
+            }
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sorting in the search result.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "field": {
+                  "type": "string"
+                },
+                "order": {
+                  "type": "string"
+                },
+                "naturalSorting": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "field"
+              ]
+            }
+          },
+          "post-filter": {
+            "type": "array",
+            "description": "Filters that applied without affecting aggregations. For more information, see [Search Queries > Post Filter](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#post-filter)",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "field": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "field",
+                "value"
+              ]
+            }
+          },
+          "associations": {
+            "type": "object",
+            "description": "Used to fetch associations which are not fetched by default."
+          },
+          "aggregations": {
+            "type": "array",
+            "description": "Used to perform aggregations on the search result. For more information, see [Search Queries > Aggregations](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#aggregations)",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Give your aggregation an identifier, so you can find it easier",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of aggregation",
+                  "type": "string"
+                },
+                "field": {
+                  "description": "The field you want to aggregate over.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "field"
+              ]
+            }
+          },
+          "grouping": {
+            "type": "array",
+            "description": "Perform groupings over certain fields",
+            "items": {
+              "type": "string",
+              "description": "Name of a field"
+            }
+          },
+          "fields": {
+            "type": "array",
+            "description": "Fields which should be returned in the search result.",
+            "items": {
+              "type": "string",
+              "description": "Name of a field"
+            }
+          },
+          "total-count-mode": {
+            "description": "Whether the total for the total number of hits should be determined for the search query. none = disabled total count, exact = calculate exact total amount (slow), next-pages = calculate only for next page (fast)",
+            "type": "string",
+            "default": "none",
+            "enum": [
+              "none",
+              "exact",
+              "next-pages"
+            ]
+          }
+        }
+      },
+      "Sitemap": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArrayStruct"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ],
+        "properties": {
+          "filename": {
+            "description": "Name of the file which holds a list of all URL's."
+          }
+        }
+      },
+      "ArrayStruct": {
+        "$ref": "#/components/schemas/Struct"
+      },
+      "ProductListingFlags": {
+        "type": "object",
+        "description": "Additional flags for product listings",
+        "properties": {
+          "no-aggregations": {
+            "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
+            "type": "string",
+            "nullable": true
+          },
+          "only-aggregations": {
+            "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
+            "type": "string",
+            "nullable": true
+          }
+        }
       },
       "SalesChannelContext": {
         "allOf": [
@@ -12690,267 +12825,6 @@
           }
         ]
       },
-      "ProductListingResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/EntitySearchResult"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "currentFilters": {
-                "type": "object",
-                "description": "Contains the state of the filters. These can be used to create listing filters.",
-                "properties": {
-                  "navigationId": {
-                    "type": "string"
-                  },
-                  "manufacturer": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  },
-                  "price": {
-                    "type": "object",
-                    "properties": {
-                      "min": {
-                        "type": "integer"
-                      },
-                      "max": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "rating": {
-                    "type": "integer"
-                  },
-                  "shipping-free": {
-                    "type": "boolean"
-                  },
-                  "properties": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  }
-                }
-              },
-              "availableSortings": {
-                "type": "array",
-                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
-                "items": {
-                  "type": "object"
-                }
-              },
-              "sorting": {
-                "type": "string"
-              },
-              "elements": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "Struct": {
-        "type": "object",
-        "properties": {
-          "apiAlias": {
-            "type": "string",
-            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
-          }
-        }
-      },
-      "OrderRouteResponse": {
-        "type": "object",
-        "properties": {
-          "orders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Order"
-            }
-          },
-          "paymentChangeable": {
-            "type": "object",
-            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
-            "additionalProperties": {
-              "type": "boolean"
-            }
-          }
-        }
-      },
-      "AccountNewsletterRecipientResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Struct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "status": {
-                "type": "string"
-              }
-            }
-          }
-        ]
-      },
-      "ProductDetailResponse": {
-        "type": "object",
-        "description": "Represents a product along with detailed information required to display a variant selection.",
-        "properties": {
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "configurator": {
-            "type": "array",
-            "description": "List of property groups with their corresponding options and information on how to display them.",
-            "items": {
-              "$ref": "#/components/schemas/PropertyGroup"
-            }
-          }
-        }
-      },
-      "Criteria": {
-        "type": "object",
-        "description": "Criteria to query entities.",
-        "properties": {
-          "page": {
-            "description": "Search result page",
-            "type": "integer"
-          },
-          "limit": {
-            "description": "Number of items per result page",
-            "type": "integer"
-          },
-          "filter": {
-            "type": "array",
-            "description": "List of filters to restrict the search result. For more information, see [Search Queries > Filter](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#filter)",
-            "items": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "field": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "field",
-                "value"
-              ]
-            }
-          },
-          "sort": {
-            "type": "array",
-            "description": "Sorting in the search result.",
-            "items": {
-              "type": "object",
-              "properties": {
-                "field": {
-                  "type": "string"
-                },
-                "order": {
-                  "type": "string"
-                },
-                "naturalSorting": {
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "field"
-              ]
-            }
-          },
-          "post-filter": {
-            "type": "array",
-            "description": "Filters that applied without affecting aggregations. For more information, see [Search Queries > Post Filter](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#post-filter)",
-            "items": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "field": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "field",
-                "value"
-              ]
-            }
-          },
-          "associations": {
-            "type": "object",
-            "description": "Used to fetch associations which are not fetched by default."
-          },
-          "aggregations": {
-            "type": "array",
-            "description": "Used to perform aggregations on the search result. For more information, see [Search Queries > Aggregations](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#aggregations)",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "Give your aggregation an identifier, so you can find it easier",
-                  "type": "string"
-                },
-                "type": {
-                  "description": "The type of aggregation",
-                  "type": "string"
-                },
-                "field": {
-                  "description": "The field you want to aggregate over.",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "name",
-                "type",
-                "field"
-              ]
-            }
-          },
-          "grouping": {
-            "type": "array",
-            "description": "Perform groupings over certain fields",
-            "items": {
-              "type": "string",
-              "description": "Name of a field"
-            }
-          },
-          "fields": {
-            "type": "array",
-            "description": "Fields which should be returned in the search result.",
-            "items": {
-              "type": "string",
-              "description": "Name of a field"
-            }
-          },
-          "total-count-mode": {
-            "description": "Whether the total for the total number of hits should be determined for the search query. none = disabled total count, exact = calculate exact total amount (slow), next-pages = calculate only for next page (fast)",
-            "type": "string",
-            "default": "none",
-            "enum": [
-              "none",
-              "exact",
-              "next-pages"
-            ]
-          }
-        }
-      },
       "ProductListingCriteria": {
         "allOf": [
           {
@@ -13041,23 +12915,69 @@
           }
         ]
       },
-      "CartItems": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
+      "LineItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
           },
-          {
+          "referencedId": {
+            "type": "string",
+            "description": "Unique identity of type of entity."
+          },
+          "label": {
+            "type": "string",
+            "description": "It is a typical product name given to the line item."
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items of product."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type refers to the entity type of an item whether it is product or promotion for instance."
+          },
+          "good": {
+            "type": "boolean",
+            "description": "When set to true, it indicates the line item is physical else it is virtual."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of line items in an order."
+          },
+          "removable": {
+            "type": "boolean",
+            "description": "Allows the line item to be removable from the cart when set to true."
+          },
+          "stackable": {
+            "type": "boolean",
+            "description": "Allows to change the quantity of the line item when set to true."
+          },
+          "modified": {
+            "type": "boolean"
+          }
+        }
+      },
+      "FindProductVariantRouteResponse": {
+        "type": "object",
+        "properties": {
+          "foundCombination": {
             "type": "object",
             "properties": {
-              "items": {
+              "variantId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "options": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/LineItem"
+                  "type": "string"
                 }
               }
             }
           }
-        ]
+        }
       },
       "ShippingMethodPageRouteResponse": {
         "type": "array",
@@ -13401,22 +13321,102 @@
           }
         }
       },
-      "FindProductVariantRouteResponse": {
+      "ProductDetailResponse": {
         "type": "object",
+        "description": "Represents a product along with detailed information required to display a variant selection.",
         "properties": {
-          "foundCombination": {
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "configurator": {
+            "type": "array",
+            "description": "List of property groups with their corresponding options and information on how to display them.",
+            "items": {
+              "$ref": "#/components/schemas/PropertyGroup"
+            }
+          }
+        }
+      },
+      "ProductListingResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EntitySearchResult"
+          },
+          {
             "type": "object",
             "properties": {
-              "variantId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
+              "currentFilters": {
+                "type": "object",
+                "description": "Contains the state of the filters. These can be used to create listing filters.",
+                "properties": {
+                  "navigationId": {
+                    "type": "string"
+                  },
+                  "manufacturer": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "price": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "integer"
+                      },
+                      "max": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "rating": {
+                    "type": "integer"
+                  },
+                  "shipping-free": {
+                    "type": "boolean"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
               },
-              "options": {
+              "availableSortings": {
+                "type": "array",
+                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "sorting": {
+                "type": "string"
+              },
+              "elements": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/Product"
                 }
               }
+            }
+          }
+        ]
+      },
+      "OrderRouteResponse": {
+        "type": "object",
+        "properties": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
+          },
+          "paymentChangeable": {
+            "type": "object",
+            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
+            "additionalProperties": {
+              "type": "boolean"
             }
           }
         }
@@ -13631,45 +13631,54 @@
     }
   ],
   "paths": {
-    "/handle-payment": {
+    "/salutation": {
       "post": {
         "tags": [
-          "Payment & Shipping"
+          "System & Context",
+          "Endpoints supporting Criteria "
         ],
-        "summary": "Initiate a payment for an order",
-        "description": "This generic endpoint is should be called to initiate a payment flow after an order has been created. The details of the payment flow can differ depending on the payment integration and might require calling additional operations or the setup of webhooks.\n\nThe endpoint internally calls the payment handler of the payment method currently set for the order.",
-        "operationId": "handlePaymentMethod",
+        "summary": "Fetch salutations",
+        "description": "Fetches salutations with a criteria obj.",
+        "operationId": "readSalutation",
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "orderId"
-                ],
-                "properties": {
-                  "orderId": {
-                    "description": "Identifier of an order",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "finishUrl": {
-                    "description": "URL to which the client should be redirected after successful payment",
-                    "type": "string"
-                  },
-                  "errorUrl": {
-                    "description": "URL to which the client should be redirected after erroneous payment",
-                    "type": "string"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
                   }
-                },
-                "type": "object"
+                ]
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Redirect to external payment provider"
+            "description": "Entity search result containing salutations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Salutation"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
           }
         },
         "security": [
@@ -13679,36 +13688,202 @@
         ]
       }
     },
-    "/product-export/{accessKey}/{fileName}": {
-      "get": {
+    "/category": {
+      "post": {
         "tags": [
-          "Product"
+          "Category",
+          "Endpoints supporting Criteria "
         ],
-        "summary": "Export product export",
-        "operationId": "readProductExport",
+        "summary": "Fetch a list of categories",
+        "description": "Perform a filtered search for categories.",
+        "operationId": "readCategoryList",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing categories.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Category"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/category/{navigationId}": {
+      "post": {
+        "tags": [
+          "Category",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a single category",
+        "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.",
+        "operationId": "readCategory",
         "parameters": [
           {
-            "name": "accessKey",
+            "name": "navigationId",
             "in": "path",
-            "description": "Access Key",
+            "description": "Identifier of the category to be fetched",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
             }
           },
           {
-            "name": "fileName",
+            "name": "slots",
+            "in": "query",
+            "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a '|' character",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The loaded category with cms page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/sitemap": {
+      "get": {
+        "tags": [
+          "Sitemap & Routes"
+        ],
+        "summary": "Fetch sitemaps",
+        "description": "Fetches a list of compressed sitemap files, which are often used by search engines.",
+        "operationId": "readSitemap",
+        "responses": {
+          "200": {
+            "description": "Returns a list of available sitemaps.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Sitemap"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product-listing/{categoryId}": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Fetch a product listing by category",
+        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.",
+        "operationId": "readProductListing",
+        "parameters": [
+          {
+            "name": "categoryId",
             "in": "path",
-            "description": "File Name",
+            "description": "Identifier of a category.",
             "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
+                  }
+                ]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": ""
+            "description": "Returns a product listing containing all products and additional fields to display a listing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListingResult"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -13879,299 +14054,36 @@
         ]
       }
     },
-    "/checkout/cart": {
-      "get": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Fetch or create a cart",
-        "description": "Used to fetch the current cart or for creating a new one.",
-        "operationId": "readCart",
-        "responses": {
-          "200": {
-            "description": "Cart",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Delete a cart",
-        "description": "This route deletes the cart of the customer.",
-        "operationId": "deleteCart",
-        "responses": {
-          "204": {
-            "description": "Successfully deleted the cart",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/checkout/cart/line-item": {
+    "/search": {
       "post": {
         "tags": [
-          "Cart"
+          "Product"
         ],
-        "summary": "Add items to the cart",
-        "description": "This route adds items to the cart. An item can be a product or promotion for example. They are referenced by the `referencedId`-parameter.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#adding-new-items-to-the-cart)",
-        "operationId": "addLineItem",
+        "summary": "Search for products",
+        "description": "Performs a search for products which can be used to display a product listing.",
+        "operationId": "searchPage",
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CartItems"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Remove items from the cart",
-        "description": "DEPRECATED: use removeLineItem instead. This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
-        "operationId": "removeLineItemDeprecated",
-        "deprecated": true,
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "query",
-            "description": "A list of product identifiers.",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Update items in the cart",
-        "description": "This route updates items in the cart. A typical example is updating the quantity of an item.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#updating-items-in-the-cart)",
-        "operationId": "updateLineItem",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CartItems"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/checkout/cart/line-item/delete": {
-      "post": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Remove items from the cart",
-        "description": "This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
-        "operationId": "removeLineItem",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "ids"
-                ],
-                "properties": {
-                  "ids": {
-                    "description": "A list of product identifiers.",
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[0-9a-f]{32}$"
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/checkout/order": {
-      "post": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Create an order from a cart",
-        "description": "Creates a new order from the current cart and deletes the cart.\n\nIf you are using the [prepared payment flow](https://developer.shopware.com/docs/concepts/commerce/checkout-concept/payments#2.1-prepare-payment-optional), this endpoint also receives additional transaction details. The exact name of the parameters depends on the implementation of the corresponding *payment handler*.",
-        "operationId": "createOrder",
-        "requestBody": {
-          "description": "Contains additional metadata which is stored together with the order. It can also contain payment transaction details.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "customerComment": {
-                    "description": "Adds a comment from the customer to the order.",
-                    "type": "string"
-                  },
-                  "affiliateCode": {
-                    "description": "The affiliate code can be used to track which referrer the customer came through. An example could be `Price-comparison-company-XY`.",
-                    "type": "string"
-                  },
-                  "campaignCode": {
-                    "description": "The campaign code is used to track which action the customer came from. An example could be `Summer-Deals`",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Order",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/country-state/{countryId}": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch the states of a country",
-        "description": "Perform a filtered search the states for a country",
-        "operationId": "readCountryState",
-        "parameters": [
-          {
-            "name": "countryId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Criteria"
+                    "required": [
+                      "search"
+                    ],
+                    "properties": {
+                      "search": {
+                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
                   }
                 ]
               }
@@ -14180,83 +14092,11 @@
         },
         "responses": {
           "200": {
-            "description": "Entity search result containing countries.",
+            "description": "Returns a product listing containing all products and additional fields to display a listing.",
             "content": {
               "application/json": {
                 "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/CountryState"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/salutation": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch salutations",
-        "description": "Fetches salutations with a criteria obj.",
-        "operationId": "readSalutation",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing salutations.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Salutation"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/ProductListingResult"
                 }
               }
             }
@@ -14329,90 +14169,24 @@
         ]
       }
     },
-    "/category": {
+    "/cms/{id}": {
       "post": {
         "tags": [
-          "Category",
-          "Endpoints supporting Criteria "
+          "Content"
         ],
-        "summary": "Fetch a list of categories",
-        "description": "Perform a filtered search for categories.",
-        "operationId": "readCategoryList",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing categories.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Category"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/category/{navigationId}": {
-      "post": {
-        "tags": [
-          "Category",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a single category",
-        "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.",
-        "operationId": "readCategory",
+        "summary": "Fetch and resolve a CMS page",
+        "description": "Loads a content management page by its identifier and resolve the slot data. This could be media files, product listing and so on.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
+        "operationId": "readCms",
         "parameters": [
           {
-            "name": "navigationId",
+            "name": "id",
             "in": "path",
-            "description": "Identifier of the category to be fetched",
+            "description": "Identifier of the CMS page to be resolved",
             "required": true,
             "schema": {
               "type": "string",
               "pattern": "^[0-9a-f]{32}$"
             }
-          },
-          {
-            "name": "slots",
-            "in": "query",
-            "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a '|' character",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "requestBody": {
@@ -14421,7 +14195,13 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Criteria"
+                    "properties": {
+                      "slots": {
+                        "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a `|` character.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
                   },
                   {
                     "$ref": "#/components/schemas/ProductListingCriteria"
@@ -14433,467 +14213,49 @@
         },
         "responses": {
           "200": {
-            "description": "The loaded category with cms page",
+            "description": "The loaded cms page",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/CmsPage"
                 }
               }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/sitemap": {
-      "get": {
-        "tags": [
-          "Sitemap & Routes"
-        ],
-        "summary": "Fetch sitemaps",
-        "description": "Fetches a list of compressed sitemap files, which are often used by search engines.",
-        "operationId": "readSitemap",
-        "responses": {
-          "200": {
-            "description": "Returns a list of available sitemaps.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Sitemap"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/language": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch languages",
-        "description": "Perform a filtered search for languages.",
-        "operationId": "readLanguages",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing languages.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Language"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/newsletter/confirm": {
-      "post": {
-        "tags": [
-          "Newsletter"
-        ],
-        "summary": "Confirm a newsletter registration",
-        "description": "You have to use the hash from the link sent out via email to confirm the user registration.",
-        "operationId": "confirmNewsletter",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "hash",
-                  "em"
-                ],
-                "properties": {
-                  "hash": {
-                    "description": "Hash parameter from link the in the confirmation mail",
-                    "type": "string"
-                  },
-                  "em": {
-                    "description": "Email hash parameter from the link in the confirmation mail",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The newsletter confirmation was successful."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/newsletter/subscribe": {
-      "post": {
-        "tags": [
-          "Newsletter"
-        ],
-        "summary": "Create or remove a newsletter subscription",
-        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email addrees containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirmes the newsletter subscription for the provided email address.",
-        "operationId": "subscribeToNewsletter",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "email",
-                  "option",
-                  "storefrontUrl"
-                ],
-                "properties": {
-                  "email": {
-                    "description": "Email address that will receive the confirmation and the newsletter.",
-                    "type": "string"
-                  },
-                  "option": {
-                    "description": "Defines what should be done.",
-                    "type": "string"
-                  },
-                  "storefrontUrl": {
-                    "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email.",
-                    "type": "string"
-                  },
-                  "salutationId": {
-                    "description": "Identifier of the salutation.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "firstName": {
-                    "description": "First name",
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "description": "Last name",
-                    "type": "string"
-                  },
-                  "street": {
-                    "description": "Street",
-                    "type": "string"
-                  },
-                  "city": {
-                    "description": "City",
-                    "type": "string"
-                  },
-                  "zipCode": {
-                    "description": "Zip code",
-                    "type": "string"
-                  },
-                  "tags": {
-                    "description": "Zip code",
-                    "type": "string"
-                  },
-                  "languageId": {
-                    "description": "Identifier of the language.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "customFields": {
-                    "description": "Custom field data that should be added to the subscription.",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/newsletter/unsubscribe": {
-      "post": {
-        "tags": [
-          "Newsletter"
-        ],
-        "summary": "Remove a newsletter subscription",
-        "description": "Removes a newsletter recipient from the mailing lists.",
-        "operationId": "unsubscribeToNewsletter",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "email"
-                ],
-                "properties": {
-                  "email": {
-                    "description": "Email address that should be removed from the mailing lists.",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Unsubscribing was successful."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order/state/cancel": {
-      "post": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Cancel an order",
-        "description": "Cancels an order. The order state will be set to 'cancelled'.",
-        "operationId": "cancelOrder",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "orderId": {
-                    "description": "The identifier of the order to be canceled.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns the state of the state machine\n\n    example: More information about the state machine can be found in the corresponding guide: [Using the state machine](https://developer.shopware.com/docs/guides/plugins/plugins/checkout/order/using-the-state-machine)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StateMachineState"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order": {
-      "post": {
-        "tags": [
-          "Order",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a list of orders",
-        "description": "List orders of a customer.",
-        "operationId": "readOrder",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  },
-                  {
-                    "properties": {
-                      "checkPromotion": {
-                        "description": "Check if the payment method of the order is still changeable.",
-                        "type": "boolean"
-                      }
-                    },
-                    "type": "object"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "An array of orders and an indicator if the payment of the order can be changed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrderRouteResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order/payment": {
-      "post": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Update the payment method of an order",
-        "description": "Changes the payment method of a specific order. You can use the /order route to find out if the payment method of an order can be changed - take a look at the `paymentChangeable`- array in the response.",
-        "operationId": "orderSetPayment",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "paymentMethodId",
-                  "orderId"
-                ],
-                "properties": {
-                  "paymentMethodId": {
-                    "description": "The identifier of the paymentMethod to be set",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "orderId": {
-                    "description": "The identifier of the order.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successfully updated the payment method of the order.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order/download/{orderId}/{downloadId}": {
-      "get": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Download a purchased file",
-        "description": "Download a file included in the given order and with the given id. Access must be granted.",
-        "operationId": "orderDownloadFile",
-        "parameters": [
-          {
-            "name": "orderId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
             }
           },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
           {
-            "name": "downloadId",
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/script/{hook}": {
+      "post": {
+        "tags": [
+          "API",
+          "Script",
+          "App"
+        ],
+        "summary": "Access point for different api logics which are provided by apps over script hooks",
+        "operationId": "postScriptStoreApiRoute",
+        "parameters": [
+          {
+            "name": "hook",
             "in": "path",
+            "description": "Dynamic hook which used to build the hook name",
             "required": true,
             "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "An arbitrary binary file.",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
+            "description": "Returns different structures of results based on the called script."
           }
         },
         "security": [
@@ -15081,431 +14443,6 @@
         ]
       }
     },
-    "/product-listing/{categoryId}": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Fetch a product listing by category",
-        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.",
-        "operationId": "readProductListing",
-        "parameters": [
-          {
-            "name": "categoryId",
-            "in": "path",
-            "description": "Identifier of a category.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns a product listing containing all products and additional fields to display a listing.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product/{productId}/cross-selling": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Fetch cross-selling groups of a product",
-        "description": "This route is used to load the cross sellings for a product. A product has several cross selling definitions in which several products are linked. The route returns the cross sellings together with the linked products",
-        "operationId": "readProductCrossSellings",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "description": "Product ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Found cross sellings",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CrossSellingElementCollection"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product/{productId}": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Fetch a single product",
-        "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.",
-        "operationId": "readProductDetail",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "description": "Product ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Product information along with variant groups and options",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDetailResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product": {
-      "post": {
-        "tags": [
-          "Product",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a list of products",
-        "description": "List products that match the given criteria. For performance reasons a limit should always be set.",
-        "operationId": "readProduct",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing products",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Product"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product/{productId}/reviews": {
-      "post": {
-        "tags": [
-          "Product",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch product reviews",
-        "description": "Perform a filtered search for product reviews.",
-        "operationId": "readProductReviews",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "description": "Identifier of the product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing product reviews",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/ProductReview"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product/{productId}/review": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Save a product review",
-        "description": "Saves a review for a product. Reviews have to be activated in the settings.",
-        "operationId": "saveProductReview",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "description": "Identifier of the product which is reviewed.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "title",
-                  "content",
-                  "points"
-                ],
-                "properties": {
-                  "name": {
-                    "description": "The name of the review author. If not set, the first name of the customer is chosen.",
-                    "type": "string"
-                  },
-                  "email": {
-                    "description": "The email address of the review author. If not set, the email of the customer is chosen.",
-                    "type": "string"
-                  },
-                  "title": {
-                    "description": "The title of the review.",
-                    "type": "string"
-                  },
-                  "content": {
-                    "description": "The content of review.",
-                    "type": "string"
-                  },
-                  "points": {
-                    "description": "The review rating for the product.",
-                    "type": "number",
-                    "format": "double"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success response indicating the review was saved successfuly."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product/{productId}/find-variant": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Search for a matching variant by product options.",
-        "description": "Performs a search for product variants and returns the best matching variant.",
-        "operationId": "searchProductVariantIds",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "description": "Product ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "options"
-                ],
-                "properties": {
-                  "options": {
-                    "description": "The options parameter for the variant to find.",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "switchedGroup": {
-                    "description": "The id of the option group that has been switched.",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns an FoundCombination struct containing the ids matching the search.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FindProductVariantRouteResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/customer-group-registration/config/{customerGroupId}": {
-      "get": {
-        "tags": [
-          "Login & Registration"
-        ],
-        "summary": "Fetch registration settings for customer group",
-        "operationId": "getCustomerGroupRegistrationInfo",
-        "parameters": [
-          {
-            "name": "customerGroupId",
-            "in": "path",
-            "description": "Customer group id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns the customer group including registration settings.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerGroup"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
     "/contact-form": {
       "post": {
         "tags": [
@@ -15582,103 +14519,6 @@
         "responses": {
           "200": {
             "description": "Message sent successful."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/context": {
-      "get": {
-        "tags": [
-          "System & Context"
-        ],
-        "summary": "Fetch the current context",
-        "description": "Fetches the current context. This includes for example the `customerGroup`, `currency`, `taxRules` and many more.",
-        "operationId": "readContext",
-        "responses": {
-          "200": {
-            "description": "Returns the current context.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SalesChannelContext"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "System & Context"
-        ],
-        "summary": "Modify the current context",
-        "description": "Used for switching the context. A typical example would be changing the language or changing the currency.",
-        "operationId": "updateContext",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "currencyId": {
-                    "description": "Currency",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "languageId": {
-                    "description": "Language",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "billingAddressId": {
-                    "description": "Billing Address",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "shippingAddressId": {
-                    "description": "Shipping Address",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "paymentMethodId": {
-                    "description": "Payment Method",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "shippingMethodId": {
-                    "description": "Shipping Method",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "countryId": {
-                    "description": "Country",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "countryStateId": {
-                    "description": "Country State",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
           }
         },
         "security": [
@@ -16751,30 +15591,26 @@
         ]
       }
     },
-    "/app-system/{name}/generate-token": {
+    "/order/state/cancel": {
       "post": {
         "tags": [
-          "App system"
+          "Order"
         ],
-        "summary": "Generate JWT token for app system backend",
-        "description": "Generate JWT token for authenticated communication with the app server",
-        "operationId": "generateJWTAppSystemAppServer",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "description": "Name of the app",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "summary": "Cancel an order",
+        "description": "Cancels an order. The order state will be set to 'cancelled'.",
+        "operationId": "cancelOrder",
         "requestBody": {
-          "required": false,
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
+                "properties": {
+                  "orderId": {
+                    "description": "The identifier of the order to be canceled.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
                 "type": "object"
               }
             }
@@ -16782,23 +15618,163 @@
         },
         "responses": {
           "200": {
-            "description": "",
+            "description": "Returns the state of the state machine\n\n    example: More information about the state machine can be found in the corresponding guide: [Using the state machine](https://developer.shopware.com/docs/guides/plugins/plugins/checkout/order/using-the-state-machine)",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string"
+                  "$ref": "#/components/schemas/StateMachineState"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order": {
+      "post": {
+        "tags": [
+          "Order",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a list of orders",
+        "description": "List orders of a customer.",
+        "operationId": "readOrder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "properties": {
+                      "checkPromotion": {
+                        "description": "Check if the payment method of the order is still changeable.",
+                        "type": "boolean"
+                      }
                     },
-                    "expires": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "shopId": {
-                      "type": "string"
-                    }
+                    "type": "object"
                   }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An array of orders and an indicator if the payment of the order can be changed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRouteResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order/payment": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Update the payment method of an order",
+        "description": "Changes the payment method of a specific order. You can use the /order route to find out if the payment method of an order can be changed - take a look at the `paymentChangeable`- array in the response.",
+        "operationId": "orderSetPayment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "paymentMethodId",
+                  "orderId"
+                ],
+                "properties": {
+                  "paymentMethodId": {
+                    "description": "The identifier of the paymentMethod to be set",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "orderId": {
+                    "description": "The identifier of the order.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully updated the payment method of the order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order/download/{orderId}/{downloadId}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Download a purchased file",
+        "description": "Download a file included in the given order and with the given id. Access must be granted.",
+        "operationId": "orderDownloadFile",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "downloadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An arbitrary binary file.",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -16868,62 +15844,21 @@
         ]
       }
     },
-    "/shipping-method": {
-      "post": {
+    "/context": {
+      "get": {
         "tags": [
-          "Payment & Shipping",
-          "Endpoints supporting Criteria "
+          "System & Context"
         ],
-        "summary": "Fetch shipping methods",
-        "description": "Perform a filtered search for shipping methods.",
-        "operationId": "readShippingMethod",
-        "parameters": [
-          {
-            "name": "onlyAvailable",
-            "in": "query",
-            "description": "List only available shipping methods. This filters shipping methods methods which can not be used in the actual context because of their availability rule.",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
+        "summary": "Fetch the current context",
+        "description": "Fetches the current context. This includes for example the `customerGroup`, `currency`, `taxRules` and many more.",
+        "operationId": "readContext",
         "responses": {
           "200": {
-            "description": "",
+            "description": "Returns the current context.",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "total": {
-                      "description": "Total amount",
-                      "type": "integer"
-                    },
-                    "aggregations": {
-                      "description": "aggregation result",
-                      "type": "object"
-                    },
-                    "elements": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ShippingMethod"
-                      }
-                    }
-                  },
-                  "type": "object"
+                  "$ref": "#/components/schemas/SalesChannelContext"
                 }
               }
             }
@@ -16934,107 +15869,69 @@
             "ApiKey": []
           }
         ]
-      }
-    },
-    "/search": {
-      "post": {
+      },
+      "patch": {
         "tags": [
-          "Product"
+          "System & Context"
         ],
-        "summary": "Search for products",
-        "description": "Performs a search for products which can be used to display a product listing.",
-        "operationId": "searchPage",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "required": [
-                      "search"
-                    ],
-                    "properties": {
-                      "search": {
-                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns a product listing containing all products and additional fields to display a listing.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/search-suggest": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Search for products (suggest)",
-        "description": "Can be used to implement search previews or suggestion listings, that don’t require any interaction.",
-        "operationId": "searchSuggest",
+        "summary": "Modify the current context",
+        "description": "Used for switching the context. A typical example would be changing the language or changing the currency.",
+        "operationId": "updateContext",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "required": [
-                      "search"
-                    ],
-                    "properties": {
-                      "search": {
-                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
+                "properties": {
+                  "currencyId": {
+                    "description": "Currency",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
                   },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
+                  "languageId": {
+                    "description": "Language",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "billingAddressId": {
+                    "description": "Billing Address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingAddressId": {
+                    "description": "Shipping Address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "paymentMethodId": {
+                    "description": "Payment Method",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingMethodId": {
+                    "description": "Shipping Method",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "countryId": {
+                    "description": "Country",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "countryStateId": {
+                    "description": "Country State",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
                   }
-                ]
+                },
+                "type": "object"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Returns a product listing containing all products and additional fields.\n\nNote: Aggregations, currentFilters and availableSortings are empty in this response. If you need them to display a listing, use the /search route instead.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
-                }
-              }
-            }
+            "$ref": "#/components/responses/ContextTokenResponse"
           }
         },
         "security": [
@@ -17044,61 +15941,167 @@
         ]
       }
     },
-    "/cms/{id}": {
+    "/newsletter/confirm": {
       "post": {
         "tags": [
-          "Content"
+          "Newsletter"
         ],
-        "summary": "Fetch and resolve a CMS page",
-        "description": "Loads a content management page by its identifier and resolve the slot data. This could be media files, product listing and so on.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
-        "operationId": "readCms",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the CMS page to be resolved",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
+        "summary": "Confirm a newsletter registration",
+        "description": "You have to use the hash from the link sent out via email to confirm the user registration.",
+        "operationId": "confirmNewsletter",
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "properties": {
-                      "slots": {
-                        "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a `|` character.",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
+                "required": [
+                  "hash",
+                  "em"
+                ],
+                "properties": {
+                  "hash": {
+                    "description": "Hash parameter from link the in the confirmation mail",
+                    "type": "string"
                   },
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  "em": {
+                    "description": "Email hash parameter from the link in the confirmation mail",
+                    "type": "string"
                   }
-                ]
+                },
+                "type": "object"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "The loaded cms page",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CmsPage"
-                }
+            "description": "The newsletter confirmation was successful."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/newsletter/subscribe": {
+      "post": {
+        "tags": [
+          "Newsletter"
+        ],
+        "summary": "Create or remove a newsletter subscription",
+        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email addrees containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirmes the newsletter subscription for the provided email address.",
+        "operationId": "subscribeToNewsletter",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "email",
+                  "option",
+                  "storefrontUrl"
+                ],
+                "properties": {
+                  "email": {
+                    "description": "Email address that will receive the confirmation and the newsletter.",
+                    "type": "string"
+                  },
+                  "option": {
+                    "description": "Defines what should be done.",
+                    "type": "string"
+                  },
+                  "storefrontUrl": {
+                    "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email.",
+                    "type": "string"
+                  },
+                  "salutationId": {
+                    "description": "Identifier of the salutation.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "firstName": {
+                    "description": "First name",
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "description": "Last name",
+                    "type": "string"
+                  },
+                  "street": {
+                    "description": "Street",
+                    "type": "string"
+                  },
+                  "city": {
+                    "description": "City",
+                    "type": "string"
+                  },
+                  "zipCode": {
+                    "description": "Zip code",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "description": "Zip code",
+                    "type": "string"
+                  },
+                  "languageId": {
+                    "description": "Identifier of the language.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "customFields": {
+                    "description": "Custom field data that should be added to the subscription.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
               }
             }
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/newsletter/unsubscribe": {
+      "post": {
+        "tags": [
+          "Newsletter"
+        ],
+        "summary": "Remove a newsletter subscription",
+        "description": "Removes a newsletter recipient from the mailing lists.",
+        "operationId": "unsubscribeToNewsletter",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "email"
+                ],
+                "properties": {
+                  "email": {
+                    "description": "Email address that should be removed from the mailing lists.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Unsubscribing was successful."
           }
         },
         "security": [
@@ -17169,38 +16172,6 @@
         ]
       }
     },
-    "/script/{hook}": {
-      "post": {
-        "tags": [
-          "API",
-          "Script",
-          "App"
-        ],
-        "summary": "Access point for different api logics which are provided by apps over script hooks",
-        "operationId": "postScriptStoreApiRoute",
-        "parameters": [
-          {
-            "name": "hook",
-            "in": "path",
-            "description": "Dynamic hook which used to build the hook name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns different structures of results based on the called script."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
     "/country": {
       "post": {
         "tags": [
@@ -17246,6 +16217,1035 @@
                       "$ref": "#/components/schemas/EntitySearchResult"
                     }
                   ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/cart": {
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Fetch or create a cart",
+        "description": "Used to fetch the current cart or for creating a new one.",
+        "operationId": "readCart",
+        "responses": {
+          "200": {
+            "description": "Cart",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Delete a cart",
+        "description": "This route deletes the cart of the customer.",
+        "operationId": "deleteCart",
+        "responses": {
+          "204": {
+            "description": "Successfully deleted the cart",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/cart/line-item": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Add items to the cart",
+        "description": "This route adds items to the cart. An item can be a product or promotion for example. They are referenced by the `referencedId`-parameter.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#adding-new-items-to-the-cart)",
+        "operationId": "addLineItem",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartItems"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Remove items from the cart",
+        "description": "DEPRECATED: use removeLineItem instead. This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
+        "operationId": "removeLineItemDeprecated",
+        "deprecated": true,
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "A list of product identifiers.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Update items in the cart",
+        "description": "This route updates items in the cart. A typical example is updating the quantity of an item.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#updating-items-in-the-cart)",
+        "operationId": "updateLineItem",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartItems"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/cart/line-item/delete": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Remove items from the cart",
+        "description": "This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
+        "operationId": "removeLineItem",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "ids"
+                ],
+                "properties": {
+                  "ids": {
+                    "description": "A list of product identifiers.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/order": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Create an order from a cart",
+        "description": "Creates a new order from the current cart and deletes the cart.\n\nIf you are using the [prepared payment flow](https://developer.shopware.com/docs/concepts/commerce/checkout-concept/payments#2.1-prepare-payment-optional), this endpoint also receives additional transaction details. The exact name of the parameters depends on the implementation of the corresponding *payment handler*.",
+        "operationId": "createOrder",
+        "requestBody": {
+          "description": "Contains additional metadata which is stored together with the order. It can also contain payment transaction details.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "customerComment": {
+                    "description": "Adds a comment from the customer to the order.",
+                    "type": "string"
+                  },
+                  "affiliateCode": {
+                    "description": "The affiliate code can be used to track which referrer the customer came through. An example could be `Price-comparison-company-XY`.",
+                    "type": "string"
+                  },
+                  "campaignCode": {
+                    "description": "The campaign code is used to track which action the customer came from. An example could be `Summer-Deals`",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/language": {
+      "post": {
+        "tags": [
+          "System & Context",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch languages",
+        "description": "Perform a filtered search for languages.",
+        "operationId": "readLanguages",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing languages.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Language"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/handle-payment": {
+      "post": {
+        "tags": [
+          "Payment & Shipping"
+        ],
+        "summary": "Initiate a payment for an order",
+        "description": "This generic endpoint is should be called to initiate a payment flow after an order has been created. The details of the payment flow can differ depending on the payment integration and might require calling additional operations or the setup of webhooks.\n\nThe endpoint internally calls the payment handler of the payment method currently set for the order.",
+        "operationId": "handlePaymentMethod",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "orderId"
+                ],
+                "properties": {
+                  "orderId": {
+                    "description": "Identifier of an order",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "finishUrl": {
+                    "description": "URL to which the client should be redirected after successful payment",
+                    "type": "string"
+                  },
+                  "errorUrl": {
+                    "description": "URL to which the client should be redirected after erroneous payment",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Redirect to external payment provider"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product-export/{accessKey}/{fileName}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Export product export",
+        "operationId": "readProductExport",
+        "parameters": [
+          {
+            "name": "accessKey",
+            "in": "path",
+            "description": "Access Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "File Name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product/{productId}/cross-selling": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Fetch cross-selling groups of a product",
+        "description": "This route is used to load the cross sellings for a product. A product has several cross selling definitions in which several products are linked. The route returns the cross sellings together with the linked products",
+        "operationId": "readProductCrossSellings",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found cross sellings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrossSellingElementCollection"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product/{productId}": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Fetch a single product",
+        "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.",
+        "operationId": "readProductDetail",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product information along with variant groups and options",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDetailResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product": {
+      "post": {
+        "tags": [
+          "Product",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a list of products",
+        "description": "List products that match the given criteria. For performance reasons a limit should always be set.",
+        "operationId": "readProduct",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Product"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product/{productId}/reviews": {
+      "post": {
+        "tags": [
+          "Product",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch product reviews",
+        "description": "Perform a filtered search for product reviews.",
+        "operationId": "readProductReviews",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Identifier of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing product reviews",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/ProductReview"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product/{productId}/review": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Save a product review",
+        "description": "Saves a review for a product. Reviews have to be activated in the settings.",
+        "operationId": "saveProductReview",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Identifier of the product which is reviewed.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "title",
+                  "content",
+                  "points"
+                ],
+                "properties": {
+                  "name": {
+                    "description": "The name of the review author. If not set, the first name of the customer is chosen.",
+                    "type": "string"
+                  },
+                  "email": {
+                    "description": "The email address of the review author. If not set, the email of the customer is chosen.",
+                    "type": "string"
+                  },
+                  "title": {
+                    "description": "The title of the review.",
+                    "type": "string"
+                  },
+                  "content": {
+                    "description": "The content of review.",
+                    "type": "string"
+                  },
+                  "points": {
+                    "description": "The review rating for the product.",
+                    "type": "number",
+                    "format": "double"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success response indicating the review was saved successfuly."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product/{productId}/find-variant": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Search for a matching variant by product options.",
+        "description": "Performs a search for product variants and returns the best matching variant.",
+        "operationId": "searchProductVariantIds",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "options"
+                ],
+                "properties": {
+                  "options": {
+                    "description": "The options parameter for the variant to find.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "switchedGroup": {
+                    "description": "The id of the option group that has been switched.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an FoundCombination struct containing the ids matching the search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FindProductVariantRouteResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/country-state/{countryId}": {
+      "post": {
+        "tags": [
+          "System & Context",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch the states of a country",
+        "description": "Perform a filtered search the states for a country",
+        "operationId": "readCountryState",
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing countries.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/CountryState"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/app-system/{name}/generate-token": {
+      "post": {
+        "tags": [
+          "App system"
+        ],
+        "summary": "Generate JWT token for app system backend",
+        "description": "Generate JWT token for authenticated communication with the app server",
+        "operationId": "generateJWTAppSystemAppServer",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "description": "Name of the app",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    },
+                    "expires": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "shopId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/customer-group-registration/config/{customerGroupId}": {
+      "get": {
+        "tags": [
+          "Login & Registration"
+        ],
+        "summary": "Fetch registration settings for customer group",
+        "operationId": "getCustomerGroupRegistrationInfo",
+        "parameters": [
+          {
+            "name": "customerGroupId",
+            "in": "path",
+            "description": "Customer group id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the customer group including registration settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerGroup"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/search-suggest": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Search for products (suggest)",
+        "description": "Can be used to implement search previews or suggestion listings, that don’t require any interaction.",
+        "operationId": "searchSuggest",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "required": [
+                      "search"
+                    ],
+                    "properties": {
+                      "search": {
+                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a product listing containing all products and additional fields.\n\nNote: Aggregations, currentFilters and availableSortings are empty in this response. If you need them to display a listing, use the /search route instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListingResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/shipping-method": {
+      "post": {
+        "tags": [
+          "Payment & Shipping",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch shipping methods",
+        "description": "Perform a filtered search for shipping methods.",
+        "operationId": "readShippingMethod",
+        "parameters": [
+          {
+            "name": "onlyAvailable",
+            "in": "query",
+            "description": "List only available shipping methods. This filters shipping methods methods which can not be used in the actual context because of their availability rule.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "total": {
+                      "description": "Total amount",
+                      "type": "integer"
+                    },
+                    "aggregations": {
+                      "description": "aggregation result",
+                      "type": "object"
+                    },
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ShippingMethod"
+                      }
+                    }
+                  },
+                  "type": "object"
                 }
               }
             }
