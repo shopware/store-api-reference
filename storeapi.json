@@ -4639,6 +4639,9 @@
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "string"
           },
+          "path": {
+            "type": "string"
+          },
           "hasFile": {
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "boolean"
@@ -4885,6 +4888,9 @@
           },
           "url": {
             "description": "Public url of media thumbnail.",
+            "type": "string"
+          },
+          "path": {
             "type": "string"
           },
           "customFields": {
