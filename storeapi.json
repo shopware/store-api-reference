@@ -10134,6 +10134,724 @@
         },
         "type": "object"
       },
+      "Quote": {
+        "description": "Added since version: 6.5.3.0",
+        "required": [
+          "stateId",
+          "currencyId",
+          "languageId",
+          "salesChannelId",
+          "customerId",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "versionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "stateId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "userId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "currencyId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "languageId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salesChannelId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdById": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "updatedById": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "orderId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "orderVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteNumber": {
+            "type": "string"
+          },
+          "expirationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "price": {
+            "required": [
+              "netPrice",
+              "totalPrice",
+              "positionPrice",
+              "rawTotal",
+              "taxStatus"
+            ],
+            "properties": {
+              "netPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "totalPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "calculatedTaxes": {
+                "type": "object"
+              },
+              "taxRules": {
+                "type": "object"
+              },
+              "positionPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "rawTotal": {
+                "type": "number",
+                "format": "float"
+              },
+              "taxStatus": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "shippingCosts": {
+            "required": [
+              "unitPrice",
+              "totalPrice",
+              "quantity"
+            ],
+            "properties": {
+              "unitPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "totalPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "quantity": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "calculatedTaxes": {
+                "type": "object"
+              },
+              "taxRules": {
+                "type": "object"
+              },
+              "referencePrice": {
+                "type": "object"
+              },
+              "listPrice": {
+                "properties": {
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "discount": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "percentage": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              },
+              "regulationPrice": {
+                "properties": {
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "discount": {
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number",
+                "format": "float"
+              }
+            },
+            "type": "object"
+          },
+          "taxStatus": {
+            "type": "string",
+            "readOnly": true
+          },
+          "amountTotal": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "amountNet": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "subtotalNet": {
+            "type": "number",
+            "format": "float"
+          },
+          "totalDiscount": {
+            "type": "number",
+            "format": "float"
+          },
+          "originalPrice": {
+            "type": "number",
+            "format": "float"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "stateMachineState": {
+            "$ref": "#/components/schemas/StateMachineState"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "language": {
+            "$ref": "#/components/schemas/Language"
+          },
+          "lineItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineItem"
+            }
+          },
+          "deliveries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuoteDelivery"
+            }
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuoteTransaction"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "QuoteDelivery": {
+        "description": "Added since version: 6.5.3.0",
+        "required": [
+          "quoteId",
+          "shippingMethodId",
+          "shippingDateEarliest",
+          "shippingDateLatest",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "versionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "shippingMethodId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "shippingDateEarliest": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "shippingDateLatest": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "shippingCosts": {
+            "required": [
+              "unitPrice",
+              "totalPrice",
+              "quantity"
+            ],
+            "properties": {
+              "unitPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "totalPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "quantity": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "calculatedTaxes": {
+                "type": "object"
+              },
+              "taxRules": {
+                "type": "object"
+              },
+              "referencePrice": {
+                "type": "object"
+              },
+              "listPrice": {
+                "properties": {
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "discount": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "percentage": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              },
+              "regulationPrice": {
+                "properties": {
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "shippingMethod": {
+            "$ref": "#/components/schemas/ShippingMethod"
+          },
+          "positions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuoteDeliveryPosition"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "QuoteDeliveryPosition": {
+        "description": "Added since version: 6.5.3.0",
+        "required": [
+          "quoteDeliveryId",
+          "quoteLineItemId",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "versionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteDeliveryId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteDeliveryVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteLineItemId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteLineItemVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "price": {
+            "required": [
+              "unitPrice",
+              "totalPrice",
+              "quantity"
+            ],
+            "properties": {
+              "unitPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "totalPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "quantity": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "calculatedTaxes": {
+                "type": "object"
+              },
+              "taxRules": {
+                "type": "object"
+              },
+              "referencePrice": {
+                "type": "object"
+              },
+              "listPrice": {
+                "properties": {
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "discount": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "percentage": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              },
+              "regulationPrice": {
+                "properties": {
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "float"
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "QuoteLineItem": {
+        "description": "Added since version: 6.5.3.0",
+        "required": [
+          "quoteId",
+          "identifier",
+          "children",
+          "states",
+          "label",
+          "quantity",
+          "position",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "versionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "parentId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "parentVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "productId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "productVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string"
+          },
+          "payload": {
+            "type": "object"
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "float"
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "float"
+          },
+          "priceDefinition": {
+            "type": "object"
+          },
+          "discount": {
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "value": {
+                "type": "integer",
+                "format": "int64"
+              }
+            },
+            "type": "object"
+          },
+          "good": {
+            "type": "boolean"
+          },
+          "removable": {
+            "type": "boolean"
+          },
+          "stackable": {
+            "type": "boolean"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "referencedId": {
+            "type": "string"
+          },
+          "coverId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "parent": {
+            "$ref": "#/components/schemas/QuoteLineItem"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineItem"
+            }
+          },
+          "cover": {
+            "$ref": "#/components/schemas/Media"
+          }
+        },
+        "type": "object"
+      },
+      "QuoteTransaction": {
+        "description": "Added since version: 6.5.3.0",
+        "required": [
+          "quoteId",
+          "paymentMethodId",
+          "amount",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "versionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "paymentMethodId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "amount": {
+            "required": [
+              "unitPrice",
+              "totalPrice",
+              "quantity"
+            ],
+            "properties": {
+              "unitPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "totalPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "quantity": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "calculatedTaxes": {
+                "type": "object"
+              },
+              "taxRules": {
+                "type": "object"
+              },
+              "referencePrice": {
+                "type": "object"
+              },
+              "listPrice": {
+                "properties": {
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "discount": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "percentage": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              },
+              "regulationPrice": {
+                "properties": {
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod"
+          }
+        },
+        "type": "object"
+      },
       "Rule": {
         "description": "Added since version: 6.0.0.0",
         "required": [
