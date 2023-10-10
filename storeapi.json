@@ -386,6 +386,50 @@
         },
         "type": "object"
       },
+      "AdvancedSearchAction": {
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "AdvancedSearchActionSearchTerm": {
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "AdvancedSearchBoosting": {
         "required": [
           "createdAt"
@@ -1204,6 +1248,37 @@
                     },
                     "type": "object"
                   },
+                  "tags": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/tags"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "tag"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "d57ac45256849d9b13e2422d91580fb9"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
                   "cmsPage": {
                     "properties": {
                       "links": {
@@ -1451,6 +1526,12 @@
           },
           "media": {
             "$ref": "#/components/schemas/Media"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
           },
           "cmsPage": {
             "$ref": "#/components/schemas/CmsPage"
@@ -2952,6 +3033,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomerAddress"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
             }
           }
         },
@@ -7770,6 +7857,14 @@
                 },
                 "readOnly": true
               },
+              "tagIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "readOnly": true
+              },
               "categoryIds": {
                 "type": "array",
                 "items": {
@@ -8538,6 +8633,37 @@
                     },
                     "type": "object"
                   },
+                  "tags": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/product/deb10517653c255364175796ace3553f/tags"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "tag"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "d57ac45256849d9b13e2422d91580fb9"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
                   "seoCategory": {
                     "properties": {
                       "links": {
@@ -8785,6 +8911,14 @@
             },
             "readOnly": true,
             "description": "Runtime field, cannot be used as part of the criteria."
+          },
+          "tagIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "readOnly": true
           },
           "categoryIds": {
             "type": "array",
@@ -9035,6 +9169,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Category"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
             }
           },
           "seoCategory": {
@@ -12995,6 +13135,7 @@
       "Tag": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "name",
           "createdAt"
         ],
         "properties": {
@@ -13002,6 +13143,9 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of tag."
+          },
+          "name": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
