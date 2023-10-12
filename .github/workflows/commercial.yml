@@ -41,10 +41,10 @@ jobs:
     - name: Create DSR PR
       uses: peter-evans/create-pull-request@v4
       with:
-        add-paths: SwagGuidedShopping-storeapi.json
+        add-paths: SwagCommercial-storeapi.json
         author: shopwareBot <example@example.com>
         committer: shopwareBot <example@example.com>
         assignees: Isengo1989
         branch: dsr-schema-update
         delete-branch: true
-        title: 'Update DSR store API schema'
+        title: 'Update SwagCommercial store API schema'
