@@ -36,7 +36,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y moreutils
-        jq . storeapi.json | sponge storeapi.json
+        jq . SwagCommercial-storeapi.json | sponge SwagCommercial-storeapi.json
       
     - name: Create DSR PR
       uses: peter-evans/create-pull-request@v4
