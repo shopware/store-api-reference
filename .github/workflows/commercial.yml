@@ -3,7 +3,7 @@ name: Update Commercial Store API
 on:
   push:
     branches:
-      - 'dx-adhoc-stop/**'
+      - 'dx-adhoc/**'
         
 env:
   PLUGIN_NAME: SwagCommercial
@@ -16,8 +16,8 @@ jobs:
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@dx-adhoc/add-workflow-for-dsr
     with:
       api_type: storeapi
-      plugin_name: ${{PLUGIN_NAME}}
-      plugin_url: ${{PLUGIN_URL}}
+      plugin_name: SwagCommercial
+      plugin_url: gitlab.shopware.com/shopware/6/product/commercial.git
     secrets: inherit
         
   open-pr:
