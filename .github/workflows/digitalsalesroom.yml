@@ -16,8 +16,8 @@ jobs:
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@dx-adhoc/add-workflow-for-dsr
     with:
       api_type: storeapi
-      plugin_name: ${{env.PLUGIN_NAME}}
-      plugin_url: ${{env.PLUGIN_URL}}
+      plugin_name: ${{ env.PLUGIN_NAME }}
+      plugin_url: ${{ env.PLUGIN_URL }}
     secrets: inherit
   
   open-pr:
