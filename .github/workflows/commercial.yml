@@ -11,6 +11,13 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel 
 jobs:
+  vars:
+    runs-on: ubuntu-22.04
+    outputs:
+      PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
+      PLUGIN_URL: ${{ env.PLUGIN_URL }}
+    steps:
+      - run: echo "Exposing env vars"
   # This workflow contains a single job called "build"
   generate-schema:
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@dx-adhoc/add-workflow-for-dsr
