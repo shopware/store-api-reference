@@ -15,7 +15,8 @@ jobs:
   generate-schema:
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@dx-adhoc/add-workflow-for-dsr
     with:
-      api_type: storeapi
+      schema_flags: --store-api -b ${{ needs.vars.outputs.PLUGIN_NAME }} ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
+      schema_file: ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
       plugin_name: SwagCommercial
       plugin_url: gitlab.shopware.com/shopware/6/product/commercial.git
     secrets: inherit
