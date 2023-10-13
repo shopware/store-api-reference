@@ -15,8 +15,7 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
       PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
-    steps:
-      - run: echo "Exposing env vars"
+      PLUGIN_URL: ${{ env.PLUGIN_URL }}
   # This workflow contains a single job called "build"
   generate-schema:
     needs: vars
@@ -24,7 +23,7 @@ jobs:
     with:
       api_type: storeapi
       plugin_name: ${{ needs.vars.outputs.PLUGIN_NAME }}
-      plugin_url: gitlab.shopware.com/shopware/6/services/swagguidedshopping.git
+      plugin_url: ${{ needs.vars.outputs.PLUGIN_URL }}
     secrets: inherit
   
   open-pr:
@@ -47,15 +46,15 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y moreutils
-          jq . SwagGuidedShopping-storeapi.json | sponge SwagGuidedShopping-storeapi.json
+          jq . ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json | sponge ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
 
       - name: Create DSR PR
         uses: peter-evans/create-pull-request@v4
         with:
-          add-paths: SwagGuidedShopping-storeapi.json
+          add-paths: ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
           author: shopwareBot <example@example.com>
           committer: shopwareBot <example@example.com>
           assignees: Isengo1989
-          branch: SwagGuidedShopping-schema-update
+          branch: ${{ needs.vars.outputs.PLUGIN_NAME }}-schema-update
           delete-branch: true
-          title: 'Update SwagGuidedShopping store API schema'
+          title: 'Update ${{ needs.vars.outputs.PLUGIN_NAME }} store API schema'
