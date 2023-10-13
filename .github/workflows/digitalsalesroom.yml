@@ -11,14 +11,19 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel 
 jobs:
+  vars:
+    runs-on: ubuntu-22.04
+    outputs:
+      PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
+    steps:
+      - run: echo "Exposing env vars"
   # This workflow contains a single job called "build"
   generate-schema:
+    needs: vars
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@dx-adhoc/add-workflow-for-dsr
-    env:
-      PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
     with:
       api_type: storeapi
-      plugin_name: SwagGuidedShopping
+      plugin_name: ${{ needs.vars.outputs.PLUGIN_NAME }}
       plugin_url: gitlab.shopware.com/shopware/6/services/swagguidedshopping.git
     secrets: inherit
   
