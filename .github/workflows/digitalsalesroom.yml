@@ -3,7 +3,7 @@ name: Update DSR Store API
 on:
   push:
     branches:
-      - 'dx-adhoc/**'
+      - 'dx-adhoc-stop/**'
 
 env:
   PLUGIN_NAME: SwagGuidedShopping
