@@ -16,6 +16,8 @@ jobs:
     outputs:
       PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
       PLUGIN_URL: ${{ env.PLUGIN_URL }}
+    steps:
+      - run: echo "Exposing env vars"
   # This workflow contains a single job called "build"
   generate-schema:
     needs: vars
