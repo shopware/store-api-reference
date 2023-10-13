@@ -33,6 +33,7 @@ jobs:
     secrets: 
       DEPLOY_USER: ${{ secrets.DIGITALSALESROOM_DEPLOY_USER }}
       DEPLOY_TOKEN: ${{ secrets.DIGITALSALESROOM_DEPLOY_TOKEN }}
+      DAILY_CO_API_KEY: ${{ secrets.DAILY_CO_API_KEY }}
   open-pr:
     name: "Open a pull request"
     runs-on: ubuntu-latest
