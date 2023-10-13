@@ -30,8 +30,9 @@ jobs:
       plugin_url: ${{ needs.vars.outputs.PLUGIN_URL }}
       composer_packages: ${{ needs.vars.outputs.COMPOSER_PACKAGES }}
       git_options: --single-branch --branch 6.5-compatibility
-    secrets: inherit
-  
+    secrets: 
+      DEPLOY_USER: ${{ secrets.DIGITALSALESROOM_DEPLOY_USER }}
+      DEPLOY_TOKEN: ${{ secrets.DIGITALSALESROOM_DEPLOY_TOKEN }}
   open-pr:
     name: "Open a pull request"
     runs-on: ubuntu-latest
