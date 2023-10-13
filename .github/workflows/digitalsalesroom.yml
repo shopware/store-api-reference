@@ -20,7 +20,7 @@ jobs:
       COMPOSER_PACKAGES: ${{ env.COMPOSER_PACKAGES }}
     steps:
       - run: echo "Exposing env vars"
-  # This workflow contains a single job called "build"
+  # This workflow contains a single job called "build" 
   generate-schema:
     needs: vars
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@dx-adhoc/add-workflow-for-dsr
