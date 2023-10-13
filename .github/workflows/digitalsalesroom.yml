@@ -29,6 +29,7 @@ jobs:
       plugin_name: ${{ needs.vars.outputs.PLUGIN_NAME }}
       plugin_url: ${{ needs.vars.outputs.PLUGIN_URL }}
       composer_packages: ${{ needs.vars.outputs.COMPOSER_PACKAGES }}
+      git_options: --single-branch --branch 6.5-compatibility
     secrets: inherit
   
   open-pr:
