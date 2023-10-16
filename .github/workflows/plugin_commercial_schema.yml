@@ -56,7 +56,7 @@ jobs:
         add-paths: ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
         author: shopwareBot <example@example.com>
         committer: shopwareBot <example@example.com>
-        assignees: Isengo1989
+        assignees: Isengo1989, sushmangupta, bojanrajh
         branch: ${{ needs.vars.outputs.PLUGIN_NAME }}-schema-update
         delete-branch: true
         title: 'Update ${{ needs.vars.outputs.PLUGIN_NAME }} store API schema'
