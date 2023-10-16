@@ -23,7 +23,7 @@ jobs:
   # This workflow contains a single job called "build" 
   generate-schema:
     needs: vars
-    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@dx-adhoc/add-workflow-for-dsr
+    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
     with:
       schema_flags: --store-api -b ${{ needs.vars.outputs.PLUGIN_NAME }}
       schema_file: ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
