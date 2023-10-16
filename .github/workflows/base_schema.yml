@@ -9,9 +9,10 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   generate-schema:
-    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
+    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@dx-adhoc/add-workflow-for-dsr
     with:
-      api_type: storeapi
+      schema_flags: --store-api
+      schema_file: storeapi.json
     secrets: inherit
         
   open-pr:
