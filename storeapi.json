@@ -386,204 +386,6 @@
         },
         "type": "object"
       },
-      "AdvancedSearchAction": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "AdvancedSearchActionSearchTerm": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "AdvancedSearchBoosting": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "AdvancedSearchConfig": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "hitCount": {
-            "properties": {
-              "product": {
-                "properties": {
-                  "maxSuggestCount": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "maxSearchCount": {
-                    "type": "integer",
-                    "format": "int64"
-                  }
-                },
-                "type": "object"
-              },
-              "product_manufacturer": {
-                "properties": {
-                  "maxSuggestCount": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "maxSearchCount": {
-                    "type": "integer",
-                    "format": "int64"
-                  }
-                },
-                "type": "object"
-              },
-              "category": {
-                "properties": {
-                  "maxSuggestCount": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "maxSearchCount": {
-                    "type": "integer",
-                    "format": "int64"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "AdvancedSearchConfigField": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "AdvancedSearchEntityStream": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "AdvancedSearchEntityStreamFilter": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
       "App": {
         "description": "Added since version: 6.3.1.0",
         "required": [
@@ -818,6 +620,29 @@
         },
         "type": "object"
       },
+      "AppShippingMethod": {
+        "description": "Added since version: 6.5.7.0",
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "AppTemplate": {
         "description": "Added since version: 6.3.1.0",
         "required": [
@@ -828,176 +653,6 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of App template."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "B2bBusinessPartner": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "customFields": {
-            "type": "object"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "B2bEmployee": {
-        "required": [
-          "firstName",
-          "lastName",
-          "email",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "active": {
-            "type": "boolean"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "customFields": {
-            "type": "object"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "role": {
-            "$ref": "#/components/schemas/B2bRole"
-          }
-        },
-        "type": "object"
-      },
-      "B2bOrderEmployee": {
-        "required": [
-          "firstName",
-          "lastName",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "B2bPermission": {
-        "required": [
-          "name",
-          "group",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "name": {
-            "type": "string"
-          },
-          "group": {
-            "type": "string"
-          },
-          "dependencies": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "B2bRole": {
-        "required": [
-          "name",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "name": {
-            "type": "string"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": false
-            }
-          },
-          "customFields": {
-            "type": "object"
           },
           "createdAt": {
             "type": "string",
@@ -2709,64 +2364,6 @@
         },
         "type": "object"
       },
-      "CustomPrice": {
-        "required": [
-          "productId",
-          "price",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the custom price."
-          },
-          "productId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the product."
-          },
-          "productVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the product's version."
-          },
-          "customerId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the customer."
-          },
-          "customerGroupId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the customer's group."
-          },
-          "price": {
-            "type": "object",
-            "description": "Detailed information of price."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "customer": {
-            "$ref": "#/components/schemas/Customer"
-          },
-          "customerGroup": {
-            "$ref": "#/components/schemas/CustomerGroup"
-          },
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          }
-        },
-        "type": "object"
-      },
       "Customer": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -2967,41 +2564,6 @@
             "format": "date-time",
             "readOnly": true
           },
-          "extensions": {
-            "properties": {
-              "specificFeatures": {
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/customer/ce26601dac0dea138b7295f02b7620a7/specificFeatures"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "example": "customer_specific_features"
-                      },
-                      "id": {
-                        "type": "string",
-                        "pattern": "^[0-9a-f]{32}$",
-                        "example": "5cfb6fcb7542e25892e1a35cd6a06c54"
-                      }
-                    }
-                  }
-                },
-                "type": "object",
-                "description": "To store additional data to a customer from extensions."
-              }
-            },
-            "type": "object"
-          },
           "group": {
             "$ref": "#/components/schemas/CustomerGroup"
           },
@@ -3039,6 +2601,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Tag"
+            }
+          },
+          "extensions": {
+            "properties": {
+              "specificFeatures": {
+                "description": "To store additional data to a customer from extensions."
+              }
             }
           }
         },
@@ -3232,38 +2801,6 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "CustomerSpecificFeatures": {
-        "required": [
-          "customerId",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the customer specific features."
-          },
-          "customerId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the customer."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "customer": {
-            "$ref": "#/components/schemas/Customer"
           }
         },
         "type": "object"
@@ -4755,86 +4292,14 @@
             "type": "object",
             "description": "Contains the translations of all translated fields."
           },
-          "extensions": {
-            "properties": {
-              "mediaAiTag": {
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/media/3b563524fdb17b4a86590470d40bef74/mediaAiTag"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "example": "media_ai_tag"
-                      },
-                      "id": {
-                        "type": "string",
-                        "pattern": "^[0-9a-f]{32}$",
-                        "example": "3c88197809d464216a8c40a8db191b38"
-                      }
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object",
-            "description": "To store additional data to a media from extensions."
-          },
           "thumbnails": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MediaThumbnail"
             }
-          }
-        },
-        "type": "object"
-      },
-      "MediaAiTag": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the AI media tag."
           },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": false
-            }
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "translated": {
-            "type": "object",
-            "description": "Contains the translations of all translated fields."
-          },
-          "media": {
-            "$ref": "#/components/schemas/Media"
-          },
-          "tag": {
-            "description": "Tag that indicates if the media is made by AI or not."
+          "extensions": {
+            "description": "To store additional data to a media from extensions."
           }
         },
         "type": "object"
@@ -5467,72 +4932,6 @@
             "format": "date-time",
             "readOnly": true
           },
-          "extensions": {
-            "properties": {
-              "subscription": {
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/order/a240fa27925a635b08dc28c9e4f9216d/subscription"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "example": "subscription"
-                      },
-                      "id": {
-                        "type": "string",
-                        "pattern": "^[0-9a-f]{32}$",
-                        "example": "b48b13e73a6ac2a86dc54425dd24d9ff"
-                      }
-                    }
-                  }
-                },
-                "type": "object"
-              },
-              "returns": {
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/order/a240fa27925a635b08dc28c9e4f9216d/returns"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "example": "order_return"
-                        },
-                        "id": {
-                          "type": "string",
-                          "example": "7fff84525c6516919851a9005373f87e"
-                        }
-                      }
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object",
-            "description": "To store additional data to an order from extensions."
-          },
           "stateMachineState": {
             "$ref": "#/components/schemas/StateMachineState"
           },
@@ -5583,6 +4982,9 @@
             "items": {
               "$ref": "#/components/schemas/Tag"
             }
+          },
+          "extensions": {
+            "description": "To store additional data to an order from extensions."
           }
         },
         "type": "object"
@@ -6212,72 +5614,6 @@
             "format": "date-time",
             "readOnly": true
           },
-          "extensions": {
-            "properties": {
-              "returns": {
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/order-line-item/40b401ac0b29ac5c5c8ffce649fdef62/returns"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "example": "order_return_line_item"
-                        },
-                        "id": {
-                          "type": "string",
-                          "example": "7fff84525c6516919851a9005373f87e"
-                        }
-                      }
-                    }
-                  }
-                },
-                "type": "object"
-              },
-              "state": {
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/order-line-item/40b401ac0b29ac5c5c8ffce649fdef62/state"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "example": "state_machine_state"
-                      },
-                      "id": {
-                        "type": "string",
-                        "pattern": "^[0-9a-f]{32}$",
-                        "example": "9ed39e2ea931586b6a985a6942ef573e"
-                      }
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object",
-            "description": "To store additional data to an order line item from extensions."
-          },
           "cover": {
             "$ref": "#/components/schemas/Media"
           },
@@ -6301,6 +5637,9 @@
             "items": {
               "$ref": "#/components/schemas/OrderLineItem"
             }
+          },
+          "extensions": {
+            "description": "To store additional data to an order line item from extensions."
           }
         },
         "type": "object"
@@ -6368,348 +5707,6 @@
           },
           "media": {
             "$ref": "#/components/schemas/Media"
-          }
-        },
-        "type": "object"
-      },
-      "OrderProductWarehouse": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order's product warehouse."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "OrderReturn": {
-        "required": [
-          "orderId",
-          "stateId",
-          "returnNumber",
-          "requestedAt",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order return."
-          },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order return's version."
-          },
-          "orderId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order."
-          },
-          "orderVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order return version."
-          },
-          "price": {
-            "required": [
-              "netPrice",
-              "totalPrice",
-              "positionPrice",
-              "rawTotal",
-              "taxStatus"
-            ],
-            "properties": {
-              "netPrice": {
-                "type": "number",
-                "format": "float",
-                "description": "Net price of the product."
-              },
-              "totalPrice": {
-                "type": "number",
-                "format": "float",
-                "description": "Gross price of the product."
-              },
-              "calculatedTaxes": {
-                "type": "object",
-                "description": "Contains calculated tax on order delivery price."
-              },
-              "taxRules": {
-                "type": "object",
-                "description": "Pricing based on multiple taxes."
-              },
-              "positionPrice": {
-                "type": "number",
-                "format": "float",
-                "description": "Price of each line item in the cart multiplied by its quantity excluding charges like shipping cost, rules, taxes etc."
-              },
-              "rawTotal": {
-                "type": "number",
-                "format": "float",
-                "description": "The total value before rounding off."
-              },
-              "taxStatus": {
-                "type": "string",
-                "description": "TaxStatus takes `Free`, `Net` or `Gross` as values."
-              }
-            },
-            "type": "object"
-          },
-          "shippingCosts": {
-            "required": [
-              "unitPrice",
-              "totalPrice",
-              "quantity"
-            ],
-            "properties": {
-              "unitPrice": {
-                "type": "number",
-                "format": "float",
-                "description": "Shipping cost of product per item (where, quantity=1)."
-              },
-              "totalPrice": {
-                "type": "number",
-                "format": "float",
-                "description": "Shipping cost of product based on quantity."
-              },
-              "quantity": {
-                "type": "integer",
-                "format": "int64",
-                "description": "Number of items of each product."
-              },
-              "calculatedTaxes": {
-                "type": "object",
-                "description": "Contains calculated taxes based on shipping costs/methods."
-              },
-              "taxRules": {
-                "type": "object",
-                "description": "Pricing based on multiple taxes."
-              },
-              "referencePrice": {
-                "type": "object",
-                "description": "Original cost price of the product."
-              },
-              "listPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float",
-                    "description": "Price of each line item."
-                  },
-                  "discount": {
-                    "type": "number",
-                    "format": "float",
-                    "description": "Absolute discount on each line item."
-                  },
-                  "percentage": {
-                    "type": "number",
-                    "format": "float",
-                    "description": "Discount in percentage."
-                  }
-                },
-                "type": "object"
-              },
-              "regulationPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float",
-                    "description": "Contains cheapest price from last 30 days as per EU law."
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "stateId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of state."
-          },
-          "returnNumber": {
-            "type": "string",
-            "description": "Reference number for returning order."
-          },
-          "requestedAt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Date and time when the order return was requested."
-          },
-          "amountTotal": {
-            "type": "number",
-            "format": "float",
-            "description": "Gross price of the order."
-          },
-          "amountNet": {
-            "type": "number",
-            "format": "float",
-            "description": "Net price of the order."
-          },
-          "createdById": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "updatedById": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "state": {
-            "$ref": "#/components/schemas/StateMachineState"
-          },
-          "lineItems": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderReturnLineItem"
-            }
-          }
-        },
-        "type": "object"
-      },
-      "OrderReturnLineItem": {
-        "required": [
-          "orderReturnId",
-          "orderLineItemId",
-          "reasonId",
-          "quantity",
-          "stateId",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order return line item."
-          },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order return line item's version."
-          },
-          "orderReturnId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order return."
-          },
-          "orderReturnVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order return version."
-          },
-          "orderLineItemId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order line item."
-          },
-          "orderLineItemVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order line items's version."
-          },
-          "reasonId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of reason for return."
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Number of line items returned."
-          },
-          "refundAmount": {
-            "type": "number",
-            "format": "float",
-            "description": "Amount to be refunded."
-          },
-          "restockQuantity": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Update of stock quantity after the return of certain line items are initiated."
-          },
-          "customFields": {
-            "type": "object",
-            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
-          },
-          "stateId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of state."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "reason": {
-            "$ref": "#/components/schemas/OrderReturnLineItemReason"
-          },
-          "state": {
-            "$ref": "#/components/schemas/StateMachineState"
-          }
-        },
-        "type": "object"
-      },
-      "OrderReturnLineItemReason": {
-        "required": [
-          "reasonKey",
-          "createdAt",
-          "content"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity for reason of return."
-          },
-          "reasonKey": {
-            "type": "string",
-            "description": "Unique key associated with reason for the order return. "
-          },
-          "content": {
-            "type": "string",
-            "description": "Description of the reason of return."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "translated": {
-            "type": "object",
-            "description": "Contains the translations of all translated fields."
           }
         },
         "type": "object"
@@ -7404,29 +6401,6 @@
         },
         "type": "object"
       },
-      "OrderWarehouseGroup": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order warehouse group."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
       "PaymentMethodJsonApi": {
         "description": "Added since version: 6.0.0.0",
         "allOf": [
@@ -7958,42 +6932,6 @@
                 "readOnly": true
               },
               "translated": {
-                "type": "object"
-              },
-              "extensions": {
-                "properties": {
-                  "reviewSummaries": {
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/reviewSummaries"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "product_review_summary"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "c9c718522e64ffa5effb26cef94f4849"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  }
-                },
                 "type": "object"
               },
               "relationships": {
@@ -9032,42 +7970,6 @@
             "type": "object",
             "description": "Contains the translations of all translated fields."
           },
-          "extensions": {
-            "properties": {
-              "reviewSummaries": {
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/product/deb10517653c255364175796ace3553f/reviewSummaries"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "example": "product_review_summary"
-                        },
-                        "id": {
-                          "type": "string",
-                          "example": "c9c718522e64ffa5effb26cef94f4849"
-                        }
-                      }
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
           "downloads": {
             "type": "array",
             "items": {
@@ -9707,59 +8609,6 @@
         },
         "type": "object"
       },
-      "ProductReviewSummary": {
-        "required": [
-          "productId",
-          "salesChannelId",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of products's review summary."
-          },
-          "productId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of products."
-          },
-          "salesChannelId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of sales channel."
-          },
-          "summary": {
-            "type": "string",
-            "description": "Unique identity of products's review summary."
-          },
-          "visible": {
-            "type": "boolean",
-            "description": "When boolean value is `true`, the review is displayed to the customer."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "translated": {
-            "type": "object",
-            "description": "Contains the translations of all translated fields."
-          },
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "salesChannel": {
-            "$ref": "#/components/schemas/SalesChannel"
-          }
-        },
-        "type": "object"
-      },
       "ProductSearchConfig": {
         "description": "Added since version: 6.3.5.0",
         "required": [
@@ -9951,29 +8800,6 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of product visibility."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "ProductWarehouse": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of warehouse of product."
           },
           "createdAt": {
             "type": "string",
@@ -10274,724 +9100,6 @@
         },
         "type": "object"
       },
-      "Quote": {
-        "description": "Added since version: 6.5.3.0",
-        "required": [
-          "stateId",
-          "currencyId",
-          "languageId",
-          "salesChannelId",
-          "customerId",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "stateId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "userId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "currencyId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "languageId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "salesChannelId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdById": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "updatedById": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "customerId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "orderId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "orderVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteNumber": {
-            "type": "string"
-          },
-          "expirationDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "price": {
-            "required": [
-              "netPrice",
-              "totalPrice",
-              "positionPrice",
-              "rawTotal",
-              "taxStatus"
-            ],
-            "properties": {
-              "netPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "totalPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "calculatedTaxes": {
-                "type": "object"
-              },
-              "taxRules": {
-                "type": "object"
-              },
-              "positionPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "rawTotal": {
-                "type": "number",
-                "format": "float"
-              },
-              "taxStatus": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          },
-          "shippingCosts": {
-            "required": [
-              "unitPrice",
-              "totalPrice",
-              "quantity"
-            ],
-            "properties": {
-              "unitPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "totalPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "quantity": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "calculatedTaxes": {
-                "type": "object"
-              },
-              "taxRules": {
-                "type": "object"
-              },
-              "referencePrice": {
-                "type": "object"
-              },
-              "listPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "discount": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "percentage": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                },
-                "type": "object"
-              },
-              "regulationPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "discount": {
-            "properties": {
-              "type": {
-                "type": "string"
-              },
-              "value": {
-                "type": "number",
-                "format": "float"
-              }
-            },
-            "type": "object"
-          },
-          "taxStatus": {
-            "type": "string",
-            "readOnly": true
-          },
-          "amountTotal": {
-            "type": "number",
-            "format": "float",
-            "readOnly": true
-          },
-          "amountNet": {
-            "type": "number",
-            "format": "float",
-            "readOnly": true
-          },
-          "subtotalNet": {
-            "type": "number",
-            "format": "float"
-          },
-          "totalDiscount": {
-            "type": "number",
-            "format": "float"
-          },
-          "originalPrice": {
-            "type": "number",
-            "format": "float"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "stateMachineState": {
-            "$ref": "#/components/schemas/StateMachineState"
-          },
-          "currency": {
-            "$ref": "#/components/schemas/Currency"
-          },
-          "language": {
-            "$ref": "#/components/schemas/Language"
-          },
-          "lineItems": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuoteLineItem"
-            }
-          },
-          "deliveries": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuoteDelivery"
-            }
-          },
-          "transactions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuoteTransaction"
-            }
-          }
-        },
-        "type": "object"
-      },
-      "QuoteDelivery": {
-        "description": "Added since version: 6.5.3.0",
-        "required": [
-          "quoteId",
-          "shippingMethodId",
-          "shippingDateEarliest",
-          "shippingDateLatest",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "shippingMethodId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "shippingDateEarliest": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "shippingDateLatest": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "shippingCosts": {
-            "required": [
-              "unitPrice",
-              "totalPrice",
-              "quantity"
-            ],
-            "properties": {
-              "unitPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "totalPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "quantity": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "calculatedTaxes": {
-                "type": "object"
-              },
-              "taxRules": {
-                "type": "object"
-              },
-              "referencePrice": {
-                "type": "object"
-              },
-              "listPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "discount": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "percentage": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                },
-                "type": "object"
-              },
-              "regulationPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "customFields": {
-            "type": "object"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "shippingMethod": {
-            "$ref": "#/components/schemas/ShippingMethod"
-          },
-          "positions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuoteDeliveryPosition"
-            }
-          }
-        },
-        "type": "object"
-      },
-      "QuoteDeliveryPosition": {
-        "description": "Added since version: 6.5.3.0",
-        "required": [
-          "quoteDeliveryId",
-          "quoteLineItemId",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteDeliveryId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteDeliveryVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteLineItemId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteLineItemVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "price": {
-            "required": [
-              "unitPrice",
-              "totalPrice",
-              "quantity"
-            ],
-            "properties": {
-              "unitPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "totalPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "quantity": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "calculatedTaxes": {
-                "type": "object"
-              },
-              "taxRules": {
-                "type": "object"
-              },
-              "referencePrice": {
-                "type": "object"
-              },
-              "listPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "discount": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "percentage": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                },
-                "type": "object"
-              },
-              "regulationPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "unitPrice": {
-            "type": "number",
-            "format": "float"
-          },
-          "totalPrice": {
-            "type": "number",
-            "format": "float"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "customFields": {
-            "type": "object"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "QuoteLineItem": {
-        "description": "Added since version: 6.5.3.0",
-        "required": [
-          "quoteId",
-          "identifier",
-          "children",
-          "states",
-          "label",
-          "quantity",
-          "position",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "identifier": {
-            "type": "string"
-          },
-          "parentId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "parentVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "productId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "productVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "states": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "label": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "type": {
-            "type": "string"
-          },
-          "payload": {
-            "type": "object"
-          },
-          "unitPrice": {
-            "type": "number",
-            "format": "float"
-          },
-          "totalPrice": {
-            "type": "number",
-            "format": "float"
-          },
-          "priceDefinition": {
-            "type": "object"
-          },
-          "discount": {
-            "properties": {
-              "type": {
-                "type": "string"
-              },
-              "value": {
-                "type": "integer",
-                "format": "int64"
-              }
-            },
-            "type": "object"
-          },
-          "good": {
-            "type": "boolean"
-          },
-          "removable": {
-            "type": "boolean"
-          },
-          "stackable": {
-            "type": "boolean"
-          },
-          "position": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "referencedId": {
-            "type": "string"
-          },
-          "coverId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "parent": {
-            "$ref": "#/components/schemas/QuoteLineItem"
-          },
-          "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuoteLineItem"
-            }
-          },
-          "cover": {
-            "$ref": "#/components/schemas/Media"
-          }
-        },
-        "type": "object"
-      },
-      "QuoteTransaction": {
-        "description": "Added since version: 6.5.3.0",
-        "required": [
-          "quoteId",
-          "paymentMethodId",
-          "amount",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "quoteVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "paymentMethodId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "amount": {
-            "required": [
-              "unitPrice",
-              "totalPrice",
-              "quantity"
-            ],
-            "properties": {
-              "unitPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "totalPrice": {
-                "type": "number",
-                "format": "float"
-              },
-              "quantity": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "calculatedTaxes": {
-                "type": "object"
-              },
-              "taxRules": {
-                "type": "object"
-              },
-              "referencePrice": {
-                "type": "object"
-              },
-              "listPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "discount": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "percentage": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                },
-                "type": "object"
-              },
-              "regulationPrice": {
-                "properties": {
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "customFields": {
-            "type": "object"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "paymentMethod": {
-            "$ref": "#/components/schemas/PaymentMethod"
-          }
-        },
-        "type": "object"
-      },
       "Rule": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -11027,40 +9135,6 @@
             "readOnly": true
           },
           "extensions": {
-            "properties": {
-              "warehouseGroup": {
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/rule/ab7a485ebe75b6dd7243ad719f23c7de/warehouseGroup"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "example": "warehouse_group"
-                        },
-                        "id": {
-                          "type": "string",
-                          "example": "1768e3071b62161d415e0c24332055ed"
-                        }
-                      }
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object",
             "description": "To store additional data to a rule from extensions."
           }
         },
@@ -12356,735 +10430,6 @@
         },
         "type": "object"
       },
-      "Subscription": {
-        "required": [
-          "convertedOrder",
-          "subscriptionNumber",
-          "nextSchedule",
-          "salesChannelId",
-          "subscriptionPlanName",
-          "subscriptionIntervalName",
-          "dateInterval",
-          "cronInterval",
-          "initialExecutionCount",
-          "remainingExecutionCount",
-          "billingAddressId",
-          "shippingAddressId",
-          "shippingMethodId",
-          "paymentMethodId",
-          "currencyId",
-          "languageId",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription."
-          },
-          "convertedOrder": {
-            "type": "object",
-            "description": "An array loaded with persistent information related to cart data."
-          },
-          "subscriptionNumber": {
-            "type": "string",
-            "description": "Unique number associated with subscription."
-          },
-          "nextSchedule": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Date and time of next scheduled subscription for example: `yyyy-mm-dd hh:mm:ss` - `2023-08-15 15:25:32`."
-          },
-          "salesChannelId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of sales channel."
-          },
-          "subscriptionPlanId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription plan."
-          },
-          "subscriptionPlanName": {
-            "type": "string",
-            "description": "Unique name for subscription plan."
-          },
-          "subscriptionIntervalId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity for subscription interval."
-          },
-          "subscriptionIntervalName": {
-            "type": "string",
-            "description": "Unique name for subscription interval."
-          },
-          "dateInterval": {
-            "type": "string",
-            "description": "Relative interval data. For example, `every 3 days`, `every 2 months`, etc."
-          },
-          "cronInterval": {
-            "type": "string",
-            "description": "Absolute interval data. For example, `only on January`, `only on Mondays`, etc."
-          },
-          "initialExecutionCount": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "remainingExecutionCount": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "billingAddressId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of billing address."
-          },
-          "shippingAddressId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of shipping address."
-          },
-          "shippingMethodId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of shipping method."
-          },
-          "paymentMethodId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of payment method."
-          },
-          "currencyId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of currency."
-          },
-          "languageId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of language."
-          },
-          "customFields": {
-            "type": "object",
-            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "subscriptionPlan": {
-            "$ref": "#/components/schemas/SubscriptionPlan"
-          },
-          "subscriptionInterval": {
-            "$ref": "#/components/schemas/SubscriptionInterval"
-          },
-          "subscriptionCustomer": {
-            "$ref": "#/components/schemas/SubscriptionCustomer"
-          },
-          "billingAddress": {
-            "$ref": "#/components/schemas/SubscriptionAddress"
-          },
-          "shippingAddress": {
-            "$ref": "#/components/schemas/SubscriptionAddress"
-          },
-          "addresses": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubscriptionAddress"
-            }
-          },
-          "paymentMethod": {
-            "$ref": "#/components/schemas/PaymentMethod"
-          },
-          "shippingMethod": {
-            "$ref": "#/components/schemas/ShippingMethod"
-          },
-          "stateMachineState": {
-            "$ref": "#/components/schemas/StateMachineState"
-          },
-          "orders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Order"
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
-          },
-          "currency": {
-            "$ref": "#/components/schemas/Currency"
-          },
-          "language": {
-            "$ref": "#/components/schemas/Language"
-          }
-        },
-        "type": "object"
-      },
-      "SubscriptionAddress": {
-        "required": [
-          "countryId",
-          "subscriptionId",
-          "firstName",
-          "lastName",
-          "street",
-          "city",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription address."
-          },
-          "countryId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of country."
-          },
-          "subscriptionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription."
-          },
-          "countryStateId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of state of the country."
-          },
-          "salutationId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of salutation."
-          },
-          "firstName": {
-            "type": "string",
-            "description": "First name of the subscribed customer."
-          },
-          "lastName": {
-            "type": "string",
-            "description": "Last name of the subscribed customer."
-          },
-          "street": {
-            "type": "string",
-            "description": "Street address"
-          },
-          "zipcode": {
-            "type": "string",
-            "description": "Zip code of the country."
-          },
-          "city": {
-            "type": "string"
-          },
-          "company": {
-            "type": "string",
-            "description": "Name of the company."
-          },
-          "department": {
-            "type": "string",
-            "description": "Name of the department."
-          },
-          "title": {
-            "type": "string",
-            "description": "Title name given to customer's order address."
-          },
-          "vatId": {
-            "type": "string",
-            "description": "Unique identity of VAT."
-          },
-          "phoneNumber": {
-            "type": "string",
-            "description": "Phone number of the customer."
-          },
-          "additionalAddressLine1": {
-            "type": "string",
-            "description": "Additional address input if necessary."
-          },
-          "additionalAddressLine2": {
-            "type": "string",
-            "description": "Additional address input if necessary."
-          },
-          "customFields": {
-            "type": "object",
-            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "billingSubscription": {
-            "$ref": "#/components/schemas/Subscription"
-          },
-          "shippingSubscription": {
-            "$ref": "#/components/schemas/Subscription"
-          },
-          "country": {
-            "$ref": "#/components/schemas/Country"
-          },
-          "countryState": {
-            "$ref": "#/components/schemas/CountryState"
-          },
-          "salutation": {
-            "$ref": "#/components/schemas/Salutation"
-          },
-          "subscription": {
-            "$ref": "#/components/schemas/Subscription"
-          },
-          "email": {
-            "description": "Last name of the subscribed customer. "
-          }
-        },
-        "type": "object"
-      },
-      "SubscriptionCustomer": {
-        "required": [
-          "salutationId",
-          "email",
-          "firstName",
-          "lastName",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription customer."
-          },
-          "customerId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of the customer."
-          },
-          "salutationId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of salutation."
-          },
-          "email": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string",
-            "description": "Email address of the subscribed customer."
-          },
-          "lastName": {
-            "type": "string",
-            "description": "Last name of the subscribed customer. "
-          },
-          "company": {
-            "type": "string",
-            "description": "Name of the customer's company."
-          },
-          "title": {
-            "type": "string",
-            "description": "Title name given to customer's order address."
-          },
-          "customerNumber": {
-            "type": "string",
-            "description": "Unique number for subscribed customer."
-          },
-          "vatIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "customFields": {
-            "type": "object",
-            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "salutation": {
-            "$ref": "#/components/schemas/Salutation"
-          },
-          "vatId": {
-            "description": "Unique identity of VAT."
-          }
-        },
-        "type": "object"
-      },
-      "SubscriptionInterval": {
-        "required": [
-          "name",
-          "active",
-          "dateInterval",
-          "cronInterval",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription interval."
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the subscription interval."
-          },
-          "active": {
-            "type": "boolean",
-            "description": "When `true`, the defined subscription interval is available for selection in storefront."
-          },
-          "dateInterval": {
-            "type": "string",
-            "description": "Relative interval data. For example, `every 3 days`, `every 2 months`, etc."
-          },
-          "cronInterval": {
-            "type": "string",
-            "description": "Absolute interval data. For example, `only on January`, `only on Mondays`, etc."
-          },
-          "availabilityRuleId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of rule."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "translated": {
-            "type": "object",
-            "description": "Contains the translations of all translated fields."
-          },
-          "subscriptions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Subscription"
-            }
-          }
-        },
-        "type": "object"
-      },
-      "SubscriptionPlanJsonApi": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/resource"
-          },
-          {
-            "required": [
-              "name",
-              "active",
-              "activeStorefrontLabel",
-              "createdAt"
-            ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "name": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "active": {
-                "type": "boolean"
-              },
-              "minimumExecutionCount": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "activeStorefrontLabel": {
-                "type": "boolean"
-              },
-              "availabilityRuleId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "discountPercentage": {
-                "type": "number",
-                "format": "float"
-              },
-              "label": {
-                "type": "string"
-              },
-              "discountPrice": {
-                "type": "object"
-              },
-              "createdAt": {
-                "type": "string",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "updatedAt": {
-                "type": "string",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "translated": {
-                "type": "object"
-              },
-              "relationships": {
-                "properties": {
-                  "subscriptions": {
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/subscription-plan/5e63f9057837020694081b9412211bfb/subscriptions"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "subscription"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "2d5d14f95af035cbd8437948de61f94c"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          }
-        ]
-      },
-      "SubscriptionPlan": {
-        "required": [
-          "name",
-          "active",
-          "activeStorefrontLabel",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription plan."
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the subscription plan."
-          },
-          "description": {
-            "type": "string",
-            "description": "A short description about the subscription plan."
-          },
-          "active": {
-            "type": "boolean",
-            "description": "When `true`, the subscription plan is available for selection in storefront."
-          },
-          "minimumExecutionCount": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "activeStorefrontLabel": {
-            "type": "boolean",
-            "description": "When boolean value id `true`, the label overrides the plan name."
-          },
-          "availabilityRuleId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of rule."
-          },
-          "discountPercentage": {
-            "type": "number",
-            "format": "float"
-          },
-          "label": {
-            "type": "string",
-            "description": "Label that can overwrite the active plan name. "
-          },
-          "discountPrice": {
-            "type": "object"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "translated": {
-            "type": "object",
-            "description": "Contains the translations of all translated fields."
-          },
-          "subscriptions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Subscription"
-            }
-          }
-        },
-        "type": "object"
-      },
-      "SubscriptionPlanIntervalMapping": {
-        "required": [
-          "subscriptionIntervalId",
-          "subscriptionPlanId"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription plan interval mapping."
-          },
-          "subscriptionIntervalId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription interval."
-          },
-          "subscriptionPlanId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription plan."
-          },
-          "subscriptionPlan": {
-            "$ref": "#/components/schemas/SubscriptionPlan"
-          },
-          "subscriptionInterval": {
-            "$ref": "#/components/schemas/SubscriptionInterval"
-          }
-        },
-        "type": "object"
-      },
-      "SubscriptionPlanProductMapping": {
-        "required": [
-          "productId",
-          "subscriptionPlanId"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription plan for product mapping."
-          },
-          "productId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of product."
-          },
-          "productVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of product's version."
-          },
-          "subscriptionPlanId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription plan."
-          },
-          "subscriptionPlan": {
-            "$ref": "#/components/schemas/SubscriptionPlan"
-          },
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          }
-        },
-        "type": "object"
-      },
-      "SubscriptionTagMapping": {
-        "required": [
-          "subscriptionId",
-          "tagId"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription tag."
-          },
-          "subscriptionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription."
-          },
-          "tagId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of subscription tag."
-          },
-          "subscription": {
-            "$ref": "#/components/schemas/Subscription"
-          },
-          "tag": {
-            "$ref": "#/components/schemas/Tag"
-          }
-        },
-        "type": "object"
-      },
-      "SwagDelayAction": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of swag delay action for flow builder"
-          },
-          "orderId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order."
-          },
-          "customerId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of customer."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
       "SystemConfig": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -13527,52 +10872,6 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of user recovery."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "Warehouse": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of warehouse."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "WarehouseGroup": {
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of warehouse group."
           },
           "createdAt": {
             "type": "string",
@@ -15790,6 +13089,520 @@
         "properties": {
           "id": {
             "description": "Unique identity of navigation route response."
+          }
+        }
+      },
+      "OrderProductWarehouse": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of order's product warehouse."
+          }
+        }
+      },
+      "OrderReturn": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of order return."
+          },
+          "versionId": {
+            "description": "Unique identity of order return's version."
+          },
+          "orderId": {
+            "description": "Unique identity of order."
+          },
+          "orderVersionId": {
+            "description": "Unique identity of order return version."
+          },
+          "price": {
+            "properties": {
+              "netPrice": {
+                "description": "Net price of the product."
+              },
+              "totalPrice": {
+                "description": "Gross price of the product."
+              },
+              "calculatedTaxes": {
+                "description": "Contains calculated tax on order delivery price."
+              },
+              "taxRules": {
+                "description": "Pricing based on multiple taxes."
+              },
+              "positionPrice": {
+                "description": "Price of each line item in the cart multiplied by its quantity excluding charges like shipping cost, rules, taxes etc."
+              },
+              "rawTotal": {
+                "description": "The total value before rounding off."
+              },
+              "taxStatus": {
+                "description": "TaxStatus takes `Free`, `Net` or `Gross` as values."
+              }
+            }
+          },
+          "shippingCosts": {
+            "properties": {
+              "unitPrice": {
+                "description": "Shipping cost of product per item (where, quantity=1)."
+              },
+              "totalPrice": {
+                "description": "Shipping cost of product based on quantity."
+              },
+              "quantity": {
+                "description": "Number of items of each product."
+              },
+              "calculatedTaxes": {
+                "description": "Contains calculated taxes based on shipping costs/methods."
+              },
+              "taxRules": {
+                "description": "Pricing based on multiple taxes."
+              },
+              "referencePrice": {
+                "description": "Original cost price of the product."
+              },
+              "listPrice": {
+                "properties": {
+                  "price": {
+                    "description": "Price of each line item."
+                  },
+                  "discount": {
+                    "description": "Absolute discount on each line item."
+                  },
+                  "percentage": {
+                    "description": "Discount in percentage."
+                  }
+                }
+              },
+              "regulationPrice": {
+                "properties": {
+                  "price": {
+                    "description": "Contains cheapest price from last 30 days as per EU law."
+                  }
+                }
+              }
+            }
+          },
+          "stateId": {
+            "description": "Unique identity of state."
+          },
+          "returnNumber": {
+            "description": "Reference number for returning order."
+          },
+          "requestedAt": {
+            "description": "Date and time when the order return was requested."
+          },
+          "amountTotal": {
+            "description": "Gross price of the order."
+          },
+          "amountNet": {
+            "description": "Net price of the order."
+          }
+        }
+      },
+      "OrderReturnLineItem": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of order return line item."
+          },
+          "versionId": {
+            "description": "Unique identity of order return line item's version."
+          },
+          "orderReturnId": {
+            "description": "Unique identity of order return."
+          },
+          "orderReturnVersionId": {
+            "description": "Unique identity of order return version."
+          },
+          "orderLineItemId": {
+            "description": "Unique identity of order line item."
+          },
+          "orderLineItemVersionId": {
+            "description": "Unique identity of order line items's version."
+          },
+          "reasonId": {
+            "description": "Unique identity of reason for return."
+          },
+          "quantity": {
+            "description": "Number of line items returned."
+          },
+          "refundAmount": {
+            "description": "Amount to be refunded."
+          },
+          "restockQuantity": {
+            "description": "Update of stock quantity after the return of certain line items are initiated."
+          },
+          "customFields": {
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "stateId": {
+            "description": "Unique identity of state."
+          }
+        }
+      },
+      "OrderReturnLineItemReason": {
+        "properties": {
+          "id": {
+            "description": "Unique identity for reason of return."
+          },
+          "reasonKey": {
+            "description": "Unique key associated with reason for the order return. "
+          },
+          "content": {
+            "description": "Description of the reason of return."
+          },
+          "translated": {
+            "description": "Contains the translations of all translated fields."
+          }
+        }
+      },
+      "OrderWarehouseGroup": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of order warehouse group."
+          }
+        }
+      },
+      "ProductReviewSummary": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of products's review summary."
+          },
+          "productId": {
+            "description": "Unique identity of products."
+          },
+          "salesChannelId": {
+            "description": "Unique identity of sales channel."
+          },
+          "summary": {
+            "description": "Unique identity of products's review summary."
+          },
+          "visible": {
+            "description": "When boolean value is `true`, the review is displayed to the customer."
+          },
+          "translated": {
+            "description": "Contains the translations of all translated fields."
+          }
+        }
+      },
+      "ProductWarehouse": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of warehouse of product."
+          }
+        }
+      },
+      "Subscription": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of subscription."
+          },
+          "convertedOrder": {
+            "description": "An array loaded with persistent information related to cart data."
+          },
+          "subscriptionNumber": {
+            "description": "Unique number associated with subscription."
+          },
+          "nextSchedule": {
+            "description": "Date and time of next scheduled subscription for example: `yyyy-mm-dd hh:mm:ss` - `2023-08-15 15:25:32`."
+          },
+          "salesChannelId": {
+            "description": "Unique identity of sales channel."
+          },
+          "subscriptionPlanId": {
+            "description": "Unique identity of subscription plan."
+          },
+          "subscriptionPlanName": {
+            "description": "Unique name for subscription plan."
+          },
+          "subscriptionIntervalId": {
+            "description": "Unique identity for subscription interval."
+          },
+          "subscriptionIntervalName": {
+            "description": "Unique name for subscription interval."
+          },
+          "dateInterval": {
+            "description": "Relative interval data. For example, `every 3 days`, `every 2 months`, etc."
+          },
+          "cronInterval": {
+            "description": "Absolute interval data. For example, `only on January`, `only on Mondays`, etc."
+          },
+          "billingAddressId": {
+            "description": "Unique identity of billing address."
+          },
+          "shippingAddressId": {
+            "description": "Unique identity of shipping address."
+          },
+          "shippingMethodId": {
+            "description": "Unique identity of shipping method."
+          },
+          "paymentMethodId": {
+            "description": "Unique identity of payment method."
+          },
+          "currencyId": {
+            "description": "Unique identity of currency."
+          },
+          "languageId": {
+            "description": "Unique identity of language."
+          },
+          "customFields": {
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          }
+        }
+      },
+      "SubscriptionAddress": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of subscription address."
+          },
+          "countryId": {
+            "description": "Unique identity of country."
+          },
+          "subscriptionId": {
+            "description": "Unique identity of subscription."
+          },
+          "countryStateId": {
+            "description": "Unique identity of state of the country."
+          },
+          "salutationId": {
+            "description": "Unique identity of salutation."
+          },
+          "firstName": {
+            "description": "First name of the subscribed customer."
+          },
+          "lastName": {
+            "description": "Last name of the subscribed customer."
+          },
+          "street": {
+            "description": "Street address"
+          },
+          "zipcode": {
+            "description": "Zip code of the country."
+          },
+          "company": {
+            "description": "Name of the company."
+          },
+          "department": {
+            "description": "Name of the department."
+          },
+          "title": {
+            "description": "Title name given to customer's order address."
+          },
+          "vatId": {
+            "description": "Unique identity of VAT."
+          },
+          "phoneNumber": {
+            "description": "Phone number of the customer."
+          },
+          "additionalAddressLine1": {
+            "description": "Additional address input if necessary."
+          },
+          "additionalAddressLine2": {
+            "description": "Additional address input if necessary."
+          },
+          "customFields": {
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "email": {
+            "description": "Last name of the subscribed customer. "
+          }
+        }
+      },
+      "SubscriptionCustomer": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of subscription customer."
+          },
+          "customerId": {
+            "description": "Unique identity of the customer."
+          },
+          "salutationId": {
+            "description": "Unique identity of salutation."
+          },
+          "firstName": {
+            "description": "Email address of the subscribed customer."
+          },
+          "lastName": {
+            "description": "Last name of the subscribed customer. "
+          },
+          "company": {
+            "description": "Name of the customer's company."
+          },
+          "title": {
+            "description": "Title name given to customer's order address."
+          },
+          "customerNumber": {
+            "description": "Unique number for subscribed customer."
+          },
+          "vatId": {
+            "description": "Unique identity of VAT."
+          },
+          "customFields": {
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          }
+        }
+      },
+      "SubscriptionInterval": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of subscription interval."
+          },
+          "name": {
+            "description": "Name of the subscription interval."
+          },
+          "active": {
+            "description": "When `true`, the defined subscription interval is available for selection in storefront."
+          },
+          "dateInterval": {
+            "description": "Relative interval data. For example, `every 3 days`, `every 2 months`, etc."
+          },
+          "cronInterval": {
+            "description": "Absolute interval data. For example, `only on January`, `only on Mondays`, etc."
+          },
+          "availabilityRuleId": {
+            "description": "Unique identity of rule."
+          },
+          "translated": {
+            "description": "Contains the translations of all translated fields."
+          }
+        }
+      },
+      "SubscriptionPlan": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of subscription plan."
+          },
+          "name": {
+            "description": "Name of the subscription plan."
+          },
+          "description": {
+            "description": "A short description about the subscription plan."
+          },
+          "active": {
+            "description": "When `true`, the subscription plan is available for selection in storefront."
+          },
+          "activeStorefrontLabel": {
+            "description": "When boolean value id `true`, the label overrides the plan name."
+          },
+          "availabilityRuleId": {
+            "description": "Unique identity of rule."
+          },
+          "label": {
+            "description": "Label that can overwrite the active plan name. "
+          },
+          "translated": {
+            "description": "Contains the translations of all translated fields."
+          }
+        }
+      },
+      "SubscriptionPlanIntervalMapping": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of subscription plan interval mapping."
+          },
+          "subscriptionIntervalId": {
+            "description": "Unique identity of subscription interval."
+          },
+          "subscriptionPlanId": {
+            "description": "Unique identity of subscription plan."
+          }
+        }
+      },
+      "SubscriptionPlanProductMapping": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of subscription plan for product mapping."
+          },
+          "productId": {
+            "description": "Unique identity of product."
+          },
+          "productVersionId": {
+            "description": "Unique identity of product's version."
+          },
+          "subscriptionPlanId": {
+            "description": "Unique identity of subscription plan."
+          }
+        }
+      },
+      "SubscriptionTagMapping": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of subscription tag."
+          },
+          "subscriptionId": {
+            "description": "Unique identity of subscription."
+          },
+          "tagId": {
+            "description": "Unique identity of subscription tag."
+          }
+        }
+      },
+      "SwagDelayAction": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of swag delay action for flow builder"
+          },
+          "orderId": {
+            "description": "Unique identity of order."
+          },
+          "customerId": {
+            "description": "Unique identity of customer."
+          }
+        }
+      },
+      "Warehouse": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of warehouse."
+          }
+        }
+      },
+      "WarehouseGroup": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of warehouse group."
+          }
+        }
+      },
+      "CustomPrice": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of the custom price."
+          },
+          "productId": {
+            "description": "Unique identity of the product."
+          },
+          "productVersionId": {
+            "description": "Unique identity of the product's version."
+          },
+          "customerId": {
+            "description": "Unique identity of the customer."
+          },
+          "customerGroupId": {
+            "description": "Unique identity of the customer's group."
+          },
+          "price": {
+            "description": "Detailed information of price."
+          }
+        }
+      },
+      "CustomerSpecificFeatures": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of the customer specific features."
+          },
+          "customerId": {
+            "description": "Unique identity of the customer."
+          }
+        }
+      },
+      "MediaAiTag": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of the AI media tag."
+          },
+          "tag": {
+            "description": "Tag that indicates if the media is made by AI or not."
+          },
+          "translated": {
+            "description": "Contains the translations of all translated fields."
           }
         }
       }
@@ -19621,704 +17434,6 @@
                 }
               }
             }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/employee/create": {
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Create a single employee and returns the employee",
-        "description": "This route is used to create and return an employee",
-        "operationId": "createEmployee",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "firstName": {
-                    "description": "First name of the new employee",
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "description": "Last name of the new employee",
-                    "type": "string"
-                  },
-                  "email": {
-                    "description": "Email of the new employee",
-                    "type": "string"
-                  },
-                  "roleId": {
-                    "description": "Id of the role of the new employee",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Employee entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bEmployee"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/employee": {
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a list of employees",
-        "description": "This route is used to load employees",
-        "operationId": "readEmployees",
-        "parameters": [],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing employees",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/B2bEmployee"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/employee/{id}": {
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a one employee by id",
-        "description": "This route is used to fetch one employee by id",
-        "operationId": "readEmployee",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the employee to be fetched",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Employee entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bEmployee"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Update a one employee by id",
-        "description": "This route is used to update one employee by id",
-        "operationId": "updateEmployee",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the employee to be updated",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "firstName": {
-                    "description": "New first name of the employee",
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "description": "New last name of the employee",
-                    "type": "string"
-                  },
-                  "email": {
-                    "description": "New email of the employee",
-                    "type": "string"
-                  },
-                  "roleId": {
-                    "description": "New id of the role of the employee",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Employee entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bEmployee"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Delete an employee by id",
-        "description": "This route is used to delete one employee by id",
-        "operationId": "deleteEmployee",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the employee to be deleted",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No content response"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/employee/reinvite/{id}": {
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Reinvite employee by id",
-        "description": "This route is used to reinvite an employee via email by id",
-        "operationId": "reinviteEmployee",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the employee to be reinvited",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "storefrontUrl": {
-                    "description": "URL of the storefront domain",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Employee entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bEmployee"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role/create": {
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Create a single role and returns the role",
-        "description": "This route is used to create and return an role",
-        "operationId": "createRole",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "description": "Name of the new role",
-                    "type": "string"
-                  },
-                  "permissions": {
-                    "description": "Permissions of the new role",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "isDefaultRole": {
-                    "description": "Ability to set the new role as default",
-                    "type": "boolean"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Role entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bRole"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role": {
-      "get": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a list of roles",
-        "description": "This route is used to load roles",
-        "operationId": "readRoles",
-        "parameters": [],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing roles",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/B2bRole"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a list of roles",
-        "description": "This route is used to load roles",
-        "operationId": "readRolesPOST",
-        "parameters": [],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing roles",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/B2bRole"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role/{id}": {
-      "get": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a one role by id",
-        "description": "This route is used to fetch one role by id",
-        "operationId": "readRole",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the role to be fetched",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Role entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bRole"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Update a one role by id",
-        "description": "This route is used to update one role by id",
-        "operationId": "updateRole",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the role to be updated",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "description": "New name of the role",
-                    "type": "string"
-                  },
-                  "permissions": {
-                    "description": "New permissions of the role",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "isDefaultRole": {
-                    "description": "Ability to set the role as default",
-                    "type": "boolean"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Role entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bRole"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Delete an role by id",
-        "description": "This route is used to delete one role by id",
-        "operationId": "deleteRole",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the role to be fetched",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No content response"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role/permissions": {
-      "get": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a available permissions",
-        "description": "This route is used to fetch all available permissions",
-        "operationId": "readPermissions",
-        "responses": {
-          "200": {
-            "description": "Permission collection",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "permissionName": {
-                                "type": "string"
-                              },
-                              "permissionDependencies": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              "permissionGroupName": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role/default": {
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Sets the default role Id for new employees",
-        "description": "This route is used to update the defaultRoleId for new employees",
-        "operationId": "updateDefaultRoleId",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "id": {
-                    "description": "Id of the roleId to be set as default",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "No content response"
           }
         },
         "security": [
