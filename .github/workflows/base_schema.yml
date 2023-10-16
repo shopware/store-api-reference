@@ -11,7 +11,8 @@ jobs:
   generate-schema:
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
     with:
-      api_type: storeapi
+      schema_flags: --store-api
+      schema_file: storeapi.json
     secrets: inherit
         
   open-pr:
