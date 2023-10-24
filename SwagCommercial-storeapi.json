@@ -872,6 +872,42 @@
         },
         "type": "object"
       },
+      "B2bComponentsRole": {
+        "required": [
+          "name",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false
+            }
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "B2bEmployee": {
         "required": [
           "firstName",
@@ -910,7 +946,7 @@
             "readOnly": true
           },
           "role": {
-            "$ref": "#/components/schemas/B2bRole"
+            "$ref": "#/components/schemas/B2bComponentsRole"
           }
         },
         "type": "object"
@@ -967,42 +1003,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "B2bRole": {
-        "required": [
-          "name",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "name": {
-            "type": "string"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": false
-            }
-          },
-          "customFields": {
-            "type": "object"
           },
           "createdAt": {
             "type": "string",
@@ -9548,6 +9548,9 @@
             "type": "number",
             "format": "float"
           },
+          "customFields": {
+            "type": "object"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
@@ -9937,6 +9940,9 @@
           "coverId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
+          },
+          "customFields": {
+            "type": "object"
           },
           "createdAt": {
             "type": "string",
@@ -12482,6 +12488,42 @@
         },
         "type": "object"
       },
+      "LineItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "referencedId": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "good": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "removable": {
+            "type": "boolean"
+          },
+          "stackable": {
+            "type": "boolean"
+          },
+          "modified": {
+            "type": "boolean"
+          }
+        }
+      },
       "Cart": {
         "allOf": [
           {
@@ -12578,407 +12620,13 @@
           }
         ]
       },
-      "EntitySearchResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "entity": {
-                "type": "string"
-              },
-              "total": {
-                "type": "integer",
-                "description": "The total number of found entities"
-              },
-              "aggregations": {
-                "type": "array",
-                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
-                "items": {
-                  "type": "object"
-                }
-              },
-              "page": {
-                "type": "integer",
-                "description": "The actual page. This can be used for pagination."
-              },
-              "limit": {
-                "type": "integer",
-                "description": "The actual limit. This is used for pagination and goes together with the page."
-              }
-            }
-          }
-        ]
-      },
-      "ShippingMethodPageRouteResponse": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "active": {
-              "type": "boolean"
-            },
-            "description": {
-              "type": "string"
-            },
-            "deliveryTimeId": {
-              "type": "string"
-            },
-            "deliveryTime": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "min": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "max": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "unit": {
-                  "type": "string"
-                }
-              }
-            },
-            "translations": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "shippingMethodId": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
-            "orderDeliveries": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "orderId": {
-                    "type": "string"
-                  },
-                  "shippingOrderAddressId": {
-                    "type": "string"
-                  },
-                  "shippingMethodId": {
-                    "type": "string"
-                  },
-                  "shippingDateEarliest": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "shippingDateLatest": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "stateId": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
-            "salesChannelDefaultAssignments": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "typeId": {
-                    "type": "string"
-                  },
-                  "languageId": {
-                    "type": "string"
-                  },
-                  "currencyId": {
-                    "type": "string"
-                  },
-                  "paymentMethodId": {
-                    "type": "string"
-                  },
-                  "shippingMethodId": {
-                    "type": "string"
-                  },
-                  "countryId": {
-                    "type": "string"
-                  },
-                  "navigationCategoryId": {
-                    "type": "string"
-                  },
-                  "navigationCategoryDepth": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "footerCategoryId": {
-                    "type": "string"
-                  },
-                  "serviceCategoryId": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "shortName": {
-                    "type": "string"
-                  },
-                  "accessKey": {
-                    "type": "string"
-                  },
-                  "active": {
-                    "type": "boolean"
-                  },
-                  "maintenance": {
-                    "type": "boolean"
-                  },
-                  "maintenanceIpWhitelist": {
-                    "type": "string"
-                  },
-                  "mailHeaderFooterId": {
-                    "type": "string"
-                  },
-                  "customerGroupId": {
-                    "type": "string"
-                  },
-                  "hreflangActive": {
-                    "type": "boolean"
-                  },
-                  "hreflangDefaultDomainId": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
-            "salesChannels": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "typeId": {
-                    "type": "string"
-                  },
-                  "languageId": {
-                    "type": "string"
-                  },
-                  "currencyId": {
-                    "type": "string"
-                  },
-                  "paymentMethodId": {
-                    "type": "string"
-                  },
-                  "shippingMethodId": {
-                    "type": "string"
-                  },
-                  "countryId": {
-                    "type": "string"
-                  },
-                  "navigationCategoryId": {
-                    "type": "string"
-                  },
-                  "navigationCategoryDepth": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "footerCategoryId": {
-                    "type": "string"
-                  },
-                  "serviceCategoryId": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "shortName": {
-                    "type": "string"
-                  },
-                  "accessKey": {
-                    "type": "string"
-                  },
-                  "active": {
-                    "type": "boolean"
-                  },
-                  "maintenance": {
-                    "type": "boolean"
-                  },
-                  "maintenanceIpWhitelist": {
-                    "type": "string"
-                  },
-                  "mailHeaderFooterId": {
-                    "type": "string"
-                  },
-                  "customerGroupId": {
-                    "type": "string"
-                  },
-                  "hreflangActive": {
-                    "type": "boolean"
-                  },
-                  "hreflangDefaultDomainId": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
-            "availabilityRule": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "priority": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "invalid": {
-                  "type": "boolean"
-                }
-              }
-            },
-            "availabilityRuleId": {
-              "type": "string"
-            },
-            "prices": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "shippingMethodId": {
-                    "type": "string"
-                  },
-                  "currencyId": {
-                    "type": "string"
-                  },
-                  "ruleId": {
-                    "type": "string"
-                  },
-                  "calculation": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "quantityStart": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "quantityEnd": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "price": {
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "calculationRuleId": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
-            "mediaId": {
-              "type": "string"
-            },
-            "media": {
-              "type": "object",
-              "properties": {
-                "userId": {
-                  "type": "string"
-                },
-                "mimeType": {
-                  "type": "string"
-                },
-                "fileExtension": {
-                  "type": "string"
-                },
-                "fileSize": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "metaDataRaw": {
-                  "type": "string"
-                },
-                "mediaTypeRaw": {
-                  "type": "string"
-                },
-                "uploadedAt": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "alt": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "fileName": {
-                  "type": "string"
-                },
-                "mediaFolderId": {
-                  "type": "string"
-                },
-                "private": {
-                  "type": "boolean"
-                },
-                "thumbnailsRo": {
-                  "type": "string"
-                }
-              }
-            },
-            "tags": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "ArrayStruct": {
         "$ref": "#/components/schemas/Struct"
       },
-      "AccountNewsletterRecipientResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Struct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "status": {
-                "type": "string"
-              }
-            }
-          }
-        ]
-      },
-      "Struct": {
-        "type": "object",
-        "properties": {
-          "apiAlias": {
-            "type": "string",
-            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
-          }
+      "NavigationRouteResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Category"
         }
       },
       "CartItems": {
@@ -12999,24 +12647,198 @@
           }
         ]
       },
-      "WishlistLoadRouteResponse": {
-        "type": "object",
-        "properties": {
-          "wishlist": {
+      "AccountNewsletterRecipientResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Struct"
+          },
+          {
             "type": "object",
             "properties": {
-              "customerId": {
-                "type": "string"
-              },
-              "salesChannelId": {
+              "status": {
                 "type": "string"
               }
             }
+          }
+        ]
+      },
+      "Sitemap": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArrayStruct"
           },
-          "products": {
+          {
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ]
+      },
+      "ProductListingResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EntitySearchResult"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "currentFilters": {
+                "type": "object",
+                "description": "Contains the state of the filters. These can be used to create listing filters.",
+                "properties": {
+                  "navigationId": {
+                    "type": "string"
+                  },
+                  "manufacturer": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "price": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "integer"
+                      },
+                      "max": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "rating": {
+                    "type": "integer"
+                  },
+                  "shipping-free": {
+                    "type": "boolean"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "availableSortings": {
+                "type": "array",
+                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "sorting": {
+                "type": "string"
+              },
+              "elements": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ProductDetailResponse": {
+        "type": "object",
+        "description": "Represents a product along with detailed information required to display a variant selection.",
+        "properties": {
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "configurator": {
             "type": "array",
+            "description": "List of property groups with their corresponding options and information on how to display them.",
             "items": {
-              "$ref": "#/components/schemas/ProductListingResult"
+              "$ref": "#/components/schemas/PropertyGroup"
+            }
+          }
+        }
+      },
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CrossSellingElementCollection": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "crossSelling": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "sortBy": {
+                  "type": "string"
+                },
+                "sortDirection": {
+                  "type": "string"
+                },
+                "limit": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "productId": {
+                  "type": "string"
+                },
+                "productStreamId": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              }
+            },
+            "products": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Product"
+              }
+            },
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "FindProductVariantRouteResponse": {
+        "type": "object",
+        "properties": {
+          "foundCombination": {
+            "type": "object",
+            "properties": {
+              "variantId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
             }
           }
         }
@@ -13396,24 +13218,43 @@
           }
         ]
       },
-      "Sitemap": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
+      "WishlistLoadRouteResponse": {
+        "type": "object",
+        "properties": {
+          "wishlist": {
             "type": "object",
             "properties": {
-              "filename": {
+              "customerId": {
                 "type": "string"
               },
-              "created": {
-                "type": "string",
-                "format": "date-time"
+              "salesChannelId": {
+                "type": "string"
               }
             }
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductListingResult"
+            }
           }
-        ]
+        }
+      },
+      "ProductListingFlags": {
+        "type": "object",
+        "description": "Additional flags for product listings",
+        "properties": {
+          "no-aggregations": {
+            "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
+            "type": "string",
+            "nullable": true
+          },
+          "only-aggregations": {
+            "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
+            "type": "string",
+            "nullable": true
+          }
+        }
       },
       "OrderRouteResponse": {
         "type": "object",
@@ -13433,71 +13274,347 @@
           }
         }
       },
-      "ProductListingResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/EntitySearchResult"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "currentFilters": {
+      "ShippingMethodPageRouteResponse": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "active": {
+              "type": "boolean"
+            },
+            "description": {
+              "type": "string"
+            },
+            "deliveryTimeId": {
+              "type": "string"
+            },
+            "deliveryTime": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "min": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "max": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "unit": {
+                  "type": "string"
+                }
+              }
+            },
+            "translations": {
+              "type": "array",
+              "items": {
                 "type": "object",
-                "description": "Contains the state of the filters. These can be used to create listing filters.",
                 "properties": {
-                  "navigationId": {
+                  "shippingMethodId": {
                     "type": "string"
                   },
-                  "manufacturer": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
+                  "name": {
+                    "type": "string"
                   },
-                  "price": {
-                    "type": "object",
-                    "properties": {
-                      "min": {
-                        "type": "integer"
-                      },
-                      "max": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "rating": {
-                    "type": "integer"
-                  },
-                  "shipping-free": {
-                    "type": "boolean"
-                  },
-                  "properties": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
+                  "description": {
+                    "type": "string"
                   }
                 }
-              },
-              "availableSortings": {
-                "type": "array",
-                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
-                "items": {
-                  "type": "object"
+              }
+            },
+            "orderDeliveries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "orderId": {
+                    "type": "string"
+                  },
+                  "shippingOrderAddressId": {
+                    "type": "string"
+                  },
+                  "shippingMethodId": {
+                    "type": "string"
+                  },
+                  "shippingDateEarliest": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "shippingDateLatest": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "stateId": {
+                    "type": "string"
+                  }
                 }
-              },
-              "sorting": {
-                "type": "string"
-              },
-              "elements": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Product"
+              }
+            },
+            "salesChannelDefaultAssignments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "typeId": {
+                    "type": "string"
+                  },
+                  "languageId": {
+                    "type": "string"
+                  },
+                  "currencyId": {
+                    "type": "string"
+                  },
+                  "paymentMethodId": {
+                    "type": "string"
+                  },
+                  "shippingMethodId": {
+                    "type": "string"
+                  },
+                  "countryId": {
+                    "type": "string"
+                  },
+                  "navigationCategoryId": {
+                    "type": "string"
+                  },
+                  "navigationCategoryDepth": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "footerCategoryId": {
+                    "type": "string"
+                  },
+                  "serviceCategoryId": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "shortName": {
+                    "type": "string"
+                  },
+                  "accessKey": {
+                    "type": "string"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "maintenance": {
+                    "type": "boolean"
+                  },
+                  "maintenanceIpWhitelist": {
+                    "type": "string"
+                  },
+                  "mailHeaderFooterId": {
+                    "type": "string"
+                  },
+                  "customerGroupId": {
+                    "type": "string"
+                  },
+                  "hreflangActive": {
+                    "type": "boolean"
+                  },
+                  "hreflangDefaultDomainId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "salesChannels": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "typeId": {
+                    "type": "string"
+                  },
+                  "languageId": {
+                    "type": "string"
+                  },
+                  "currencyId": {
+                    "type": "string"
+                  },
+                  "paymentMethodId": {
+                    "type": "string"
+                  },
+                  "shippingMethodId": {
+                    "type": "string"
+                  },
+                  "countryId": {
+                    "type": "string"
+                  },
+                  "navigationCategoryId": {
+                    "type": "string"
+                  },
+                  "navigationCategoryDepth": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "footerCategoryId": {
+                    "type": "string"
+                  },
+                  "serviceCategoryId": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "shortName": {
+                    "type": "string"
+                  },
+                  "accessKey": {
+                    "type": "string"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "maintenance": {
+                    "type": "boolean"
+                  },
+                  "maintenanceIpWhitelist": {
+                    "type": "string"
+                  },
+                  "mailHeaderFooterId": {
+                    "type": "string"
+                  },
+                  "customerGroupId": {
+                    "type": "string"
+                  },
+                  "hreflangActive": {
+                    "type": "boolean"
+                  },
+                  "hreflangDefaultDomainId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "availabilityRule": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "priority": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "invalid": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "availabilityRuleId": {
+              "type": "string"
+            },
+            "prices": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "shippingMethodId": {
+                    "type": "string"
+                  },
+                  "currencyId": {
+                    "type": "string"
+                  },
+                  "ruleId": {
+                    "type": "string"
+                  },
+                  "calculation": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "quantityStart": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "quantityEnd": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "price": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "calculationRuleId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "mediaId": {
+              "type": "string"
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "string"
+                },
+                "mimeType": {
+                  "type": "string"
+                },
+                "fileExtension": {
+                  "type": "string"
+                },
+                "fileSize": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "metaDataRaw": {
+                  "type": "string"
+                },
+                "mediaTypeRaw": {
+                  "type": "string"
+                },
+                "uploadedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "alt": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "fileName": {
+                  "type": "string"
+                },
+                "mediaFolderId": {
+                  "type": "string"
+                },
+                "private": {
+                  "type": "boolean"
+                },
+                "thumbnailsRo": {
+                  "type": "string"
+                }
+              }
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
                 }
               }
             }
           }
-        ]
+        }
       },
       "ProductListingCriteria": {
         "allOf": [
@@ -13588,6 +13705,49 @@
             }
           }
         ]
+      },
+      "EntitySearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArrayStruct"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "entity": {
+                "type": "string"
+              },
+              "total": {
+                "type": "integer",
+                "description": "The total number of found entities"
+              },
+              "aggregations": {
+                "type": "array",
+                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "page": {
+                "type": "integer",
+                "description": "The actual page. This can be used for pagination."
+              },
+              "limit": {
+                "type": "integer",
+                "description": "The actual limit. This is used for pagination and goes together with the page."
+              }
+            }
+          }
+        ]
+      },
+      "Struct": {
+        "type": "object",
+        "properties": {
+          "apiAlias": {
+            "type": "string",
+            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
+          }
+        }
       },
       "Criteria": {
         "type": "object",
@@ -13724,160 +13884,6 @@
               "next-pages"
             ]
           }
-        }
-      },
-      "FindProductVariantRouteResponse": {
-        "type": "object",
-        "properties": {
-          "foundCombination": {
-            "type": "object",
-            "properties": {
-              "variantId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "SuccessResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        }
-      },
-      "CrossSellingElementCollection": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "crossSelling": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "position": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "sortBy": {
-                  "type": "string"
-                },
-                "sortDirection": {
-                  "type": "string"
-                },
-                "limit": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "active": {
-                  "type": "boolean"
-                },
-                "productId": {
-                  "type": "string"
-                },
-                "productStreamId": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                }
-              }
-            },
-            "products": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Product"
-              }
-            },
-            "total": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        }
-      },
-      "ProductDetailResponse": {
-        "type": "object",
-        "description": "Represents a product along with detailed information required to display a variant selection.",
-        "properties": {
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "configurator": {
-            "type": "array",
-            "description": "List of property groups with their corresponding options and information on how to display them.",
-            "items": {
-              "$ref": "#/components/schemas/PropertyGroup"
-            }
-          }
-        }
-      },
-      "ProductListingFlags": {
-        "type": "object",
-        "description": "Additional flags for product listings",
-        "properties": {
-          "no-aggregations": {
-            "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
-            "type": "string",
-            "nullable": true
-          },
-          "only-aggregations": {
-            "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "LineItem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "referencedId": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "type": {
-            "type": "string"
-          },
-          "good": {
-            "type": "boolean"
-          },
-          "description": {
-            "type": "string"
-          },
-          "removable": {
-            "type": "boolean"
-          },
-          "stackable": {
-            "type": "boolean"
-          },
-          "modified": {
-            "type": "boolean"
-          }
-        }
-      },
-      "NavigationRouteResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/Category"
         }
       }
     },
@@ -14090,6 +14096,401 @@
     }
   ],
   "paths": {
+    "/store-api/role/create": {
+      "post": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Create a single role and returns the role",
+        "description": "This route is used to create and return an role",
+        "operationId": "createRole",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "description": "Name of the new role",
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "description": "Permissions of the new role",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "isDefaultRole": {
+                    "description": "Ability to set the new role as default",
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Role entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bComponentsRole"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/role": {
+      "get": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Fetch a list of roles",
+        "description": "This route is used to load roles",
+        "operationId": "readRoles",
+        "parameters": [],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing roles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/B2bComponentsRole"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Fetch a list of roles",
+        "description": "This route is used to load roles",
+        "operationId": "readRolesPOST",
+        "parameters": [],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing roles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/B2bComponentsRole"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/role/{id}": {
+      "get": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Fetch a one role by id",
+        "description": "This route is used to fetch one role by id",
+        "operationId": "readRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the role to be fetched",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bComponentsRole"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Update a one role by id",
+        "description": "This route is used to update one role by id",
+        "operationId": "updateRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the role to be updated",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "description": "New name of the role",
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "description": "New permissions of the role",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "isDefaultRole": {
+                    "description": "Ability to set the role as default",
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Role entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bComponentsRole"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Delete an role by id",
+        "description": "This route is used to delete one role by id",
+        "operationId": "deleteRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the role to be fetched",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content response"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/role/permissions": {
+      "get": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Fetch a available permissions",
+        "description": "This route is used to fetch all available permissions",
+        "operationId": "readPermissions",
+        "responses": {
+          "200": {
+            "description": "Permission collection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "permissionName": {
+                                "type": "string"
+                              },
+                              "permissionDependencies": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "permissionGroupName": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/role/default": {
+      "post": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Sets the default role Id for new employees",
+        "description": "This route is used to update the defaultRoleId for new employees",
+        "operationId": "updateDefaultRoleId",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "id": {
+                    "description": "Id of the roleId to be set as default",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content response"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
     "/store-api/employee/create": {
       "post": {
         "tags": [
@@ -14384,401 +14785,6 @@
                 }
               }
             }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role/create": {
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Create a single role and returns the role",
-        "description": "This route is used to create and return an role",
-        "operationId": "createRole",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "description": "Name of the new role",
-                    "type": "string"
-                  },
-                  "permissions": {
-                    "description": "Permissions of the new role",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "isDefaultRole": {
-                    "description": "Ability to set the new role as default",
-                    "type": "boolean"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Role entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bRole"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role": {
-      "get": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a list of roles",
-        "description": "This route is used to load roles",
-        "operationId": "readRoles",
-        "parameters": [],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing roles",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/B2bRole"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a list of roles",
-        "description": "This route is used to load roles",
-        "operationId": "readRolesPOST",
-        "parameters": [],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing roles",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/B2bRole"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role/{id}": {
-      "get": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a one role by id",
-        "description": "This route is used to fetch one role by id",
-        "operationId": "readRole",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the role to be fetched",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Role entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bRole"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Update a one role by id",
-        "description": "This route is used to update one role by id",
-        "operationId": "updateRole",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the role to be updated",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "description": "New name of the role",
-                    "type": "string"
-                  },
-                  "permissions": {
-                    "description": "New permissions of the role",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "isDefaultRole": {
-                    "description": "Ability to set the role as default",
-                    "type": "boolean"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Role entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/B2bRole"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Delete an role by id",
-        "description": "This route is used to delete one role by id",
-        "operationId": "deleteRole",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the role to be fetched",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No content response"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role/permissions": {
-      "get": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Fetch a available permissions",
-        "description": "This route is used to fetch all available permissions",
-        "operationId": "readPermissions",
-        "responses": {
-          "200": {
-            "description": "Permission collection",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "permissionName": {
-                                "type": "string"
-                              },
-                              "permissionDependencies": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              "permissionGroupName": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/store-api/role/default": {
-      "post": {
-        "tags": [
-          "B2B"
-        ],
-        "summary": "Sets the default role Id for new employees",
-        "description": "This route is used to update the defaultRoleId for new employees",
-        "operationId": "updateDefaultRoleId",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "id": {
-                    "description": "Id of the roleId to be set as default",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "No content response"
           }
         },
         "security": [
