@@ -1498,7 +1498,7 @@
 ".components.schemas.Product.properties.productNumber": >
   Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.
 
-".components.schemas.Product.stock": >
+".components.schemas.Product.properties.stock": >
   Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced.
 
 ".components.schemas.Product.properties.restockTime": >
@@ -1510,19 +1510,19 @@
 ".components.schemas.Product.properties.availableStock": >
   Indicates the number of products still available. This value results from the stock minus the open orders.
 
-".components.schemas.Product.available": >
+".components.schemas.Product.properties.available": >
   Indicates weather the product is available or not.
 
-".components.schemas.Product.isCloseout": >
+".components.schemas.Product.properties.isCloseout": >
   When the value is set to true, the product is hidden when sold out.
 
-".components.schemas.Product.displayGroup": >
+".components.schemas.Product.properties.displayGroup": >
   Runtime field, cannot be used as part of the criteria.
 
-".components.schemas.Product.mainVariantId": >
+".components.schemas.Product.properties.mainVariantId": >
   Unique identity of main variant.
 
-".components.schemas.Product.manufacturerNumber": >
+".components.schemas.Product.properties.manufacturerNumber": >
   Unique number that describes the manufacturer.
 
 ".components.schemas.Product.properties.ean": >
