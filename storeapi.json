@@ -8094,25 +8094,7 @@
                         "description": "Unique identity of main variant."
                     }
                 },
-                "type": "object",
-                "stock": {
-                    "description": "Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced."
-                },
-                "available": {
-                    "description": "Indicates weather the product is available or not."
-                },
-                "isCloseout": {
-                    "description": "When the value is set to true, the product is hidden when sold out."
-                },
-                "displayGroup": {
-                    "description": "Runtime field, cannot be used as part of the criteria."
-                },
-                "mainVariantId": {
-                    "description": "Unique identity of main variant."
-                },
-                "manufacturerNumber": {
-                    "description": "Unique number that describes the manufacturer."
-                }
+                "type": "object"
             },
             "ProductConfiguratorSetting": {
                 "description": "Added since version: 6.0.0.0",
