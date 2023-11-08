@@ -8,10 +8,12 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   
-  save-file:
+  save-file:    
     name: "Save file"
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
       - shell: bash
         run: |
           cp storeapi.json storeapi-original.json
