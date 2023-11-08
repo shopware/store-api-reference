@@ -7,6 +7,21 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  
+  save-file:    
+    name: "Save file"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - shell: bash
+        run: |
+          cp storeapi.json storeapi-original.json
+      - name: Upload original file
+        uses: actions/upload-artifact@v3
+        with:
+          name: original-file
+          path: storeapi-original.json
   # This workflow contains a single job called "build"
   generate-schema:
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
@@ -41,12 +56,18 @@ jobs:
           yq  -I 4 -o json -i "$k.description = \"${newDescription}\"" storeapi.json
         done
 
+    - name: Download original file
+      uses: actions/download-artifact@v3
+      with:
+        name: original-file
+
     - name: Prettify
       run: |
         sudo apt-get update
         sudo apt-get install -y moreutils
         jq . storeapi.json | sponge storeapi.json
-        cmp <(sort storeapi.json.json) <(sort /github/workspace/storeapi.json) || echo "FILE_DIFFERENCE=1" >> $GITHUB_ENV
+        cmp <(sort storeapi.json) <(sort storeapi-original.json) || echo "FILE_DIFFERENCE=1" >> $GITHUB_ENV
+        rm storeapi-original.json
       
     - name: Create PR
       if: ${{ env.FILE_DIFFERENCE == 1 }}
