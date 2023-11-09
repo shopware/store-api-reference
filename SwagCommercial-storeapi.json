@@ -583,6 +583,28 @@
         },
         "type": "object"
       },
+      "AdvancedSearchSynonym": {
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "App": {
         "description": "Added since version: 6.3.1.0",
         "required": [
