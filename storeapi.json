@@ -3,7 +3,7 @@
   "info": {
     "title": "Shopware Store API",
     "description": "This endpoint reference contains an overview of all endpoints comprising the Shopware Store API",
-    "version": "6.5.9999999.9999999-dev"
+    "version": "6.4.20.0"
   },
   "servers": [
     {
@@ -338,10 +338,6 @@
             "type": "string",
             "description": "A human-readable explanation specific to this occurrence of the problem."
           },
-          "description": {
-            "type": "string",
-            "description": "A human-readable description of the problem."
-          },
           "source": {
             "type": "object",
             "properties": {
@@ -543,30 +539,6 @@
         },
         "type": "object"
       },
-      "AppFlowEvent": {
-        "description": "Added since version: 6.5.2.0",
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of App flow event."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
       "AppPaymentMethod": {
         "description": "Added since version: 6.4.1.0",
         "required": [
@@ -616,29 +588,6 @@
           "translated": {
             "type": "object",
             "description": "Contains the translations of all translated fields."
-          }
-        },
-        "type": "object"
-      },
-      "AppShippingMethod": {
-        "description": "Added since version: 6.5.7.0",
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
           }
         },
         "type": "object"
@@ -716,7 +665,6 @@
               "breadcrumb": {
                 "type": "array",
                 "items": {
-                  "type": "object",
                   "additionalProperties": false
                 },
                 "readOnly": true
@@ -746,15 +694,6 @@
               },
               "active": {
                 "type": "boolean"
-              },
-              "cmsPageIdSwitched": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "boolean"
-              },
-              "visibleChildCount": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "integer",
-                "format": "int64"
               },
               "name": {
                 "type": "string"
@@ -795,10 +734,6 @@
                 "type": "string",
                 "pattern": "^[0-9a-f]{32}$"
               },
-              "customEntityTypeId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -822,7 +757,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/parent"
+                            "example": "/category/e0fee5fc15254354a3aecd8cd0bd1925/parent"
                           }
                         }
                       },
@@ -836,7 +771,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "d0e45878043844ffc41aac437e86b602"
+                            "example": "44683a38726e43e0a244a242f7330879"
                           }
                         }
                       }
@@ -851,7 +786,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/children"
+                            "example": "/category/e0fee5fc15254354a3aecd8cd0bd1925/children"
                           }
                         }
                       },
@@ -866,7 +801,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "268184c12df027f536154d099d497b31"
+                              "example": "1d1128f216534819822c9f0065e347bc"
                             }
                           }
                         }
@@ -882,7 +817,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/media"
+                            "example": "/category/e0fee5fc15254354a3aecd8cd0bd1925/media"
                           }
                         }
                       },
@@ -896,38 +831,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "tags": {
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/tags"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "tag"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "d57ac45256849d9b13e2422d91580fb9"
-                            }
+                            "example": "108041eb7c9b4e5e90c5df4441e250f7"
                           }
                         }
                       }
@@ -942,7 +846,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/cmsPage"
+                            "example": "/category/e0fee5fc15254354a3aecd8cd0bd1925/cmsPage"
                           }
                         }
                       },
@@ -956,7 +860,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "7b1460918b1abb93311108f3dc021c9b"
+                            "example": "585baa058f084b00921b823f1dd14679"
                           }
                         }
                       }
@@ -971,7 +875,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/seoUrls"
+                            "example": "/category/e0fee5fc15254354a3aecd8cd0bd1925/seoUrls"
                           }
                         }
                       },
@@ -986,7 +890,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "5321b5a71127b8b98cdd4b068ad56c4c"
+                              "example": "709c271e5b574c7e93035aabffb6d8ec"
                             }
                           }
                         }
@@ -994,8 +898,7 @@
                     },
                     "type": "object"
                   }
-                },
-                "type": "object"
+                }
               }
             },
             "type": "object"
@@ -1053,7 +956,6 @@
           "breadcrumb": {
             "type": "array",
             "items": {
-              "type": "object",
               "additionalProperties": false
             },
             "readOnly": true,
@@ -1091,15 +993,6 @@
           "active": {
             "type": "boolean",
             "description": "When boolean value is `true`, the category is listed for selection."
-          },
-          "cmsPageIdSwitched": {
-            "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "boolean"
-          },
-          "visibleChildCount": {
-            "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "integer",
-            "format": "int64"
           },
           "name": {
             "type": "string",
@@ -1152,10 +1045,6 @@
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of CMS page's version."
           },
-          "customEntityTypeId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
@@ -1174,28 +1063,16 @@
             "$ref": "#/components/schemas/Category"
           },
           "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Category"
-            }
+            "$ref": "#/components/schemas/Category"
           },
           "media": {
             "$ref": "#/components/schemas/Media"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
           },
           "cmsPage": {
             "$ref": "#/components/schemas/CmsPage"
           },
           "seoUrls": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SeoUrl"
-            }
+            "$ref": "#/components/schemas/SeoUrl"
           }
         },
         "type": "object"
@@ -1310,10 +1187,7 @@
             "$ref": "#/components/schemas/Media"
           },
           "slots": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CmsSlot"
-            }
+            "$ref": "#/components/schemas/CmsSlot"
           }
         },
         "type": "object"
@@ -1384,19 +1258,13 @@
             "description": "Contains the translations of all translated fields."
           },
           "sections": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CmsSection"
-            }
+            "$ref": "#/components/schemas/CmsSection"
           },
           "previewMedia": {
             "$ref": "#/components/schemas/Media"
           },
           "landingPages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LandingPage"
-            }
+            "$ref": "#/components/schemas/LandingPage"
           }
         },
         "type": "object"
@@ -1501,10 +1369,7 @@
             "$ref": "#/components/schemas/Media"
           },
           "blocks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CmsBlock"
-            }
+            "$ref": "#/components/schemas/CmsBlock"
           }
         },
         "type": "object"
@@ -1557,10 +1422,6 @@
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of CMS block where slot is defined."
           },
-          "fieldConfig": {
-            "type": "object",
-            "description": "Con info of cms slot"
-          },
           "cmsBlockVersionId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
@@ -1585,6 +1446,9 @@
           },
           "VersionId": {
             "description": "Unique identity of CMS slot's version."
+          },
+          "fieldConfig": {
+            "description": "Con info of cms slot"
           }
         },
         "type": "object"
@@ -1631,11 +1495,19 @@
               "forceStateInRegistration": {
                 "type": "boolean"
               },
+              "companyTaxFree": {
+                "type": "boolean",
+                "deprecated": true
+              },
               "checkVatIdPattern": {
                 "type": "boolean"
               },
               "vatIdRequired": {
                 "type": "boolean"
+              },
+              "taxFree": {
+                "type": "boolean",
+                "deprecated": true
               },
               "vatIdPattern": {
                 "type": "string"
@@ -1724,7 +1596,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/country/59716c97497eb9694541f7c3d37b1a4d/states"
+                            "example": "/country/c4ac5f91041d47d6909b70d0293cb146/states"
                           }
                         }
                       },
@@ -1739,7 +1611,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "34d955a0df5f7af9c9b4e4dccb3c3564"
+                              "example": "fa2037fe752a4f4ab0fe263be37f20b3"
                             }
                           }
                         }
@@ -1747,8 +1619,7 @@
                     },
                     "type": "object"
                   }
-                },
-                "type": "object"
+                }
               }
             },
             "type": "object"
@@ -1801,6 +1672,11 @@
             "type": "boolean",
             "description": "State details in the address are force included when boolean value is `true`."
           },
+          "companyTaxFree": {
+            "type": "boolean",
+            "deprecated": true,
+            "description": "When a registered company is free from paying taxes, then the boolean value is `true`."
+          },
           "checkVatIdPattern": {
             "type": "boolean",
             "description": "Verify if VAT ID is valid or not."
@@ -1808,6 +1684,11 @@
           "vatIdRequired": {
             "type": "boolean",
             "description": "Set to true, if VAT ID is to be made mandatory."
+          },
+          "taxFree": {
+            "type": "boolean",
+            "deprecated": true,
+            "description": "When tax doesn't apply for a particular country, then the boolean value is `true`."
           },
           "vatIdPattern": {
             "type": "string",
@@ -1902,16 +1783,7 @@
             "description": "Contains the translations of all translated fields."
           },
           "states": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CountryState"
-            }
-          },
-          "taxFree": {
-            "description": "When tax doesn't apply for a particular country, then the boolean value is `true`."
-          },
-          "companyTaxFree": {
-            "description": "When a registered company is free from paying taxes, then the boolean value is `true`."
+            "$ref": "#/components/schemas/CountryState"
           }
         },
         "type": "object"
@@ -2075,10 +1947,6 @@
                 "description": "Runtime field, cannot be used as part of the criteria.",
                 "type": "boolean"
               },
-              "taxFreeFrom": {
-                "type": "number",
-                "format": "float"
-              },
               "customFields": {
                 "type": "object"
               },
@@ -2113,6 +1981,10 @@
                   }
                 },
                 "type": "object"
+              },
+              "taxFreeFrom": {
+                "type": "number",
+                "format": "float"
               },
               "createdAt": {
                 "type": "string",
@@ -2180,11 +2052,6 @@
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "boolean"
           },
-          "taxFreeFrom": {
-            "type": "number",
-            "format": "float",
-            "description": "The value from which the tax must be exempted."
-          },
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
@@ -2226,6 +2093,11 @@
               }
             },
             "type": "object"
+          },
+          "taxFreeFrom": {
+            "type": "number",
+            "format": "float",
+            "description": "The value from which the tax must be exempted."
           },
           "createdAt": {
             "type": "string",
@@ -2377,7 +2249,6 @@
           "firstName",
           "lastName",
           "email",
-          "accountType",
           "createdAt"
         ],
         "properties": {
@@ -2501,6 +2372,9 @@
             "format": "date-time",
             "description": "To capture date and time of customer's last login."
           },
+          "newsletter": {
+            "type": "boolean"
+          },
           "birthday": {
             "type": "string",
             "description": "To capture customer's birthday details."
@@ -2523,12 +2397,6 @@
             "readOnly": true,
             "description": "Sum of total amount to be paid."
           },
-          "reviewCount": {
-            "type": "integer",
-            "format": "int64",
-            "readOnly": true,
-            "description": "Number of reviews the customer has given."
-          },
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
@@ -2541,10 +2409,6 @@
             },
             "readOnly": true,
             "description": "Unique identity tag names given to the line item."
-          },
-          "accountType": {
-            "type": "string",
-            "description": "Account type can be personal or business."
           },
           "createdById": {
             "type": "string",
@@ -2579,29 +2443,20 @@
           "defaultBillingAddress": {
             "$ref": "#/components/schemas/CustomerAddress"
           },
-          "activeBillingAddress": {
-            "$ref": "#/components/schemas/CustomerAddress"
-          },
           "defaultShippingAddress": {
-            "$ref": "#/components/schemas/CustomerAddress"
-          },
-          "activeShippingAddress": {
             "$ref": "#/components/schemas/CustomerAddress"
           },
           "salutation": {
             "$ref": "#/components/schemas/Salutation"
           },
           "addresses": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomerAddress"
-            }
+            "$ref": "#/components/schemas/CustomerAddress"
           },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
+          "reviewCount": {
+            "description": "Number of reviews the customer has given."
+          },
+          "accountType": {
+            "description": "Account type can be personal or business."
           },
           "extensions": {
             "properties": {
@@ -2902,6 +2757,29 @@
         },
         "type": "object"
       },
+      "DeadMessage": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "DeliveryTime": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -3017,9 +2895,6 @@
             "type": "string",
             "description": "It is a generated special code linked to email. It is used to access details of guest customer actions."
           },
-          "documentNumber": {
-            "type": "string"
-          },
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
@@ -3044,10 +2919,7 @@
             "$ref": "#/components/schemas/Document"
           },
           "dependentDocuments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Document"
-            }
+            "$ref": "#/components/schemas/Document"
           },
           "documentMediaFile": {
             "$ref": "#/components/schemas/Media"
@@ -3202,6 +3074,32 @@
           "translated": {
             "type": "object",
             "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "EventAction": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
           }
         },
         "type": "object"
@@ -3455,7 +3353,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/landing-page/815c27537bec3b60c50a2ae4d2ce875d/cmsPage"
+                            "example": "/landing-page/65e42d1b2fcb4ffc84cb2938b4f343ec/cmsPage"
                           }
                         }
                       },
@@ -3469,7 +3367,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "7b1460918b1abb93311108f3dc021c9b"
+                            "example": "09b89d8ed6b846ea817621327e30b30f"
                           }
                         }
                       }
@@ -3484,7 +3382,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/landing-page/815c27537bec3b60c50a2ae4d2ce875d/seoUrls"
+                            "example": "/landing-page/65e42d1b2fcb4ffc84cb2938b4f343ec/seoUrls"
                           }
                         }
                       },
@@ -3499,7 +3397,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "5321b5a71127b8b98cdd4b068ad56c4c"
+                              "example": "3a70f4720c124659af7ed83c0e661781"
                             }
                           }
                         }
@@ -3507,8 +3405,7 @@
                     },
                     "type": "object"
                   }
-                },
-                "type": "object"
+                }
               }
             },
             "type": "object"
@@ -3592,10 +3489,7 @@
             "$ref": "#/components/schemas/CmsPage"
           },
           "seoUrls": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SeoUrl"
-            }
+            "$ref": "#/components/schemas/SeoUrl"
           }
         },
         "type": "object"
@@ -3655,7 +3549,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/4994a8ffeba4ac3140beb89e8d41f174/parent"
+                            "example": "/language/af7d4f84fc674343b0e50e45dfada63b/parent"
                           }
                         }
                       },
@@ -3669,7 +3563,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "d0e45878043844ffc41aac437e86b602"
+                            "example": "af5e986c67e54fad94ba059291ac53e4"
                           }
                         }
                       }
@@ -3684,7 +3578,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/4994a8ffeba4ac3140beb89e8d41f174/locale"
+                            "example": "/language/af7d4f84fc674343b0e50e45dfada63b/locale"
                           }
                         }
                       },
@@ -3698,7 +3592,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "fb216d9e8791e63c8d12bdc420956839"
+                            "example": "780612abd13b4b8ab03152fd47fec8fd"
                           }
                         }
                       }
@@ -3713,7 +3607,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/4994a8ffeba4ac3140beb89e8d41f174/translationCode"
+                            "example": "/language/af7d4f84fc674343b0e50e45dfada63b/translationCode"
                           }
                         }
                       },
@@ -3727,7 +3621,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "6ef2035242b8fcb7b61c3a41850e60b3"
+                            "example": "37f152a748f541449479f91f56fe21e7"
                           }
                         }
                       }
@@ -3742,7 +3636,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/language/4994a8ffeba4ac3140beb89e8d41f174/children"
+                            "example": "/language/af7d4f84fc674343b0e50e45dfada63b/children"
                           }
                         }
                       },
@@ -3757,7 +3651,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "268184c12df027f536154d099d497b31"
+                              "example": "aca6865281b4427c9fb85e4d746f8d10"
                             }
                           }
                         }
@@ -3765,8 +3659,7 @@
                     },
                     "type": "object"
                   }
-                },
-                "type": "object"
+                }
               }
             },
             "type": "object"
@@ -3829,10 +3722,7 @@
             "$ref": "#/components/schemas/Locale"
           },
           "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Language"
-            }
+            "$ref": "#/components/schemas/Language"
           }
         },
         "type": "object"
@@ -4017,10 +3907,7 @@
             "$ref": "#/components/schemas/MailTemplateType"
           },
           "media": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MailTemplateMedia"
-            }
+            "$ref": "#/components/schemas/MailTemplateMedia"
           }
         },
         "type": "object"
@@ -4266,9 +4153,6 @@
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "string"
           },
-          "path": {
-            "type": "string"
-          },
           "hasFile": {
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "boolean"
@@ -4296,10 +4180,7 @@
             "description": "Contains the translations of all translated fields."
           },
           "thumbnails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MediaThumbnail"
-            }
+            "$ref": "#/components/schemas/MediaThumbnail"
           },
           "extensions": {
             "description": "To store additional data to a media from extensions."
@@ -4445,9 +4326,6 @@
             "description": "Public url of media thumbnail.",
             "type": "string"
           },
-          "path": {
-            "type": "string"
-          },
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
@@ -4491,6 +4369,29 @@
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "MessageQueueStats": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
           },
           "createdAt": {
             "type": "string",
@@ -4909,10 +4810,6 @@
             "type": "string",
             "description": "Comments given by comments."
           },
-          "source": {
-            "type": "string",
-            "description": "Source of orders either via normal order placement or subscriptions."
-          },
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
@@ -4948,43 +4845,28 @@
             "$ref": "#/components/schemas/Language"
           },
           "addresses": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderAddress"
-            }
+            "$ref": "#/components/schemas/OrderAddress"
           },
           "billingAddress": {
             "$ref": "#/components/schemas/OrderAddress"
           },
           "deliveries": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderDelivery"
-            }
+            "$ref": "#/components/schemas/OrderDelivery"
           },
           "lineItems": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderLineItem"
-            }
+            "$ref": "#/components/schemas/OrderLineItem"
           },
           "transactions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderTransaction"
-            }
+            "$ref": "#/components/schemas/OrderTransaction"
           },
           "documents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Document"
-            }
+            "$ref": "#/components/schemas/Document"
           },
           "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
+            "$ref": "#/components/schemas/Tag"
+          },
+          "source": {
+            "description": "Source of orders either via normal order placement or subscriptions."
           },
           "extensions": {
             "description": "To store additional data to an order from extensions."
@@ -5101,6 +4983,7 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "email",
+          "salutationId",
           "firstName",
           "lastName",
           "createdAt"
@@ -5333,10 +5216,7 @@
             "$ref": "#/components/schemas/ShippingMethod"
           },
           "positions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderDeliveryPosition"
-            }
+            "$ref": "#/components/schemas/OrderDeliveryPosition"
           }
         },
         "type": "object"
@@ -5621,25 +5501,16 @@
             "$ref": "#/components/schemas/Media"
           },
           "orderDeliveryPositions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderDeliveryPosition"
-            }
+            "$ref": "#/components/schemas/OrderDeliveryPosition"
           },
           "downloads": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderLineItemDownload"
-            }
+            "$ref": "#/components/schemas/OrderLineItemDownload"
           },
           "parent": {
             "$ref": "#/components/schemas/OrderLineItem"
           },
           "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderLineItem"
-            }
+            "$ref": "#/components/schemas/OrderLineItem"
           },
           "extensions": {
             "description": "To store additional data to an order line item from extensions."
@@ -5871,10 +5742,7 @@
             "$ref": "#/components/schemas/PaymentMethod"
           },
           "captures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderTransactionCapture"
-            }
+            "$ref": "#/components/schemas/OrderTransactionCapture"
           },
           "shippingCosts": {
             "properties": {
@@ -5926,11 +5794,6 @@
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of order transaction capture."
           },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order transaction capture's version."
-          },
           "orderTransactionId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
@@ -5949,6 +5812,11 @@
           "externalReference": {
             "type": "string",
             "description": "External payment provider token."
+          },
+          "totalAmount": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "number",
+            "format": "float"
           },
           "amount": {
             "required": [
@@ -6031,10 +5899,10 @@
             "$ref": "#/components/schemas/OrderTransaction"
           },
           "refunds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderTransactionCaptureRefund"
-            }
+            "$ref": "#/components/schemas/OrderTransactionCaptureRefund"
+          },
+          "versionId": {
+            "description": "Unique identity of order transaction capture's version."
           },
           "shippingCosts": {
             "properties": {
@@ -6086,20 +5954,10 @@
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of order transaction capture refund."
           },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order transaction capture refund's version."
-          },
           "captureId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of order transaction capture."
-          },
-          "captureVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order transaction capture's version."
           },
           "stateId": {
             "type": "string",
@@ -6113,6 +5971,11 @@
           "reason": {
             "type": "string",
             "description": "Reason for refunding the amount for an order."
+          },
+          "totalAmount": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "number",
+            "format": "float"
           },
           "amount": {
             "required": [
@@ -6195,10 +6058,13 @@
             "$ref": "#/components/schemas/OrderTransactionCapture"
           },
           "positions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderTransactionCaptureRefundPosition"
-            }
+            "$ref": "#/components/schemas/OrderTransactionCaptureRefundPosition"
+          },
+          "versionId": {
+            "description": "Unique identity of order transaction capture refund's version."
+          },
+          "captureVersionId": {
+            "description": "Unique identity of order transaction capture's version."
           },
           "shippingCosts": {
             "properties": {
@@ -6250,20 +6116,10 @@
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of order transaction capture refund position."
           },
-          "versionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order transaction capture refund position's version."
-          },
           "refundId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of order transaction capture refund."
-          },
-          "refundVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of order transaction capture refund's version."
           },
           "orderLineItemId": {
             "type": "string",
@@ -6348,6 +6204,11 @@
             },
             "type": "object"
           },
+          "refundPrice": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "number",
+            "format": "float"
+          },
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
@@ -6367,6 +6228,12 @@
           },
           "orderTransactionCaptureRefund": {
             "$ref": "#/components/schemas/OrderTransactionCaptureRefund"
+          },
+          "versionId": {
+            "description": "Unique identity of order transaction capture refund position's version."
+          },
+          "refundVersionId": {
+            "description": "Unique identity of order transaction capture refund's version."
           },
           "shippingCosts": {
             "properties": {
@@ -6467,18 +6334,6 @@
                 "type": "boolean",
                 "readOnly": true
               },
-              "recurring": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "boolean",
-                "readOnly": true
-              },
-              "shortName": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "string"
-              },
-              "technicalName": {
-                "type": "string"
-              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -6502,7 +6357,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/payment-method/da8da1569e6bef3249a7064261df833f/media"
+                            "example": "/payment-method/5ed691c3301f4740a2033d5dc04a4be2/media"
                           }
                         }
                       },
@@ -6516,15 +6371,14 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
+                            "example": "3bca58afd15c4e8f8d992223bbd94c85"
                           }
                         }
                       }
                     },
                     "type": "object"
                   }
-                },
-                "type": "object"
+                }
               }
             },
             "type": "object"
@@ -6597,18 +6451,6 @@
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "boolean",
             "readOnly": true
-          },
-          "recurring": {
-            "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "boolean",
-            "readOnly": true
-          },
-          "shortName": {
-            "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "string"
-          },
-          "technicalName": {
-            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -6733,12 +6575,21 @@
               "productNumber": {
                 "type": "string"
               },
+              "stock": {
+                "type": "integer",
+                "format": "int64"
+              },
               "restockTime": {
                 "type": "integer",
                 "format": "int64"
               },
               "active": {
                 "type": "boolean"
+              },
+              "availableStock": {
+                "type": "integer",
+                "format": "int64",
+                "readOnly": true
               },
               "available": {
                 "type": "boolean",
@@ -6750,6 +6601,11 @@
               "displayGroup": {
                 "type": "string",
                 "readOnly": true
+              },
+              "mainVariantId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$",
+                "deprecated": true
               },
               "manufacturerNumber": {
                 "type": "string"
@@ -6840,14 +6696,6 @@
                 },
                 "readOnly": true
               },
-              "tagIds": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
               "categoryIds": {
                 "type": "array",
                 "items": {
@@ -6897,21 +6745,12 @@
               "customFields": {
                 "type": "object"
               },
-              "availableStock": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "stock": {
-                "type": "integer",
-                "format": "int64"
-              },
               "calculatedPrice": {
                 "type": "object"
               },
               "calculatedPrices": {
                 "type": "array",
                 "items": {
-                  "type": "object",
                   "additionalProperties": false
                 }
               },
@@ -6926,9 +6765,6 @@
               "isNew": {
                 "description": "Runtime field, cannot be used as part of the criteria.",
                 "type": "boolean"
-              },
-              "sortedProperties": {
-                "type": "object"
               },
               "createdAt": {
                 "type": "string",
@@ -6953,7 +6789,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/downloads"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/downloads"
                           }
                         }
                       },
@@ -6968,7 +6804,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "d07d50a751bc6ddf12bf3af0efee9b45"
+                              "example": "7190d1f2b5194a66b0de4414477c221d"
                             }
                           }
                         }
@@ -6984,7 +6820,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/parent"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/parent"
                           }
                         }
                       },
@@ -6998,7 +6834,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "d0e45878043844ffc41aac437e86b602"
+                            "example": "f429e2cc8d2e4035bf2b6d09e2501972"
                           }
                         }
                       }
@@ -7013,7 +6849,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/children"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/children"
                           }
                         }
                       },
@@ -7028,7 +6864,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "268184c12df027f536154d099d497b31"
+                              "example": "886e530b6e85413e8d919fdeb7db9bd9"
                             }
                           }
                         }
@@ -7044,7 +6880,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/deliveryTime"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/deliveryTime"
                           }
                         }
                       },
@@ -7058,7 +6894,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "8c888ae25a7bd42057370e31f7e01044"
+                            "example": "5022c3d97e6341daa77cfb16101f696e"
                           }
                         }
                       }
@@ -7073,7 +6909,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/tax"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/tax"
                           }
                         }
                       },
@@ -7087,7 +6923,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "06565e5611f23fdf8cc43e5077b92b54"
+                            "example": "53aca7cd18814a30911d6888a2bb5feb"
                           }
                         }
                       }
@@ -7102,7 +6938,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/manufacturer"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/manufacturer"
                           }
                         }
                       },
@@ -7116,7 +6952,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "c2904bca62b22443d6cf5e9d89cab204"
+                            "example": "0ea70225a59a4e3eb7f80a1084ba3c4d"
                           }
                         }
                       }
@@ -7131,7 +6967,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/unit"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/unit"
                           }
                         }
                       },
@@ -7145,7 +6981,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "3e34bdebd9bd5edda27e8728904a2552"
+                            "example": "07aeb981cc534e379ce7779d8165b60c"
                           }
                         }
                       }
@@ -7160,7 +6996,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/cover"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/cover"
                           }
                         }
                       },
@@ -7174,7 +7010,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "41d0e299ca1abeb2094852da042165c7"
+                            "example": "3eaba9c2d20e448093da53d2edde29c3"
                           }
                         }
                       }
@@ -7189,7 +7025,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/cmsPage"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/cmsPage"
                           }
                         }
                       },
@@ -7203,7 +7039,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "7b1460918b1abb93311108f3dc021c9b"
+                            "example": "aef16c29f3df4403b02ee1f9ea5d6356"
                           }
                         }
                       }
@@ -7218,7 +7054,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/canonicalProduct"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/canonicalProduct"
                           }
                         }
                       },
@@ -7232,7 +7068,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "023995a50b56c0de077323e958b2bbcd"
+                            "example": "8ae5e7ace18f458bb62471188d9950bc"
                           }
                         }
                       }
@@ -7247,7 +7083,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/media"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/media"
                           }
                         }
                       },
@@ -7262,7 +7098,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
+                              "example": "02745bc6587e45e5b698785cdb3aa1ff"
                             }
                           }
                         }
@@ -7278,7 +7114,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/crossSellings"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/crossSellings"
                           }
                         }
                       },
@@ -7293,7 +7129,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "89936e14544d1b403cecef938101b6b0"
+                              "example": "d51e3143bbc949058a8a1ac28a80629c"
                             }
                           }
                         }
@@ -7309,7 +7145,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/configuratorSettings"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/configuratorSettings"
                           }
                         }
                       },
@@ -7324,7 +7160,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "c0827fee13725d41f1fd7e292243f5aa"
+                              "example": "28d615b71abf426bb81ddd5cbe0a63bf"
                             }
                           }
                         }
@@ -7340,7 +7176,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/productReviews"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/productReviews"
                           }
                         }
                       },
@@ -7355,7 +7191,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "01e78541ea343ed72424a5222796a4cd"
+                              "example": "cda7fa573ac14ee4a42e463aa313abb3"
                             }
                           }
                         }
@@ -7371,7 +7207,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/mainCategories"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/mainCategories"
                           }
                         }
                       },
@@ -7386,7 +7222,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "1fb731fc4139cbb575429e28846f0c39"
+                              "example": "6e609aaab9934813bbcbd1abdb3f34c9"
                             }
                           }
                         }
@@ -7402,7 +7238,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/seoUrls"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/seoUrls"
                           }
                         }
                       },
@@ -7417,7 +7253,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "5321b5a71127b8b98cdd4b068ad56c4c"
+                              "example": "8736597d1ebf4de482fd5500254f932d"
                             }
                           }
                         }
@@ -7433,7 +7269,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/options"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/options"
                           }
                         }
                       },
@@ -7448,7 +7284,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "93da65a9fd0004d9477aeac024e08e15"
+                              "example": "e459ae14882c476092f88ffb0a462719"
                             }
                           }
                         }
@@ -7464,7 +7300,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/properties"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/properties"
                           }
                         }
                       },
@@ -7479,7 +7315,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "74693d2fc58b46bd06410f278e39aa71"
+                              "example": "61fa584c9e304d64a6534abb089cf76b"
                             }
                           }
                         }
@@ -7495,7 +7331,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/categories"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/categories"
                           }
                         }
                       },
@@ -7510,7 +7346,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "b0b5ccb4a195a07fd3eed14affb8695f"
+                              "example": "cb8f69486cea48f790bdda1a628a8c6f"
                             }
                           }
                         }
@@ -7526,7 +7362,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/streams"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/streams"
                           }
                         }
                       },
@@ -7541,7 +7377,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "2f6f4768f1c2d7c8f1f54823723f1a70"
+                              "example": "da49511063454bbca7d5ed0ed6918e1b"
                             }
                           }
                         }
@@ -7557,7 +7393,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/categoriesRo"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/categoriesRo"
                           }
                         }
                       },
@@ -7572,38 +7408,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "7f0702d3a90d965b8c9158c451f43fdb"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "tags": {
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/tags"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "tag"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "d57ac45256849d9b13e2422d91580fb9"
+                              "example": "b096018d82e944e491bb241224f64c54"
                             }
                           }
                         }
@@ -7619,7 +7424,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/seoCategory"
+                            "example": "/product/2282f66ae83d4f8b8913ad03cd220345/seoCategory"
                           }
                         }
                       },
@@ -7633,15 +7438,14 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "9354d004d12e03d35ad8292bf0bb234d"
+                            "example": "cadd4e188f6d413d836e93f78359077d"
                           }
                         }
                       }
                     },
                     "type": "object"
                   }
-                },
-                "type": "object"
+                }
               }
             },
             "type": "object"
@@ -7732,6 +7536,11 @@
             "type": "string",
             "description": "Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range."
           },
+          "stock": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced."
+          },
           "restockTime": {
             "type": "integer",
             "format": "int64",
@@ -7740,6 +7549,12 @@
           "active": {
             "type": "boolean",
             "description": "When boolean value is `true`, the products are available for selection in the storefront for purchase."
+          },
+          "availableStock": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true,
+            "description": "Indicates the number of products still available. This value results from the stock minus the open orders."
           },
           "available": {
             "type": "boolean",
@@ -7754,6 +7569,12 @@
             "type": "string",
             "readOnly": true,
             "description": "Runtime field, cannot be used as part of the criteria."
+          },
+          "mainVariantId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "deprecated": true,
+            "description": "Unique identity of main variant."
           },
           "manufacturerNumber": {
             "type": "string",
@@ -7863,14 +7684,6 @@
             "readOnly": true,
             "description": "Runtime field, cannot be used as part of the criteria."
           },
-          "tagIds": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            },
-            "readOnly": true
-          },
           "categoryIds": {
             "type": "array",
             "items": {
@@ -7932,16 +7745,6 @@
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
           },
-          "availableStock": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Indicates the number of products still available. This value results from the stock minus the open orders."
-          },
-          "stock": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced."
-          },
           "calculatedPrice": {
             "type": "object",
             "description": "Runtime field, cannot be used as part of the criteria."
@@ -7949,7 +7752,6 @@
           "calculatedPrices": {
             "type": "array",
             "items": {
-              "type": "object",
               "additionalProperties": false
             },
             "description": "Runtime field, cannot be used as part of the criteria."
@@ -7967,9 +7769,6 @@
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "boolean"
           },
-          "sortedProperties": {
-            "type": "object"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
@@ -7985,19 +7784,13 @@
             "description": "Contains the translations of all translated fields."
           },
           "downloads": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductDownload"
-            }
+            "$ref": "#/components/schemas/ProductDownload"
           },
           "parent": {
             "$ref": "#/components/schemas/Product"
           },
           "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            }
+            "$ref": "#/components/schemas/Product"
           },
           "deliveryTime": {
             "$ref": "#/components/schemas/DeliveryTime",
@@ -8022,82 +7815,40 @@
             "$ref": "#/components/schemas/Product"
           },
           "media": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductMedia"
-            }
+            "$ref": "#/components/schemas/ProductMedia"
           },
           "crossSellings": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductCrossSelling"
-            }
+            "$ref": "#/components/schemas/ProductCrossSelling"
           },
           "configuratorSettings": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductConfiguratorSetting"
-            }
+            "$ref": "#/components/schemas/ProductConfiguratorSetting"
           },
           "productReviews": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductReview"
-            }
+            "$ref": "#/components/schemas/ProductReview"
           },
           "mainCategories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MainCategory"
-            }
+            "$ref": "#/components/schemas/MainCategory"
           },
           "seoUrls": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SeoUrl"
-            }
+            "$ref": "#/components/schemas/SeoUrl"
           },
           "options": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PropertyGroupOption"
-            }
+            "$ref": "#/components/schemas/PropertyGroupOption"
           },
           "properties": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PropertyGroupOption"
-            }
+            "$ref": "#/components/schemas/PropertyGroupOption"
           },
           "categories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Category"
-            }
+            "$ref": "#/components/schemas/Category"
           },
           "streams": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductStream"
-            }
+            "$ref": "#/components/schemas/ProductStream"
           },
           "categoriesRo": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Category"
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
+            "$ref": "#/components/schemas/Category"
           },
           "seoCategory": {
             "$ref": "#/components/schemas/Category"
-          },
-          "mainVariantId": {
-            "description": "Unique identity of main variant."
           },
           "externalReference": {
             "description": "External payment provider token."
@@ -9028,10 +8779,7 @@
             "description": "Contains the translations of all translated fields."
           },
           "options": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PropertyGroupOption"
-            }
+            "$ref": "#/components/schemas/PropertyGroupOption"
           }
         },
         "type": "object"
@@ -9319,10 +9067,7 @@
             "$ref": "#/components/schemas/Country"
           },
           "domains": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SalesChannelDomain"
-            }
+            "$ref": "#/components/schemas/SalesChannelDomain"
           },
           "navigationCategory": {
             "$ref": "#/components/schemas/Category"
@@ -9662,10 +9407,6 @@
               "customFields": {
                 "type": "object"
               },
-              "isValid": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "boolean"
-              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -9743,10 +9484,6 @@
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
-          },
-          "isValid": {
-            "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
@@ -9846,9 +9583,6 @@
               "trackingUrl": {
                 "type": "string"
               },
-              "technicalName": {
-                "type": "string"
-              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -9872,7 +9606,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/deliveryTime"
+                            "example": "/shipping-method/815b0cd7e7f9445a85e6126fae38207f/deliveryTime"
                           }
                         }
                       },
@@ -9886,7 +9620,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "8c888ae25a7bd42057370e31f7e01044"
+                            "example": "b5e70b583c7b4820ac42e4757beb3322"
                           }
                         }
                       }
@@ -9901,7 +9635,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/availabilityRule"
+                            "example": "/shipping-method/815b0cd7e7f9445a85e6126fae38207f/availabilityRule"
                           }
                         }
                       },
@@ -9915,7 +9649,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "9fbb7961d1cb158094924c679e1b302c"
+                            "example": "75613d7d8cbc4552aa2023e6dddea784"
                           }
                         }
                       }
@@ -9930,7 +9664,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/prices"
+                            "example": "/shipping-method/815b0cd7e7f9445a85e6126fae38207f/prices"
                           }
                         }
                       },
@@ -9945,7 +9679,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "afae32efe0f84fece3f96b377b768b33"
+                              "example": "87f3a263e06f4fa7a29f9b64740a9974"
                             }
                           }
                         }
@@ -9961,7 +9695,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/media"
+                            "example": "/shipping-method/815b0cd7e7f9445a85e6126fae38207f/media"
                           }
                         }
                       },
@@ -9975,7 +9709,7 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
+                            "example": "9c483c7dd098463dbdffd7b3a87c4eb2"
                           }
                         }
                       }
@@ -9990,7 +9724,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/tags"
+                            "example": "/shipping-method/815b0cd7e7f9445a85e6126fae38207f/tags"
                           }
                         }
                       },
@@ -10005,7 +9739,7 @@
                             },
                             "id": {
                               "type": "string",
-                              "example": "d57ac45256849d9b13e2422d91580fb9"
+                              "example": "ea9744f8b05944d68e8242b4ab38ffcc"
                             }
                           }
                         }
@@ -10021,7 +9755,7 @@
                           "related": {
                             "type": "string",
                             "format": "uri-reference",
-                            "example": "/shipping-method/d72e7a227a27328b28342b32fc66b6bf/tax"
+                            "example": "/shipping-method/815b0cd7e7f9445a85e6126fae38207f/tax"
                           }
                         }
                       },
@@ -10035,15 +9769,14 @@
                           "id": {
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
-                            "example": "06565e5611f23fdf8cc43e5077b92b54"
+                            "example": "75f1338e8642443ca9f4870a8153395d"
                           }
                         }
                       }
                     },
                     "type": "object"
                   }
-                },
-                "type": "object"
+                }
               }
             },
             "type": "object"
@@ -10103,9 +9836,6 @@
             "type": "string",
             "description": "This URL allows to track packages."
           },
-          "technicalName": {
-            "type": "string"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
@@ -10127,19 +9857,13 @@
             "$ref": "#/components/schemas/Rule"
           },
           "prices": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ShippingMethodPrice"
-            }
+            "$ref": "#/components/schemas/ShippingMethodPrice"
           },
           "media": {
             "$ref": "#/components/schemas/Media"
           },
           "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
+            "$ref": "#/components/schemas/Tag"
           },
           "tax": {
             "$ref": "#/components/schemas/Tax"
@@ -10290,10 +10014,7 @@
             "readOnly": true
           },
           "snippets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Snippet"
-            }
+            "$ref": "#/components/schemas/Snippet"
           }
         },
         "type": "object"
@@ -10325,16 +10046,10 @@
             "description": "Contains the translations of all translated fields."
           },
           "states": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StateMachineState"
-            }
+            "$ref": "#/components/schemas/StateMachineState"
           },
           "transitions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StateMachineTransition"
-            }
+            "$ref": "#/components/schemas/StateMachineTransition"
           }
         },
         "type": "object"
@@ -10485,7 +10200,6 @@
       "Tag": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "name",
           "createdAt"
         ],
         "properties": {
@@ -10493,9 +10207,6 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of tag."
-          },
-          "name": {
-            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -10551,62 +10262,6 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "TaxProvider": {
-        "description": "Added since version: 6.5.0.0",
-        "required": [
-          "priority",
-          "createdAt",
-          "name"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of tax provider."
-          },
-          "active": {
-            "type": "boolean",
-            "description": "When boolean value is `true`, the tax providers are available for selection in the storefront."
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the tax provider."
-          },
-          "priority": {
-            "type": "integer",
-            "format": "int64",
-            "description": "A numerical value to prioritize one the tax providers from the list."
-          },
-          "processUrl": {
-            "type": "string",
-            "description": "External URL makes request to get tax info."
-          },
-          "appId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Unique identity of app."
-          },
-          "customFields": {
-            "type": "object",
-            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "translated": {
-            "type": "object",
-            "description": "Contains the translations of all translated fields."
           }
         },
         "type": "object"
@@ -10742,10 +10397,7 @@
             "description": "Contains the translations of all translated fields."
           },
           "media": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Media"
-            }
+            "$ref": "#/components/schemas/Media"
           },
           "ConfigValues": {
             "description": "Chosen values for the configuration."
@@ -11742,7 +11394,7 @@
         "type": "object",
         "properties": {
           "orders": {
-            "type": "array",
+            "type": "object",
             "items": {
               "$ref": "#/components/schemas/Order"
             }
@@ -12198,13 +11850,13 @@
             }
           },
           "total-count-mode": {
-            "description": "Whether the total for the total number of hits should be determined for the search query. none = disabled total count, exact = calculate exact total amount (slow), next-pages = calculate only for next page (fast)",
-            "type": "string",
-            "default": "none",
+            "description": "Whether the total for the total number of hits should be determined for the search query. 0 = disabled total count, 1 = calculate exact total amount (slow), 2 = calculate only for next page (fast)",
+            "type": "integer",
+            "default": 0,
             "enum": [
-              "none",
-              "exact",
-              "next-pages"
+              0,
+              1,
+              2
             ]
           }
         }
@@ -12580,18 +12232,6 @@
                   },
                   "defaultShippingAddressId": {
                     "type": "string"
-                  },
-                  "defaultBillingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
-                  },
-                  "defaultShippingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
-                  },
-                  "activeBillingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
-                  },
-                  "activeShippingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
                   },
                   "customerNumber": {
                     "type": "string"
@@ -13097,6 +12737,15 @@
           }
         }
       },
+      "ContextTokenResponse": {
+        "type": "object",
+        "properties": {
+          "contextToken": {
+            "description": "Context token identifying the current user session.",
+            "type": "string"
+          }
+        }
+      },
       "OrderProductWarehouse": {
         "properties": {
           "id": {
@@ -13552,6 +13201,34 @@
           }
         }
       },
+      "TaxProvider": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of tax provider."
+          },
+          "active": {
+            "description": "When boolean value is `true`, the tax providers are available for selection in the storefront."
+          },
+          "name": {
+            "description": "Name of the tax provider."
+          },
+          "priority": {
+            "description": "A numerical value to prioritize one the tax providers from the list."
+          },
+          "processUrl": {
+            "description": "External URL makes request to get tax info."
+          },
+          "appId": {
+            "description": "Unique identity of app."
+          },
+          "customFields": {
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "translated": {
+            "description": "Contains the translations of all translated fields."
+          }
+        }
+      },
       "Warehouse": {
         "properties": {
           "id": {
@@ -13563,6 +13240,13 @@
         "properties": {
           "id": {
             "description": "Unique identity of warehouse group."
+          }
+        }
+      },
+      "AppFlowEvent": {
+        "properties": {
+          "id": {
+            "description": "Unique identity of App flow event."
           }
         }
       },
@@ -13747,35 +13431,6 @@
       },
       "204": {
         "description": "No Content"
-      },
-      "ContextTokenResponse": {
-        "description": "Returns the context token. Use that as your `sw-context-token` header for subsequent requests. Redirect if getRedirectUrl is set.",
-        "headers": {
-          "sw-context-token": {
-            "description": "Contains sw-context-token value",
-            "schema": {
-              "type": "string"
-            }
-          }
-        },
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "contextToken": {
-                  "deprecated": true,
-                  "description": "Deprecated since v6.6.0.0. Please retrieve the context token from the response header instead.",
-                  "type": "string"
-                },
-                "redirectUrl": {
-                  "description": "Define the URL which browser will be redirected to",
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "parameters": {
@@ -13877,6 +13532,7 @@
           "content": {
             "application/json": {
               "schema": {
+                "type": "object",
                 "allOf": [
                   {
                     "properties": {
@@ -13926,6 +13582,7 @@
         "summary": "Fetch languages",
         "description": "Perform a filtered search for languages.",
         "operationId": "readLanguages",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -13946,6 +13603,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -13979,11 +13637,12 @@
         "tags": [
           "Profile",
           "Newsletter",
-          "Endpoints supporting Criteria"
+          "Endpoints supporting Criteria "
         ],
         "summary": "Fetch newsletter recipients",
         "description": "Perform a filtered search for newsletter recipients.",
         "operationId": "readNewsletterRecipient",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -14004,7 +13663,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/AccountNewsletterRecipientResult"
                   }
@@ -14347,6 +14005,7 @@
         "summary": "Get information about current customer",
         "description": "Returns information about the current customer.",
         "operationId": "readCustomer",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -14486,6 +14145,7 @@
         "summary": "Fetch addresses of a customer",
         "description": "Lists all addresses of the current customer and allows filtering them based on a criteria.",
         "operationId": "listAddress",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -14556,7 +14216,14 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
+            "description": "A successful login returns a context token which is associated with the logged in user. Use that as your `sw-context-token` header for subsequent requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextTokenResponse"
+                }
+              }
+            }
           },
           "401": {
             "description": "If credentials are incorrect an error is returned",
@@ -14586,7 +14253,14 @@
         "operationId": "logoutCustomer",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
+            "description": "A successful logout returns a context token for the anonymous user. Use that as your `sw-context-token` header for subsequent requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextTokenResponse"
+                }
+              }
+            }
           },
           "403": {
             "$ref": "#/components/responses/403"
@@ -14980,6 +14654,7 @@
         "summary": "Fetch currencies",
         "description": "Perform a filtered search for currencies.",
         "operationId": "readCurrency",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -15000,6 +14675,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -15036,6 +14712,7 @@
         ],
         "summary": "Loads all available payment methods",
         "operationId": "readPaymentMethod",
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -15177,8 +14854,9 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a list of products",
-        "description": "List products that match the given criteria. For performance reasons a limit should always be set.",
+        "description": "List products that match the given criteria. For performance ressons a limit should always be set.",
         "operationId": "readProduct",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -15199,6 +14877,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -15267,6 +14946,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -15334,17 +15014,13 @@
                     "type": "string"
                   },
                   "title": {
-                    "description": "The title of the review.",
-                    "type": "string"
+                    "description": "The title of the review."
                   },
                   "content": {
-                    "description": "The content of review.",
-                    "type": "string"
+                    "description": "The content of review."
                   },
                   "points": {
-                    "description": "The review rating for the product.",
-                    "type": "number",
-                    "format": "double"
+                    "description": "The review rating for the product."
                   }
                 },
                 "type": "object"
@@ -15466,66 +15142,6 @@
         ]
       }
     },
-    "/app-system/{name}/generate-token": {
-      "post": {
-        "tags": [
-          "App system"
-        ],
-        "summary": "Generate JWT token for app system backend",
-        "description": "Generate JWT token for authenticated communication with the app server",
-        "operationId": "generateJWTAppSystemAppServer",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "description": "Name of the app",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string"
-                    },
-                    "expires": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "shopId": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
     "/product-listing/{categoryId}": {
       "post": {
         "tags": [
@@ -15549,6 +15165,7 @@
           "content": {
             "application/json": {
               "schema": {
+                "type": "object",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/ProductListingCriteria"
@@ -15589,6 +15206,7 @@
         "summary": "Fetch a list of categories",
         "description": "Perform a filtered search for categories.",
         "operationId": "readCategoryList",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -15609,6 +15227,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -15749,6 +15368,7 @@
         "summary": "Fetch a wishlist",
         "description": "Fetch a customer's wishlist. Products on the wishlist can be filtered using a criteria object.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * The wishlist feature has to be activated.",
         "operationId": "readCustomerWishlist",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -15901,8 +15521,7 @@
                 "properties": {
                   "salutationId": {
                     "description": "Identifier of the salutation. Use `/api/salutation` endpoint to fetch possible values.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "type": "string"
                   },
                   "firstName": {
                     "description": "Firstname. This field may be required depending on the system settings.",
@@ -15930,13 +15549,11 @@
                   },
                   "navigationId": {
                     "description": "Identifier of the navigation page. Can be used to override the configuration.\nTake a look at the settings of a category containing a concact form in the administration.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "type": "string"
                   },
                   "slotId": {
                     "description": "Identifier of the cms element",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "type": "string"
                   },
                   "cmsPageType": {
                     "description": "Type of the content management page",
@@ -15973,6 +15590,7 @@
         "summary": "Fetch countries",
         "description": "Perform a filtered search for countries",
         "operationId": "readCountry",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -15993,6 +15611,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -16040,8 +15659,7 @@
                 "properties": {
                   "orderId": {
                     "description": "Identifier of an order",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "type": "string"
                   },
                   "finishUrl": {
                     "description": "URL to which the client should be redirected after successful payment",
@@ -16078,6 +15696,7 @@
         "summary": "Fetch salutations",
         "description": "Fetches salutations with a criteria obj.",
         "operationId": "readSalutation",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -16098,6 +15717,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -16213,7 +15833,14 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
+            "description": "Returns the context token. Use that as your `sw-context-token` header for subsequent requests. Redirect if getRedirectUrl is set.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextTokenResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -16263,6 +15890,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -16307,8 +15935,7 @@
                 "properties": {
                   "orderId": {
                     "description": "The identifier of the order to be canceled.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "type": "string"
                   }
                 },
                 "type": "object"
@@ -16344,6 +15971,7 @@
         "summary": "Fetch a list of orders",
         "description": "List orders of a customer.",
         "operationId": "readOrder",
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -16406,13 +16034,11 @@
                 "properties": {
                   "paymentMethodId": {
                     "description": "The identifier of the paymentMethod to be set",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "type": "string"
                   },
                   "orderId": {
                     "description": "The identifier of the order.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "type": "string"
                   }
                 },
                 "type": "object"
@@ -16471,12 +16097,7 @@
           "200": {
             "description": "An arbitrary binary file.",
             "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
+              "application/octet-stream": []
             }
           }
         },
@@ -16605,6 +16226,7 @@
           "content": {
             "application/json": {
               "schema": {
+                "type": "object",
                 "allOf": [
                   {
                     "required": [
@@ -16677,6 +16299,7 @@
                     "$ref": "#/components/schemas/Criteria"
                   },
                   {
+                    "type": "object",
                     "allOf": [
                       {
                         "properties": {
@@ -16771,16 +16394,10 @@
                   {
                     "properties": {
                       "depth": {
-                        "description": "Determines the depth of fetched navigation levels.",
-                        "type": "integer",
-                        "format": "int32"
+                        "description": "Determines the depth of fetched navigation levels."
                       },
                       "buildTree": {
-                        "description": "Return the categories as a tree or as a flat list.",
-                        "type": "array",
-                        "items": {
-                          "type": "object"
-                        }
+                        "description": "Return the categories as a tree or as a flat list."
                       }
                     },
                     "type": "object"
@@ -16822,6 +16439,7 @@
           "content": {
             "application/json": {
               "schema": {
+                "type": "object",
                 "allOf": [
                   {
                     "required": [
@@ -16870,6 +16488,16 @@
         "summary": "Fetch or create a cart",
         "description": "Used to fetch the current cart or for creating a new one.",
         "operationId": "readCart",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name of the new cart. This parameter will only be used when creating a new cart.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Cart",
@@ -16954,9 +16582,8 @@
           "Cart"
         ],
         "summary": "Remove items from the cart",
-        "description": "DEPRECATED: use removeLineItem instead. This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
-        "operationId": "removeLineItemDeprecated",
-        "deprecated": true,
+        "description": "This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
+        "operationId": "removeLineItem",
         "parameters": [
           {
             "name": "ids",
@@ -17002,57 +16629,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CartItems"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/checkout/cart/line-item/delete": {
-      "post": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Remove items from the cart",
-        "description": "This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
-        "operationId": "removeLineItem",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "ids"
-                ],
-                "properties": {
-                  "ids": {
-                    "description": "A list of product identifiers.",
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[0-9a-f]{32}$"
-                    }
-                  }
-                },
-                "type": "object"
               }
             }
           }
@@ -17136,6 +16712,7 @@
         "summary": "Fetch SEO routes",
         "description": "Perform a filtered search for seo urls.",
         "operationId": "readSeoUrl",
+        "parameters": [],
         "requestBody": {
           "required": false,
           "content": {
@@ -17156,6 +16733,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "allOf": [
                     {
                       "properties": {
@@ -17255,17 +16833,14 @@
                     "type": "string"
                   },
                   "option": {
-                    "description": "Defines what should be done.",
-                    "type": "string"
+                    "description": "Defines what should be done."
                   },
                   "storefrontUrl": {
                     "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email.",
                     "type": "string"
                   },
                   "salutationId": {
-                    "description": "Identifier of the salutation.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "description": "Identifier of the salutation."
                   },
                   "firstName": {
                     "description": "First name",
@@ -17292,9 +16867,7 @@
                     "type": "string"
                   },
                   "languageId": {
-                    "description": "Identifier of the language.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                    "description": "Identifier of the language."
                   },
                   "customFields": {
                     "description": "Custom field data that should be added to the subscription.",
@@ -17448,15 +17021,5 @@
         ]
       }
     }
-  },
-  "tags": [
-    {
-      "name": "Experimental",
-      "description": "Experimental API, not part of our backwards compatibility promise, thus this API can introduce breaking changes at any time.",
-      "externalDocs": {
-        "description": "Find out more",
-        "url": "https://github.com/shopware/platform/blob/trunk/adr/2023-05-10-experimental-features.md"
-      }
-    }
-  ]
+  }
 }
