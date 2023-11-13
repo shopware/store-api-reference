@@ -5,8 +5,6 @@ on:
   schedule:
     - cron: 0 8 */1 * *
 
-env:
-  LATEST_SW_VERSION: ''
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -14,15 +12,12 @@ jobs:
   save-file:    
     name: "Save file"
     runs-on: ubuntu-latest
-    outputs:
-      LATEST_SW_VERSION: ${{ env.LATEST_SW_VERSION }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
       - shell: bash
         run: |
           cp storeapi.json storeapi-original.json
-          echo "LATEST_SW_VERSION="$(curl -s https://api.github.com/repos/shopware/shopware/releases/latest | jq -r '.tag_name')"" >> $GITHUB_ENV
       - name: Upload original file
         uses: actions/upload-artifact@v3
         with:
@@ -34,7 +29,7 @@ jobs:
     with:
       schema_flags: --store-api
       schema_file: storeapi.json
-      shopware_version: ${{ needs.vars.outputs.LATEST_SW_VERSION }}
+      shopware_version: v6.5.6.1
     secrets: inherit
         
   open-pr:
