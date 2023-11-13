@@ -22,7 +22,7 @@ jobs:
       - shell: bash
         run: |
           cp storeapi.json storeapi-original.json
-          LATEST_SW_VERSION="$(curl -s https://api.github.com/repos/shopware/shopware/releases/latest | jq -r '.tag_name')" >> $GITHUB_ENV
+          echo "LATEST_SW_VERSION="$(curl -s https://api.github.com/repos/shopware/shopware/releases/latest | jq -r '.tag_name')"" >> $GITHUB_ENV
       - name: Upload original file
         uses: actions/upload-artifact@v3
         with:
