@@ -5,14 +5,17 @@ on:
   schedule:
     - cron: 0 8 */1 * *
 
+env:
+  LATEST_SW_VERSION: ''
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   
   save-file:    
     name: "Save file"
     runs-on: ubuntu-latest
-    env:
-      LATEST_SW_VERSION: ''
+    outputs:
+      LATEST_SW_VERSION: ${{ env.LATEST_SW_VERSION }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -31,7 +34,7 @@ jobs:
     with:
       schema_flags: --store-api
       schema_file: storeapi.json
-      shopware_version: ${{ env.LATEST_SW_VERSION }}
+      shopware_version: ${{ needs.vars.outputs.LATEST_SW_VERSION }}
     secrets: inherit
         
   open-pr:
