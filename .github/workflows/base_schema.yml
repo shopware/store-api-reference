@@ -31,7 +31,7 @@ jobs:
     with:
       schema_flags: --store-api
       schema_file: storeapi.json
-      shopware_version: ${{ env.FILE_DIFFERENCE }}
+      shopware_version: ${{ env.LATEST_SW_VERSION }}
     secrets: inherit
         
   open-pr:
