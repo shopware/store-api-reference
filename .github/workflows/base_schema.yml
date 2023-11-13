@@ -24,7 +24,7 @@ jobs:
           path: storeapi-original.json
   # This workflow contains a single job called "build"
   generate-schema:
-    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@v6.4
+    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
     with:
       schema_flags: --store-api
       schema_file: storeapi.json
