@@ -9,6 +9,7 @@ env:
   PLUGIN_NAME: SwagGuidedShopping
   PLUGIN_URL: gitlab.shopware.com/shopware/6/services/swagguidedshopping.git
   COMPOSER_PACKAGES: shopware-pwa/shopware-pwa symfony/mercure ^0.6.2 spatie/icalendar-generator ^2.5
+  SHOPWARE_VERSION: v6.4.20.2
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,6 +19,7 @@ jobs:
       PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
       PLUGIN_URL: ${{ env.PLUGIN_URL }}
       COMPOSER_PACKAGES: ${{ env.COMPOSER_PACKAGES }}
+      SHOPWARE_VERSION: ${{ env.SHOPWARE_VERSION }}
     steps:
       - run: echo "Exposing env vars"
   # This workflow contains a single job called "build" 
@@ -30,6 +32,7 @@ jobs:
       plugin_name: ${{ needs.vars.outputs.PLUGIN_NAME }}
       plugin_url: ${{ needs.vars.outputs.PLUGIN_URL }}
       composer_packages: ${{ needs.vars.outputs.COMPOSER_PACKAGES }}
+      shopware_version: ${{ needs.vars.outputs.SHOPWARE_VERSION }}
     secrets: 
       DEPLOY_USER: ${{ secrets.DIGITALSALESROOM_DEPLOY_USER }}
       DEPLOY_TOKEN: ${{ secrets.DIGITALSALESROOM_DEPLOY_TOKEN }}
@@ -65,4 +68,4 @@ jobs:
           assignees: Isengo1989, sushmangupta, bojanrajh
           branch: ${{ needs.vars.outputs.PLUGIN_NAME }}-schema-update
           delete-branch: true
-          title: 'Update ${{ needs.vars.outputs.PLUGIN_NAME }} store API schema'
+          title: 'Update ${{ needs.vars.outputs.PLUGIN_NAME }} ${{ needs.vars.outputs.SHOPWARE_VERSION }} store API schema'
