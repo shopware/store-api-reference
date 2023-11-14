@@ -1,9 +1,14 @@
 # Error Handling
 The Store API works with HTTP response codes to indicate the outcome of an operation. There are different categories of responses, and knowing them will make your work easier.‌
 
-* 2XX - Successful
-* 4XX - Client error
-* 5XX - Server error
+* 1XX - [Informational](https://shopware.stoplight.io/docs/store-api/d9d9602e793aa-info)
+* 2XX - [Successful](https://shopware.stoplight.io/docs/store-api/976916feeb35c-success)
+* 4XX - [Client error](https://shopware.stoplight.io/docs/store-api/27959709ef76a-failure)
+* 5XX - [Server error](https://shopware.stoplight.io/docs/store-api/27959709ef76a-failure)
+
+### 1XX Information
+
+The purpose of 1xx status codes in the HTTP is to provide provisional responses to the client, indicating that the server has received the request and is processing it. It doesn't represent a final status but rather indicate that further action or information is expected.
 
 ### 2XX Success
 
