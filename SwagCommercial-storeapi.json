@@ -932,6 +932,7 @@
       },
       "B2bEmployee": {
         "required": [
+          "languageId",
           "firstName",
           "lastName",
           "email",
@@ -939,6 +940,10 @@
         ],
         "properties": {
           "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "languageId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
@@ -969,6 +974,9 @@
           },
           "role": {
             "$ref": "#/components/schemas/B2bComponentsRole"
+          },
+          "language": {
+            "$ref": "#/components/schemas/Language"
           }
         },
         "type": "object"
