@@ -1,0 +1,12 @@
+name: Schedule version PRs
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: 0 9 */1 * *
+
+jobs:  
+  generate-trunk:
+    uses: ./.github/workflows/base_schema.yml
+    with:
+      shopware_version: 'trunk'
