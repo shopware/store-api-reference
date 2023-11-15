@@ -2,8 +2,11 @@ name: Update Store API
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 8 */1 * *
+    inputs:
+      shopware_version:
+        description: "Shopware version"
+        required: true
+        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,6 +31,7 @@ jobs:
     with:
       schema_flags: --store-api
       schema_file: storeapi.json
+      shopware_version: ${{ inputs.shopware_version }}
     secrets: inherit
         
   open-pr:
@@ -77,6 +81,6 @@ jobs:
         author: shopwareBot <example@example.com>
         committer: shopwareBot <example@example.com>
         assignees: sushmangupta, Isengo1989, bojanrajh
-        branch: schema-update
+        branch: schema-update-{{ $GITHUB_REF_NAME }}
         delete-branch: true
-        title: 'Update store API schema'
+        title: 'Update {{ $GITHUB_REF_NAME }} store API schema'
