@@ -1,7 +1,7 @@
 name: Update Commercial Store API
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       shopware_version:
         description: "Shopware version"
