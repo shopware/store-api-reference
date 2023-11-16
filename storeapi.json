@@ -3,7 +3,7 @@
   "info": {
     "title": "Shopware Store API",
     "description": "This endpoint reference contains an overview of all endpoints comprising the Shopware Store API",
-    "version": "6.5.9999999.9999999-dev"
+    "version": "6.5.6.1"
   },
   "servers": [
     {
@@ -620,29 +620,6 @@
         },
         "type": "object"
       },
-      "AppShippingMethod": {
-        "description": "Added since version: 6.5.7.0",
-        "required": [
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "type": "object"
-      },
       "AppTemplate": {
         "description": "Added since version: 6.3.1.0",
         "required": [
@@ -903,37 +880,6 @@
                     },
                     "type": "object"
                   },
-                  "tags": {
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/category/3adbdb3ac060038aa0e6e6c138ef9873/tags"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "tag"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "d57ac45256849d9b13e2422d91580fb9"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
                   "cmsPage": {
                     "properties": {
                       "links": {
@@ -1181,12 +1127,6 @@
           },
           "media": {
             "$ref": "#/components/schemas/Media"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
           },
           "cmsPage": {
             "$ref": "#/components/schemas/CmsPage"
@@ -2597,12 +2537,6 @@
               "$ref": "#/components/schemas/CustomerAddress"
             }
           },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
-          },
           "extensions": {
             "properties": {
               "specificFeatures": {
@@ -3016,9 +2950,6 @@
           "deepLinkCode": {
             "type": "string",
             "description": "It is a generated special code linked to email. It is used to access details of guest customer actions."
-          },
-          "documentNumber": {
-            "type": "string"
           },
           "customFields": {
             "type": "object",
@@ -4266,9 +4197,6 @@
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "string"
           },
-          "path": {
-            "type": "string"
-          },
           "hasFile": {
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "boolean"
@@ -4443,9 +4371,6 @@
           },
           "url": {
             "description": "Public url of media thumbnail.",
-            "type": "string"
-          },
-          "path": {
             "type": "string"
           },
           "customFields": {
@@ -6476,9 +6401,6 @@
                 "description": "Runtime field, cannot be used as part of the criteria.",
                 "type": "string"
               },
-              "technicalName": {
-                "type": "string"
-              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -6605,9 +6527,6 @@
           },
           "shortName": {
             "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "string"
-          },
-          "technicalName": {
             "type": "string"
           },
           "createdAt": {
@@ -6833,14 +6752,6 @@
                 "readOnly": true
               },
               "streamIds": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "tagIds": {
                 "type": "array",
                 "items": {
                   "type": "string",
@@ -7580,37 +7491,6 @@
                     },
                     "type": "object"
                   },
-                  "tags": {
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/tags"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "tag"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "d57ac45256849d9b13e2422d91580fb9"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
                   "seoCategory": {
                     "properties": {
                       "links": {
@@ -7863,14 +7743,6 @@
             "readOnly": true,
             "description": "Runtime field, cannot be used as part of the criteria."
           },
-          "tagIds": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            },
-            "readOnly": true
-          },
           "categoryIds": {
             "type": "array",
             "items": {
@@ -8085,12 +7957,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Category"
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
             }
           },
           "seoCategory": {
@@ -9846,9 +9712,6 @@
               "trackingUrl": {
                 "type": "string"
               },
-              "technicalName": {
-                "type": "string"
-              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -10102,9 +9965,6 @@
           "trackingUrl": {
             "type": "string",
             "description": "This URL allows to track packages."
-          },
-          "technicalName": {
-            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -10485,7 +10345,6 @@
       "Tag": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "name",
           "createdAt"
         ],
         "properties": {
@@ -10493,9 +10352,6 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of tag."
-          },
-          "name": {
-            "type": "string"
           },
           "createdAt": {
             "type": "string",
