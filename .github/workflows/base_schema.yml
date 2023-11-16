@@ -84,4 +84,4 @@ jobs:
         assignees: sushmangupta, Isengo1989, bojanrajh
         branch: "schema-update-${{ env.BRANCH_NAME }}"
         delete-branch: true
-        title: 'Update {{ env.BRANCH_NAME }} store API schema'
+        title: 'Update ${{ env.BRANCH_NAME }} store API schema'
