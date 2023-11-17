@@ -27,7 +27,7 @@ The request format for Shopware 6 store API's must follow the below format:
 
 * The request body has to be JSON encoded.
 
-* It is mandatory to use type-safe values, e.g. if the API expects an integer value, you are required to provide an actual integer.
+* It is mandatory to use type-safe values, e.g., if the API expects an integer value, you are required to provide an actual integer.
 
 * When using a Date field, make sure to use an ISO 8601 compatible date format.
 
@@ -47,18 +47,18 @@ https://shop.example.com/store-api/path/{query-parameter}
 
 ### Request headers
 
-Request headers provide information about your request to a REST API service that allows to authenticate/authorize and receive the request body.
+Request headers provide information about your request to a REST API service that allows you to authenticate/authorize and receive the request body.
 
 | Request header              | Key                                    | Description                                                                                |
 | --------------------------- | ---------------------------------------|--------------------------------------------------------------------------------------------|
 | sw-access-token             | SWSCXYZSNTVMAWNZDNFKSHLAYW             | Access key to identify and get authorized to respective sales channel access               |
 | sw-context-token            | 84266fdbd31d4c2c6d0665f7e8380fa3       | Sample endpoints `/account/login`, `/checkout/cart` that require user authentication       |
-| Content-Type                | application/json                       | Indicate the format of the request body                                                    |
+| Content-Type                | application/json                      | Indicate the format of the request body                                                    |
 | Accept                      | application/json                       | Indicate the format in which the response will be returned                                 |
 
 ### Request body
 
-```javascript
+```json
 //sample request body format
 
 {
@@ -85,7 +85,7 @@ Request headers provide information about your request to a REST API service tha
 
 The Store API generally supports the following headers. By default, the response will be in JSON:API format. You can control the response format using the `Accept` header.
 
-| Response header             | Accept                      | Format                                                                    |
+| Response header             | Key                         | Description                                                               |
 | ----------------------------| --------------------------- | --------------------------------------------------------------------------|
 | Content-type                | application/json            | Simplified JSON format                                                    |
 | Cache-control               |                             | Provides directives for caching mechanisms in both requests and responses |
@@ -99,7 +99,7 @@ The Store API generally supports the following headers. By default, the response
 
 The format has a rich structure that makes discovering the API easier, even without documentation. Some libraries can even generate user interfaces from it. It provides relationships to other resources and additional information about the resource. You can see a shortened example response below:
 
-```javascript
+```json
 
 {
  "price": {
