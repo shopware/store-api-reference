@@ -219,7 +219,7 @@ The format has a rich structure that makes discovering the API easier, even with
                 },
                 "uploadedAt": "2020-01-14T12:13:35.000+00:00",
                 "alt": null,
-                "url": "https://cdn.swstage.store/F/S/g/2pFUo/media/01/b0/34/1579004015/943278_SPLK_Eisportionierer_01.jpg",
+                "url": "https://shop.example.com/F/S/g/2pFUo/media/01/b0/34/1579004015/943278_Eisportionierer_01.jpg",
                 "fileName": "943278_SPLK_Eisportionierer_01",
                 "translations": null,
                 "thumbnails": [
@@ -230,7 +230,7 @@ The format has a rich structure that makes discovering the API easier, even with
                         "width": 400,
                         "path": "thumbnail/01/b0/34/1579004015/943278_SPLK_Eisportionierer_01_400x400.jpg",
                         "height": 400,
-                        "url": "https://cdn.swstage.store/F/S/g/2pFUo/thumbnail/01/b0/34/1579004015/943278_SPLK_Eisportionierer_01_400x400.jpg",
+                        "url": "https://shop.example.com/F/S/g/2pFUo/thumbnail/01/b0/34/1579004015/943278_SPLK_Eis_01_400x400.jpg",
                         "mediaId": "394243c9602e4bf7a288b9a0ba845ac6",
                         "customFields": null,
                         "id": "70477ce7dda548b186036e8b3197e9ef",
