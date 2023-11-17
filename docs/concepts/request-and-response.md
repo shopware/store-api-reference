@@ -8,7 +8,18 @@ The base endpoint depends on your Shopware host URL - for example:
 https://shop.example.com/store-api
 ```
 
-From this base endpoint, we can access all paths described in the subsequent sections.
+From this base endpoint, you can interact with storefront resources like cart, order, etc.
+
+## HTTP method
+
+The HTTP methods indicate the type of operation you want to perform.
+
+| HTTP method  | Description                     |
+| -------------| --------------------------------|
+| GET          | Fetches or adds a new object    |
+| POST         | Fetches or creates a new object |
+| PATCH        | Updates the object info         |
+| DELETE       | Deletes the object              |
 
 ## Request format
 
@@ -22,13 +33,13 @@ The request format for Shopware 6 store API's must follow the below format:
 
 ### Request URL
 
-* With endpoint:
+* Request with resource path:
 
 ```text
 https://shop.example.com/store-api/path
 ```
 
-* With endpoint and request parameter
+* Request with resource path and query parameter
 
 ```text
 https://shop.example.com/store-api/path/{query-parameter}
@@ -36,145 +47,197 @@ https://shop.example.com/store-api/path/{query-parameter}
 
 ### Request headers
 
-Request headers provide information about your request to a REST API service that allows to authenticate and receive the request body.
+Request headers provide information about your request to a REST API service that allows to authenticate/authorize and receive the request body.
 
-| Request header              | Key                                    | Description                                     |
-| --------------------------- | ---------------------------------------|-------------------------------------------------|
-| `Authorization`             | `sw-access-token`, `sw-context-token`  | Api key and Context token                       |
-| `Content-Type`              | `application/json`                     | Indicate the format of the request body         |
-| `Accept`                    | `application/json`                     | Indicate the format in which the response will be returned |
+| Request header              | Key                                    | Description                                                                                |
+| --------------------------- | ---------------------------------------|--------------------------------------------------------------------------------------------|
+| sw-access-token             | SWSCXYZSNTVMAWNZDNFKSHLAYW             | Access key to identify and get authorized to respective sales channel access               |
+| sw-context-token            | 84266fdbd31d4c2c6d0665f7e8380fa3       | Sample endpoints `/account/login`, `/checkout/cart` that require user authentication       |
+| Content-Type                | application/json                       | Indicate the format of the request body                                                    |
+| Accept                      | application/json                       | Indicate the format in which the response will be returned                                 |
+
+### Request body
 
 ```javascript
+//sample request body format
+
 {
-    "id": "01bd7e70a50443ec96a01fd34890dcc5",
-    "name": "Example product",
-    "taxId": "792203a53e564e28bcb7ffa1867fb485",
-    "stock": 708,
-    "createdAt": "2018-09-13T10:17:05+02:00"
+  "items": [
+    {
+      "id": "01bd7e70a50443ec96a01fd34890dcc5",
+      "referencedId": "01bd7e71b277653ec96a01fd34890ecc21",
+      "quantity": 1,
+      "type": "string",
+      "good": true,
+      "description": "Metal ice cream scooper",
+      "removable": true,
+      "stackable": true,
+      "modified": true
+    }
+  ],
+  "apiAlias": "string"
 }
 ```
 
 ## Response format
 
-The Store API generally supports two response body formats. A simple json format to no explicit specification and the [JSON:API](http://jsonapi.org/) standard format. By default, the response will be in JSON:API format. You can control the response format using the `Accept` header.
+### Response headers
 
-| Accept                      | Format                                    |
-| --------------------------- | ----------------------------------------- |
-| `application/vnd.api+json`  | JSON:API formatted response **(default)** |
-| `application/json`          | Simplified JSON format                    |
+The Store API generally supports the following headers. By default, the response will be in JSON:API format. You can control the response format using the `Accept` header.
 
-### JSON:API
+| Response header             | Accept                      | Format                                                                    |
+| ----------------------------| --------------------------- | --------------------------------------------------------------------------|
+| Content-type                | application/json            | Simplified JSON format                                                    |
+| Cache-control               |                             | Provides directives for caching mechanisms in both requests and responses |
+| Date                        | date                        |  Specifies the date and time at which the response was generated          |
+| X-Frame-Options, Strict-transport-encoding | deny         | Protects against a certain cyber-attacks                                  |
+| SW-Context-Token            | token                       |  For authentication purpose                                               |
+| Referrer-Policy             | strict-origin-when-cross-origin| Controls the amount of information sent                                |
+| Content-Encoding            | gzip                      |  Resource compression format for faster loading                             |
 
-The format has a rich structure that makes discovering the API easier, even without documentation. Some libraries can even generate user interfaces from it. It provides relationships to other resources and additional information about the resource. You can see a shortened example response below
+### Sample response
 
-```javascript
-// Accept: application/vnd.api+json (default)
-
-{
-    "data": [
-        {
-            "id": "01bd7e70a50443ec96a01fd34890dcc5",
-            "type": "product",
-            "attributes": {
-                "active": true,
-                "stock": 708,
-                "createdAt": "2018-09-13T10:17:05+02:00",
-                "manufacturerId": "f85bda8491fd4d61bcd2c7982204c638",
-                "taxId": "792203a53e564e28bcb7ffa1867fb485",
-                "price": {
-                    "net": 252.94117647058826,
-                    "gross": 301,
-                    "linked": true
-                }
-            },
-            "links": {
-                "self": "http://localhost:8000/api/product/01bd7e70a50443ec96a01fd34890dcc5"
-            },
-            "relationships": {
-                "children": {
-                    "data": [],
-                    "links": {
-                        "related": "http://localhost:8000/api/product/01bd7e70a50443ec96a01fd34890dcc5/children"
-                    }
-                }
-            }
-        }
-    ],
-    "included": [
-        {
-            "id": "792203a53e564e28bcb7ffa1867fb485",
-            "type": "tax",
-            "attributes": {
-                "taxRate": 20,
-                "name": "20%",
-                "createdAt": "2018-09-13T09:54:01+02:00"
-            },
-            "links": {
-                "self": "http://localhost:8000/api/tax/792203a53e564e28bcb7ffa1867fb485"
-            },
-            "relationships": {
-                "products": {
-                    "data": [],
-                    "links": {
-                        "related": "http://localhost:8000/api/tax/792203a53e564e28bcb7ffa1867fb485/products"
-                    }
-                }
-            }
-        }
-    ],
-    "links": {
-        "first": "http://localhost:8000/api/product?limit=1&page=1",
-        "last": "http://localhost:8000/api/product?limit=1&page=50",
-        "next": "http://localhost:8000/api/product?limit=1&page=2",
-        "self": "http://localhost:8000/api/product?limit=1"
-    },
-    "meta": {
-        "fetchCount": 1,
-        "total": 50
-    },
-    "aggregations": []
-}
-```
-
-### Simple JSON
-
-The simple JSON format only contains essential information, and skips JSON:API specific fields related to pagination or self-discovery. Associations are placed directly within the entities rather than in a separate section. It is sometimes favourable, because it's less "blown-up" and as such easier for clients to consume. You can see a shortened example below:
+The format has a rich structure that makes discovering the API easier, even without documentation. Some libraries can even generate user interfaces from it. It provides relationships to other resources and additional information about the resource. You can see a shortened example response below:
 
 ```javascript
-// Accept: application/json
 
 {
-    "total": 50,
-    "data": [
+ "price": {
+        "netPrice": 168.22,
+        "totalPrice": 180,
+        "calculatedTaxes": [
+            {
+                "tax": 11.78,
+                "taxRate": 7,
+                "price": 180,
+                "apiAlias": "cart_tax_calculated"
+            }
+        ],
+        "taxRules": [
+            {
+                "taxRate": 7,
+                "percentage": 100,
+                "apiAlias": "cart_tax_rule"
+            }
+        ],
+        "positionPrice": 180,
+        "taxStatus": "gross",
+        "rawTotal": 180,
+        "apiAlias": "cart_price"
+    },
+    "lineItems": [
         {
-            "taxId": "792203a53e564e28bcb7ffa1867fb485",
-            "manufacturerId": "f85bda8491fd4d61bcd2c7982204c638",
-            "active": true,
+            "payload": {
+                "isCloseout": false,
+                "customFields": [],
+                "createdAt": "2020-08-06 06:26:32.065",
+                "releaseDate": null,
+                "isNew": false,
+                "markAsTopseller": null,
+                "productNumber": "SW10423",
+                "manufacturerId": "05cd4e976df14c4d90e351f345ff5aa3",
+                "taxId": "94f1e03140d24698a894320e258e6d83",
+                "tagIds": null,
+                "categoryIds": [
+                    "525abe8981214bd2ba94fd33942333ec",
+                    "bda4b60e845240b2b9d6b60e71196e14"
+                ],
+                "propertyIds": [
+                    "6e3be72d8ad84a4ab73746a17863c1e8"
+                ],
+                "optionIds": null,
+                "options": [],
+                "streamIds": [
+                    "1318833f46df457981763b94179d9ef0",
+                    "89a367082c0d48c88f59424a8bb0265b"
+                ],
+                "parentId": null,
+                "stock": 2389,
+                "features": []
+            },
+            "label": "Ice Cream Scoop",
+            "quantity": 1,
+            "priceDefinition": {
+                "price": 180,
+                "taxRules": [
+                    {
+                        "taxRate": 7,
+                        "percentage": 100,
+                        "apiAlias": "cart_tax_rule"
+                    }
+                ],
+                "quantity": 1,
+                "isCalculated": true,
+                "referencePriceDefinition": null,
+                "listPrice": null,
+                "regulationPrice": null,
+                "type": "quantity",
+                "apiAlias": "cart_price_quantity"
+            },
             "price": {
-                "net": 252.94117647058826,
-                "gross": 301,
-                "linked": true,
-                "extensions": []
+                "unitPrice": 180,
+                "quantity": 1,
+                "totalPrice": 180,
+                "calculatedTaxes": [
+                    {
+                        "tax": 11.78,
+                        "taxRate": 7,
+                        "price": 180,
+                        "apiAlias": "cart_tax_calculated"
+                    }
+                ],
+                "taxRules": [
+                    {
+                        "taxRate": 7,
+                        "percentage": 100,
+                        "apiAlias": "cart_tax_rule"
+                    }
+                ],
+                "referencePrice": null,
+                "listPrice": null,
+                "regulationPrice": null,
+                "apiAlias": "calculated_price"
             },
-            "stock": 708,
-            "tax": {
-                "taxRate": 20,
-                "name": "20%",
-                "createdAt": "2018-09-13T09:54:01+02:00",
-                "id": "792203a53e564e28bcb7ffa1867fb485"
-            },
-            "manufacturer": {
-                "catalogId": "20080911ffff4fffafffffff19830531",
-                "name": "Arnold",
-                "createdAt": "2018-09-13T10:17:04+02:00",
-                "products": null,
-                "id": "f85bda8491fd4d61bcd2c7982204c638"
-            },
-            "parent": null,
-            "children": null,
-            "id": "01bd7e70a50443ec96a01fd34890dcc5"
-        }
-    ],
-    "aggregations": []
-}
+            "good": true,
+            "description": null,
+            "cover": {
+                "translated": {
+                    "alt": null,
+                    "title": null,
+                    "customFields": {}
+                },
+                "createdAt": "2020-08-06T06:26:06.221+00:00",
+                "updatedAt": "2020-08-06T06:26:32.029+00:00",
+                "mimeType": "image/jpeg",
+                "fileExtension": "jpg",
+                "fileSize": 44808,
+                "title": null,
+                "metaData": {
+                    "type": 2,
+                    "width": 900,
+                    "height": 900
+                },
+                "uploadedAt": "2020-01-14T12:13:35.000+00:00",
+                "alt": null,
+                "url": "https://cdn.swstage.store/F/S/g/2pFUo/media/01/b0/34/1579004015/943278_SPLK_Eisportionierer_01.jpg",
+                "fileName": "943278_SPLK_Eisportionierer_01",
+                "translations": null,
+                "thumbnails": [
+                    {
+                        "translated": [],
+                        "createdAt": "2020-08-06T06:26:06.219+00:00",
+                        "updatedAt": "2020-08-06T06:26:32.027+00:00",
+                        "width": 400,
+                        "path": "thumbnail/01/b0/34/1579004015/943278_SPLK_Eisportionierer_01_400x400.jpg",
+                        "height": 400,
+                        "url": "https://cdn.swstage.store/F/S/g/2pFUo/thumbnail/01/b0/34/1579004015/943278_SPLK_Eisportionierer_01_400x400.jpg",
+                        "mediaId": "394243c9602e4bf7a288b9a0ba845ac6",
+                        "customFields": null,
+                        "id": "70477ce7dda548b186036e8b3197e9ef",
+                        "apiAlias": "media_thumbnail"
+                    },
+...
+...
+...
+
 ```
