@@ -1,34 +1,22 @@
 # Javascript SDKs
 
-The [**shopware-6-client**](https://www.npmjs.com/package/@shopware-pwa/shopware-6-client) package provides interfaces for all Store API endpoints and can be used in any JS/Node.js based project.
+Dynamic and fully typed [**API Client**](https://www.npmjs.com/package/@shopware/api-client) for Shopware 6. Usable in any JavaScript and TypeScript project. You can use types generated from your custom API instance for autocompletion and type safety.
 
 ## Installation
 
-Install it using a package manager of your choice - for example yarn.
+Install it using a package manager of your choice
 
 ```bash
-yarn add @shopware-pwa/shopware-6-client
+# Using pnpm
+pnpm add @shopware/api-client
+
+# Using yarn
+yarn add @shopware/api-client
+
+# Using npm
+npm i @shopware/api-client
 ```
 
-## Initialization
+It works both with Store API and Admin API. You can use it for web applications and Node backend projects, for example, in your Shopware Apps.
 
-Configure the client using the [credentials](../../concepts/authentication-authorisation.md) of your Shopware instance 
-
-```javascript
-import { setup } from "@shopware-pwa/shopware-6-client";
-
-setup({
-  endpoint: "https://address-to-my-shopware-instance.com",
-  accessToken: "myaccesstoken",
-});
-```
-
-## Usage
-
-```javascript
-import { getCategories } from "@shopware-pwa/shopware-6-client"
-
-const categories = await getCategories();
-```
-
-The SDK comes with full typescript typehinting and completion. An overview of all endpoints can be [found here](https://shopware-pwa-docs.vuestorefront.io/landing/resources/api/shopware-6-client.html).
+Read full API client documentation [here](https://www.npmjs.com/package/@shopware/api-client)
