@@ -6750,6 +6750,15 @@
               "isCloseout": {
                 "type": "boolean"
               },
+              "availableStock": {
+                "type": "integer",
+                "format": "int64",
+                "readOnly": true
+              },
+              "stock": {
+                "type": "integer",
+                "format": "int64"
+              },
               "displayGroup": {
                 "type": "string",
                 "readOnly": true
@@ -6899,14 +6908,6 @@
               },
               "customFields": {
                 "type": "object"
-              },
-              "availableStock": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "stock": {
-                "type": "integer",
-                "format": "int64"
               },
               "calculatedPrice": {
                 "type": "object"
@@ -7753,6 +7754,17 @@
             "type": "boolean",
             "description": "When the value is set to true, the product is hidden when sold out."
           },
+          "availableStock": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true,
+            "description": "Indicates the number of products still available. This value results from the stock minus the open orders."
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced."
+          },
           "displayGroup": {
             "type": "string",
             "readOnly": true,
@@ -7934,16 +7946,6 @@
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
-          },
-          "availableStock": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Indicates the number of products still available. This value results from the stock minus the open orders."
-          },
-          "stock": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced."
           },
           "calculatedPrice": {
             "type": "object",
