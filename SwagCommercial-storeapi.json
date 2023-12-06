@@ -7062,6 +7062,15 @@
               "isCloseout": {
                 "type": "boolean"
               },
+              "availableStock": {
+                "type": "integer",
+                "format": "int64",
+                "readOnly": true
+              },
+              "stock": {
+                "type": "integer",
+                "format": "int64"
+              },
               "displayGroup": {
                 "type": "string",
                 "readOnly": true
@@ -7211,14 +7220,6 @@
               },
               "customFields": {
                 "type": "object"
-              },
-              "availableStock": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "stock": {
-                "type": "integer",
-                "format": "int64"
               },
               "calculatedPrice": {
                 "type": "object"
@@ -8082,6 +8083,15 @@
           "isCloseout": {
             "type": "boolean"
           },
+          "availableStock": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int64"
+          },
           "displayGroup": {
             "type": "string",
             "readOnly": true
@@ -8231,14 +8241,6 @@
           },
           "customFields": {
             "type": "object"
-          },
-          "availableStock": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "stock": {
-            "type": "integer",
-            "format": "int64"
           },
           "calculatedPrice": {
             "type": "object"
@@ -9587,10 +9589,6 @@
             "format": "float"
           },
           "totalDiscount": {
-            "type": "number",
-            "format": "float"
-          },
-          "originalPrice": {
             "type": "number",
             "format": "float"
           },
@@ -11359,6 +11357,53 @@
             "items": {
               "$ref": "#/components/schemas/Snippet"
             }
+          }
+        },
+        "type": "object"
+      },
+      "SsoProvider": {
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "media": {
+            "$ref": "#/components/schemas/Media"
+          }
+        },
+        "type": "object"
+      },
+      "SsoProviderCustomer": {
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
           }
         },
         "type": "object"
@@ -14968,6 +15013,84 @@
         "responses": {
           "204": {
             "description": "No content response"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/sso/auth/{providerId}": {
+      "post": {
+        "tags": [
+          "Sso"
+        ],
+        "summary": "Authenticates via SSO",
+        "description": "Authenticates login via a given SSO provider ID",
+        "operationId": "auth",
+        "parameters": [
+          {
+            "name": "providerId",
+            "in": "path",
+            "description": "Identifier of the SSO provider used to authenticate",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully authenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/sso/redirect/{providerId}": {
+      "post": {
+        "tags": [
+          "Sso"
+        ],
+        "summary": "Redirects after authentication",
+        "description": "Redirects after authenticated login via a given SSO provider ID",
+        "operationId": "redirect",
+        "parameters": [
+          {
+            "name": "providerId",
+            "in": "path",
+            "description": "Identifier of the SSO provider used to authenticate",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully authenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
           }
         },
         "security": [
