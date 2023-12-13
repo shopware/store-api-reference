@@ -10762,16 +10762,16 @@
               "isDeleted": {
                 "type": "boolean"
               },
+              "error": {
+                "description": "Runtime field, cannot be used as part of the criteria.",
+                "type": "string"
+              },
               "url": {
                 "description": "Runtime field, cannot be used as part of the criteria.",
                 "type": "string"
               },
               "customFields": {
                 "type": "object"
-              },
-              "isValid": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -10833,16 +10833,16 @@
           "isDeleted": {
             "type": "boolean"
           },
+          "error": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
           "url": {
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "string"
           },
           "customFields": {
             "type": "object"
-          },
-          "isValid": {
-            "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
