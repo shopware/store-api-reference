@@ -9660,16 +9660,16 @@
               "isDeleted": {
                 "type": "boolean"
               },
+              "error": {
+                "description": "Runtime field, cannot be used as part of the criteria.",
+                "type": "string"
+              },
               "url": {
                 "description": "Runtime field, cannot be used as part of the criteria.",
                 "type": "string"
               },
               "customFields": {
                 "type": "object"
-              },
-              "isValid": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "boolean"
               },
               "createdAt": {
                 "type": "string",
@@ -9741,6 +9741,10 @@
             "type": "boolean",
             "description": "When set to true, the URL is deleted and cannot be used any more but it is still available on table and can be restored later."
           },
+          "error": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
           "url": {
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "string"
@@ -9748,10 +9752,6 @@
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
-          },
-          "isValid": {
-            "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
@@ -10944,239 +10944,12 @@
         },
         "type": "object"
       },
-      "ProductListingResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/EntitySearchResult"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "currentFilters": {
-                "type": "object",
-                "description": "Contains the state of the filters. These can be used to create listing filters.",
-                "properties": {
-                  "navigationId": {
-                    "type": "string"
-                  },
-                  "manufacturer": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  },
-                  "price": {
-                    "type": "object",
-                    "properties": {
-                      "min": {
-                        "type": "integer"
-                      },
-                      "max": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "rating": {
-                    "type": "integer"
-                  },
-                  "shipping-free": {
-                    "type": "boolean"
-                  },
-                  "properties": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  }
-                }
-              },
-              "availableSortings": {
-                "type": "array",
-                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
-                "items": {
-                  "type": "object"
-                }
-              },
-              "sorting": {
-                "type": "string"
-              },
-              "elements": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "Cart": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "name": {
-                "description": "Name of the cart - for example `guest-cart`",
-                "type": "string"
-              },
-              "token": {
-                "description": "Context token identifying the cart and the user session",
-                "type": "string"
-              },
-              "price": {
-                "type": "object",
-                "properties": {
-                  "netPrice": {
-                    "description": "Net price of the cart",
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "totalPrice": {
-                    "description": "Total price of the cart, including shipping costs, discounts and taxes",
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "positionPrice": {
-                    "description": "Price for all line items in the cart",
-                    "type": "number",
-                    "format": "float"
-                  },
-                  "taxStatus": {
-                    "description": "Tax calculation for the cart. One of `gross`, `net` or `tax-free`",
-                    "type": "string"
-                  }
-                }
-              },
-              "lineItems": {
-                "description": "All items within the cart",
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/LineItem"
-                }
-              },
-              "errors": {
-                "type": "array",
-                "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "key": {
-                      "type": "string"
-                    },
-                    "level": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "transactions": {
-                "description": "A list of all payment transactions associated with the current cart.",
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "paymentMethodId": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "modified": {
-                "type": "boolean"
-              },
-              "customerComment": {
-                "type": "string",
-                "description": "A comment that can be added to the cart."
-              },
-              "affiliateCode": {
-                "type": "string",
-                "description": "An affiliate tracking code"
-              },
-              "campaignCode": {
-                "type": "string",
-                "description": "A campaign tracking code"
-              }
-            }
-          }
-        ],
-        "properties": {
-          "id": {
-            "description": "Unique identity of cart."
-          },
-          "errors": {
-            "properties": {
-              "key": {
-                "description": "Unique key for every message."
-              },
-              "level": {
-                "description": "Types of level - Notice, warning and error.  "
-              },
-              "message": {
-                "description": "A persistent error passed from the shopping cart calculation processes to the user end."
-              }
-            }
-          },
-          "transactions": {
-            "properties": {
-              "paymentMethodId": {
-                "description": "Unique identity of payment method."
-              }
-            }
-          },
-          "modified": {
-            "description": "It signifies any changes to cart."
-          }
-        }
-      },
-      "LineItem": {
+      "Struct": {
         "type": "object",
         "properties": {
-          "id": {
+          "apiAlias": {
             "type": "string",
-            "description": "Unique identity of line item."
-          },
-          "referencedId": {
-            "type": "string",
-            "description": "Unique identity of type of entity."
-          },
-          "label": {
-            "type": "string",
-            "description": "It is a typical product name given to the line item."
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "description": "Number of items of product."
-          },
-          "type": {
-            "type": "string",
-            "description": "Type refers to the entity type of an item whether it is product or promotion for instance."
-          },
-          "good": {
-            "type": "boolean",
-            "description": "When set to true, it indicates the line item is physical else it is virtual."
-          },
-          "description": {
-            "type": "string",
-            "description": "Description of line items in an order."
-          },
-          "removable": {
-            "type": "boolean",
-            "description": "Allows the line item to be removable from the cart when set to true."
-          },
-          "stackable": {
-            "type": "boolean",
-            "description": "Allows to change the quantity of the line item when set to true."
-          },
-          "modified": {
-            "type": "boolean",
-            "description": "When boolean value is `true`, line items are said to be modified."
+            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
           }
         }
       },
@@ -11859,292 +11632,6 @@
           }
         }
       },
-      "AccountNewsletterRecipientResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Struct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "status": {
-                "type": "string"
-              }
-            }
-          }
-        ],
-        "properties": {
-          "status": {
-            "description": "Status indicates if the customer has subscribed to the news letter or not."
-          }
-        }
-      },
-      "CrossSellingElementCollection": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "crossSelling": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "position": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "sortBy": {
-                  "type": "string"
-                },
-                "sortDirection": {
-                  "type": "string"
-                },
-                "limit": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "active": {
-                  "type": "boolean"
-                },
-                "productId": {
-                  "type": "string"
-                },
-                "productStreamId": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                }
-              }
-            },
-            "products": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Product"
-              }
-            },
-            "total": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        },
-        "properties": {
-          "total": {
-            "description": "Number of cross selling elements found."
-          }
-        }
-      },
-      "FindProductVariantRouteResponse": {
-        "type": "object",
-        "properties": {
-          "foundCombination": {
-            "type": "object",
-            "properties": {
-              "variantId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$",
-                "description": "Unique identity of a variant."
-              },
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Available product variant options. For example, for variant `Size`, option would be `XS`, `S`, `M`, `L`, `XL`."
-              }
-            }
-          }
-        }
-      },
-      "CartItems": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "items": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/LineItem"
-                }
-              }
-            }
-          }
-        ],
-        "properties": {
-          "items": {
-            "properties": {
-              "id": {
-                "description": "Unique identity of cart item."
-              },
-              "modified": {
-                "description": "When boolean value is `true`, the cart is said to be modified."
-              }
-            }
-          }
-        }
-      },
-      "ProductListingCriteria": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Criteria"
-          },
-          {
-            "type": "object",
-            "description": "Additional search parameters for product listings",
-            "properties": {
-              "order": {
-                "description": "Specifies the sorting of the products by `availableSortings`. If not set, the default sorting will be set according to the shop settings. The available sorting options are sent within the response under the `availableSortings` key. In order to sort by a field, consider using the `sort` parameter from the listing criteria. Do not use both parameters together, as it might lead to unexpected results.",
-                "type": "string"
-              },
-              "limit": {
-                "description": "Number of items per result page. If not set, the limit will be set according to the default products per page, defined in the system settings.",
-                "type": "integer",
-                "minimum": 0
-              },
-              "p": {
-                "description": "Search result page",
-                "type": "integer",
-                "default": 1
-              },
-              "manufacturer": {
-                "description": "Filter by manufacturers. List of manufacturer identifiers separated by a `|`.",
-                "type": "string"
-              },
-              "min-price": {
-                "description": "Filters by a minimum product price. Has to be lower than the `max-price` filter.",
-                "type": "integer",
-                "minimum": 0,
-                "default": 0
-              },
-              "max-price": {
-                "description": "Filters by a maximum product price. Has to be higher than the `min-price` filter.",
-                "type": "integer",
-                "minimum": 0,
-                "default": 0
-              },
-              "rating": {
-                "description": "Filter products with a minimum average rating.",
-                "type": "integer"
-              },
-              "shipping-free": {
-                "description": "Filters products that are marked as shipping-free.",
-                "type": "boolean",
-                "default": false
-              },
-              "properties": {
-                "description": "Filters products by their properties. List of property identifiers separated by a `|`.",
-                "type": "string"
-              },
-              "manufacturer-filter": {
-                "description": "Enables/disabled filtering by manufacturer. If set to false, the `manufacturer` filter will be ignored. Also the `aggregations[manufacturer]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "price-filter": {
-                "description": "Enables/disabled filtering by price. If set to false, the `min-price` and `max-price` filter will be ignored. Also the `aggregations[price]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "rating-filter": {
-                "description": "Enables/disabled filtering by rating. If set to false, the `rating` filter will be ignored. Also the `aggregations[rating]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "shipping-free-filter": {
-                "description": "Enables/disabled filtering by shipping-free products. If set to false, the `shipping-free` filter will be ignored. Also the `aggregations[shipping-free]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "property-filter": {
-                "description": "Enables/disabled filtering by properties products. If set to false, the `properties` filter will be ignored. Also the `aggregations[properties]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "property-whitelist": {
-                "description": "A whitelist of property identifiers which can be used for filtering. List of property identifiers separated by a `|`. The `property-filter` must be `true`, otherwise the whitelist has no effect.",
-                "type": "string"
-              },
-              "reduce-aggregations": {
-                "description": "By sending the parameter `reduce-aggregations` , the post-filters that were applied by the customer, are also applied to the aggregations. This has the consequence that only values are returned in the aggregations that would lead to further filter results. This parameter is a flag, the value has no effect.",
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ],
-        "properties": {
-          "filter": {
-            "properties": {
-              "type": {
-                "description": "To filter the results and aggregations with filter types like ==, >=, etc."
-              },
-              "field": {
-                "description": "To filter the results and aggregations by field like an property identifier."
-              },
-              "value": {
-                "description": "To filter the results and aggregations by value."
-              }
-            }
-          },
-          "sort": {
-            "properties": {
-              "field": {
-                "description": "Sort the search results by field like an property identifier."
-              },
-              "order": {
-                "description": "Sort the search results of orders by ascending or descending."
-              },
-              "naturalSorting": {
-                "description": "Sorting for special cases such as German letters with umlauts and similar characters etc."
-              }
-            }
-          },
-          "post-filter": {
-            "properties": {
-              "type": {
-                "description": "To filter only the results but not the aggregations with filter types like ==, >=, etc."
-              },
-              "field": {
-                "description": "To filter only the results but not the aggregations by field like an property identifier."
-              },
-              "value": {
-                "description": "To filter only the results but not the aggregations by value."
-              }
-            }
-          }
-        }
-      },
-      "OrderRouteResponse": {
-        "type": "object",
-        "properties": {
-          "orders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Order"
-            }
-          },
-          "paymentChangeable": {
-            "type": "object",
-            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
-            "additionalProperties": {
-              "type": "boolean"
-            }
-          }
-        }
-      },
-      "SuccessResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        }
-      },
       "WishlistLoadRouteResponse": {
         "type": "object",
         "properties": {
@@ -12166,6 +11653,210 @@
             "items": {
               "$ref": "#/components/schemas/ProductListingResult"
             }
+          }
+        }
+      },
+      "EntitySearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArrayStruct"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "entity": {
+                "type": "string"
+              },
+              "total": {
+                "type": "integer",
+                "description": "The total number of found entities"
+              },
+              "aggregations": {
+                "type": "array",
+                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "page": {
+                "type": "integer",
+                "description": "The actual page. This can be used for pagination."
+              },
+              "limit": {
+                "type": "integer",
+                "description": "The actual limit. This is used for pagination and goes together with the page."
+              }
+            }
+          }
+        ]
+      },
+      "LineItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identity of line item."
+          },
+          "referencedId": {
+            "type": "string",
+            "description": "Unique identity of type of entity."
+          },
+          "label": {
+            "type": "string",
+            "description": "It is a typical product name given to the line item."
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items of product."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type refers to the entity type of an item whether it is product or promotion for instance."
+          },
+          "good": {
+            "type": "boolean",
+            "description": "When set to true, it indicates the line item is physical else it is virtual."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of line items in an order."
+          },
+          "removable": {
+            "type": "boolean",
+            "description": "Allows the line item to be removable from the cart when set to true."
+          },
+          "stackable": {
+            "type": "boolean",
+            "description": "Allows to change the quantity of the line item when set to true."
+          },
+          "modified": {
+            "type": "boolean",
+            "description": "When boolean value is `true`, line items are said to be modified."
+          }
+        }
+      },
+      "Cart": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArrayStruct"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Name of the cart - for example `guest-cart`",
+                "type": "string"
+              },
+              "token": {
+                "description": "Context token identifying the cart and the user session",
+                "type": "string"
+              },
+              "price": {
+                "type": "object",
+                "properties": {
+                  "netPrice": {
+                    "description": "Net price of the cart",
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "totalPrice": {
+                    "description": "Total price of the cart, including shipping costs, discounts and taxes",
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "positionPrice": {
+                    "description": "Price for all line items in the cart",
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "taxStatus": {
+                    "description": "Tax calculation for the cart. One of `gross`, `net` or `tax-free`",
+                    "type": "string"
+                  }
+                }
+              },
+              "lineItems": {
+                "description": "All items within the cart",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LineItem"
+                }
+              },
+              "errors": {
+                "type": "array",
+                "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "level": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "transactions": {
+                "description": "A list of all payment transactions associated with the current cart.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "paymentMethodId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "modified": {
+                "type": "boolean"
+              },
+              "customerComment": {
+                "type": "string",
+                "description": "A comment that can be added to the cart."
+              },
+              "affiliateCode": {
+                "type": "string",
+                "description": "An affiliate tracking code"
+              },
+              "campaignCode": {
+                "type": "string",
+                "description": "A campaign tracking code"
+              }
+            }
+          }
+        ],
+        "properties": {
+          "id": {
+            "description": "Unique identity of cart."
+          },
+          "errors": {
+            "properties": {
+              "key": {
+                "description": "Unique key for every message."
+              },
+              "level": {
+                "description": "Types of level - Notice, warning and error.  "
+              },
+              "message": {
+                "description": "A persistent error passed from the shopping cart calculation processes to the user end."
+              }
+            }
+          },
+          "transactions": {
+            "properties": {
+              "paymentMethodId": {
+                "description": "Unique identity of payment method."
+              }
+            }
+          },
+          "modified": {
+            "description": "It signifies any changes to cart."
           }
         }
       },
@@ -12798,70 +12489,6 @@
           }
         }
       },
-      "ArrayStruct": {
-        "$ref": "#/components/schemas/Struct"
-      },
-      "Sitemap": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "filename": {
-                "type": "string"
-              },
-              "created": {
-                "type": "string",
-                "format": "date-time"
-              }
-            }
-          }
-        ],
-        "properties": {
-          "filename": {
-            "description": "Name of the file which holds a list of all URL's."
-          }
-        }
-      },
-      "ProductDetailResponse": {
-        "type": "object",
-        "description": "Represents a product along with detailed information required to display a variant selection.",
-        "properties": {
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "configurator": {
-            "type": "array",
-            "description": "List of property groups with their corresponding options and information on how to display them.",
-            "items": {
-              "$ref": "#/components/schemas/PropertyGroup"
-            }
-          },
-          "id": {
-            "description": "Unique identity of product detail response."
-          },
-          "available": {
-            "description": "When boolean value is true, the product is available for purchase."
-          },
-          "isCloseout": {
-            "description": "Boolean value to check if the product is still buyable when stock value is 0."
-          },
-          "displayGroup": {
-            "description": "Internal field."
-          },
-          "manufacturerNumber": {
-            "description": "Unique number of the product manufacturer."
-          },
-          "stock": {
-            "description": "Quantity of product available."
-          },
-          "sortedProperties": {
-            "description": "Properties of the product that are sorted"
-          }
-        }
-      },
       "Criteria": {
         "type": "object",
         "description": "Criteria to query entities.",
@@ -13048,15 +12675,6 @@
           }
         }
       },
-      "Struct": {
-        "type": "object",
-        "properties": {
-          "apiAlias": {
-            "type": "string",
-            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
-          }
-        }
-      },
       "NavigationRouteResponse": {
         "type": "array",
         "items": {
@@ -13068,7 +12686,7 @@
           }
         }
       },
-      "EntitySearchResult": {
+      "Sitemap": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ArrayStruct"
@@ -13076,31 +12694,413 @@
           {
             "type": "object",
             "properties": {
-              "entity": {
+              "filename": {
                 "type": "string"
               },
-              "total": {
-                "type": "integer",
-                "description": "The total number of found entities"
-              },
-              "aggregations": {
+              "created": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ],
+        "properties": {
+          "filename": {
+            "description": "Name of the file which holds a list of all URL's."
+          }
+        }
+      },
+      "CartItems": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArrayStruct"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "items": {
                 "type": "array",
-                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
+                "items": {
+                  "$ref": "#/components/schemas/LineItem"
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "items": {
+            "properties": {
+              "id": {
+                "description": "Unique identity of cart item."
+              },
+              "modified": {
+                "description": "When boolean value is `true`, the cart is said to be modified."
+              }
+            }
+          }
+        }
+      },
+      "OrderRouteResponse": {
+        "type": "object",
+        "properties": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
+          },
+          "paymentChangeable": {
+            "type": "object",
+            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
+            "additionalProperties": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "AccountNewsletterRecipientResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Struct"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "properties": {
+          "status": {
+            "description": "Status indicates if the customer has subscribed to the news letter or not."
+          }
+        }
+      },
+      "ProductDetailResponse": {
+        "type": "object",
+        "description": "Represents a product along with detailed information required to display a variant selection.",
+        "properties": {
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "configurator": {
+            "type": "array",
+            "description": "List of property groups with their corresponding options and information on how to display them.",
+            "items": {
+              "$ref": "#/components/schemas/PropertyGroup"
+            }
+          },
+          "id": {
+            "description": "Unique identity of product detail response."
+          },
+          "available": {
+            "description": "When boolean value is true, the product is available for purchase."
+          },
+          "isCloseout": {
+            "description": "Boolean value to check if the product is still buyable when stock value is 0."
+          },
+          "displayGroup": {
+            "description": "Internal field."
+          },
+          "manufacturerNumber": {
+            "description": "Unique number of the product manufacturer."
+          },
+          "stock": {
+            "description": "Quantity of product available."
+          },
+          "sortedProperties": {
+            "description": "Properties of the product that are sorted"
+          }
+        }
+      },
+      "FindProductVariantRouteResponse": {
+        "type": "object",
+        "properties": {
+          "foundCombination": {
+            "type": "object",
+            "properties": {
+              "variantId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$",
+                "description": "Unique identity of a variant."
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Available product variant options. For example, for variant `Size`, option would be `XS`, `S`, `M`, `L`, `XL`."
+              }
+            }
+          }
+        }
+      },
+      "ProductListingCriteria": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Criteria"
+          },
+          {
+            "type": "object",
+            "description": "Additional search parameters for product listings",
+            "properties": {
+              "order": {
+                "description": "Specifies the sorting of the products by `availableSortings`. If not set, the default sorting will be set according to the shop settings. The available sorting options are sent within the response under the `availableSortings` key. In order to sort by a field, consider using the `sort` parameter from the listing criteria. Do not use both parameters together, as it might lead to unexpected results.",
+                "type": "string"
+              },
+              "limit": {
+                "description": "Number of items per result page. If not set, the limit will be set according to the default products per page, defined in the system settings.",
+                "type": "integer",
+                "minimum": 0
+              },
+              "p": {
+                "description": "Search result page",
+                "type": "integer",
+                "default": 1
+              },
+              "manufacturer": {
+                "description": "Filter by manufacturers. List of manufacturer identifiers separated by a `|`.",
+                "type": "string"
+              },
+              "min-price": {
+                "description": "Filters by a minimum product price. Has to be lower than the `max-price` filter.",
+                "type": "integer",
+                "minimum": 0,
+                "default": 0
+              },
+              "max-price": {
+                "description": "Filters by a maximum product price. Has to be higher than the `min-price` filter.",
+                "type": "integer",
+                "minimum": 0,
+                "default": 0
+              },
+              "rating": {
+                "description": "Filter products with a minimum average rating.",
+                "type": "integer"
+              },
+              "shipping-free": {
+                "description": "Filters products that are marked as shipping-free.",
+                "type": "boolean",
+                "default": false
+              },
+              "properties": {
+                "description": "Filters products by their properties. List of property identifiers separated by a `|`.",
+                "type": "string"
+              },
+              "manufacturer-filter": {
+                "description": "Enables/disabled filtering by manufacturer. If set to false, the `manufacturer` filter will be ignored. Also the `aggregations[manufacturer]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "price-filter": {
+                "description": "Enables/disabled filtering by price. If set to false, the `min-price` and `max-price` filter will be ignored. Also the `aggregations[price]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "rating-filter": {
+                "description": "Enables/disabled filtering by rating. If set to false, the `rating` filter will be ignored. Also the `aggregations[rating]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "shipping-free-filter": {
+                "description": "Enables/disabled filtering by shipping-free products. If set to false, the `shipping-free` filter will be ignored. Also the `aggregations[shipping-free]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "property-filter": {
+                "description": "Enables/disabled filtering by properties products. If set to false, the `properties` filter will be ignored. Also the `aggregations[properties]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "property-whitelist": {
+                "description": "A whitelist of property identifiers which can be used for filtering. List of property identifiers separated by a `|`. The `property-filter` must be `true`, otherwise the whitelist has no effect.",
+                "type": "string"
+              },
+              "reduce-aggregations": {
+                "description": "By sending the parameter `reduce-aggregations` , the post-filters that were applied by the customer, are also applied to the aggregations. This has the consequence that only values are returned in the aggregations that would lead to further filter results. This parameter is a flag, the value has no effect.",
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ],
+        "properties": {
+          "filter": {
+            "properties": {
+              "type": {
+                "description": "To filter the results and aggregations with filter types like ==, >=, etc."
+              },
+              "field": {
+                "description": "To filter the results and aggregations by field like an property identifier."
+              },
+              "value": {
+                "description": "To filter the results and aggregations by value."
+              }
+            }
+          },
+          "sort": {
+            "properties": {
+              "field": {
+                "description": "Sort the search results by field like an property identifier."
+              },
+              "order": {
+                "description": "Sort the search results of orders by ascending or descending."
+              },
+              "naturalSorting": {
+                "description": "Sorting for special cases such as German letters with umlauts and similar characters etc."
+              }
+            }
+          },
+          "post-filter": {
+            "properties": {
+              "type": {
+                "description": "To filter only the results but not the aggregations with filter types like ==, >=, etc."
+              },
+              "field": {
+                "description": "To filter only the results but not the aggregations by field like an property identifier."
+              },
+              "value": {
+                "description": "To filter only the results but not the aggregations by value."
+              }
+            }
+          }
+        }
+      },
+      "CrossSellingElementCollection": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "crossSelling": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "sortBy": {
+                  "type": "string"
+                },
+                "sortDirection": {
+                  "type": "string"
+                },
+                "limit": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "productId": {
+                  "type": "string"
+                },
+                "productStreamId": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              }
+            },
+            "products": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Product"
+              }
+            },
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "properties": {
+          "total": {
+            "description": "Number of cross selling elements found."
+          }
+        }
+      },
+      "ProductListingResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EntitySearchResult"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "currentFilters": {
+                "type": "object",
+                "description": "Contains the state of the filters. These can be used to create listing filters.",
+                "properties": {
+                  "navigationId": {
+                    "type": "string"
+                  },
+                  "manufacturer": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "price": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "integer"
+                      },
+                      "max": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "rating": {
+                    "type": "integer"
+                  },
+                  "shipping-free": {
+                    "type": "boolean"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "availableSortings": {
+                "type": "array",
+                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
                 "items": {
                   "type": "object"
                 }
               },
-              "page": {
-                "type": "integer",
-                "description": "The actual page. This can be used for pagination."
+              "sorting": {
+                "type": "string"
               },
-              "limit": {
-                "type": "integer",
-                "description": "The actual limit. This is used for pagination and goes together with the page."
+              "elements": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Product"
+                }
               }
             }
           }
         ]
+      },
+      "ArrayStruct": {
+        "$ref": "#/components/schemas/Struct"
       },
       "OrderProductWarehouse": {
         "properties": {
@@ -13821,541 +13821,6 @@
     }
   ],
   "paths": {
-    "/shipping-method": {
-      "post": {
-        "tags": [
-          "Payment & Shipping",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch shipping methods",
-        "description": "Perform a filtered search for shipping methods.",
-        "operationId": "readShippingMethod",
-        "parameters": [
-          {
-            "name": "onlyAvailable",
-            "in": "query",
-            "description": "List only available shipping methods. This filters shipping methods methods which can not be used in the actual context because of their availability rule.",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "total": {
-                      "description": "Total amount",
-                      "type": "integer"
-                    },
-                    "aggregations": {
-                      "description": "aggregation result",
-                      "type": "object"
-                    },
-                    "elements": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ShippingMethod"
-                      }
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/customer/wishlist/add/{productId}": {
-      "post": {
-        "tags": [
-          "Wishlist"
-        ],
-        "summary": "Add a product to a wishlist",
-        "description": "Adds a product to a customers wishlist.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * The wishlist feature has to be activated.",
-        "operationId": "addProductOnWishlist",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "description": "Identifier of the product to be added.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns a success response.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/customer/wishlist": {
-      "post": {
-        "tags": [
-          "Wishlist",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a wishlist",
-        "description": "Fetch a customer's wishlist. Products on the wishlist can be filtered using a criteria object.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * The wishlist feature has to be activated.",
-        "operationId": "readCustomerWishlist",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WishlistLoadRouteResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/customer/wishlist/merge": {
-      "post": {
-        "tags": [
-          "Wishlist"
-        ],
-        "summary": "Create a wishlist for a customer",
-        "description": "Create a new wishlist for a logged in customer or extend the existing wishlist given a set of products.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * A customer can only have a single wishlist.\n    * The wishlist feature has to be activated.",
-        "operationId": "mergeProductOnWishlist",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "productIds": {
-                    "description": "List product id",
-                    "type": "array",
-                    "items": {
-                      "description": "product id",
-                      "type": "string",
-                      "pattern": "^[0-9a-f]{32}$"
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns a success response.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/customer/wishlist/delete/{productId}": {
-      "delete": {
-        "tags": [
-          "Wishlist"
-        ],
-        "summary": "Remove a product from a wishlist",
-        "description": "Removes a product from a customer's wishlist.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * The wishlist feature has to be activated.",
-        "operationId": "deleteProductOnWishlist",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "description": "The identifier of the product to be removed from the wishlist.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns a success response indicating a successful removal.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The removal of the product failed. Probably because the product could not be found on the wishlist.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/failure"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/search": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Search for products",
-        "description": "Performs a search for products which can be used to display a product listing.",
-        "operationId": "searchPage",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "required": [
-                      "search"
-                    ],
-                    "properties": {
-                      "search": {
-                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns a product listing containing all products and additional fields to display a listing.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/cms/{id}": {
-      "post": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Fetch and resolve a CMS page",
-        "description": "Loads a content management page by its identifier and resolve the slot data. This could be media files, product listing and so on.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
-        "operationId": "readCms",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Identifier of the CMS page to be resolved",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "properties": {
-                      "slots": {
-                        "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a `|` character.",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The loaded cms page",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CmsPage"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/newsletter/confirm": {
-      "post": {
-        "tags": [
-          "Newsletter"
-        ],
-        "summary": "Confirm a newsletter registration",
-        "description": "You have to use the hash from the link sent out via email to confirm the user registration.",
-        "operationId": "confirmNewsletter",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "hash",
-                  "em"
-                ],
-                "properties": {
-                  "hash": {
-                    "description": "Hash parameter from link the in the confirmation mail",
-                    "type": "string"
-                  },
-                  "em": {
-                    "description": "Email hash parameter from the link in the confirmation mail",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The newsletter confirmation was successful."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/newsletter/subscribe": {
-      "post": {
-        "tags": [
-          "Newsletter"
-        ],
-        "summary": "Create or remove a newsletter subscription",
-        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email addrees containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirmes the newsletter subscription for the provided email address.",
-        "operationId": "subscribeToNewsletter",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "email",
-                  "option",
-                  "storefrontUrl"
-                ],
-                "properties": {
-                  "email": {
-                    "description": "Email address that will receive the confirmation and the newsletter.",
-                    "type": "string"
-                  },
-                  "option": {
-                    "description": "Defines what should be done.",
-                    "type": "string"
-                  },
-                  "storefrontUrl": {
-                    "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email.",
-                    "type": "string"
-                  },
-                  "salutationId": {
-                    "description": "Identifier of the salutation.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "firstName": {
-                    "description": "First name",
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "description": "Last name",
-                    "type": "string"
-                  },
-                  "street": {
-                    "description": "Street",
-                    "type": "string"
-                  },
-                  "city": {
-                    "description": "City",
-                    "type": "string"
-                  },
-                  "zipCode": {
-                    "description": "Zip code",
-                    "type": "string"
-                  },
-                  "tags": {
-                    "description": "Zip code",
-                    "type": "string"
-                  },
-                  "languageId": {
-                    "description": "Identifier of the language.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "customFields": {
-                    "description": "Custom field data that should be added to the subscription.",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/newsletter/unsubscribe": {
-      "post": {
-        "tags": [
-          "Newsletter"
-        ],
-        "summary": "Remove a newsletter subscription",
-        "description": "Removes a newsletter recipient from the mailing lists.",
-        "operationId": "unsubscribeToNewsletter",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "email"
-                ],
-                "properties": {
-                  "email": {
-                    "description": "Email address that should be removed from the mailing lists.",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Unsubscribing was successful."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
     "/script/{hook}": {
       "post": {
         "tags": [
@@ -14379,227 +13844,6 @@
         "responses": {
           "200": {
             "description": "Returns different structures of results based on the called script."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/app-system/{name}/generate-token": {
-      "post": {
-        "tags": [
-          "App system"
-        ],
-        "summary": "Generate JWT token for app system backend",
-        "description": "Generate JWT token for authenticated communication with the app server",
-        "operationId": "generateJWTAppSystemAppServer",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "description": "Name of the app",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string"
-                    },
-                    "expires": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "shopId": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/currency": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch currencies",
-        "description": "Perform a filtered search for currencies.",
-        "operationId": "readCurrency",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing currencies.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Currency"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/payment-method": {
-      "post": {
-        "tags": [
-          "Payment Method",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Loads all available payment methods",
-        "operationId": "readPaymentMethod",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  },
-                  {
-                    "properties": {
-                      "onlyAvailable": {
-                        "description": "List only available",
-                        "type": "boolean"
-                      }
-                    },
-                    "type": "object"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "total": {
-                      "description": "Total amount",
-                      "type": "integer"
-                    },
-                    "aggregations": {
-                      "description": "aggregation result",
-                      "type": "object"
-                    },
-                    "elements": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/PaymentMethod"
-                      }
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/customer-group-registration/config/{customerGroupId}": {
-      "get": {
-        "tags": [
-          "Login & Registration"
-        ],
-        "summary": "Fetch registration settings for customer group",
-        "operationId": "getCustomerGroupRegistrationInfo",
-        "parameters": [
-          {
-            "name": "customerGroupId",
-            "in": "path",
-            "description": "Customer group id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns the customer group including registration settings.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerGroup"
-                }
-              }
-            }
           }
         },
         "security": [
@@ -14694,222 +13938,18 @@
         ]
       }
     },
-    "/salutation": {
+    "/document/download/{documentId}/{deepLinkCode}": {
       "post": {
         "tags": [
-          "System & Context",
+          "Document",
           "Endpoints supporting Criteria "
         ],
-        "summary": "Fetch salutations",
-        "description": "Fetches salutations with a criteria obj.",
-        "operationId": "readSalutation",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing salutations.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Salutation"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order/state/cancel": {
-      "post": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Cancel an order",
-        "description": "Cancels an order. The order state will be set to 'cancelled'.",
-        "operationId": "cancelOrder",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "orderId": {
-                    "description": "The identifier of the order to be canceled.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns the state of the state machine\n\n    example: More information about the state machine can be found in the corresponding guide: [Using the state machine](https://developer.shopware.com/docs/guides/plugins/plugins/checkout/order/using-the-state-machine)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StateMachineState"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order": {
-      "post": {
-        "tags": [
-          "Order",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a list of orders",
-        "description": "List orders of a customer.",
-        "operationId": "readOrder",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  },
-                  {
-                    "properties": {
-                      "checkPromotion": {
-                        "description": "Check if the payment method of the order is still changeable.",
-                        "type": "boolean"
-                      }
-                    },
-                    "type": "object"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "An array of orders and an indicator if the payment of the order can be changed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrderRouteResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order/payment": {
-      "post": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Update the payment method of an order",
-        "description": "Changes the payment method of a specific order. You can use the /order route to find out if the payment method of an order can be changed - take a look at the `paymentChangeable`- array in the response.",
-        "operationId": "orderSetPayment",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "paymentMethodId",
-                  "orderId"
-                ],
-                "properties": {
-                  "paymentMethodId": {
-                    "description": "The identifier of the paymentMethod to be set",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "orderId": {
-                    "description": "The identifier of the order.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successfully updated the payment method of the order.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order/download/{orderId}/{downloadId}": {
-      "get": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Download a purchased file",
-        "description": "Download a file included in the given order and with the given id. Access must be granted.",
-        "operationId": "orderDownloadFile",
+        "summary": "Download generated document",
+        "description": "Returns blob file of a generated document to download.",
+        "operationId": "download",
         "parameters": [
           {
-            "name": "orderId",
+            "name": "documentId",
             "in": "path",
             "required": true,
             "schema": {
@@ -14918,278 +13958,22 @@
             }
           },
           {
-            "name": "downloadId",
-            "in": "path",
+            "name": "deepLinkCode",
             "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An arbitrary binary file.",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/country": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch countries",
-        "description": "Perform a filtered search for countries",
-        "operationId": "readCountry",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing countries.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Country"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/context": {
-      "get": {
-        "tags": [
-          "System & Context"
-        ],
-        "summary": "Fetch the current context",
-        "description": "Fetches the current context. This includes for example the `customerGroup`, `currency`, `taxRules` and many more.",
-        "operationId": "readContext",
-        "responses": {
-          "200": {
-            "description": "Returns the current context.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SalesChannelContext"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "System & Context"
-        ],
-        "summary": "Modify the current context",
-        "description": "Used for switching the context. A typical example would be changing the language or changing the currency.",
-        "operationId": "updateContext",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "currencyId": {
-                    "description": "Currency",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "languageId": {
-                    "description": "Language",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "billingAddressId": {
-                    "description": "Billing Address",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "shippingAddressId": {
-                    "description": "Shipping Address",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "paymentMethodId": {
-                    "description": "Payment Method",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "shippingMethodId": {
-                    "description": "Shipping Method",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "countryId": {
-                    "description": "Country",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "countryStateId": {
-                    "description": "Country State",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/seo-url": {
-      "post": {
-        "tags": [
-          "Sitemap & Routes",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch SEO routes",
-        "description": "Perform a filtered search for seo urls.",
-        "operationId": "readSeoUrl",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing seo urls.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/SeoUrl"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product-listing/{categoryId}": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Fetch a product listing by category",
-        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.",
-        "operationId": "readProductListing",
-        "parameters": [
-          {
-            "name": "categoryId",
             "in": "path",
-            "description": "Identifier of a category.",
-            "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
         "requestBody": {
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
+                    "$ref": "#/components/schemas/Criteria"
                   }
                 ]
               }
@@ -15198,11 +13982,11 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a product listing containing all products and additional fields to display a listing.",
+            "description": "Returns the document information and blob to download.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
+                  "$ref": "#/components/schemas/Document"
                 }
               }
             }
@@ -15548,6 +14332,459 @@
         ]
       }
     },
+    "/shipping-method": {
+      "post": {
+        "tags": [
+          "Payment & Shipping",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch shipping methods",
+        "description": "Perform a filtered search for shipping methods.",
+        "operationId": "readShippingMethod",
+        "parameters": [
+          {
+            "name": "onlyAvailable",
+            "in": "query",
+            "description": "List only available shipping methods. This filters shipping methods methods which can not be used in the actual context because of their availability rule.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "total": {
+                      "description": "Total amount",
+                      "type": "integer"
+                    },
+                    "aggregations": {
+                      "description": "aggregation result",
+                      "type": "object"
+                    },
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ShippingMethod"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/context": {
+      "get": {
+        "tags": [
+          "System & Context"
+        ],
+        "summary": "Fetch the current context",
+        "description": "Fetches the current context. This includes for example the `customerGroup`, `currency`, `taxRules` and many more.",
+        "operationId": "readContext",
+        "responses": {
+          "200": {
+            "description": "Returns the current context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalesChannelContext"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "System & Context"
+        ],
+        "summary": "Modify the current context",
+        "description": "Used for switching the context. A typical example would be changing the language or changing the currency.",
+        "operationId": "updateContext",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "currencyId": {
+                    "description": "Currency",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "languageId": {
+                    "description": "Language",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "billingAddressId": {
+                    "description": "Billing Address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingAddressId": {
+                    "description": "Shipping Address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "paymentMethodId": {
+                    "description": "Payment Method",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingMethodId": {
+                    "description": "Shipping Method",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "countryId": {
+                    "description": "Country",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "countryStateId": {
+                    "description": "Country State",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ContextTokenResponse"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/search-suggest": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Search for products (suggest)",
+        "description": "Can be used to implement search previews or suggestion listings, that don’t require any interaction.",
+        "operationId": "searchSuggest",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "required": [
+                      "search"
+                    ],
+                    "properties": {
+                      "search": {
+                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a product listing containing all products and additional fields.\n\nNote: Aggregations, currentFilters and availableSortings are empty in this response. If you need them to display a listing, use the /search route instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListingResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/customer/wishlist/add/{productId}": {
+      "post": {
+        "tags": [
+          "Wishlist"
+        ],
+        "summary": "Add a product to a wishlist",
+        "description": "Adds a product to a customers wishlist.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * The wishlist feature has to be activated.",
+        "operationId": "addProductOnWishlist",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Identifier of the product to be added.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a success response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/customer/wishlist": {
+      "post": {
+        "tags": [
+          "Wishlist",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a wishlist",
+        "description": "Fetch a customer's wishlist. Products on the wishlist can be filtered using a criteria object.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * The wishlist feature has to be activated.",
+        "operationId": "readCustomerWishlist",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WishlistLoadRouteResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/customer/wishlist/merge": {
+      "post": {
+        "tags": [
+          "Wishlist"
+        ],
+        "summary": "Create a wishlist for a customer",
+        "description": "Create a new wishlist for a logged in customer or extend the existing wishlist given a set of products.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * A customer can only have a single wishlist.\n    * The wishlist feature has to be activated.",
+        "operationId": "mergeProductOnWishlist",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "productIds": {
+                    "description": "List product id",
+                    "type": "array",
+                    "items": {
+                      "description": "product id",
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a success response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/customer/wishlist/delete/{productId}": {
+      "delete": {
+        "tags": [
+          "Wishlist"
+        ],
+        "summary": "Remove a product from a wishlist",
+        "description": "Removes a product from a customer's wishlist.\n\n    **Important constraints**\n\n    * Anonymous (not logged-in) customers can not have wishlists.\n    * The wishlist feature has to be activated.",
+        "operationId": "deleteProductOnWishlist",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The identifier of the product to be removed from the wishlist.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a success response indicating a successful removal.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The removal of the product failed. Probably because the product could not be found on the wishlist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/failure"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/salutation": {
+      "post": {
+        "tags": [
+          "System & Context",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch salutations",
+        "description": "Fetches salutations with a criteria obj.",
+        "operationId": "readSalutation",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing salutations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Salutation"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
     "/country-state/{countryId}": {
       "post": {
         "tags": [
@@ -15616,18 +14853,165 @@
         ]
       }
     },
-    "/document/download/{documentId}/{deepLinkCode}": {
+    "/order/state/cancel": {
       "post": {
         "tags": [
-          "Document",
+          "Order"
+        ],
+        "summary": "Cancel an order",
+        "description": "Cancels an order. The order state will be set to 'cancelled'.",
+        "operationId": "cancelOrder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "orderId": {
+                    "description": "The identifier of the order to be canceled.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the state of the state machine\n\n    example: More information about the state machine can be found in the corresponding guide: [Using the state machine](https://developer.shopware.com/docs/guides/plugins/plugins/checkout/order/using-the-state-machine)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StateMachineState"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order": {
+      "post": {
+        "tags": [
+          "Order",
           "Endpoints supporting Criteria "
         ],
-        "summary": "Download generated document",
-        "description": "Returns blob file of a generated document to download.",
-        "operationId": "download",
+        "summary": "Fetch a list of orders",
+        "description": "List orders of a customer.",
+        "operationId": "readOrder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "properties": {
+                      "checkPromotion": {
+                        "description": "Check if the payment method of the order is still changeable.",
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An array of orders and an indicator if the payment of the order can be changed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRouteResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order/payment": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Update the payment method of an order",
+        "description": "Changes the payment method of a specific order. You can use the /order route to find out if the payment method of an order can be changed - take a look at the `paymentChangeable`- array in the response.",
+        "operationId": "orderSetPayment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "paymentMethodId",
+                  "orderId"
+                ],
+                "properties": {
+                  "paymentMethodId": {
+                    "description": "The identifier of the paymentMethod to be set",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "orderId": {
+                    "description": "The identifier of the order.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully updated the payment method of the order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order/download/{orderId}/{downloadId}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Download a purchased file",
+        "description": "Download a file included in the given order and with the given id. Access must be granted.",
+        "operationId": "orderDownloadFile",
         "parameters": [
           {
-            "name": "documentId",
+            "name": "orderId",
             "in": "path",
             "required": true,
             "schema": {
@@ -15636,14 +15020,169 @@
             }
           },
           {
-            "name": "deepLinkCode",
-            "required": true,
+            "name": "downloadId",
             "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An arbitrary binary file.",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product-export/{accessKey}/{fileName}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Export product export",
+        "operationId": "readProductExport",
+        "parameters": [
+          {
+            "name": "accessKey",
+            "in": "path",
+            "description": "Access Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "File Name",
+            "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/customer-group-registration/config/{customerGroupId}": {
+      "get": {
+        "tags": [
+          "Login & Registration"
+        ],
+        "summary": "Fetch registration settings for customer group",
+        "operationId": "getCustomerGroupRegistrationInfo",
+        "parameters": [
+          {
+            "name": "customerGroupId",
+            "in": "path",
+            "description": "Customer group id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the customer group including registration settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerGroup"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/handle-payment": {
+      "post": {
+        "tags": [
+          "Payment & Shipping"
+        ],
+        "summary": "Initiate a payment for an order",
+        "description": "This generic endpoint is should be called to initiate a payment flow after an order has been created. The details of the payment flow can differ depending on the payment integration and might require calling additional operations or the setup of webhooks.\n\nThe endpoint internally calls the payment handler of the payment method currently set for the order.",
+        "operationId": "handlePaymentMethod",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "orderId"
+                ],
+                "properties": {
+                  "orderId": {
+                    "description": "Identifier of an order",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "finishUrl": {
+                    "description": "URL to which the client should be redirected after successful payment",
+                    "type": "string"
+                  },
+                  "errorUrl": {
+                    "description": "URL to which the client should be redirected after erroneous payment",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Redirect to external payment provider"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/language": {
+      "post": {
+        "tags": [
+          "System & Context",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch languages",
+        "description": "Perform a filtered search for languages.",
+        "operationId": "readLanguages",
         "requestBody": {
           "required": false,
           "content": {
@@ -15660,11 +15199,860 @@
         },
         "responses": {
           "200": {
-            "description": "Returns the document information and blob to download.",
+            "description": "Entity search result containing languages.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Document"
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Language"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/landing-page/{landingPageId}": {
+      "post": {
+        "tags": [
+          "Content",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a landing page with the resolved CMS page",
+        "description": "Loads a landing page by its identifier and resolves the CMS page.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
+        "operationId": "readLandingPage",
+        "parameters": [
+          {
+            "name": "landingPageId",
+            "in": "path",
+            "description": "Identifier of the landing page.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "allOf": [
+                      {
+                        "properties": {
+                          "slots": {
+                            "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a `|` character.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ProductListingCriteria"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The loaded landing page with cms page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandingPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/currency": {
+      "post": {
+        "tags": [
+          "System & Context",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch currencies",
+        "description": "Perform a filtered search for currencies.",
+        "operationId": "readCurrency",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing currencies.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Currency"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/newsletter/confirm": {
+      "post": {
+        "tags": [
+          "Newsletter"
+        ],
+        "summary": "Confirm a newsletter registration",
+        "description": "You have to use the hash from the link sent out via email to confirm the user registration.",
+        "operationId": "confirmNewsletter",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "hash",
+                  "em"
+                ],
+                "properties": {
+                  "hash": {
+                    "description": "Hash parameter from link the in the confirmation mail",
+                    "type": "string"
+                  },
+                  "em": {
+                    "description": "Email hash parameter from the link in the confirmation mail",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The newsletter confirmation was successful."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/newsletter/subscribe": {
+      "post": {
+        "tags": [
+          "Newsletter"
+        ],
+        "summary": "Create or remove a newsletter subscription",
+        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email addrees containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirmes the newsletter subscription for the provided email address.",
+        "operationId": "subscribeToNewsletter",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "email",
+                  "option",
+                  "storefrontUrl"
+                ],
+                "properties": {
+                  "email": {
+                    "description": "Email address that will receive the confirmation and the newsletter.",
+                    "type": "string"
+                  },
+                  "option": {
+                    "description": "Defines what should be done.",
+                    "type": "string"
+                  },
+                  "storefrontUrl": {
+                    "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email.",
+                    "type": "string"
+                  },
+                  "salutationId": {
+                    "description": "Identifier of the salutation.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "firstName": {
+                    "description": "First name",
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "description": "Last name",
+                    "type": "string"
+                  },
+                  "street": {
+                    "description": "Street",
+                    "type": "string"
+                  },
+                  "city": {
+                    "description": "City",
+                    "type": "string"
+                  },
+                  "zipCode": {
+                    "description": "Zip code",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "description": "Zip code",
+                    "type": "string"
+                  },
+                  "languageId": {
+                    "description": "Identifier of the language.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "customFields": {
+                    "description": "Custom field data that should be added to the subscription.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/newsletter/unsubscribe": {
+      "post": {
+        "tags": [
+          "Newsletter"
+        ],
+        "summary": "Remove a newsletter subscription",
+        "description": "Removes a newsletter recipient from the mailing lists.",
+        "operationId": "unsubscribeToNewsletter",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "email"
+                ],
+                "properties": {
+                  "email": {
+                    "description": "Email address that should be removed from the mailing lists.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Unsubscribing was successful."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/app-system/{name}/generate-token": {
+      "post": {
+        "tags": [
+          "App system"
+        ],
+        "summary": "Generate JWT token for app system backend",
+        "description": "Generate JWT token for authenticated communication with the app server",
+        "operationId": "generateJWTAppSystemAppServer",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "description": "Name of the app",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    },
+                    "expires": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "shopId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/sitemap": {
+      "get": {
+        "tags": [
+          "Sitemap & Routes"
+        ],
+        "summary": "Fetch sitemaps",
+        "description": "Fetches a list of compressed sitemap files, which are often used by search engines.",
+        "operationId": "readSitemap",
+        "responses": {
+          "200": {
+            "description": "Returns a list of available sitemaps.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Sitemap"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/seo-url": {
+      "post": {
+        "tags": [
+          "Sitemap & Routes",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch SEO routes",
+        "description": "Perform a filtered search for seo urls.",
+        "operationId": "readSeoUrl",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing seo urls.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/SeoUrl"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/payment-method": {
+      "post": {
+        "tags": [
+          "Payment Method",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Loads all available payment methods",
+        "operationId": "readPaymentMethod",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "properties": {
+                      "onlyAvailable": {
+                        "description": "List only available",
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "total": {
+                      "description": "Total amount",
+                      "type": "integer"
+                    },
+                    "aggregations": {
+                      "description": "aggregation result",
+                      "type": "object"
+                    },
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PaymentMethod"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/cart": {
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Fetch or create a cart",
+        "description": "Used to fetch the current cart or for creating a new one.",
+        "operationId": "readCart",
+        "responses": {
+          "200": {
+            "description": "Cart",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Delete a cart",
+        "description": "This route deletes the cart of the customer.",
+        "operationId": "deleteCart",
+        "responses": {
+          "204": {
+            "description": "Successfully deleted the cart",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/cart/line-item": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Add items to the cart",
+        "description": "This route adds items to the cart. An item can be a product or promotion for example. They are referenced by the `referencedId`-parameter.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#adding-new-items-to-the-cart)",
+        "operationId": "addLineItem",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartItems"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Remove items from the cart",
+        "description": "DEPRECATED: use removeLineItem instead. This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
+        "operationId": "removeLineItemDeprecated",
+        "deprecated": true,
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "A list of product identifiers.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Update items in the cart",
+        "description": "This route updates items in the cart. A typical example is updating the quantity of an item.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#updating-items-in-the-cart)",
+        "operationId": "updateLineItem",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartItems"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/cart/line-item/delete": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Remove items from the cart",
+        "description": "This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
+        "operationId": "removeLineItem",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "ids"
+                ],
+                "properties": {
+                  "ids": {
+                    "description": "A list of product identifiers.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/order": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Create an order from a cart",
+        "description": "Creates a new order from the current cart and deletes the cart.\n\nIf you are using the [prepared payment flow](https://developer.shopware.com/docs/concepts/commerce/checkout-concept/payments#2.1-prepare-payment-optional), this endpoint also receives additional transaction details. The exact name of the parameters depends on the implementation of the corresponding *payment handler*.",
+        "operationId": "createOrder",
+        "requestBody": {
+          "description": "Contains additional metadata which is stored together with the order. It can also contain payment transaction details.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "customerComment": {
+                    "description": "Adds a comment from the customer to the order.",
+                    "type": "string"
+                  },
+                  "affiliateCode": {
+                    "description": "The affiliate code can be used to track which referrer the customer came through. An example could be `Price-comparison-company-XY`.",
+                    "type": "string"
+                  },
+                  "campaignCode": {
+                    "description": "The campaign code is used to track which action the customer came from. An example could be `Summer-Deals`",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/search": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Search for products",
+        "description": "Performs a search for products which can be used to display a product listing.",
+        "operationId": "searchPage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "required": [
+                      "search"
+                    ],
+                    "properties": {
+                      "search": {
+                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a product listing containing all products and additional fields to display a listing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListingResult"
                 }
               }
             }
@@ -15798,68 +16186,15 @@
         ]
       }
     },
-    "/search-suggest": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Search for products (suggest)",
-        "description": "Can be used to implement search previews or suggestion listings, that don’t require any interaction.",
-        "operationId": "searchSuggest",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "required": [
-                      "search"
-                    ],
-                    "properties": {
-                      "search": {
-                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns a product listing containing all products and additional fields.\n\nNote: Aggregations, currentFilters and availableSortings are empty in this response. If you need them to display a listing, use the /search route instead.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/language": {
+    "/country": {
       "post": {
         "tags": [
           "System & Context",
           "Endpoints supporting Criteria "
         ],
-        "summary": "Fetch languages",
-        "description": "Perform a filtered search for languages.",
-        "operationId": "readLanguages",
+        "summary": "Fetch countries",
+        "description": "Perform a filtered search for countries",
+        "operationId": "readCountry",
         "requestBody": {
           "required": false,
           "content": {
@@ -15876,7 +16211,7 @@
         },
         "responses": {
           "200": {
-            "description": "Entity search result containing languages.",
+            "description": "Entity search result containing countries.",
             "content": {
               "application/json": {
                 "schema": {
@@ -15886,7 +16221,7 @@
                         "elements": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/Language"
+                            "$ref": "#/components/schemas/Country"
                           }
                         }
                       },
@@ -15896,6 +16231,214 @@
                       "$ref": "#/components/schemas/EntitySearchResult"
                     }
                   ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/cms/{id}": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Fetch and resolve a CMS page",
+        "description": "Loads a content management page by its identifier and resolve the slot data. This could be media files, product listing and so on.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
+        "operationId": "readCms",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the CMS page to be resolved",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "slots": {
+                        "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a `|` character.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The loaded cms page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CmsPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product-listing/{categoryId}": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Fetch a product listing by category",
+        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.",
+        "operationId": "readProductListing",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Identifier of a category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a product listing containing all products and additional fields to display a listing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListingResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/navigation/{activeId}/{rootId}": {
+      "post": {
+        "tags": [
+          "Category",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a navigation menu",
+        "description": "This endpoint returns categories that can be used as a page navigation. You can either return them as a tree or as a flat list. You can also control the depth of the tree.\n\n    Instead of passing uuids, you can also use one of the following aliases for the activeId and rootId parameters to get the respective navigations of your sales channel.\n\n     * main-navigation\n     * service-navigation\n     * footer-navigation",
+        "operationId": "readNavigation",
+        "parameters": [
+          {
+            "name": "sw-include-seo-urls",
+            "in": "header",
+            "description": "Instructs Shopware to try and resolve SEO URLs for the given navigation item",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "activeId",
+            "in": "path",
+            "description": "Identifier of the active category in the navigation tree (if not used, just set to the same as rootId).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "rootId",
+            "in": "path",
+            "description": "Identifier of the root category for your desired navigation tree. You can use it to fetch sub-trees of your navigation tree.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "properties": {
+                      "depth": {
+                        "description": "Determines the depth of fetched navigation levels.",
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "buildTree": {
+                        "description": "Return the categories as a tree or as a flat list.",
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      }
+                    },
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All available navigations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NavigationRouteResponse"
                 }
               }
             }
@@ -16896,549 +17439,6 @@
                 }
               }
             }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/navigation/{activeId}/{rootId}": {
-      "post": {
-        "tags": [
-          "Category",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a navigation menu",
-        "description": "This endpoint returns categories that can be used as a page navigation. You can either return them as a tree or as a flat list. You can also control the depth of the tree.\n\n    Instead of passing uuids, you can also use one of the following aliases for the activeId and rootId parameters to get the respective navigations of your sales channel.\n\n     * main-navigation\n     * service-navigation\n     * footer-navigation",
-        "operationId": "readNavigation",
-        "parameters": [
-          {
-            "name": "sw-include-seo-urls",
-            "in": "header",
-            "description": "Instructs Shopware to try and resolve SEO URLs for the given navigation item",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "activeId",
-            "in": "path",
-            "description": "Identifier of the active category in the navigation tree (if not used, just set to the same as rootId).",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          },
-          {
-            "name": "rootId",
-            "in": "path",
-            "description": "Identifier of the root category for your desired navigation tree. You can use it to fetch sub-trees of your navigation tree.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  },
-                  {
-                    "properties": {
-                      "depth": {
-                        "description": "Determines the depth of fetched navigation levels.",
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "buildTree": {
-                        "description": "Return the categories as a tree or as a flat list.",
-                        "type": "array",
-                        "items": {
-                          "type": "object"
-                        }
-                      }
-                    },
-                    "type": "object"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "All available navigations",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NavigationRouteResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product-export/{accessKey}/{fileName}": {
-      "get": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Export product export",
-        "operationId": "readProductExport",
-        "parameters": [
-          {
-            "name": "accessKey",
-            "in": "path",
-            "description": "Access Key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fileName",
-            "in": "path",
-            "description": "File Name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/checkout/cart": {
-      "get": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Fetch or create a cart",
-        "description": "Used to fetch the current cart or for creating a new one.",
-        "operationId": "readCart",
-        "responses": {
-          "200": {
-            "description": "Cart",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Delete a cart",
-        "description": "This route deletes the cart of the customer.",
-        "operationId": "deleteCart",
-        "responses": {
-          "204": {
-            "description": "Successfully deleted the cart",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/checkout/cart/line-item": {
-      "post": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Add items to the cart",
-        "description": "This route adds items to the cart. An item can be a product or promotion for example. They are referenced by the `referencedId`-parameter.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#adding-new-items-to-the-cart)",
-        "operationId": "addLineItem",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CartItems"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Remove items from the cart",
-        "description": "DEPRECATED: use removeLineItem instead. This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
-        "operationId": "removeLineItemDeprecated",
-        "deprecated": true,
-        "parameters": [
-          {
-            "name": "ids",
-            "in": "query",
-            "description": "A list of product identifiers.",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Update items in the cart",
-        "description": "This route updates items in the cart. A typical example is updating the quantity of an item.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#updating-items-in-the-cart)",
-        "operationId": "updateLineItem",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CartItems"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/checkout/cart/line-item/delete": {
-      "post": {
-        "tags": [
-          "Cart"
-        ],
-        "summary": "Remove items from the cart",
-        "description": "This route removes items from the cart and recalculates it.\n\nExample: [Working with the cart - Guide](https://developer.shopware.com/docs/guides/integrations-api/store-api-guide/work-with-the-cart#deleting-items-in-the-cart)",
-        "operationId": "removeLineItem",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "ids"
-                ],
-                "properties": {
-                  "ids": {
-                    "description": "A list of product identifiers.",
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[0-9a-f]{32}$"
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The updated cart.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Cart"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/checkout/order": {
-      "post": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Create an order from a cart",
-        "description": "Creates a new order from the current cart and deletes the cart.\n\nIf you are using the [prepared payment flow](https://developer.shopware.com/docs/concepts/commerce/checkout-concept/payments#2.1-prepare-payment-optional), this endpoint also receives additional transaction details. The exact name of the parameters depends on the implementation of the corresponding *payment handler*.",
-        "operationId": "createOrder",
-        "requestBody": {
-          "description": "Contains additional metadata which is stored together with the order. It can also contain payment transaction details.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "customerComment": {
-                    "description": "Adds a comment from the customer to the order.",
-                    "type": "string"
-                  },
-                  "affiliateCode": {
-                    "description": "The affiliate code can be used to track which referrer the customer came through. An example could be `Price-comparison-company-XY`.",
-                    "type": "string"
-                  },
-                  "campaignCode": {
-                    "description": "The campaign code is used to track which action the customer came from. An example could be `Summer-Deals`",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Order",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/sitemap": {
-      "get": {
-        "tags": [
-          "Sitemap & Routes"
-        ],
-        "summary": "Fetch sitemaps",
-        "description": "Fetches a list of compressed sitemap files, which are often used by search engines.",
-        "operationId": "readSitemap",
-        "responses": {
-          "200": {
-            "description": "Returns a list of available sitemaps.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Sitemap"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/landing-page/{landingPageId}": {
-      "post": {
-        "tags": [
-          "Content",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a landing page with the resolved CMS page",
-        "description": "Loads a landing page by its identifier and resolves the CMS page.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
-        "operationId": "readLandingPage",
-        "parameters": [
-          {
-            "name": "landingPageId",
-            "in": "path",
-            "description": "Identifier of the landing page.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  },
-                  {
-                    "allOf": [
-                      {
-                        "properties": {
-                          "slots": {
-                            "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a `|` character.",
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ProductListingCriteria"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The loaded landing page with cms page",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LandingPage"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/handle-payment": {
-      "post": {
-        "tags": [
-          "Payment & Shipping"
-        ],
-        "summary": "Initiate a payment for an order",
-        "description": "This generic endpoint is should be called to initiate a payment flow after an order has been created. The details of the payment flow can differ depending on the payment integration and might require calling additional operations or the setup of webhooks.\n\nThe endpoint internally calls the payment handler of the payment method currently set for the order.",
-        "operationId": "handlePaymentMethod",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "orderId"
-                ],
-                "properties": {
-                  "orderId": {
-                    "description": "Identifier of an order",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "finishUrl": {
-                    "description": "URL to which the client should be redirected after successful payment",
-                    "type": "string"
-                  },
-                  "errorUrl": {
-                    "description": "URL to which the client should be redirected after erroneous payment",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Redirect to external payment provider"
           }
         },
         "security": [
