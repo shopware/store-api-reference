@@ -14172,31 +14172,55 @@
           "$ref": "#/components/schemas/Category"
         }
       },
+      "SearchByImageSearchTermResponse": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "term",
+            "apiAlias"
+          ],
+          "properties": {
+            "term": {
+              "type": "string"
+            },
+            "apiAlias": {
+              "type": "string",
+              "enum": [
+                "product_image_upload_search_term"
+              ]
+            },
+            "extensions": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
       "NaturalLanguageSearchTermResponse": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/NaturalLanguageSearchTerm"
-        }
-      },
-      "NaturalLanguageSearchTerm": {
-        "type": "object",
-        "required": [
-          "term",
-          "reason",
-          "apiAlias"
-        ],
-        "properties": {
-          "term": {
-            "type": "string"
-          },
-          "reason": {
-            "type": "string"
-          },
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "product_natural_language_search_term"
-            ]
+          "type": "object",
+          "required": [
+            "term",
+            "reason",
+            "apiAlias"
+          ],
+          "properties": {
+            "term": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "apiAlias": {
+              "type": "string",
+              "enum": [
+                "product_natural_language_search_term"
+              ]
+            }
           }
         }
       }
@@ -15185,10 +15209,11 @@
       "post": {
         "tags": [
           "Natural language search",
+          "AI Search",
           "Experimental"
         ],
-        "summary": "Fetch search terms by natural language query",
-        "description": "<b>Experimental until v6.7.0</b>\n\nFetch search terms by natural language query",
+        "summary": "Fetch search terms by natural language search query",
+        "description": "<b>Experimental until v6.7.0</b>\n\nFetch search terms by natural search language query",
         "operationId": "naturalLanguageSearchTerm",
         "requestBody": {
           "required": true,
@@ -15209,11 +15234,52 @@
         },
         "responses": {
           "200": {
-            "description": "Returns search terms",
+            "description": "A collection of search terms, with an associated 'reason' based on search context",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/NaturalLanguageSearchTermResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/store-api/product/image-upload-search/search-term": {
+      "post": {
+        "tags": [
+          "Search by Image",
+          "AI Search",
+          "Experimental"
+        ],
+        "summary": "Fetch product search terms by uploading an image.",
+        "description": "<b>Experimental until v6.7.0</b>\n\nFetch product search terms by uploading an image.",
+        "operationId": "searchByImageSearchTerm",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "description": "Base-64 encoded image",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A collection of search terms",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchByImageSearchTermResponse"
                 }
               }
             }
