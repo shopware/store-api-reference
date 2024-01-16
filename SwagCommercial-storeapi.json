@@ -894,6 +894,309 @@
         },
         "type": "object"
       },
+      "B2bComponentsApprovalRule": {
+        "description": "Added since version: 6.6.0.0",
+        "required": [
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "reviewerRoleId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "affectedRoleId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "reviewerRole": {
+            "$ref": "#/components/schemas/B2bComponentsRole"
+          },
+          "affectedRole": {
+            "$ref": "#/components/schemas/B2bComponentsRole"
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsPendingOrder": {
+        "description": "Added since version: 6.6.0.0",
+        "required": [
+          "billingAddressId",
+          "customerId",
+          "employeeId",
+          "approvalRuleId",
+          "stateId",
+          "currencyId",
+          "countryId",
+          "salesChannelId",
+          "shippingMethodId",
+          "paymentMethodId",
+          "languageId",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "billingAddressId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "employeeId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "decidedById": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "approvalRuleId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "stateId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "currencyId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salesChannelId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "shippingMethodId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "paymentMethodId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "languageId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "price": {
+            "required": [
+              "netPrice",
+              "totalPrice",
+              "positionPrice",
+              "rawTotal",
+              "taxStatus"
+            ],
+            "properties": {
+              "netPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "totalPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "calculatedTaxes": {
+                "type": "object"
+              },
+              "taxRules": {
+                "type": "object"
+              },
+              "positionPrice": {
+                "type": "number",
+                "format": "float"
+              },
+              "rawTotal": {
+                "type": "number",
+                "format": "float"
+              },
+              "taxStatus": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "originalPrice": {
+            "type": "number",
+            "format": "float"
+          },
+          "taxStatus": {
+            "type": "string",
+            "readOnly": true
+          },
+          "amountTotal": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "amountNet": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "reason": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "billingAddress": {
+            "$ref": "#/components/schemas/B2bComponentsPendingOrderAddress"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/B2bEmployee"
+          },
+          "decidedBy": {
+            "$ref": "#/components/schemas/B2bEmployee"
+          },
+          "approvalRule": {
+            "$ref": "#/components/schemas/B2bComponentsApprovalRule"
+          },
+          "stateMachineState": {
+            "$ref": "#/components/schemas/StateMachineState"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "language": {
+            "$ref": "#/components/schemas/Language"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod"
+          },
+          "shippingMethod": {
+            "$ref": "#/components/schemas/ShippingMethod"
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/B2bComponentsPendingOrderAddress"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsPendingOrderAddress": {
+        "description": "Added since version: 6.6.0.0",
+        "required": [
+          "countryId",
+          "firstName",
+          "lastName",
+          "street",
+          "city",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "zipcode": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "vatId": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "additionalAddressLine1": {
+            "type": "string"
+          },
+          "additionalAddressLine2": {
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "countryState": {
+            "$ref": "#/components/schemas/CountryState"
+          },
+          "pendingOrder": {
+            "$ref": "#/components/schemas/B2bComponentsPendingOrder"
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation"
+          }
+        },
+        "type": "object"
+      },
       "B2bComponentsRole": {
         "required": [
           "name",
