@@ -2083,6 +2083,11 @@
                 "type": "object"
               },
               "itemRounding": {
+                "required": [
+                  "decimals",
+                  "interval",
+                  "roundForNet"
+                ],
                 "properties": {
                   "decimals": {
                     "type": "integer",
@@ -2099,6 +2104,11 @@
                 "type": "object"
               },
               "totalRounding": {
+                "required": [
+                  "decimals",
+                  "interval",
+                  "roundForNet"
+                ],
                 "properties": {
                   "decimals": {
                     "type": "integer",
@@ -2190,6 +2200,11 @@
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
           },
           "itemRounding": {
+            "required": [
+              "decimals",
+              "interval",
+              "roundForNet"
+            ],
             "properties": {
               "decimals": {
                 "type": "integer",
@@ -2209,6 +2224,11 @@
             "type": "object"
           },
           "totalRounding": {
+            "required": [
+              "decimals",
+              "interval",
+              "roundForNet"
+            ],
             "properties": {
               "decimals": {
                 "type": "integer",
