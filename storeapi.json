@@ -675,6 +675,7 @@
           },
           {
             "required": [
+              "id",
               "displayNestedProducts",
               "type",
               "productAssignmentType",
@@ -1005,6 +1006,7 @@
       "Category": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "displayNestedProducts",
           "type",
           "productAssignmentType",
@@ -1321,6 +1323,7 @@
       "CmsPage": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "type",
           "createdAt"
         ],
@@ -1597,6 +1600,7 @@
           },
           {
             "required": [
+              "id",
               "createdAt",
               "name",
               "addressFormat"
@@ -1758,6 +1762,7 @@
       "Country": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name",
           "addressFormat"
@@ -1924,6 +1929,7 @@
           },
           {
             "required": [
+              "id",
               "countryId",
               "shortCode",
               "createdAt",
@@ -1975,6 +1981,7 @@
       "CountryState": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "countryId",
           "shortCode",
           "createdAt",
@@ -2037,6 +2044,7 @@
           },
           {
             "required": [
+              "id",
               "factor",
               "symbol",
               "isoCode",
@@ -2145,6 +2153,7 @@
       "Currency": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "factor",
           "symbol",
           "isoCode",
@@ -2387,6 +2396,7 @@
       "Customer": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "groupId",
           "defaultPaymentMethodId",
           "salesChannelId",
@@ -2636,6 +2646,7 @@
       "CustomerAddress": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "customerId",
           "countryId",
           "firstName",
@@ -2743,6 +2754,7 @@
       "CustomerGroup": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name"
         ],
@@ -2856,6 +2868,7 @@
       "CustomerWishlist": {
         "description": "Added since version: 6.3.4.0",
         "required": [
+          "id",
           "customerId",
           "createdAt"
         ],
@@ -2890,6 +2903,7 @@
       "CustomerWishlistProduct": {
         "description": "Added since version: 6.3.4.0",
         "required": [
+          "id",
           "productId",
           "createdAt"
         ],
@@ -2925,6 +2939,7 @@
       "DeliveryTime": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "name",
           "min",
           "max",
@@ -2979,6 +2994,7 @@
       "Document": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "documentTypeId",
           "fileType",
           "orderId",
@@ -3078,6 +3094,7 @@
       "DocumentBaseConfig": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "documentTypeId",
           "name",
           "global",
@@ -3147,6 +3164,7 @@
       "DocumentBaseConfigSalesChannel": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "documentBaseConfigId",
           "createdAt"
         ],
@@ -3187,6 +3205,7 @@
       "DocumentType": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "technicalName",
           "createdAt",
           "name"
@@ -3407,6 +3426,7 @@
           },
           {
             "required": [
+              "id",
               "createdAt",
               "name",
               "url"
@@ -3538,6 +3558,7 @@
       "LandingPage": {
         "description": "Added since version: 6.4.0.0",
         "required": [
+          "id",
           "createdAt",
           "name",
           "url"
@@ -3628,6 +3649,7 @@
           },
           {
             "required": [
+              "id",
               "localeId",
               "name",
               "createdAt"
@@ -3796,6 +3818,7 @@
       "Language": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "localeId",
           "name",
           "createdAt"
@@ -3860,6 +3883,7 @@
       "Locale": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "code",
           "createdAt",
           "name",
@@ -4048,6 +4072,7 @@
       "MailTemplateMedia": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "mailTemplateId",
           "languageId",
           "mediaId"
@@ -4087,6 +4112,7 @@
       "MailTemplateType": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "technicalName",
           "createdAt",
           "name"
@@ -4134,6 +4160,7 @@
           },
           {
             "required": [
+              "id",
               "productId",
               "categoryId",
               "salesChannelId",
@@ -4182,6 +4209,7 @@
       "MainCategory": {
         "description": "Added since version: 6.1.0.0",
         "required": [
+          "id",
           "productId",
           "categoryId",
           "salesChannelId",
@@ -4234,6 +4262,7 @@
       "Media": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt"
         ],
         "properties": {
@@ -4436,6 +4465,7 @@
       "MediaThumbnail": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "mediaId",
           "width",
           "height",
@@ -4491,6 +4521,7 @@
       "MediaThumbnailSize": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "width",
           "height",
           "createdAt"
@@ -4715,8 +4746,9 @@
       "Order": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "billingAddressId",
-          "currencyId",
+          "documents",
+          "orderDate",
+          "stateMachineState",
           "languageId",
           "salesChannelId",
           "orderDateTime",
@@ -5018,6 +5050,7 @@
       "OrderAddress": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "countryId",
           "firstName",
           "lastName",
@@ -5123,6 +5156,7 @@
       "OrderCustomer": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "email",
           "firstName",
           "lastName",
@@ -5198,6 +5232,7 @@
       "OrderDelivery": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "orderId",
           "shippingOrderAddressId",
           "shippingMethodId",
@@ -5367,6 +5402,7 @@
       "OrderDeliveryPosition": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "orderDeliveryId",
           "orderLineItemId",
           "createdAt"
@@ -5504,6 +5540,7 @@
       "OrderLineItem": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "orderId",
           "identifier",
           "quantity",
@@ -5673,6 +5710,7 @@
       "OrderLineItemDownload": {
         "description": "Added since version: 6.4.19.0",
         "required": [
+          "media",
           "orderLineItemId",
           "mediaId",
           "position",
@@ -5776,6 +5814,7 @@
       "OrderTransaction": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "orderId",
           "paymentMethodId",
           "amount",
@@ -5938,6 +5977,7 @@
       "OrderTransactionCapture": {
         "description": "Added since version: 6.4.12.0",
         "required": [
+          "id",
           "orderTransactionId",
           "stateId",
           "amount",
@@ -6098,6 +6138,7 @@
       "OrderTransactionCaptureRefund": {
         "description": "Added since version: 6.4.12.0",
         "required": [
+          "id",
           "captureId",
           "stateId",
           "amount",
@@ -6262,6 +6303,7 @@
       "OrderTransactionCaptureRefundPosition": {
         "description": "Added since version: 6.4.12.0",
         "required": [
+          "id",
           "refundId",
           "orderLineItemId",
           "amount",
@@ -6435,6 +6477,7 @@
           },
           {
             "required": [
+              "id",
               "createdAt",
               "name"
             ],
@@ -6557,6 +6600,7 @@
       "PaymentMethod": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name"
         ],
@@ -6690,6 +6734,7 @@
           },
           {
             "required": [
+              "id",
               "taxId",
               "productNumber",
               "stock",
@@ -7675,6 +7720,7 @@
       "Product": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "taxId",
           "productNumber",
           "stock",
@@ -8133,6 +8179,7 @@
       "ProductConfiguratorSetting": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "productId",
           "optionId",
           "createdAt"
@@ -8199,6 +8246,7 @@
       "ProductCrossSelling": {
         "description": "Added since version: 6.1.0.0",
         "required": [
+          "id",
           "name",
           "position",
           "type",
@@ -8284,6 +8332,7 @@
       "ProductDownload": {
         "description": "Added since version: 6.4.19.0",
         "required": [
+          "id",
           "productId",
           "mediaId",
           "createdAt"
@@ -8422,6 +8471,7 @@
       "ProductManufacturer": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name"
         ],
@@ -8480,6 +8530,7 @@
       "ProductMedia": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "productId",
           "mediaId",
           "createdAt"
@@ -8531,6 +8582,9 @@
           },
           "media": {
             "$ref": "#/components/schemas/Media"
+          },
+          "thumbnails": {
+            "$ref": "#/components/schemas/MediaThumbnail"
           }
         },
         "type": "object"
@@ -8562,6 +8616,7 @@
       "ProductReview": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "points",
           "productId",
           "salesChannelId",
           "languageId",
@@ -8752,6 +8807,7 @@
       "ProductStream": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name"
         ],
@@ -8994,6 +9050,7 @@
       "PropertyGroup": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "displayType",
           "sortingType",
           "createdAt",
@@ -9064,6 +9121,7 @@
       "PropertyGroupOption": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "groupId",
           "createdAt",
           "name"
@@ -9191,6 +9249,7 @@
       "SalesChannel": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "languageId",
           "customerGroupId",
           "currencyId",
@@ -9391,6 +9450,7 @@
       "SalesChannelDomain": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "url",
           "salesChannelId",
           "languageId",
@@ -9495,6 +9555,7 @@
           },
           {
             "required": [
+              "id",
               "salutationKey",
               "createdAt",
               "displayName",
@@ -9538,6 +9599,7 @@
       "Salutation": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "salutationKey",
           "createdAt",
           "displayName",
@@ -9638,6 +9700,7 @@
           },
           {
             "required": [
+              "id",
               "languageId",
               "foreignKey",
               "routeName",
@@ -9709,6 +9772,7 @@
       "SeoUrl": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "languageId",
           "foreignKey",
           "routeName",
@@ -9831,6 +9895,7 @@
           },
           {
             "required": [
+              "id",
               "deliveryTimeId",
               "taxType",
               "createdAt",
@@ -10078,6 +10143,7 @@
       "ShippingMethod": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "deliveryTimeId",
           "taxType",
           "createdAt",
@@ -10175,6 +10241,7 @@
       "ShippingMethodPrice": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "shippingMethodId",
           "createdAt"
         ],
@@ -10463,6 +10530,7 @@
       "SystemConfig": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "configurationKey",
           "configurationValue",
           "createdAt"
@@ -10510,6 +10578,7 @@
       "Tag": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "name",
           "createdAt"
         ],
@@ -10538,6 +10607,7 @@
       "Tax": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "taxRate",
           "name",
           "position",
@@ -10583,6 +10653,7 @@
       "TaxProvider": {
         "description": "Added since version: 6.5.0.0",
         "required": [
+          "id",
           "priority",
           "createdAt",
           "name"
@@ -10692,6 +10763,7 @@
       "Theme": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "name",
           "author",
           "active",
@@ -10781,6 +10853,7 @@
       "Unit": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "shortCode",
           "name"
@@ -10964,74 +11037,69 @@
         },
         "type": "object"
       },
-      "ProductListingResult": {
+      "CartItems": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/EntitySearchResult"
+            "$ref": "#/components/schemas/ArrayStruct"
           },
           {
             "type": "object",
             "properties": {
-              "currentFilters": {
-                "type": "object",
-                "description": "Contains the state of the filters. These can be used to create listing filters.",
-                "properties": {
-                  "navigationId": {
-                    "type": "string"
-                  },
-                  "manufacturer": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  },
-                  "price": {
-                    "type": "object",
-                    "properties": {
-                      "min": {
-                        "type": "integer"
-                      },
-                      "max": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "rating": {
-                    "type": "integer"
-                  },
-                  "shipping-free": {
-                    "type": "boolean"
-                  },
-                  "properties": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  }
-                }
-              },
-              "availableSortings": {
-                "type": "array",
-                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
-                "items": {
-                  "type": "object"
-                }
-              },
-              "sorting": {
-                "type": "string"
-              },
-              "elements": {
+              "items": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Product"
+                  "$ref": "#/components/schemas/LineItem"
                 }
               }
             }
           }
-        ]
+        ],
+        "properties": {
+          "items": {
+            "properties": {
+              "id": {
+                "description": "Unique identity of cart item."
+              },
+              "modified": {
+                "description": "When boolean value is `true`, the cart is said to be modified."
+              }
+            }
+          }
+        }
       },
-      "ArrayStruct": {
-        "$ref": "#/components/schemas/Struct"
+      "EntitySearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArrayStruct"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "entity": {
+                "type": "string"
+              },
+              "total": {
+                "type": "integer",
+                "description": "The total number of found entities"
+              },
+              "aggregations": {
+                "type": "array",
+                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "page": {
+                "type": "integer",
+                "description": "The actual page. This can be used for pagination."
+              },
+              "limit": {
+                "type": "integer",
+                "description": "The actual limit. This is used for pagination and goes together with the page."
+              }
+            }
+          }
+        ]
       },
       "SalesChannelContext": {
         "allOf": [
@@ -11712,128 +11780,272 @@
           }
         }
       },
-      "CartItems": {
+      "Struct": {
+        "type": "object",
+        "properties": {
+          "apiAlias": {
+            "type": "string",
+            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
+          }
+        }
+      },
+      "ProductListingResult": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/ArrayStruct"
+            "$ref": "#/components/schemas/EntitySearchResult"
           },
           {
             "type": "object",
             "properties": {
-              "items": {
+              "currentFilters": {
+                "type": "object",
+                "description": "Contains the state of the filters. These can be used to create listing filters.",
+                "properties": {
+                  "navigationId": {
+                    "type": "string"
+                  },
+                  "manufacturer": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "price": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "integer"
+                      },
+                      "max": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "rating": {
+                    "type": "integer"
+                  },
+                  "shipping-free": {
+                    "type": "boolean"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "availableSortings": {
+                "type": "array",
+                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "sorting": {
+                "type": "string"
+              },
+              "elements": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/LineItem"
+                  "$ref": "#/components/schemas/Product"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "WishlistLoadRouteResponse": {
+        "type": "object",
+        "properties": {
+          "wishlist": {
+            "type": "object",
+            "properties": {
+              "customerId": {
+                "type": "string",
+                "description": "Unique identity of the customer."
+              },
+              "salesChannelId": {
+                "type": "string",
+                "description": "Unique identity of the sales channel."
+              }
+            }
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductListingResult"
+            }
+          }
+        }
+      },
+      "ProductListingCriteria": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Criteria"
+          },
+          {
+            "type": "object",
+            "description": "Additional search parameters for product listings",
+            "properties": {
+              "order": {
+                "description": "Specifies the sorting of the products by `availableSortings`. If not set, the default sorting will be set according to the shop settings. The available sorting options are sent within the response under the `availableSortings` key. In order to sort by a field, consider using the `sort` parameter from the listing criteria. Do not use both parameters together, as it might lead to unexpected results.",
+                "type": "string"
+              },
+              "limit": {
+                "description": "Number of items per result page. If not set, the limit will be set according to the default products per page, defined in the system settings.",
+                "type": "integer",
+                "minimum": 0
+              },
+              "p": {
+                "description": "Search result page",
+                "type": "integer",
+                "default": 1
+              },
+              "manufacturer": {
+                "description": "Filter by manufacturers. List of manufacturer identifiers separated by a `|`.",
+                "type": "string"
+              },
+              "min-price": {
+                "description": "Filters by a minimum product price. Has to be lower than the `max-price` filter.",
+                "type": "integer",
+                "minimum": 0,
+                "default": 0
+              },
+              "max-price": {
+                "description": "Filters by a maximum product price. Has to be higher than the `min-price` filter.",
+                "type": "integer",
+                "minimum": 0,
+                "default": 0
+              },
+              "rating": {
+                "description": "Filter products with a minimum average rating.",
+                "type": "integer"
+              },
+              "shipping-free": {
+                "description": "Filters products that are marked as shipping-free.",
+                "type": "boolean",
+                "default": false
+              },
+              "properties": {
+                "description": "Filters products by their properties. List of property identifiers separated by a `|`.",
+                "type": "string"
+              },
+              "manufacturer-filter": {
+                "description": "Enables/disabled filtering by manufacturer. If set to false, the `manufacturer` filter will be ignored. Also the `aggregations[manufacturer]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "price-filter": {
+                "description": "Enables/disabled filtering by price. If set to false, the `min-price` and `max-price` filter will be ignored. Also the `aggregations[price]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "rating-filter": {
+                "description": "Enables/disabled filtering by rating. If set to false, the `rating` filter will be ignored. Also the `aggregations[rating]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "shipping-free-filter": {
+                "description": "Enables/disabled filtering by shipping-free products. If set to false, the `shipping-free` filter will be ignored. Also the `aggregations[shipping-free]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "property-filter": {
+                "description": "Enables/disabled filtering by properties products. If set to false, the `properties` filter will be ignored. Also the `aggregations[properties]` key will be removed from the response.",
+                "type": "boolean",
+                "default": true
+              },
+              "property-whitelist": {
+                "description": "A whitelist of property identifiers which can be used for filtering. List of property identifiers separated by a `|`. The `property-filter` must be `true`, otherwise the whitelist has no effect.",
+                "type": "string"
+              },
+              "reduce-aggregations": {
+                "description": "By sending the parameter `reduce-aggregations` , the post-filters that were applied by the customer, are also applied to the aggregations. This has the consequence that only values are returned in the aggregations that would lead to further filter results. This parameter is a flag, the value has no effect.",
+                "type": "string",
+                "nullable": true
               }
             }
           }
         ],
         "properties": {
-          "items": {
+          "filter": {
             "properties": {
-              "id": {
-                "description": "Unique identity of cart item."
+              "type": {
+                "description": "To filter the results and aggregations with filter types like ==, >=, etc."
               },
-              "modified": {
-                "description": "When boolean value is `true`, the cart is said to be modified."
+              "field": {
+                "description": "To filter the results and aggregations by field like an property identifier."
+              },
+              "value": {
+                "description": "To filter the results and aggregations by value."
               }
             }
-          }
-        }
-      },
-      "FindProductVariantRouteResponse": {
-        "type": "object",
-        "properties": {
-          "foundCombination": {
-            "type": "object",
-            "properties": {
-              "variantId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$",
-                "description": "Unique identity of a variant."
-              },
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Available product variant options. For example, for variant `Size`, option would be `XS`, `S`, `M`, `L`, `XL`."
-              }
-            }
-          }
-        }
-      },
-      "AccountNewsletterRecipientResult": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "enum": [
-              "undefined",
-              "notSet",
-              "direct",
-              "optIn",
-              "optOut"
-            ],
-            "description": "Status indicates if the customer has subscribed to the news letter or not."
           },
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "account_newsletter_recipient"
-            ]
-          }
-        },
-        "required": [
-          "status",
-          "apiAlias"
-        ]
-      },
-      "CrossSellingElementCollection": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/CrossSellingElement"
-        },
-        "properties": {
-          "total": {
-            "description": "Number of cross selling elements found."
-          }
-        }
-      },
-      "EntitySearchResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
+          "sort": {
             "properties": {
-              "entity": {
-                "type": "string"
+              "field": {
+                "description": "Sort the search results by field like an property identifier."
               },
-              "total": {
-                "type": "integer",
-                "description": "The total number of found entities"
+              "order": {
+                "description": "Sort the search results of orders by ascending or descending."
               },
-              "aggregations": {
-                "type": "array",
-                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
-                "items": {
-                  "type": "object"
-                }
+              "naturalSorting": {
+                "description": "Sorting for special cases such as German letters with umlauts and similar characters etc."
+              }
+            }
+          },
+          "post-filter": {
+            "properties": {
+              "type": {
+                "description": "To filter only the results but not the aggregations with filter types like ==, >=, etc."
               },
-              "page": {
-                "type": "integer",
-                "description": "The actual page. This can be used for pagination."
+              "field": {
+                "description": "To filter only the results but not the aggregations by field like an property identifier."
               },
-              "limit": {
-                "type": "integer",
-                "description": "The actual limit. This is used for pagination and goes together with the page."
+              "value": {
+                "description": "To filter only the results but not the aggregations by value."
               }
             }
           }
-        ]
+        }
+      },
+      "ProductDetailResponse": {
+        "type": "object",
+        "description": "Represents a product along with detailed information required to display a variant selection.",
+        "properties": {
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "configurator": {
+            "type": "array",
+            "description": "List of property groups with their corresponding options and information on how to display them.",
+            "items": {
+              "$ref": "#/components/schemas/PropertyGroup"
+            }
+          },
+          "id": {
+            "description": "Unique identity of product detail response."
+          },
+          "available": {
+            "description": "When boolean value is true, the product is available for purchase."
+          },
+          "isCloseout": {
+            "description": "Boolean value to check if the product is still buyable when stock value is 0."
+          },
+          "displayGroup": {
+            "description": "Internal field."
+          },
+          "manufacturerNumber": {
+            "description": "Unique number of the product manufacturer."
+          },
+          "stock": {
+            "description": "Quantity of product available."
+          },
+          "sortedProperties": {
+            "description": "Properties of the product that are sorted"
+          }
+        }
       },
       "Criteria": {
         "type": "object",
@@ -12005,220 +12217,148 @@
           }
         }
       },
-      "ProductListingCriteria": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Criteria"
-          },
-          {
-            "type": "object",
-            "description": "Additional search parameters for product listings",
-            "properties": {
-              "order": {
-                "description": "Specifies the sorting of the products by `availableSortings`. If not set, the default sorting will be set according to the shop settings. The available sorting options are sent within the response under the `availableSortings` key. In order to sort by a field, consider using the `sort` parameter from the listing criteria. Do not use both parameters together, as it might lead to unexpected results.",
-                "type": "string"
-              },
-              "limit": {
-                "description": "Number of items per result page. If not set, the limit will be set according to the default products per page, defined in the system settings.",
-                "type": "integer",
-                "minimum": 0
-              },
-              "p": {
-                "description": "Search result page",
-                "type": "integer",
-                "default": 1
-              },
-              "manufacturer": {
-                "description": "Filter by manufacturers. List of manufacturer identifiers separated by a `|`.",
-                "type": "string"
-              },
-              "min-price": {
-                "description": "Filters by a minimum product price. Has to be lower than the `max-price` filter.",
-                "type": "integer",
-                "minimum": 0,
-                "default": 0
-              },
-              "max-price": {
-                "description": "Filters by a maximum product price. Has to be higher than the `min-price` filter.",
-                "type": "integer",
-                "minimum": 0,
-                "default": 0
-              },
-              "rating": {
-                "description": "Filter products with a minimum average rating.",
-                "type": "integer"
-              },
-              "shipping-free": {
-                "description": "Filters products that are marked as shipping-free.",
-                "type": "boolean",
-                "default": false
-              },
-              "properties": {
-                "description": "Filters products by their properties. List of property identifiers separated by a `|`.",
-                "type": "string"
-              },
-              "manufacturer-filter": {
-                "description": "Enables/disabled filtering by manufacturer. If set to false, the `manufacturer` filter will be ignored. Also the `aggregations[manufacturer]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "price-filter": {
-                "description": "Enables/disabled filtering by price. If set to false, the `min-price` and `max-price` filter will be ignored. Also the `aggregations[price]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "rating-filter": {
-                "description": "Enables/disabled filtering by rating. If set to false, the `rating` filter will be ignored. Also the `aggregations[rating]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "shipping-free-filter": {
-                "description": "Enables/disabled filtering by shipping-free products. If set to false, the `shipping-free` filter will be ignored. Also the `aggregations[shipping-free]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "property-filter": {
-                "description": "Enables/disabled filtering by properties products. If set to false, the `properties` filter will be ignored. Also the `aggregations[properties]` key will be removed from the response.",
-                "type": "boolean",
-                "default": true
-              },
-              "property-whitelist": {
-                "description": "A whitelist of property identifiers which can be used for filtering. List of property identifiers separated by a `|`. The `property-filter` must be `true`, otherwise the whitelist has no effect.",
-                "type": "string"
-              },
-              "reduce-aggregations": {
-                "description": "By sending the parameter `reduce-aggregations` , the post-filters that were applied by the customer, are also applied to the aggregations. This has the consequence that only values are returned in the aggregations that would lead to further filter results. This parameter is a flag, the value has no effect.",
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ],
+      "FindProductVariantRouteResponse": {
+        "type": "object",
         "properties": {
-          "filter": {
+          "foundCombination": {
+            "type": "object",
             "properties": {
-              "type": {
-                "description": "To filter the results and aggregations with filter types like ==, >=, etc."
+              "variantId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$",
+                "description": "Unique identity of a variant."
               },
-              "field": {
-                "description": "To filter the results and aggregations by field like an property identifier."
-              },
-              "value": {
-                "description": "To filter the results and aggregations by value."
-              }
-            }
-          },
-          "sort": {
-            "properties": {
-              "field": {
-                "description": "Sort the search results by field like an property identifier."
-              },
-              "order": {
-                "description": "Sort the search results of orders by ascending or descending."
-              },
-              "naturalSorting": {
-                "description": "Sorting for special cases such as German letters with umlauts and similar characters etc."
-              }
-            }
-          },
-          "post-filter": {
-            "properties": {
-              "type": {
-                "description": "To filter only the results but not the aggregations with filter types like ==, >=, etc."
-              },
-              "field": {
-                "description": "To filter only the results but not the aggregations by field like an property identifier."
-              },
-              "value": {
-                "description": "To filter only the results but not the aggregations by value."
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Available product variant options. For example, for variant `Size`, option would be `XS`, `S`, `M`, `L`, `XL`."
               }
             }
           }
         }
       },
-      "ProductListingFlags": {
+      "LineItem": {
         "type": "object",
-        "description": "Additional flags for product listings",
         "properties": {
-          "no-aggregations": {
-            "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
+          "id": {
             "type": "string",
-            "nullable": true
+            "description": "Unique identity of line item."
           },
-          "only-aggregations": {
-            "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
+          "referencedId": {
             "type": "string",
-            "nullable": true
+            "description": "Unique identity of type of entity."
+          },
+          "label": {
+            "type": "string",
+            "description": "It is a typical product name given to the line item."
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items of product."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type refers to the entity type of an item whether it is product or promotion for instance."
+          },
+          "good": {
+            "type": "boolean",
+            "description": "When set to true, it indicates the line item is physical else it is virtual."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of line items in an order."
+          },
+          "removable": {
+            "type": "boolean",
+            "description": "Allows the line item to be removable from the cart when set to true."
+          },
+          "stackable": {
+            "type": "boolean",
+            "description": "Allows to change the quantity of the line item when set to true."
+          },
+          "modified": {
+            "type": "boolean",
+            "description": "When boolean value is `true`, line items are said to be modified."
           }
         }
       },
-      "WishlistLoadRouteResponse": {
+      "CrossSellingElementCollection": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/CrossSellingElement"
+        },
+        "properties": {
+          "total": {
+            "description": "Number of cross selling elements found."
+          }
+        }
+      },
+      "NavigationRouteResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Category"
+        },
+        "properties": {
+          "id": {
+            "description": "Unique identity of navigation route response."
+          }
+        }
+      },
+      "CrossSellingElement": {
         "type": "object",
         "properties": {
-          "wishlist": {
-            "type": "object",
-            "properties": {
-              "customerId": {
-                "type": "string",
-                "description": "Unique identity of the customer."
-              },
-              "salesChannelId": {
-                "type": "string",
-                "description": "Unique identity of the sales channel."
-              }
-            }
+          "crossSelling": {
+            "$ref": "#/components/schemas/ProductCrossSelling"
           },
           "products": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ProductListingResult"
-            }
-          }
-        }
-      },
-      "ProductDetailResponse": {
-        "type": "object",
-        "description": "Represents a product along with detailed information required to display a variant selection.",
-        "properties": {
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "configurator": {
-            "type": "array",
-            "description": "List of property groups with their corresponding options and information on how to display them.",
-            "items": {
-              "$ref": "#/components/schemas/PropertyGroup"
+              "$ref": "#/components/schemas/Product"
             }
           },
-          "id": {
-            "description": "Unique identity of product detail response."
+          "total": {
+            "type": "integer",
+            "format": "int32"
           },
-          "available": {
-            "description": "When boolean value is true, the product is available for purchase."
+          "streamId": {
+            "type": "string",
+            "format": "uuid"
           },
-          "isCloseout": {
-            "description": "Boolean value to check if the product is still buyable when stock value is 0."
-          },
-          "displayGroup": {
-            "description": "Internal field."
-          },
-          "manufacturerNumber": {
-            "description": "Unique number of the product manufacturer."
-          },
-          "stock": {
-            "description": "Quantity of product available."
-          },
-          "sortedProperties": {
-            "description": "Properties of the product that are sorted"
-          }
-        }
-      },
-      "Struct": {
-        "type": "object",
-        "properties": {
           "apiAlias": {
             "type": "string",
-            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
+            "enum": [
+              "cross_selling_element"
+            ]
+          }
+        },
+        "required": [
+          "crossSelling",
+          "products",
+          "total",
+          "apiAlias"
+        ]
+      },
+      "ArrayStruct": {
+        "$ref": "#/components/schemas/Struct"
+      },
+      "OrderRouteResponse": {
+        "type": "object",
+        "properties": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
+          },
+          "paymentChangeable": {
+            "type": "object",
+            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
+            "additionalProperties": {
+              "type": "boolean"
+            }
           }
         }
       },
@@ -12346,78 +12486,19 @@
           }
         }
       },
-      "NavigationRouteResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/Category"
-        },
-        "properties": {
-          "id": {
-            "description": "Unique identity of navigation route response."
-          }
-        }
-      },
-      "OrderRouteResponse": {
+      "ProductListingFlags": {
         "type": "object",
+        "description": "Additional flags for product listings",
         "properties": {
-          "orders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Order"
-            }
-          },
-          "paymentChangeable": {
-            "type": "object",
-            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
-            "additionalProperties": {
-              "type": "boolean"
-            }
-          }
-        }
-      },
-      "LineItem": {
-        "type": "object",
-        "properties": {
-          "id": {
+          "no-aggregations": {
+            "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
             "type": "string",
-            "description": "Unique identity of line item."
+            "nullable": true
           },
-          "referencedId": {
+          "only-aggregations": {
+            "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
             "type": "string",
-            "description": "Unique identity of type of entity."
-          },
-          "label": {
-            "type": "string",
-            "description": "It is a typical product name given to the line item."
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "description": "Number of items of product."
-          },
-          "type": {
-            "type": "string",
-            "description": "Type refers to the entity type of an item whether it is product or promotion for instance."
-          },
-          "good": {
-            "type": "boolean",
-            "description": "When set to true, it indicates the line item is physical else it is virtual."
-          },
-          "description": {
-            "type": "string",
-            "description": "Description of line items in an order."
-          },
-          "removable": {
-            "type": "boolean",
-            "description": "Allows the line item to be removable from the cart when set to true."
-          },
-          "stackable": {
-            "type": "boolean",
-            "description": "Allows to change the quantity of the line item when set to true."
-          },
-          "modified": {
-            "type": "boolean",
-            "description": "When boolean value is `true`, line items are said to be modified."
+            "nullable": true
           }
         }
       },
@@ -12428,6 +12509,32 @@
             "type": "boolean"
           }
         }
+      },
+      "AccountNewsletterRecipientResult": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "undefined",
+              "notSet",
+              "direct",
+              "optIn",
+              "optOut"
+            ],
+            "description": "Status indicates if the customer has subscribed to the news letter or not."
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "account_newsletter_recipient"
+            ]
+          }
+        },
+        "required": [
+          "status",
+          "apiAlias"
+        ]
       },
       "ShippingMethodPageRouteResponse": {
         "type": "array",
@@ -13081,40 +13188,6 @@
             "description": "Name of the file which holds a list of all URL's."
           }
         }
-      },
-      "CrossSellingElement": {
-        "type": "object",
-        "properties": {
-          "crossSelling": {
-            "$ref": "#/components/schemas/ProductCrossSelling"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            }
-          },
-          "total": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "streamId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cross_selling_element"
-            ]
-          }
-        },
-        "required": [
-          "crossSelling",
-          "products",
-          "total",
-          "apiAlias"
-        ]
       },
       "OrderProductWarehouse": {
         "properties": {
@@ -13835,24 +13908,48 @@
     }
   ],
   "paths": {
-    "/sitemap": {
-      "get": {
+    "/product-listing/{categoryId}": {
+      "post": {
         "tags": [
-          "Sitemap & Routes"
+          "Product"
         ],
-        "summary": "Fetch sitemaps",
-        "description": "Fetches a list of compressed sitemap files, which are often used by search engines.",
-        "operationId": "readSitemap",
+        "summary": "Fetch a product listing by category",
+        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.",
+        "operationId": "readProductListing",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Identifier of a category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
+                  }
+                ]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Returns a list of available sitemaps.",
+            "description": "Returns a product listing containing all products and additional fields to display a listing.",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Sitemap"
-                  }
+                  "$ref": "#/components/schemas/ProductListingResult"
                 }
               }
             }
@@ -13865,41 +13962,29 @@
         ]
       }
     },
-    "/newsletter/confirm": {
+    "/script/{hook}": {
       "post": {
         "tags": [
-          "Newsletter"
+          "API",
+          "Script",
+          "App"
         ],
-        "summary": "Confirm a newsletter registration",
-        "description": "You have to use the hash from the link sent out via email to confirm the user registration.",
-        "operationId": "confirmNewsletter",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "hash",
-                  "em"
-                ],
-                "properties": {
-                  "hash": {
-                    "description": "Hash parameter from link the in the confirmation mail",
-                    "type": "string"
-                  },
-                  "em": {
-                    "description": "Email hash parameter from the link in the confirmation mail",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
+        "summary": "Access point for different api logics which are provided by apps over script hooks",
+        "operationId": "postScriptStoreApiRoute",
+        "parameters": [
+          {
+            "name": "hook",
+            "in": "path",
+            "description": "Dynamic hook which used to build the hook name",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
-            "description": "The newsletter confirmation was successful."
+            "description": "Returns different structures of results based on the called script."
           }
         },
         "security": [
@@ -13909,112 +13994,124 @@
         ]
       }
     },
-    "/newsletter/subscribe": {
+    "/search-suggest": {
       "post": {
         "tags": [
-          "Newsletter"
+          "Product"
         ],
-        "summary": "Create or remove a newsletter subscription",
-        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email addrees containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirmes the newsletter subscription for the provided email address.",
-        "operationId": "subscribeToNewsletter",
+        "summary": "Search for products (suggest)",
+        "description": "Can be used to implement search previews or suggestion listings, that don’t require any interaction.",
+        "operationId": "searchSuggest",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "required": [
+                      "search"
+                    ],
+                    "properties": {
+                      "search": {
+                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a product listing containing all products and additional fields.\n\nNote: Aggregations, currentFilters and availableSortings are empty in this response. If you need them to display a listing, use the /search route instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListingResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/contact-form": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Submit a contact form message",
+        "description": "Used for submitting contact forms. Be aware that there can be more required fields, depending on the system settings.",
+        "operationId": "sendContactMail",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "required": [
+                  "salutationId",
                   "email",
-                  "option",
-                  "storefrontUrl"
+                  "subject",
+                  "comment"
                 ],
                 "properties": {
-                  "email": {
-                    "description": "Email address that will receive the confirmation and the newsletter.",
-                    "type": "string"
-                  },
-                  "option": {
-                    "description": "Defines what should be done.",
-                    "type": "string"
-                  },
-                  "storefrontUrl": {
-                    "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email.",
-                    "type": "string"
-                  },
                   "salutationId": {
-                    "description": "Identifier of the salutation.",
+                    "description": "Identifier of the salutation. Use `/api/salutation` endpoint to fetch possible values.",
                     "type": "string",
                     "pattern": "^[0-9a-f]{32}$"
                   },
                   "firstName": {
-                    "description": "First name",
+                    "description": "Firstname. This field may be required depending on the system settings.",
                     "type": "string"
                   },
                   "lastName": {
-                    "description": "Last name",
+                    "description": "Lastname. This field may be required depending on the system settings.",
                     "type": "string"
                   },
-                  "street": {
-                    "description": "Street",
-                    "type": "string"
-                  },
-                  "city": {
-                    "description": "City",
-                    "type": "string"
-                  },
-                  "zipCode": {
-                    "description": "Zip code",
-                    "type": "string"
-                  },
-                  "tags": {
-                    "description": "Zip code",
-                    "type": "string"
-                  },
-                  "languageId": {
-                    "description": "Identifier of the language.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "customFields": {
-                    "description": "Custom field data that should be added to the subscription.",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/newsletter/unsubscribe": {
-      "post": {
-        "tags": [
-          "Newsletter"
-        ],
-        "summary": "Remove a newsletter subscription",
-        "description": "Removes a newsletter recipient from the mailing lists.",
-        "operationId": "unsubscribeToNewsletter",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "email"
-                ],
-                "properties": {
                   "email": {
-                    "description": "Email address that should be removed from the mailing lists.",
+                    "description": "Email address",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "description": "Phone. This field may be required depending on the system settings.",
+                    "type": "string"
+                  },
+                  "subject": {
+                    "description": "The subject of the contact form.",
+                    "type": "string"
+                  },
+                  "comment": {
+                    "description": "The message of the contact form",
+                    "type": "string"
+                  },
+                  "navigationId": {
+                    "description": "Identifier of the navigation page. Can be used to override the configuration.\nTake a look at the settings of a category containing a concact form in the administration.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "slotId": {
+                    "description": "Identifier of the cms element",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "cmsPageType": {
+                    "description": "Type of the content management page",
+                    "type": "string"
+                  },
+                  "entityName": {
+                    "description": "Entity name for slot config",
                     "type": "string"
                   }
                 },
@@ -14025,7 +14122,7 @@
         },
         "responses": {
           "200": {
-            "description": "Unsubscribing was successful."
+            "description": "Message sent successful."
           }
         },
         "security": [
@@ -14035,59 +14132,46 @@
         ]
       }
     },
-    "/order/state/cancel": {
+    "/navigation/{activeId}/{rootId}": {
       "post": {
         "tags": [
-          "Order"
-        ],
-        "summary": "Cancel an order",
-        "description": "Cancels an order. The order state will be set to 'cancelled'.",
-        "operationId": "cancelOrder",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "orderId": {
-                    "description": "The identifier of the order to be canceled.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns the state of the state machine\n\n    example: More information about the state machine can be found in the corresponding guide: [Using the state machine](https://developer.shopware.com/docs/guides/plugins/plugins/checkout/order/using-the-state-machine)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StateMachineState"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order": {
-      "post": {
-        "tags": [
-          "Order",
+          "Category",
           "Endpoints supporting Criteria "
         ],
-        "summary": "Fetch a list of orders",
-        "description": "List orders of a customer.",
-        "operationId": "readOrder",
+        "summary": "Fetch a navigation menu",
+        "description": "This endpoint returns categories that can be used as a page navigation. You can either return them as a tree or as a flat list. You can also control the depth of the tree.\n\n    Instead of passing uuids, you can also use one of the following aliases for the activeId and rootId parameters to get the respective navigations of your sales channel.\n\n     * main-navigation\n     * service-navigation\n     * footer-navigation",
+        "operationId": "readNavigation",
+        "parameters": [
+          {
+            "name": "sw-include-seo-urls",
+            "in": "header",
+            "description": "Instructs Shopware to try and resolve SEO URLs for the given navigation item",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "activeId",
+            "in": "path",
+            "description": "Identifier of the active category in the navigation tree (if not used, just set to the same as rootId).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "rootId",
+            "in": "path",
+            "description": "Identifier of the root category for your desired navigation tree. You can use it to fetch sub-trees of your navigation tree.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -14099,9 +14183,17 @@
                   },
                   {
                     "properties": {
-                      "checkPromotion": {
-                        "description": "Check if the payment method of the order is still changeable.",
-                        "type": "boolean"
+                      "depth": {
+                        "description": "Determines the depth of fetched navigation levels.",
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "buildTree": {
+                        "description": "Return the categories as a tree or as a flat list.",
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
                       }
                     },
                     "type": "object"
@@ -14113,169 +14205,11 @@
         },
         "responses": {
           "200": {
-            "description": "An array of orders and an indicator if the payment of the order can be changed.",
+            "description": "All available navigations",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrderRouteResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order/payment": {
-      "post": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Update the payment method of an order",
-        "description": "Changes the payment method of a specific order. You can use the /order route to find out if the payment method of an order can be changed - take a look at the `paymentChangeable`- array in the response.",
-        "operationId": "orderSetPayment",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "paymentMethodId",
-                  "orderId"
-                ],
-                "properties": {
-                  "paymentMethodId": {
-                    "description": "The identifier of the paymentMethod to be set",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "orderId": {
-                    "description": "The identifier of the order.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successfully updated the payment method of the order.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/order/download/{orderId}/{downloadId}": {
-      "get": {
-        "tags": [
-          "Order"
-        ],
-        "summary": "Download a purchased file",
-        "description": "Download a file included in the given order and with the given id. Access must be granted.",
-        "operationId": "orderDownloadFile",
-        "parameters": [
-          {
-            "name": "orderId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          },
-          {
-            "name": "downloadId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An arbitrary binary file.",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/language": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch languages",
-        "description": "Perform a filtered search for languages.",
-        "operationId": "readLanguages",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing languages.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Language"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/NavigationRouteResponse"
                 }
               }
             }
@@ -14553,21 +14487,54 @@
         ]
       }
     },
-    "/context": {
-      "get": {
+    "/app-system/{name}/generate-token": {
+      "post": {
         "tags": [
-          "System & Context"
+          "App system"
         ],
-        "summary": "Fetch the current context",
-        "description": "Fetches the current context. This includes for example the `customerGroup`, `currency`, `taxRules` and many more.",
-        "operationId": "readContext",
+        "summary": "Generate JWT token for app system backend",
+        "description": "Generate JWT token for authenticated communication with the app server",
+        "operationId": "generateJWTAppSystemAppServer",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "description": "Name of the app",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Returns the current context.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SalesChannelContext"
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    },
+                    "expires": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "shopId": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -14578,69 +14545,65 @@
             "ApiKey": []
           }
         ]
-      },
-      "patch": {
+      }
+    },
+    "/payment-method": {
+      "post": {
         "tags": [
-          "System & Context"
+          "Payment Method",
+          "Endpoints supporting Criteria "
         ],
-        "summary": "Modify the current context",
-        "description": "Used for switching the context. A typical example would be changing the language or changing the currency.",
-        "operationId": "updateContext",
+        "summary": "Loads all available payment methods",
+        "operationId": "readPaymentMethod",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "currencyId": {
-                    "description": "Currency",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
                   },
-                  "languageId": {
-                    "description": "Language",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "billingAddressId": {
-                    "description": "Billing Address",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "shippingAddressId": {
-                    "description": "Shipping Address",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "paymentMethodId": {
-                    "description": "Payment Method",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "shippingMethodId": {
-                    "description": "Shipping Method",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "countryId": {
-                    "description": "Country",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "countryStateId": {
-                    "description": "Country State",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
+                  {
+                    "properties": {
+                      "onlyAvailable": {
+                        "description": "List only available",
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
                   }
-                },
-                "type": "object"
+                ]
               }
             }
           }
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "total": {
+                      "description": "Total amount",
+                      "type": "integer"
+                    },
+                    "aggregations": {
+                      "description": "aggregation result",
+                      "type": "object"
+                    },
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PaymentMethod"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14650,29 +14613,45 @@
         ]
       }
     },
-    "/script/{hook}": {
+    "/handle-payment": {
       "post": {
         "tags": [
-          "API",
-          "Script",
-          "App"
+          "Payment & Shipping"
         ],
-        "summary": "Access point for different api logics which are provided by apps over script hooks",
-        "operationId": "postScriptStoreApiRoute",
-        "parameters": [
-          {
-            "name": "hook",
-            "in": "path",
-            "description": "Dynamic hook which used to build the hook name",
-            "required": true,
-            "schema": {
-              "type": "string"
+        "summary": "Initiate a payment for an order",
+        "description": "This generic endpoint is should be called to initiate a payment flow after an order has been created. The details of the payment flow can differ depending on the payment integration and might require calling additional operations or the setup of webhooks.\n\nThe endpoint internally calls the payment handler of the payment method currently set for the order.",
+        "operationId": "handlePaymentMethod",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "orderId"
+                ],
+                "properties": {
+                  "orderId": {
+                    "description": "Identifier of an order",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "finishUrl": {
+                    "description": "URL to which the client should be redirected after successful payment",
+                    "type": "string"
+                  },
+                  "errorUrl": {
+                    "description": "URL to which the client should be redirected after erroneous payment",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
-            "description": "Returns different structures of results based on the called script."
+            "description": "Redirect to external payment provider"
           }
         },
         "security": [
@@ -15679,48 +15658,32 @@
         ]
       }
     },
-    "/product-listing/{categoryId}": {
-      "post": {
+    "/customer-group-registration/config/{customerGroupId}": {
+      "get": {
         "tags": [
-          "Product"
+          "Login & Registration"
         ],
-        "summary": "Fetch a product listing by category",
-        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.",
-        "operationId": "readProductListing",
+        "summary": "Fetch registration settings for customer group",
+        "operationId": "getCustomerGroupRegistrationInfo",
         "parameters": [
           {
-            "name": "categoryId",
+            "name": "customerGroupId",
             "in": "path",
-            "description": "Identifier of a category.",
+            "description": "Customer group id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
-                  }
-                ]
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
-            "description": "Returns a product listing containing all products and additional fields to display a listing.",
+            "description": "Returns the customer group including registration settings.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
+                  "$ref": "#/components/schemas/CustomerGroup"
                 }
               }
             }
@@ -15733,36 +15696,34 @@
         ]
       }
     },
-    "/search": {
+    "/country-state/{countryId}": {
       "post": {
         "tags": [
-          "Product"
+          "System & Context",
+          "Endpoints supporting Criteria "
         ],
-        "summary": "Search for products",
-        "description": "Performs a search for products which can be used to display a product listing.",
-        "operationId": "searchPage",
+        "summary": "Fetch the states of a country",
+        "description": "Perform a filtered search the states for a country",
+        "operationId": "readCountryState",
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
         "requestBody": {
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "allOf": [
                   {
-                    "required": [
-                      "search"
-                    ],
-                    "properties": {
-                      "search": {
-                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
+                    "$ref": "#/components/schemas/Criteria"
                   }
                 ]
               }
@@ -15771,14 +15732,581 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a product listing containing all products and additional fields to display a listing.",
+            "description": "Entity search result containing countries.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/CountryState"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
                 }
               }
             }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/category": {
+      "post": {
+        "tags": [
+          "Category",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a list of categories",
+        "description": "Perform a filtered search for categories.",
+        "operationId": "readCategoryList",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing categories.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Category"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/category/{navigationId}": {
+      "post": {
+        "tags": [
+          "Category",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a single category",
+        "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.",
+        "operationId": "readCategory",
+        "parameters": [
+          {
+            "name": "navigationId",
+            "in": "path",
+            "description": "Identifier of the category to be fetched",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "slots",
+            "in": "query",
+            "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a '|' character",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The loaded category with cms page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/shipping-method": {
+      "post": {
+        "tags": [
+          "Payment & Shipping",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch shipping methods",
+        "description": "Perform a filtered search for shipping methods.",
+        "operationId": "readShippingMethod",
+        "parameters": [
+          {
+            "name": "onlyAvailable",
+            "in": "query",
+            "description": "List only available shipping methods. This filters shipping methods methods which can not be used in the actual context because of their availability rule.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "total": {
+                      "description": "Total amount",
+                      "type": "integer"
+                    },
+                    "aggregations": {
+                      "description": "aggregation result",
+                      "type": "object"
+                    },
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ShippingMethod"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product-export/{accessKey}/{fileName}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Export product export",
+        "operationId": "readProductExport",
+        "parameters": [
+          {
+            "name": "accessKey",
+            "in": "path",
+            "description": "Access Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "File Name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/language": {
+      "post": {
+        "tags": [
+          "System & Context",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch languages",
+        "description": "Perform a filtered search for languages.",
+        "operationId": "readLanguages",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing languages.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Language"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order/state/cancel": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Cancel an order",
+        "description": "Cancels an order. The order state will be set to 'cancelled'.",
+        "operationId": "cancelOrder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "orderId": {
+                    "description": "The identifier of the order to be canceled.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the state of the state machine\n\n    example: More information about the state machine can be found in the corresponding guide: [Using the state machine](https://developer.shopware.com/docs/guides/plugins/plugins/checkout/order/using-the-state-machine)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StateMachineState"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order": {
+      "post": {
+        "tags": [
+          "Order",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a list of orders",
+        "description": "List orders of a customer.",
+        "operationId": "readOrder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "properties": {
+                      "checkPromotion": {
+                        "description": "Check if the payment method of the order is still changeable.",
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An array of orders and an indicator if the payment of the order can be changed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRouteResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order/payment": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Update the payment method of an order",
+        "description": "Changes the payment method of a specific order. You can use the /order route to find out if the payment method of an order can be changed - take a look at the `paymentChangeable`- array in the response.",
+        "operationId": "orderSetPayment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "paymentMethodId",
+                  "orderId"
+                ],
+                "properties": {
+                  "paymentMethodId": {
+                    "description": "The identifier of the paymentMethod to be set",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "orderId": {
+                    "description": "The identifier of the order.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully updated the payment method of the order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/order/download/{orderId}/{downloadId}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Download a purchased file",
+        "description": "Download a file included in the given order and with the given id. Access must be granted.",
+        "operationId": "orderDownloadFile",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "downloadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An arbitrary binary file.",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/landing-page/{landingPageId}": {
+      "post": {
+        "tags": [
+          "Content",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch a landing page with the resolved CMS page",
+        "description": "Loads a landing page by its identifier and resolves the CMS page.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
+        "operationId": "readLandingPage",
+        "parameters": [
+          {
+            "name": "landingPageId",
+            "in": "path",
+            "description": "Identifier of the landing page.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "allOf": [
+                      {
+                        "properties": {
+                          "slots": {
+                            "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a `|` character.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ProductListingCriteria"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The loaded landing page with cms page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandingPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "security": [
@@ -15966,54 +16494,6 @@
         ]
       }
     },
-    "/handle-payment": {
-      "post": {
-        "tags": [
-          "Payment & Shipping"
-        ],
-        "summary": "Initiate a payment for an order",
-        "description": "This generic endpoint is should be called to initiate a payment flow after an order has been created. The details of the payment flow can differ depending on the payment integration and might require calling additional operations or the setup of webhooks.\n\nThe endpoint internally calls the payment handler of the payment method currently set for the order.",
-        "operationId": "handlePaymentMethod",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "orderId"
-                ],
-                "properties": {
-                  "orderId": {
-                    "description": "Identifier of an order",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "finishUrl": {
-                    "description": "URL to which the client should be redirected after successful payment",
-                    "type": "string"
-                  },
-                  "errorUrl": {
-                    "description": "URL to which the client should be redirected after erroneous payment",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Redirect to external payment provider"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
     "/country": {
       "post": {
         "tags": [
@@ -16050,195 +16530,6 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/Country"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/category": {
-      "post": {
-        "tags": [
-          "Category",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a list of categories",
-        "description": "Perform a filtered search for categories.",
-        "operationId": "readCategoryList",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing categories.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Category"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/category/{navigationId}": {
-      "post": {
-        "tags": [
-          "Category",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a single category",
-        "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.",
-        "operationId": "readCategory",
-        "parameters": [
-          {
-            "name": "navigationId",
-            "in": "path",
-            "description": "Identifier of the category to be fetched",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          },
-          {
-            "name": "slots",
-            "in": "query",
-            "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a '|' character",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The loaded category with cms page",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Category"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/country-state/{countryId}": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch the states of a country",
-        "description": "Perform a filtered search the states for a country",
-        "operationId": "readCountryState",
-        "parameters": [
-          {
-            "name": "countryId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing countries.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/CountryState"
                           }
                         }
                       },
@@ -16608,65 +16899,41 @@
         ]
       }
     },
-    "/shipping-method": {
+    "/newsletter/confirm": {
       "post": {
         "tags": [
-          "Payment & Shipping",
-          "Endpoints supporting Criteria "
+          "Newsletter"
         ],
-        "summary": "Fetch shipping methods",
-        "description": "Perform a filtered search for shipping methods.",
-        "operationId": "readShippingMethod",
-        "parameters": [
-          {
-            "name": "onlyAvailable",
-            "in": "query",
-            "description": "List only available shipping methods. This filters shipping methods methods which can not be used in the actual context because of their availability rule.",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
+        "summary": "Confirm a newsletter registration",
+        "description": "You have to use the hash from the link sent out via email to confirm the user registration.",
+        "operationId": "confirmNewsletter",
         "requestBody": {
-          "required": false,
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
+                "required": [
+                  "hash",
+                  "em"
+                ],
+                "properties": {
+                  "hash": {
+                    "description": "Hash parameter from link the in the confirmation mail",
+                    "type": "string"
+                  },
+                  "em": {
+                    "description": "Email hash parameter from the link in the confirmation mail",
+                    "type": "string"
                   }
-                ]
+                },
+                "type": "object"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "total": {
-                      "description": "Total amount",
-                      "type": "integer"
-                    },
-                    "aggregations": {
-                      "description": "aggregation result",
-                      "type": "object"
-                    },
-                    "elements": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ShippingMethod"
-                      }
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            }
+            "description": "The newsletter confirmation was successful."
           }
         },
         "security": [
@@ -16676,87 +16943,123 @@
         ]
       }
     },
-    "/navigation/{activeId}/{rootId}": {
+    "/newsletter/subscribe": {
       "post": {
         "tags": [
-          "Category",
-          "Endpoints supporting Criteria "
+          "Newsletter"
         ],
-        "summary": "Fetch a navigation menu",
-        "description": "This endpoint returns categories that can be used as a page navigation. You can either return them as a tree or as a flat list. You can also control the depth of the tree.\n\n    Instead of passing uuids, you can also use one of the following aliases for the activeId and rootId parameters to get the respective navigations of your sales channel.\n\n     * main-navigation\n     * service-navigation\n     * footer-navigation",
-        "operationId": "readNavigation",
-        "parameters": [
-          {
-            "name": "sw-include-seo-urls",
-            "in": "header",
-            "description": "Instructs Shopware to try and resolve SEO URLs for the given navigation item",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "activeId",
-            "in": "path",
-            "description": "Identifier of the active category in the navigation tree (if not used, just set to the same as rootId).",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          },
-          {
-            "name": "rootId",
-            "in": "path",
-            "description": "Identifier of the root category for your desired navigation tree. You can use it to fetch sub-trees of your navigation tree.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
+        "summary": "Create or remove a newsletter subscription",
+        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email addrees containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirmes the newsletter subscription for the provided email address.",
+        "operationId": "subscribeToNewsletter",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
+                "required": [
+                  "email",
+                  "option",
+                  "storefrontUrl"
+                ],
+                "properties": {
+                  "email": {
+                    "description": "Email address that will receive the confirmation and the newsletter.",
+                    "type": "string"
                   },
-                  {
-                    "properties": {
-                      "depth": {
-                        "description": "Determines the depth of fetched navigation levels.",
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "buildTree": {
-                        "description": "Return the categories as a tree or as a flat list.",
-                        "type": "array",
-                        "items": {
-                          "type": "object"
-                        }
-                      }
-                    },
-                    "type": "object"
+                  "option": {
+                    "description": "Defines what should be done.",
+                    "type": "string"
+                  },
+                  "storefrontUrl": {
+                    "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email.",
+                    "type": "string"
+                  },
+                  "salutationId": {
+                    "description": "Identifier of the salutation.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "firstName": {
+                    "description": "First name",
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "description": "Last name",
+                    "type": "string"
+                  },
+                  "street": {
+                    "description": "Street",
+                    "type": "string"
+                  },
+                  "city": {
+                    "description": "City",
+                    "type": "string"
+                  },
+                  "zipCode": {
+                    "description": "Zip code",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "description": "Zip code",
+                    "type": "string"
+                  },
+                  "languageId": {
+                    "description": "Identifier of the language.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "customFields": {
+                    "description": "Custom field data that should be added to the subscription.",
+                    "type": "string"
                   }
-                ]
+                },
+                "type": "object"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "All available navigations",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NavigationRouteResponse"
-                }
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/newsletter/unsubscribe": {
+      "post": {
+        "tags": [
+          "Newsletter"
+        ],
+        "summary": "Remove a newsletter subscription",
+        "description": "Removes a newsletter recipient from the mailing lists.",
+        "operationId": "unsubscribeToNewsletter",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "email"
+                ],
+                "properties": {
+                  "email": {
+                    "description": "Email address that should be removed from the mailing lists.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Unsubscribing was successful."
           }
         },
         "security": [
@@ -16830,54 +17133,136 @@
         ]
       }
     },
-    "/app-system/{name}/generate-token": {
-      "post": {
+    "/sitemap": {
+      "get": {
         "tags": [
-          "App system"
+          "Sitemap & Routes"
         ],
-        "summary": "Generate JWT token for app system backend",
-        "description": "Generate JWT token for authenticated communication with the app server",
-        "operationId": "generateJWTAppSystemAppServer",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "description": "Name of the app",
-            "schema": {
-              "type": "string"
+        "summary": "Fetch sitemaps",
+        "description": "Fetches a list of compressed sitemap files, which are often used by search engines.",
+        "operationId": "readSitemap",
+        "responses": {
+          "200": {
+            "description": "Returns a list of available sitemaps.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Sitemap"
+                  }
+                }
+              }
             }
           }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/search": {
+      "post": {
+        "tags": [
+          "Product"
         ],
+        "summary": "Search for products",
+        "description": "Performs a search for products which can be used to display a product listing.",
+        "operationId": "searchPage",
         "requestBody": {
-          "required": false,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "allOf": [
+                  {
+                    "required": [
+                      "search"
+                    ],
+                    "properties": {
+                      "search": {
+                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingCriteria"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ProductListingFlags"
+                  }
+                ]
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "",
+            "description": "Returns a product listing containing all products and additional fields to display a listing.",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string"
-                    },
-                    "expires": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "shopId": {
-                      "type": "string"
-                    }
+                  "$ref": "#/components/schemas/ProductListingResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/salutation": {
+      "post": {
+        "tags": [
+          "System & Context",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch salutations",
+        "description": "Fetches salutations with a criteria obj.",
+        "operationId": "readSalutation",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
                   }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing salutations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Salutation"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
                 }
               }
             }
@@ -16950,226 +17335,21 @@
         ]
       }
     },
-    "/landing-page/{landingPageId}": {
-      "post": {
-        "tags": [
-          "Content",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch a landing page with the resolved CMS page",
-        "description": "Loads a landing page by its identifier and resolves the CMS page.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
-        "operationId": "readLandingPage",
-        "parameters": [
-          {
-            "name": "landingPageId",
-            "in": "path",
-            "description": "Identifier of the landing page.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  },
-                  {
-                    "allOf": [
-                      {
-                        "properties": {
-                          "slots": {
-                            "description": "Resolves only the given slot identifiers. The identifiers have to be seperated by a `|` character.",
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ProductListingCriteria"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The loaded landing page with cms page",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LandingPage"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/salutation": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch salutations",
-        "description": "Fetches salutations with a criteria obj.",
-        "operationId": "readSalutation",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing salutations.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Salutation"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/payment-method": {
-      "post": {
-        "tags": [
-          "Payment Method",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Loads all available payment methods",
-        "operationId": "readPaymentMethod",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  },
-                  {
-                    "properties": {
-                      "onlyAvailable": {
-                        "description": "List only available",
-                        "type": "boolean"
-                      }
-                    },
-                    "type": "object"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "total": {
-                      "description": "Total amount",
-                      "type": "integer"
-                    },
-                    "aggregations": {
-                      "description": "aggregation result",
-                      "type": "object"
-                    },
-                    "elements": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/PaymentMethod"
-                      }
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/customer-group-registration/config/{customerGroupId}": {
+    "/context": {
       "get": {
         "tags": [
-          "Login & Registration"
+          "System & Context"
         ],
-        "summary": "Fetch registration settings for customer group",
-        "operationId": "getCustomerGroupRegistrationInfo",
-        "parameters": [
-          {
-            "name": "customerGroupId",
-            "in": "path",
-            "description": "Customer group id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
+        "summary": "Fetch the current context",
+        "description": "Fetches the current context. This includes for example the `customerGroup`, `currency`, `taxRules` and many more.",
+        "operationId": "readContext",
         "responses": {
           "200": {
-            "description": "Returns the customer group including registration settings.",
+            "description": "Returns the current context.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CustomerGroup"
+                  "$ref": "#/components/schemas/SalesChannelContext"
                 }
               }
             }
@@ -17180,74 +17360,59 @@
             "ApiKey": []
           }
         ]
-      }
-    },
-    "/contact-form": {
-      "post": {
+      },
+      "patch": {
         "tags": [
-          "Content"
+          "System & Context"
         ],
-        "summary": "Submit a contact form message",
-        "description": "Used for submitting contact forms. Be aware that there can be more required fields, depending on the system settings.",
-        "operationId": "sendContactMail",
+        "summary": "Modify the current context",
+        "description": "Used for switching the context. A typical example would be changing the language or changing the currency.",
+        "operationId": "updateContext",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "salutationId",
-                  "email",
-                  "subject",
-                  "comment"
-                ],
                 "properties": {
-                  "salutationId": {
-                    "description": "Identifier of the salutation. Use `/api/salutation` endpoint to fetch possible values.",
+                  "currencyId": {
+                    "description": "Currency",
                     "type": "string",
                     "pattern": "^[0-9a-f]{32}$"
                   },
-                  "firstName": {
-                    "description": "Firstname. This field may be required depending on the system settings.",
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "description": "Lastname. This field may be required depending on the system settings.",
-                    "type": "string"
-                  },
-                  "email": {
-                    "description": "Email address",
-                    "type": "string"
-                  },
-                  "phone": {
-                    "description": "Phone. This field may be required depending on the system settings.",
-                    "type": "string"
-                  },
-                  "subject": {
-                    "description": "The subject of the contact form.",
-                    "type": "string"
-                  },
-                  "comment": {
-                    "description": "The message of the contact form",
-                    "type": "string"
-                  },
-                  "navigationId": {
-                    "description": "Identifier of the navigation page. Can be used to override the configuration.\nTake a look at the settings of a category containing a concact form in the administration.",
+                  "languageId": {
+                    "description": "Language",
                     "type": "string",
                     "pattern": "^[0-9a-f]{32}$"
                   },
-                  "slotId": {
-                    "description": "Identifier of the cms element",
+                  "billingAddressId": {
+                    "description": "Billing Address",
                     "type": "string",
                     "pattern": "^[0-9a-f]{32}$"
                   },
-                  "cmsPageType": {
-                    "description": "Type of the content management page",
-                    "type": "string"
+                  "shippingAddressId": {
+                    "description": "Shipping Address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
                   },
-                  "entityName": {
-                    "description": "Entity name for slot config",
-                    "type": "string"
+                  "paymentMethodId": {
+                    "description": "Payment Method",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingMethodId": {
+                    "description": "Shipping Method",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "countryId": {
+                    "description": "Country",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "countryStateId": {
+                    "description": "Country State",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
                   }
                 },
                 "type": "object"
@@ -17257,156 +17422,7 @@
         },
         "responses": {
           "200": {
-            "description": "Message sent successful."
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/product-export/{accessKey}/{fileName}": {
-      "get": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Export product export",
-        "operationId": "readProductExport",
-        "parameters": [
-          {
-            "name": "accessKey",
-            "in": "path",
-            "description": "Access Key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fileName",
-            "in": "path",
-            "description": "File Name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/currency": {
-      "post": {
-        "tags": [
-          "System & Context",
-          "Endpoints supporting Criteria "
-        ],
-        "summary": "Fetch currencies",
-        "description": "Perform a filtered search for currencies.",
-        "operationId": "readCurrency",
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Entity search result containing currencies.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Currency"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/EntitySearchResult"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/search-suggest": {
-      "post": {
-        "tags": [
-          "Product"
-        ],
-        "summary": "Search for products (suggest)",
-        "description": "Can be used to implement search previews or suggestion listings, that don’t require any interaction.",
-        "operationId": "searchSuggest",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "required": [
-                      "search"
-                    ],
-                    "properties": {
-                      "search": {
-                        "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProductListingFlags"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Returns a product listing containing all products and additional fields.\n\nNote: Aggregations, currentFilters and availableSortings are empty in this response. If you need them to display a listing, use the /search route instead.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductListingResult"
-                }
-              }
-            }
+            "$ref": "#/components/responses/ContextTokenResponse"
           }
         },
         "security": [
@@ -17465,6 +17481,63 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/currency": {
+      "post": {
+        "tags": [
+          "System & Context",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch currencies",
+        "description": "Perform a filtered search for currencies.",
+        "operationId": "readCurrency",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing currencies.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Currency"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
                 }
               }
             }
