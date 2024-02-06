@@ -1113,6 +1113,7 @@
       "B2bComponentsPendingOrderAddress": {
         "description": "Added since version: 6.6.0.0",
         "required": [
+          "id",
           "countryId",
           "firstName",
           "lastName",
@@ -1199,6 +1200,7 @@
       },
       "B2bComponentsRole": {
         "required": [
+          "id",
           "name",
           "createdAt"
         ],
@@ -1235,6 +1237,7 @@
       },
       "B2bEmployee": {
         "required": [
+          "id",
           "languageId",
           "firstName",
           "lastName",
@@ -1316,6 +1319,7 @@
       },
       "B2bPermission": {
         "required": [
+          "id",
           "name",
           "group",
           "createdAt"
@@ -1358,6 +1362,7 @@
           },
           {
             "required": [
+              "id",
               "displayNestedProducts",
               "type",
               "productAssignmentType",
@@ -1688,6 +1693,7 @@
       "Category": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "displayNestedProducts",
           "type",
           "productAssignmentType",
@@ -1858,6 +1864,8 @@
       "CmsBlock": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "apiAlias",
+          "slots",
           "position",
           "type",
           "sectionId",
@@ -1953,6 +1961,12 @@
             "items": {
               "$ref": "#/components/schemas/CmsSlot"
             }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cms_block"
+            ]
           }
         },
         "type": "object"
@@ -1960,6 +1974,9 @@
       "CmsPage": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "apiAlias",
+          "sections",
+          "id",
           "type",
           "createdAt"
         ],
@@ -2026,6 +2043,12 @@
             "items": {
               "$ref": "#/components/schemas/LandingPage"
             }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cms_page"
+            ]
           }
         },
         "type": "object"
@@ -2033,6 +2056,8 @@
       "CmsSection": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "apiAlias",
+          "blocks",
           "position",
           "type",
           "pageId",
@@ -2118,6 +2143,12 @@
             "items": {
               "$ref": "#/components/schemas/CmsBlock"
             }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cms_section"
+            ]
           }
         },
         "type": "object"
@@ -2196,6 +2227,7 @@
           },
           {
             "required": [
+              "id",
               "createdAt",
               "name",
               "addressFormat"
@@ -2357,6 +2389,7 @@
       "Country": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name",
           "addressFormat"
@@ -2491,6 +2524,7 @@
           },
           {
             "required": [
+              "id",
               "countryId",
               "shortCode",
               "createdAt",
@@ -2542,6 +2576,7 @@
       "CountryState": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "countryId",
           "shortCode",
           "createdAt",
@@ -2596,6 +2631,7 @@
           },
           {
             "required": [
+              "id",
               "factor",
               "symbol",
               "isoCode",
@@ -2704,6 +2740,7 @@
       "Currency": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "factor",
           "symbol",
           "isoCode",
@@ -2924,6 +2961,7 @@
       },
       "CustomPrice": {
         "required": [
+          "id",
           "productId",
           "price",
           "createdAt"
@@ -2977,6 +3015,7 @@
       "Customer": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "groupId",
           "defaultPaymentMethodId",
           "salesChannelId",
@@ -3219,6 +3258,7 @@
       "CustomerAddress": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "customerId",
           "countryId",
           "firstName",
@@ -3309,6 +3349,7 @@
       "CustomerGroup": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name"
         ],
@@ -3438,6 +3479,7 @@
       "CustomerWishlist": {
         "description": "Added since version: 6.3.4.0",
         "required": [
+          "id",
           "customerId",
           "createdAt"
         ],
@@ -3469,6 +3511,7 @@
       "CustomerWishlistProduct": {
         "description": "Added since version: 6.3.4.0",
         "required": [
+          "id",
           "productId",
           "createdAt"
         ],
@@ -3501,6 +3544,7 @@
       "DeliveryTime": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "name",
           "min",
           "max",
@@ -3548,6 +3592,7 @@
       "Document": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "documentTypeId",
           "fileType",
           "orderId",
@@ -3584,7 +3629,19 @@
             "pattern": "^[0-9a-f]{32}$"
           },
           "config": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "title"
+            ]
           },
           "sent": {
             "type": "boolean"
@@ -3635,6 +3692,7 @@
       "DocumentBaseConfig": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "documentTypeId",
           "name",
           "global",
@@ -3693,6 +3751,7 @@
       "DocumentBaseConfigSalesChannel": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "documentBaseConfigId",
           "createdAt"
         ],
@@ -3729,6 +3788,7 @@
       "DocumentType": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "technicalName",
           "createdAt",
           "name"
@@ -3935,6 +3995,7 @@
           },
           {
             "required": [
+              "id",
               "createdAt",
               "name",
               "url"
@@ -4066,6 +4127,7 @@
       "LandingPage": {
         "description": "Added since version: 6.4.0.0",
         "required": [
+          "id",
           "createdAt",
           "name",
           "url"
@@ -4144,6 +4206,7 @@
           },
           {
             "required": [
+              "id",
               "localeId",
               "name",
               "createdAt"
@@ -4312,6 +4375,7 @@
       "Language": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "localeId",
           "name",
           "createdAt"
@@ -4370,6 +4434,7 @@
       "Locale": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "code",
           "createdAt",
           "name",
@@ -4535,6 +4600,7 @@
       "MailTemplateMedia": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "mailTemplateId",
           "languageId",
           "mediaId"
@@ -4569,6 +4635,7 @@
       "MailTemplateType": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "technicalName",
           "createdAt",
           "name"
@@ -4611,6 +4678,7 @@
           },
           {
             "required": [
+              "id",
               "productId",
               "categoryId",
               "salesChannelId",
@@ -4659,6 +4727,7 @@
       "MainCategory": {
         "description": "Added since version: 6.1.0.0",
         "required": [
+          "id",
           "productId",
           "categoryId",
           "salesChannelId",
@@ -4705,6 +4774,7 @@
       "Media": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt"
         ],
         "properties": {
@@ -4822,6 +4892,7 @@
       },
       "MediaAiTag": {
         "required": [
+          "id",
           "createdAt"
         ],
         "properties": {
@@ -4955,6 +5026,7 @@
       "MediaThumbnail": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "mediaId",
           "width",
           "height",
@@ -5005,6 +5077,7 @@
       "MediaThumbnailSize": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "width",
           "height",
           "createdAt"
@@ -5217,6 +5290,10 @@
       "Order": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "documents",
+          "orderDate",
+          "stateMachineState",
+          "id",
           "billingAddressId",
           "currencyId",
           "languageId",
@@ -5545,6 +5622,7 @@
       "OrderAddress": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "countryId",
           "firstName",
           "lastName",
@@ -5633,6 +5711,7 @@
       "OrderCustomer": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "email",
           "firstName",
           "lastName",
@@ -5697,6 +5776,7 @@
       "OrderDelivery": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "orderId",
           "shippingOrderAddressId",
           "shippingMethodId",
@@ -5844,6 +5924,7 @@
       "OrderDeliveryPosition": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "orderDeliveryId",
           "orderLineItemId",
           "createdAt"
@@ -5961,6 +6042,7 @@
       "OrderLineItem": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "orderId",
           "identifier",
           "quantity",
@@ -6167,6 +6249,8 @@
       "OrderLineItemDownload": {
         "description": "Added since version: 6.4.19.0",
         "required": [
+          "media",
+          "id",
           "orderLineItemId",
           "mediaId",
           "position",
@@ -6247,6 +6331,7 @@
       },
       "OrderReturn": {
         "required": [
+          "id",
           "orderId",
           "stateId",
           "returnNumber",
@@ -6415,6 +6500,7 @@
       },
       "OrderReturnLineItem": {
         "required": [
+          "id",
           "orderReturnId",
           "orderLineItemId",
           "reasonId",
@@ -6491,6 +6577,7 @@
       },
       "OrderReturnLineItemReason": {
         "required": [
+          "id",
           "reasonKey",
           "createdAt",
           "content"
@@ -6557,6 +6644,7 @@
       "OrderTransaction": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "orderId",
           "paymentMethodId",
           "amount",
@@ -6676,6 +6764,7 @@
       "OrderTransactionCapture": {
         "description": "Added since version: 6.4.12.0",
         "required": [
+          "id",
           "orderTransactionId",
           "stateId",
           "amount",
@@ -6793,6 +6882,7 @@
       "OrderTransactionCaptureRefund": {
         "description": "Added since version: 6.4.12.0",
         "required": [
+          "id",
           "captureId",
           "stateId",
           "amount",
@@ -6913,6 +7003,7 @@
       "OrderTransactionCaptureRefundPosition": {
         "description": "Added since version: 6.4.12.0",
         "required": [
+          "id",
           "refundId",
           "orderLineItemId",
           "amount",
@@ -7062,6 +7153,7 @@
           },
           {
             "required": [
+              "id",
               "createdAt",
               "name"
             ],
@@ -7184,6 +7276,7 @@
       "PaymentMethod": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name"
         ],
@@ -7305,6 +7398,7 @@
           },
           {
             "required": [
+              "id",
               "taxId",
               "productNumber",
               "stock",
@@ -8326,6 +8420,7 @@
       "Product": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "taxId",
           "productNumber",
           "stock",
@@ -8756,6 +8851,7 @@
       "ProductConfiguratorSetting": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "productId",
           "optionId",
           "createdAt"
@@ -8814,6 +8910,7 @@
       "ProductCrossSelling": {
         "description": "Added since version: 6.1.0.0",
         "required": [
+          "id",
           "name",
           "position",
           "type",
@@ -8889,6 +8986,7 @@
       "ProductDownload": {
         "description": "Added since version: 6.4.19.0",
         "required": [
+          "id",
           "productId",
           "mediaId",
           "createdAt"
@@ -9014,6 +9112,7 @@
       "ProductManufacturer": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name"
         ],
@@ -9064,6 +9163,7 @@
       "ProductMedia": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "productId",
           "mediaId",
           "createdAt"
@@ -9108,6 +9208,9 @@
           },
           "media": {
             "$ref": "#/components/schemas/Media"
+          },
+          "thumbnails": {
+            "$ref": "#/components/schemas/MediaThumbnail"
           }
         },
         "type": "object"
@@ -9138,6 +9241,8 @@
       "ProductReview": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "points",
+          "id",
           "productId",
           "salesChannelId",
           "languageId",
@@ -9200,6 +9305,7 @@
       },
       "ProductReviewSummary": {
         "required": [
+          "id",
           "productId",
           "salesChannelId",
           "createdAt"
@@ -9356,6 +9462,7 @@
       "ProductStream": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "name"
         ],
@@ -9605,6 +9712,7 @@
       "PropertyGroup": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "displayType",
           "sortingType",
           "createdAt",
@@ -9665,6 +9773,9 @@
       "PropertyGroupOption": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "group",
+          "option",
+          "id",
           "groupId",
           "createdAt",
           "name"
@@ -9713,6 +9824,9 @@
           },
           "group": {
             "$ref": "#/components/schemas/PropertyGroup"
+          },
+          "option": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -9720,6 +9834,7 @@
       "Quote": {
         "description": "Added since version: 6.5.3.0",
         "required": [
+          "id",
           "stateId",
           "currencyId",
           "languageId",
@@ -9972,6 +10087,7 @@
       },
       "QuoteComment": {
         "required": [
+          "id",
           "comment",
           "quoteId",
           "createdAt"
@@ -10034,6 +10150,7 @@
       "QuoteDelivery": {
         "description": "Added since version: 6.5.3.0",
         "required": [
+          "id",
           "quoteId",
           "shippingMethodId",
           "shippingDateEarliest",
@@ -10154,6 +10271,7 @@
       "QuoteDeliveryPosition": {
         "description": "Added since version: 6.5.3.0",
         "required": [
+          "id",
           "quoteDeliveryId",
           "quoteLineItemId",
           "createdAt"
@@ -10270,6 +10388,7 @@
       },
       "QuoteDocument": {
         "required": [
+          "id",
           "documentTypeId",
           "fileType",
           "quoteId",
@@ -10381,6 +10500,7 @@
       "QuoteLineItem": {
         "description": "Added since version: 6.5.3.0",
         "required": [
+          "id",
           "quoteId",
           "identifier",
           "children",
@@ -10528,6 +10648,7 @@
       "QuoteTransaction": {
         "description": "Added since version: 6.5.3.0",
         "required": [
+          "id",
           "quoteId",
           "paymentMethodId",
           "amount",
@@ -10725,6 +10846,7 @@
       "SalesChannel": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "languageId",
           "customerGroupId",
           "currencyId",
@@ -10900,6 +11022,7 @@
       "SalesChannelDomain": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "url",
           "salesChannelId",
           "languageId",
@@ -10994,6 +11117,7 @@
           },
           {
             "required": [
+              "id",
               "salutationKey",
               "createdAt",
               "displayName",
@@ -11037,6 +11161,7 @@
       "Salutation": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "salutationKey",
           "createdAt",
           "displayName",
@@ -11129,6 +11254,7 @@
           },
           {
             "required": [
+              "id",
               "languageId",
               "foreignKey",
               "routeName",
@@ -11200,6 +11326,7 @@
       "SeoUrl": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "languageId",
           "foreignKey",
           "routeName",
@@ -11225,7 +11352,12 @@
             "pattern": "^[0-9a-f]{32}$"
           },
           "routeName": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "frontend.navigation.page",
+              "frontend.landing.page",
+              "frontend.detail.page"
+            ]
           },
           "pathInfo": {
             "type": "string"
@@ -11307,6 +11439,7 @@
           },
           {
             "required": [
+              "id",
               "deliveryTimeId",
               "taxType",
               "createdAt",
@@ -11554,6 +11687,7 @@
       "ShippingMethod": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "deliveryTimeId",
           "taxType",
           "createdAt",
@@ -11640,6 +11774,7 @@
       "ShippingMethodPrice": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "shippingMethodId",
           "createdAt"
         ],
@@ -11947,6 +12082,7 @@
       },
       "Subscription": {
         "required": [
+          "id",
           "convertedOrder",
           "subscriptionNumber",
           "nextSchedule",
@@ -12102,6 +12238,7 @@
       },
       "SubscriptionAddress": {
         "required": [
+          "id",
           "countryId",
           "subscriptionId",
           "firstName",
@@ -12203,6 +12340,7 @@
       },
       "SubscriptionCustomer": {
         "required": [
+          "id",
           "salutationId",
           "email",
           "firstName",
@@ -12267,6 +12405,7 @@
       },
       "SubscriptionInterval": {
         "required": [
+          "id",
           "name",
           "active",
           "dateInterval",
@@ -12323,6 +12462,7 @@
           },
           {
             "required": [
+              "id",
               "name",
               "active",
               "activeStorefrontLabel",
@@ -12419,6 +12559,7 @@
       },
       "SubscriptionPlan": {
         "required": [
+          "id",
           "name",
           "active",
           "activeStorefrontLabel",
@@ -12568,6 +12709,7 @@
       },
       "SwagDelayAction": {
         "required": [
+          "id",
           "createdAt"
         ],
         "properties": {
@@ -12599,6 +12741,7 @@
       "SystemConfig": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "configurationKey",
           "configurationValue",
           "createdAt"
@@ -12642,6 +12785,7 @@
       "Tag": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "name",
           "createdAt"
         ],
@@ -12669,6 +12813,7 @@
       "Tax": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "taxRate",
           "name",
           "position",
@@ -12710,6 +12855,7 @@
       "TaxProvider": {
         "description": "Added since version: 6.5.0.0",
         "required": [
+          "id",
           "priority",
           "createdAt",
           "name"
@@ -12808,6 +12954,7 @@
       "Theme": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "name",
           "author",
           "active",
@@ -12881,6 +13028,7 @@
       "Unit": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "createdAt",
           "shortCode",
           "name"
@@ -13186,36 +13334,7 @@
                 }
               },
               "currency": {
-                "type": "object",
-                "description": "Currency associated with the current user",
-                "properties": {
-                  "isoCode": {
-                    "type": "string"
-                  },
-                  "factor": {
-                    "type": "integer"
-                  },
-                  "symbol": {
-                    "type": "string"
-                  },
-                  "shortName": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "position": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "decimalPrecision": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "isSystemDefault": {
-                    "type": "boolean"
-                  }
-                }
+                "$ref": "#/components/schemas/Currency"
               },
               "salesChannel": {
                 "description": "Information about the current sales channel",
@@ -13304,190 +13423,30 @@
                 }
               },
               "customer": {
-                "type": "object",
-                "description": "Information about the current customer - `null` if the customer is not logged in",
-                "properties": {
-                  "groupId": {
-                    "type": "string"
-                  },
-                  "defaultPaymentMethodId": {
-                    "type": "string"
-                  },
-                  "salesChannelId": {
-                    "type": "string"
-                  },
-                  "languageId": {
-                    "type": "string"
-                  },
-                  "lastPaymentMethodId": {
-                    "type": "string"
-                  },
-                  "defaultBillingAddressId": {
-                    "type": "string"
-                  },
-                  "defaultShippingAddressId": {
-                    "type": "string"
-                  },
-                  "defaultBillingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
-                  },
-                  "defaultShippingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
-                  },
-                  "activeBillingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
-                  },
-                  "activeShippingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
-                  },
-                  "customerNumber": {
-                    "type": "string"
-                  },
-                  "salutationId": {
-                    "type": "string"
-                  },
-                  "firstName": {
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "type": "string"
-                  },
-                  "company": {
-                    "type": "string"
-                  },
-                  "password": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "title": {
-                    "type": "string"
-                  },
-                  "affiliateCode": {
-                    "type": "string"
-                  },
-                  "campaignCode": {
-                    "type": "string"
-                  },
-                  "active": {
-                    "type": "boolean"
-                  },
-                  "doubleOptInRegistration": {
-                    "type": "boolean"
-                  },
-                  "doubleOptInEmailSentDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "doubleOptInConfirmDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "hash": {
-                    "type": "string"
-                  },
-                  "guest": {
-                    "type": "boolean"
-                  },
-                  "firstLogin": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "lastLogin": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "newsletter": {
-                    "type": "boolean"
-                  },
-                  "birthday": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "lastOrderDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "orderCount": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "legacyEncoder": {
-                    "type": "string"
-                  },
-                  "legacyPassword": {
-                    "type": "string"
-                  },
-                  "autoIncrement": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "remoteAddress": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/Customer"
               },
               "paymentMethod": {
+                "$ref": "#/components/schemas/PaymentMethod"
+              },
+              "shippingLocation": {
                 "type": "object",
-                "description": "Selected payment method",
                 "properties": {
-                  "pluginId": {
-                    "type": "string"
+                  "apiAlias": {
+                    "type": "string",
+                    "enum": [
+                      "cart_delivery_shipping_location"
+                    ]
                   },
-                  "handlerIdentifier": {
-                    "type": "string"
+                  "country": {
+                    "$ref": "#/components/schemas/Country"
                   },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "position": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "active": {
-                    "type": "boolean"
-                  },
-                  "availabilityRuleId": {
-                    "type": "string"
-                  },
-                  "mediaId": {
-                    "type": "string"
-                  },
-                  "formattedHandlerIdentifier": {
-                    "type": "string"
+                  "address": {
+                    "$ref": "#/components/schemas/CustomerAddress"
                   }
                 }
               },
               "shippingMethod": {
-                "type": "object",
-                "description": "Selected shipping method",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "active": {
-                    "type": "boolean"
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "trackingUrl": {
-                    "type": "string"
-                  },
-                  "deliveryTimeId": {
-                    "type": "string"
-                  },
-                  "availabilityRuleId": {
-                    "type": "string"
-                  },
-                  "mediaId": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/ShippingMethod"
               },
               "context": {
                 "description": "Core context with general configuration values and state",
@@ -13505,6 +13464,12 @@
                   "currencyPrecision": {
                     "type": "integer",
                     "format": "int32"
+                  },
+                  "languageIdChain": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
                   },
                   "scope": {
                     "type": "string"
@@ -14489,7 +14454,11 @@
                 "type": "string",
                 "format": "date-time"
               }
-            }
+            },
+            "required": [
+              "filename",
+              "created"
+            ]
           }
         ]
       },
@@ -15514,6 +15483,298 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/quote/request": {
+      "post": {
+        "tags": [
+          "B2BQuoteManagement"
+        ],
+        "summary": "Request new quote",
+        "description": "This route is used to request a new quote from the store",
+        "operationId": "requestQuote",
+        "parameters": [],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "comment": {
+                    "description": "Message content",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Quote entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/quotes": {
+      "post": {
+        "tags": [
+          "B2BQuoteManagement"
+        ],
+        "summary": "Fetch a list of quotes",
+        "description": "This route is used to load quotes",
+        "operationId": "readQuotes",
+        "parameters": [],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing quotes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/B2bEmployee"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/quote/detail/{id}": {
+      "post": {
+        "tags": [
+          "B2B"
+        ],
+        "summary": "Fetch a one quote by id",
+        "description": "This route is used to fetch one quote by id",
+        "operationId": "readQuote",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the quote to be fetched",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quote entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/quote/{id}/decline": {
+      "post": {
+        "tags": [
+          "B2BQuoteManagement"
+        ],
+        "summary": "Decline a quote by id",
+        "description": "This route is used to decline a quote from the store by id",
+        "operationId": "declineQuote",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the quote to be reinvited",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "comment": {
+                    "description": "Message content",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content response"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/quote/{id}/request-change": {
+      "post": {
+        "tags": [
+          "B2BQuoteManagement"
+        ],
+        "summary": "Request change a quote by id",
+        "description": "This route is used to request change a quote from the store by id",
+        "operationId": "requestChangeQuote",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the quote to be reinvited",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "comment": {
+                    "description": "Message content",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content response"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/store-api/quote/order/{id}": {
+      "post": {
+        "tags": [
+          "B2BQuoteManagement"
+        ],
+        "summary": "Create a order from a quote",
+        "description": "This route is used to create a order from a quote",
+        "operationId": "createOrderFromQuote",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the quote to be reinvited",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "customerComment": {
+                    "description": "Message content",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Order entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
                 }
               }
             }
