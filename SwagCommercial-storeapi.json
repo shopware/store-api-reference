@@ -3349,6 +3349,7 @@
       "CustomerGroup": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "translated",
           "id",
           "createdAt",
           "name"
@@ -3393,7 +3394,21 @@
             "readOnly": true
           },
           "translated": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "registrationIntroduction": {
+                "type": "string"
+              },
+              "registrationSeoMetaDescription": {
+                "type": "string"
+              },
+              "registrationTitle": {
+                "type": "string"
+              }
+            }
           }
         },
         "type": "object"
@@ -4127,6 +4142,7 @@
       "LandingPage": {
         "description": "Added since version: 6.4.0.0",
         "required": [
+          "apiAlias",
           "id",
           "createdAt",
           "name",
@@ -4194,6 +4210,12 @@
             "items": {
               "$ref": "#/components/schemas/SeoUrl"
             }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "landing_page"
+            ]
           }
         },
         "type": "object"
@@ -4774,6 +4796,9 @@
       "Media": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "fileExtension",
+          "fileName",
+          "url",
           "id",
           "createdAt"
         ],
@@ -13458,10 +13483,7 @@
             }
           },
           "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductListingResult"
-            }
+            "$ref": "#/components/schemas/ProductListingResult"
           }
         }
       },
