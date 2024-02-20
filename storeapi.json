@@ -4320,8 +4320,12 @@
       "Media": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "apiAlias",
           "fileExtension",
           "fileName",
+          "hasFile",
+          "path",
+          "private",
           "url",
           "id",
           "createdAt"
@@ -4413,6 +4417,12 @@
             "items": {
               "$ref": "#/components/schemas/MediaThumbnail"
             }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "media"
+            ]
           },
           "extensions": {
             "description": "To store additional data to a media from extensions."
@@ -4526,6 +4536,7 @@
       "MediaThumbnail": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "url",
           "id",
           "mediaId",
           "width",
@@ -12265,6 +12276,14 @@
           }
         }
       },
+      "NavigationType": {
+        "type": "string",
+        "enum": [
+          "main-navigation",
+          "footer-navigation",
+          "service-navigation"
+        ]
+      },
       "SuccessResponse": {
         "type": "object",
         "properties": {
@@ -14055,6 +14074,15 @@
         "operationId": "readProductListing",
         "parameters": [
           {
+            "name": "sw-include-seo-urls",
+            "in": "header",
+            "description": "Instructs Shopware to try and resolve SEO URLs for the given product-listing item",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "categoryId",
             "in": "path",
             "description": "Identifier of a category.",
@@ -14707,7 +14735,10 @@
                     "pattern": "^[0-9a-f]{32}$"
                   }
                 },
-                "type": "object"
+                "type": "object",
+                "required": [
+                  "orderId"
+                ]
               }
             }
           }
@@ -16975,6 +17006,61 @@
         ]
       }
     },
+    "/media": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Fetch and resolve Media Entities",
+        "description": "Fetch one or multiple Media Entities with the corresponding Identifier.",
+        "operationId": "readMedia",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "ids": {
+                    "description": "Identifier (UUID) of the media entity to be fetched.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "ids"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The loaded MediaCollection containing the requested Media Entities.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Media"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
     "/script/{hook}": {
       "post": {
         "tags": [
@@ -17216,7 +17302,10 @@
                           }
                         }
                       },
-                      "type": "object"
+                      "type": "object",
+                      "required": [
+                        "elements"
+                      ]
                     },
                     {
                       "$ref": "#/components/schemas/EntitySearchResult"
@@ -17357,8 +17446,15 @@
             "description": "Identifier of the active category in the navigation tree (if not used, just set to the same as rootId).",
             "required": true,
             "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                {
+                  "$ref": "#/components/schemas/NavigationType"
+                }
+              ]
             }
           },
           {
@@ -17367,8 +17463,15 @@
             "description": "Identifier of the root category for your desired navigation tree. You can use it to fetch sub-trees of your navigation tree.",
             "required": true,
             "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                {
+                  "$ref": "#/components/schemas/NavigationType"
+                }
+              ]
             }
           }
         ],
@@ -17460,7 +17563,24 @@
         },
         "responses": {
           "200": {
-            "description": "Redirect to external payment provider"
+            "description": "Redirect to external payment provider",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "redirectUrl": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "redirectUrl"
+                  ]
+                }
+              }
+            }
           }
         },
         "security": [
