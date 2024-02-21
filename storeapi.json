@@ -7794,8 +7794,12 @@
         ]
       },
       "Product": {
-        "description": "Added since version: 6.0.0.0",
+        "description": "Represents a product along with detailed information required to display a variant selection.",
         "required": [
+          "apiAlias",
+          "calculatedPrice",
+          "calculatedPrices",
+          "seoCategory",
           "id",
           "taxId",
           "productNumber",
@@ -8091,13 +8095,19 @@
           },
           "calculatedPrice": {
             "type": "object",
+            "$ref": "#/components/schemas/CalculatedPrice",
             "description": "Runtime field, cannot be used as part of the criteria."
           },
           "calculatedPrices": {
             "type": "array",
             "items": {
               "type": "object",
-              "additionalProperties": false
+              "additionalProperties": false,
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CalculatedPrice"
+                }
+              ]
             },
             "description": "Runtime field, cannot be used as part of the criteria."
           },
@@ -8108,6 +8118,59 @@
           },
           "calculatedCheapestPrice": {
             "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CalculatedPrice"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "unitPrice": {
+                    "type": "number"
+                  },
+                  "quantity": {
+                    "type": "number"
+                  },
+                  "totalPrice": {
+                    "type": "number"
+                  },
+                  "referencePrice": {
+                    "$ref": "#/components/schemas/ReferencePrice",
+                    "nullable": true
+                  },
+                  "listPrice": {
+                    "$ref": "#/components/schemas/ListPrice",
+                    "nullable": true
+                  },
+                  "regulationPrice": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "price"
+                    ],
+                    "nullable": true
+                  },
+                  "hasRange": {
+                    "type": "boolean"
+                  },
+                  "variantId": {
+                    "type": "string",
+                    "format": "",
+                    "nullable": true
+                  },
+                  "apiAlias": {
+                    "type": "string",
+                    "enum": [
+                      "calculated_cheapest_price"
+                    ]
+                  }
+                }
+              }
+            ],
             "description": "Runtime field, cannot be used as part of the criteria."
           },
           "isNew": {
@@ -8242,6 +8305,21 @@
           },
           "seoCategory": {
             "$ref": "#/components/schemas/Category"
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "product"
+            ]
+          },
+          "variantListingConfig": {
+            "nullable": true,
+            "type": "object",
+            "properties": {
+              "displayParent": {
+                "type": "boolean"
+              }
+            }
           },
           "mainVariantId": {
             "description": "Unique identity of main variant."
@@ -11821,7 +11899,10 @@
           "sortedProperties": {
             "description": "Properties of the product that are sorted"
           }
-        }
+        },
+        "required": [
+          "product"
+        ]
       },
       "CrossSellingElement": {
         "type": "object",
@@ -11857,6 +11938,17 @@
           "apiAlias"
         ]
       },
+      "LineItemType": {
+        "type": "string",
+        "enum": [
+          "product",
+          "credit",
+          "custom",
+          "promotion",
+          "discount",
+          "container"
+        ]
+      },
       "LineItem": {
         "type": "object",
         "properties": {
@@ -11873,12 +11965,11 @@
             "description": "It is a typical product name given to the line item."
           },
           "quantity": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
             "description": "Number of items of product."
           },
           "type": {
-            "type": "string",
+            "$ref": "#/components/schemas/LineItemType",
             "description": "Type refers to the entity type of an item whether it is product or promotion for instance."
           },
           "good": {
@@ -11901,7 +11992,11 @@
             "type": "boolean",
             "description": "When boolean value is `true`, line items are said to be modified."
           }
-        }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
       },
       "Criteria": {
         "type": "object",
@@ -12302,6 +12397,98 @@
             "description": "Number of cross selling elements found."
           }
         }
+      },
+      "CalculatedPrice": {
+        "type": "object",
+        "description": "Represents a product along with detailed information required to display a variant selection.",
+        "properties": {
+          "unitPrice": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "totalPrice": {
+            "type": "number"
+          },
+          "calculatedTaxes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "apiAlias": {
+                  "type": "string",
+                  "enum": [
+                    "cart_tax_calculated"
+                  ]
+                },
+                "tax": {
+                  "type": "number"
+                },
+                "taxRate": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "apiAlias",
+                "tax",
+                "taxRate",
+                "price"
+              ]
+            }
+          },
+          "referencePrice": {
+            "$ref": "#/components/schemas/ReferencePrice",
+            "nullable": true
+          },
+          "listPrice": {
+            "$ref": "#/components/schemas/ListPrice",
+            "nullable": true
+          },
+          "regulationPrice": {
+            "type": "object",
+            "properties": {
+              "price": {
+                "type": "number"
+              },
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "cart_regulation_price"
+                ]
+              }
+            },
+            "nullable": true
+          },
+          "hasRange": {
+            "type": "boolean"
+          },
+          "variantId": {
+            "type": "string",
+            "format": "^[0-9a-f]{32}$",
+            "nullable": true
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "calculated_price"
+            ]
+          }
+        },
+        "required": [
+          "apiAlias",
+          "hasRange",
+          "regulationPrice",
+          "listPrice",
+          "referencePrice",
+          "calculatedTaxes",
+          "totalPrice",
+          "quantity",
+          "unitPrice"
+        ]
       },
       "SalesChannelContext": {
         "allOf": [
@@ -12800,24 +12987,13 @@
         }
       },
       "CartItems": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "items": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/LineItem"
-                }
-              }
-            }
-          }
-        ],
+        "type": "object",
         "properties": {
           "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItem"
+            },
             "properties": {
               "id": {
                 "description": "Unique identity of cart item."
@@ -12973,6 +13149,89 @@
             "$ref": "#/components/schemas/ProductListingResult"
           }
         }
+      },
+      "ListPrice": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "discount": {
+            "type": "number"
+          },
+          "percentage": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_list_price"
+            ]
+          }
+        },
+        "required": [
+          "apiAlias"
+        ]
+      },
+      "ReferencePrice": {
+        "type": "object",
+        "properties": {
+          "purchaseUnit": {
+            "type": "number"
+          },
+          "referenceUnit": {
+            "type": "number"
+          },
+          "unitName": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_price_reference"
+            ]
+          },
+          "listPrice": {
+            "$ref": "#/components/schemas/ListPrice",
+            "nullable": true
+          },
+          "regulationPrice": {
+            "type": "object",
+            "properties": {
+              "price": {
+                "type": "number"
+              },
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "cart_regulation_price"
+                ]
+              }
+            },
+            "nullable": true
+          },
+          "hasRange": {
+            "type": "boolean"
+          },
+          "variantId": {
+            "type": "string",
+            "format": "^[0-9a-f]{32}$",
+            "nullable": true
+          }
+        },
+        "required": [
+          "hasRange",
+          "regulationPrice",
+          "listPrice",
+          "calculatedTaxes",
+          "totalPrice",
+          "quantity",
+          "unitName"
+        ]
       },
       "ProductListingResult": {
         "allOf": [
@@ -13752,6 +14011,195 @@
       },
       "204": {
         "description": "No Content"
+      },
+      "OpenApi3": {
+        "description": "Returns information about the store API.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "openapi": {
+                  "type": "string"
+                },
+                "info": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "termsOfService": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "contact": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "email": {
+                          "type": "string",
+                          "format": "email"
+                        }
+                      }
+                    },
+                    "license": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "identifier": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "version": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "version"
+                  ]
+                },
+                "jsonSchemaDialect": {
+                  "type": "string"
+                },
+                "webhooks": {
+                  "type": "object"
+                },
+                "servers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "url"
+                    ]
+                  }
+                },
+                "components": {
+                  "type": "object",
+                  "properties": {
+                    "schemas": {
+                      "type": "object"
+                    },
+                    "responses": {
+                      "type": "object"
+                    },
+                    "parameters": {
+                      "type": "object"
+                    },
+                    "examples": {
+                      "type": "object"
+                    },
+                    "requestBodies": {
+                      "type": "object"
+                    },
+                    "headers": {
+                      "type": "object"
+                    },
+                    "securitySchemes": {
+                      "type": "object"
+                    },
+                    "links": {
+                      "type": "object"
+                    },
+                    "callbacks": {
+                      "type": "object"
+                    },
+                    "pathItems": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "security": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "paths": {
+                  "type": "object"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "externalDocs": {
+                        "type": "object",
+                        "properties": {
+                          "description": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        },
+                        "required": [
+                          "url"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  }
+                },
+                "externalDocs": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "openapi",
+                "info"
+              ]
+            }
+          }
+        }
       },
       "ContextTokenResponse": {
         "description": "Returns the context token. Use that as your `sw-context-token` header for subsequent requests. Redirect if getRedirectUrl is set.",
@@ -14697,6 +15145,9 @@
                           }
                         }
                       },
+                      "required": [
+                        "elements"
+                      ],
                       "type": "object"
                     },
                     {
@@ -16545,6 +16996,35 @@
             "ApiKey": []
           }
         ]
+      }
+    },
+    "/_info/openapi3.json": {
+      "get": {
+        "tags": [
+          "System Info & Healthcheck"
+        ],
+        "summary": "Get OpenAPI Specification",
+        "description": "Get information about the store API in OpenAPI format.",
+        "operationId": "api-info",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of the api",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "jsonapi",
+                "json"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OpenApi3"
+          }
+        }
       }
     },
     "/currency": {
