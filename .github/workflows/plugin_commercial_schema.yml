@@ -43,10 +43,10 @@ jobs:
     needs: [generate-schema,vars]
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: download api schema
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: ${{needs.generate-schema.outputs.api_schema}}
 
@@ -65,7 +65,7 @@ jobs:
         ./.github/scripts/extract.sh ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.summary.json
 
     - name: Create DSR PR
-      uses: peter-evans/create-pull-request@v4
+      uses: peter-evans/create-pull-request@v6
       with:
         add-paths: ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
         author: shopwareBot <example@example.com>
