@@ -17,6 +17,7 @@ jobs:
       PHP_VERSION: ${{ env.PHP_VERSION }}
     steps:
       - run: echo "Exposing env vars"
+
   generate-trunk:
     needs: vars
     uses: ./.github/workflows/base_schema.yml
@@ -24,7 +25,7 @@ jobs:
       shopware_version: ${{ needs.vars.outputs.SHOPWARE_VERSION }}
       php_version: ${{ needs.vars.outputs.PHP_VERSION }}
     secrets: inherit
-    
+
   generate-commercial-trunk:
     needs: vars
     uses: ./.github/workflows/plugin_commercial_schema.yml
@@ -32,7 +33,7 @@ jobs:
       shopware_version: ${{ needs.vars.outputs.SHOPWARE_VERSION }}
       php_version: ${{ needs.vars.outputs.PHP_VERSION }}
     secrets: inherit
-    
+
   generate-digitalsalesroom-trunk:
     needs: vars
     uses: ./.github/workflows/plugin_digitalsalesroom_schema.yml
