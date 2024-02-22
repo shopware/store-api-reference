@@ -59,6 +59,11 @@ jobs:
         sudo apt-get install -y moreutils
         jq . ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json | sponge ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
 
+    - name: Extract summary
+      run: |
+        chmod +x ./.github/scripts/extract.sh
+        ./.github/scripts/extract.sh ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.summary.json
+
     - name: Create DSR PR
       uses: peter-evans/create-pull-request@v4
       with:

@@ -78,7 +78,12 @@ jobs:
         jq . storeapi.json | sponge storeapi.json
         cmp <(sort storeapi.json) <(sort storeapi-original.json) || echo "FILE_DIFFERENCE=1" >> $GITHUB_ENV
         rm storeapi-original.json
-      
+
+    - name: Extract summary
+      run: |
+        chmod +x ./.github/scripts/extract.sh
+        ./.github/scripts/extract.sh storeapi.json storeapi.summary.json
+
     - name: Create PR
       if: ${{ env.FILE_DIFFERENCE == 1 }}
       uses: peter-evans/create-pull-request@v4
