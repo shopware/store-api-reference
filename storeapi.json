@@ -1006,6 +1006,10 @@
       "Category": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "breadcrumb",
+          "children",
+          "childCount",
+          "translated",
           "id",
           "displayNestedProducts",
           "type",
@@ -1055,7 +1059,7 @@
           "breadcrumb": {
             "type": "array",
             "items": {
-              "type": "object",
+              "type": "string",
               "additionalProperties": false
             },
             "readOnly": true,
@@ -1073,7 +1077,7 @@
             "description": "A relative URL to the category."
           },
           "childCount": {
-            "type": "integer",
+            "type": "number",
             "format": "int64",
             "readOnly": true,
             "description": "Number of categories below the main category."
@@ -1170,6 +1174,15 @@
           },
           "translated": {
             "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "breadcrumb": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
             "description": "Contains the translations of all translated fields."
           },
           "parent": {
@@ -1179,7 +1192,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Category"
-            }
+            },
+            "nullable": true
           },
           "media": {
             "$ref": "#/components/schemas/Media"
@@ -1198,6 +1212,12 @@
             "items": {
               "$ref": "#/components/schemas/SeoUrl"
             }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "category"
+            ]
           }
         },
         "type": "object"
@@ -14845,6 +14865,7 @@
                 "schema": {
                   "allOf": [
                     {
+                      "type": "object",
                       "properties": {
                         "elements": {
                           "type": "array",
@@ -14852,8 +14873,7 @@
                             "$ref": "#/components/schemas/Category"
                           }
                         }
-                      },
-                      "type": "object"
+                      }
                     },
                     {
                       "$ref": "#/components/schemas/EntitySearchResult"
@@ -14881,6 +14901,15 @@
         "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.",
         "operationId": "readCategory",
         "parameters": [
+          {
+            "name": "sw-include-seo-urls",
+            "in": "header",
+            "description": "Instructs Shopware to try and resolve SEO URLs for the given navigation item",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
           {
             "name": "navigationId",
             "in": "path",
