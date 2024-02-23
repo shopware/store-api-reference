@@ -988,6 +988,10 @@
       "Category": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "breadcrumb",
+          "children",
+          "childCount",
+          "translated",
           "id",
           "displayNestedProducts",
           "type",
@@ -1030,7 +1034,7 @@
           "breadcrumb": {
             "type": "array",
             "items": {
-              "type": "object",
+              "type": "string",
               "additionalProperties": false
             },
             "readOnly": true
@@ -1045,7 +1049,7 @@
             "readOnly": true
           },
           "childCount": {
-            "type": "integer",
+            "type": "number",
             "format": "int64",
             "readOnly": true
           },
@@ -1124,7 +1128,16 @@
             "readOnly": true
           },
           "translated": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "breadcrumb": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "parent": {
             "$ref": "#/components/schemas/Category"
@@ -1133,7 +1146,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Category"
-            }
+            },
+            "nullable": true
           },
           "media": {
             "$ref": "#/components/schemas/Media"
@@ -1152,6 +1166,12 @@
             "items": {
               "$ref": "#/components/schemas/SeoUrl"
             }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "category"
+            ]
           }
         },
         "type": "object"
