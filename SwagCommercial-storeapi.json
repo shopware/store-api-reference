@@ -15471,7 +15471,7 @@
     }
   ],
   "paths": {
-    "/store-api/employee/create": {
+    "/employee/create": {
       "post": {
         "tags": [
           "B2B Employee Management"
@@ -15527,7 +15527,7 @@
         ]
       }
     },
-    "/store-api/employee": {
+    "/employee": {
       "post": {
         "tags": [
           "B2B Employee Management"
@@ -15585,7 +15585,7 @@
         ]
       }
     },
-    "/store-api/employee/{id}": {
+    "/employee/{id}": {
       "post": {
         "tags": [
           "B2B Employee Management"
@@ -15719,7 +15719,7 @@
         ]
       }
     },
-    "/store-api/employee/reinvite/{id}": {
+    "/employee/reinvite/{id}": {
       "post": {
         "tags": [
           "B2B Employee Management"
@@ -15774,7 +15774,7 @@
         ]
       }
     },
-    "/store-api/role/create": {
+    "/role/create": {
       "post": {
         "tags": [
           "B2B Employee Management"
@@ -15829,7 +15829,7 @@
         ]
       }
     },
-    "/store-api/role": {
+    "/role": {
       "get": {
         "tags": [
           "B2B Employee Management"
@@ -15943,7 +15943,7 @@
         ]
       }
     },
-    "/store-api/role/{id}": {
+    "/role/{id}": {
       "get": {
         "tags": [
           "B2B Employee Management"
@@ -16076,7 +16076,7 @@
         ]
       }
     },
-    "/store-api/role/permissions": {
+    "/role/permissions": {
       "get": {
         "tags": [
           "B2B Employee Management"
@@ -16133,7 +16133,7 @@
         ]
       }
     },
-    "/store-api/role/default": {
+    "/role/default": {
       "post": {
         "tags": [
           "B2B Employee Management"
@@ -16169,7 +16169,7 @@
         ]
       }
     },
-    "/store-api/sso/auth/{providerId}": {
+    "/sso/auth/{providerId}": {
       "post": {
         "tags": [
           "Sso"
@@ -16208,7 +16208,7 @@
         ]
       }
     },
-    "/store-api/sso/redirect/{providerId}": {
+    "/sso/redirect/{providerId}": {
       "post": {
         "tags": [
           "Sso"
@@ -16247,7 +16247,7 @@
         ]
       }
     },
-    "/store-api/quote/request": {
+    "/quote/request": {
       "post": {
         "tags": [
           "B2B Quote Management"
@@ -16291,7 +16291,7 @@
         ]
       }
     },
-    "/store-api/quotes": {
+    "/quotes": {
       "post": {
         "tags": [
           "B2B Quote Management"
@@ -16349,7 +16349,7 @@
         ]
       }
     },
-    "/store-api/quote/detail/{id}": {
+    "/quote/detail/{id}": {
       "post": {
         "tags": [
           "B2B Quote Management"
@@ -16388,7 +16388,7 @@
         ]
       }
     },
-    "/store-api/quote/{id}/decline": {
+    "/quote/{id}/decline": {
       "post": {
         "tags": [
           "B2B Quote Management"
@@ -16436,7 +16436,7 @@
         ]
       }
     },
-    "/store-api/quote/{id}/request-change": {
+    "/quote/{id}/request-change": {
       "post": {
         "tags": [
           "B2B Quote Management"
@@ -16484,7 +16484,7 @@
         ]
       }
     },
-    "/store-api/quote/{id}/configure": {
+    "/quote/{id}/configure": {
       "post": {
         "tags": [
           "B2B Quote Management"
@@ -16536,7 +16536,7 @@
         ]
       }
     },
-    "/store-api/quote/order/{id}": {
+    "/quote/order/{id}": {
       "post": {
         "tags": [
           "B2B Quote Management"
@@ -16591,7 +16591,7 @@
         ]
       }
     },
-    "/store-api/product/natural-language/search-term": {
+    "/product/natural-language/search-term": {
       "post": {
         "tags": [
           "Natural language search",
@@ -16632,7 +16632,7 @@
         }
       }
     },
-    "/store-api/product/image-upload-search/search-term": {
+    "/product/image-upload-search/search-term": {
       "post": {
         "tags": [
           "Search by Image",
@@ -16673,7 +16673,7 @@
         }
       }
     },
-    "/store-api/pending-order/request": {
+    "/pending-order/request": {
       "post": {
         "tags": [
           "B2B Order Approval"
@@ -16717,7 +16717,7 @@
         ]
       }
     },
-    "/store-api/pending-order/{id}": {
+    "/pending-order/{id}": {
       "post": {
         "tags": [
           "B2B Order Approval"
@@ -16756,7 +16756,7 @@
         ]
       }
     },
-    "/store-api/pending-order/{id}/decline": {
+    "/pending-order/{id}/decline": {
       "post": {
         "tags": [
           "B2B Order Approval"
@@ -16804,7 +16804,7 @@
         ]
       }
     },
-    "/store-api/pending-order/{id}/approve": {
+    "/pending-order/{id}/approve": {
       "post": {
         "tags": [
           "B2B Order Approval"
@@ -16852,7 +16852,7 @@
         ]
       }
     },
-    "/store-api/pending-order/{id}/checkout/order": {
+    "/pending-order/{id}/checkout/order": {
       "post": {
         "tags": [
           "B2B Order Approval"
@@ -16907,7 +16907,7 @@
         ]
       }
     },
-    "/store-api/approval-rule": {
+    "/approval-rule": {
       "post": {
         "tags": [
           "B2B Order Approval"
@@ -17049,7 +17049,7 @@
         ]
       }
     },
-    "/store-api/approval-rule/create": {
+    "/approval-rule/create": {
       "post": {
         "tags": [
           "B2B Order Approval"
@@ -17127,7 +17127,7 @@
         ]
       }
     },
-    "/store-api/approval-rule/{id}": {
+    "/approval-rule/{id}": {
       "get": {
         "tags": [
           "B2B Order Approval"
