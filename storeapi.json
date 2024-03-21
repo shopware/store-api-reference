@@ -3,7 +3,7 @@
   "info": {
     "title": "Shopware Store API",
     "description": "This endpoint reference contains an overview of all endpoints comprising the Shopware Store API",
-    "version": "6.6.9999999.9999999-dev"
+    "version": "6.6.0.0"
   },
   "servers": [
     {
@@ -11572,6 +11572,7 @@
             ]
           }
         },
+        "nullable": true,
         "required": [
           "apiAlias"
         ]
@@ -11813,23 +11814,12 @@
           "total": {
             "type": "integer",
             "format": "int32"
-          },
-          "streamId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cross_selling_element"
-            ]
           }
         },
         "required": [
           "crossSelling",
           "products",
-          "total",
-          "apiAlias"
+          "total"
         ]
       },
       "ProductDetailResponse": {
@@ -14506,8 +14496,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -14549,8 +14538,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -14598,8 +14586,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -14648,8 +14635,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -14813,8 +14799,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -14865,8 +14850,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -14919,8 +14903,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -14968,8 +14951,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -15331,8 +15313,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16008,8 +15989,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16085,8 +16065,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16142,8 +16121,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16189,8 +16167,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16246,8 +16223,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16285,8 +16261,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16374,8 +16349,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       },
@@ -16393,8 +16367,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16428,8 +16401,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       },
@@ -16474,8 +16446,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16520,8 +16491,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16598,8 +16568,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16904,8 +16873,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16936,8 +16904,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -16973,8 +16940,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -17312,8 +17278,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
@@ -18187,8 +18152,7 @@
         },
         "security": [
           {
-            "ApiKey": [],
-            "ContextToken": []
+            "ApiKey": []
           }
         ]
       }
