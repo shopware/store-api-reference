@@ -1057,6 +1057,9 @@
           "reason": {
             "type": "string"
           },
+          "customFields": {
+            "type": "object"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
