@@ -3,6 +3,10 @@
   "info": {
     "title": "Shopware Store API",
     "description": "This endpoint reference contains an overview of all endpoints comprising the Shopware Store API",
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
+    },
     "version": "6.6.9999999.9999999-dev"
   },
   "servers": [
@@ -5718,6 +5722,100 @@
           },
           "payload": {
             "type": "object",
+            "properties": {
+              "categoryIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "readOnly": true
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "customFields": {
+                "type": "object"
+              },
+              "features": {
+                "type": "array"
+              },
+              "isCloseout": {
+                "type": "boolean"
+              },
+              "isNew": {
+                "type": "boolean"
+              },
+              "manufacturerId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "markAsTopseller": {
+                "type": "boolean"
+              },
+              "optionIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "readOnly": true
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PropertyGroupOption"
+                }
+              },
+              "parentId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "productNumber": {
+                "type": "string"
+              },
+              "propertyIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "readOnly": true
+              },
+              "purchasePrices": {
+                "type": "string"
+              },
+              "releaseDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "stock": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "streamIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "readOnly": true
+              },
+              "tagIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "readOnly": true
+              },
+              "taxId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              }
+            },
             "description": "Any data related to product is passed."
           },
           "good": {
@@ -5746,6 +5844,7 @@
           },
           "priceDefinition": {
             "type": "object",
+            "$ref": "#/components/schemas/PriceDefinition",
             "description": "Description of how the price has to be calculated. For example, in percentage or absolute value, etc."
           },
           "unitPrice": {
@@ -5804,122 +5903,18 @@
               "$ref": "#/components/schemas/OrderLineItem"
             }
           },
-          "properties": {
-            "apiAlias": {
-              "type": "string",
-              "enum": [
-                "order_line_item"
-              ]
-            },
-            "extensions": {
-              "type": "object"
-            },
-            "payload": {
-              "type": "object",
-              "properties": {
-                "categoryIds": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "readOnly": true
-                },
-                "createdAt": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true
-                },
-                "customFields": {
-                  "type": "object"
-                },
-                "features": {
-                  "type": "array"
-                },
-                "isCloseout": {
-                  "type": "boolean"
-                },
-                "isNew": {
-                  "type": "boolean"
-                },
-                "manufacturerId": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "markAsTopseller": {
-                  "type": "boolean"
-                },
-                "optionIds": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "readOnly": true
-                },
-                "options": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/PropertyGroupOption"
-                  }
-                },
-                "parentId": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "productNumber": {
-                  "type": "string"
-                },
-                "propertyIds": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "readOnly": true
-                },
-                "purchasePrices": {
-                  "type": "string"
-                },
-                "releaseDate": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "stock": {
-                  "type": "integer",
-                  "format": "int64"
-                },
-                "streamIds": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "readOnly": true
-                },
-                "tagIds": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "readOnly": true
-                },
-                "taxId": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                }
-              }
-            },
-            "priceDefinition": {
-              "$ref": "#/components/schemas/PriceDefinition"
-            },
-            "translated": {
-              "type": "object"
-            }
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "order_line_item"
+            ]
           },
           "extensions": {
+            "type": "object",
             "description": "To store additional data to an order line item from extensions."
+          },
+          "translated": {
+            "type": "object"
           }
         },
         "type": "object"
@@ -11931,9 +11926,11 @@
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/ListPrice"
+                  },
+                  {
+                    "type": "null"
                   }
-                ],
-                "nullable": true
+                ]
               },
               "quantity": {
                 "type": "number"
@@ -11942,9 +11939,11 @@
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/ReferencePrice"
+                  },
+                  {
+                    "type": "null"
                   }
-                ],
-                "nullable": true
+                ]
               },
               "regulationPrice": {
                 "type": "object",
@@ -12020,7 +12019,6 @@
             "type": "boolean",
             "description": "Allows the line item to be removable from the cart when set to true."
           },
-          "requirement": [],
           "stackable": {
             "type": "boolean",
             "description": "Allows to change the quantity of the line item when set to true."
@@ -14312,7 +14310,7 @@
           }
         }
       },
-      "priceDefinition": {
+      "PriceDefinition": {
         "type": "object",
         "properties": {
           "apiAlias": {
@@ -14552,7 +14550,10 @@
                 "$ref": "#/components/schemas/CustomerAddress"
               },
               "state": {
-                "$ref": "#/components/schemas/State"
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             }
           },
