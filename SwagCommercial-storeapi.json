@@ -951,6 +951,10 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
+          "orderId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
           "billingAddressId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
@@ -1069,6 +1073,9 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
+          },
+          "order": {
+            "$ref": "#/components/schemas/Order"
           },
           "billingAddress": {
             "$ref": "#/components/schemas/B2bComponentsPendingOrderAddress"
