@@ -14550,10 +14550,7 @@
                 "$ref": "#/components/schemas/CustomerAddress"
               },
               "state": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/components/schemas/CountryState"
               }
             }
           },
@@ -17835,6 +17832,91 @@
           {
             "ApiKey": [],
             "ContextToken": []
+          }
+        ]
+      }
+    },
+    "/checkout/gateway": {
+      "get": {
+        "tags": [
+          "Gateway"
+        ],
+        "summary": "Call the checkout gateway",
+        "description": "Call the checkout gateway, which is used to manipulate certain aspects of the checkout process (e.g. available payment methods).",
+        "operationId": "checkoutGateway",
+        "responses": {
+          "200": {
+            "description": "Checkout gateway response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "paymentMethods": {
+                      "properties": {
+                        "total": {
+                          "description": "Total amount",
+                          "type": "integer"
+                        },
+                        "aggregations": {
+                          "description": "aggregation result",
+                          "type": "object"
+                        },
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/PaymentMethod"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "shippingMethods": {
+                      "properties": {
+                        "total": {
+                          "description": "Total amount",
+                          "type": "integer"
+                        },
+                        "aggregations": {
+                          "description": "aggregation result",
+                          "type": "object"
+                        },
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/ShippingMethod"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "code": {
+                            "description": "Error code",
+                            "type": "string"
+                          },
+                          "detail": {
+                            "description": "Error detail",
+                            "type": "string"
+                          },
+                          "blocking": {
+                            "description": "If the error is blocking",
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
           }
         ]
       }
