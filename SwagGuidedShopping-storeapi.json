@@ -13208,10 +13208,7 @@
                 "$ref": "#/components/schemas/CustomerAddress"
               },
               "state": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/components/schemas/CountryState"
               }
             }
           },
