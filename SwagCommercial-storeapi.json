@@ -935,6 +935,33 @@
         },
         "type": "object"
       },
+      "B2bComponentsApprovalRuleAppScriptCondition": {
+        "description": "Added since version: 6.6.3.0",
+        "required": [
+          "createdAt",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
       "B2bComponentsPendingOrder": {
         "description": "Added since version: 6.6.0.0",
         "required": [
