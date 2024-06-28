@@ -6121,6 +6121,9 @@
             },
             "type": "object"
           },
+          "validationData": {
+            "type": "object"
+          },
           "stateId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
