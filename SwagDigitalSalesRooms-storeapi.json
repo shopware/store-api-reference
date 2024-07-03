@@ -7,7 +7,7 @@
       "name": "MIT",
       "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
     },
-    "version": "6.6.3.1"
+    "version": "6.6.9999999.9999999-dev"
   },
   "servers": [
     {
@@ -1476,6 +1476,7 @@
       "CmsSlot": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "id",
           "type",
           "slot",
           "blockId",
@@ -5941,6 +5942,9 @@
                 "type": "object"
               }
             },
+            "type": "object"
+          },
+          "validationData": {
             "type": "object"
           },
           "stateId": {
