@@ -1010,6 +1010,7 @@
       "Category": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "apiAlias",
           "breadcrumb",
           "children",
           "childCount",
@@ -1187,6 +1188,9 @@
                 }
               }
             },
+            "required": [
+              "breadcrumb"
+            ],
             "description": "Contains the translations of all translated fields."
           },
           "parent": {
@@ -1196,8 +1200,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Category"
-            },
-            "nullable": true
+            }
           },
           "media": {
             "$ref": "#/components/schemas/Media"
@@ -2453,6 +2456,7 @@
       "Customer": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "apiAlias",
           "activeBillingAddress",
           "activeShippingAddress",
           "id",
@@ -5656,6 +5660,7 @@
       "OrderLineItem": {
         "description": "Added since version: 6.0.0.0",
         "required": [
+          "apiAlias",
           "id",
           "orderId",
           "identifier",
@@ -5853,7 +5858,7 @@
           },
           "priceDefinition": {
             "type": "object",
-            "$ref": "#/components/schemas/PriceDefinition",
+            "$ref": "#/components/schemas/CartPriceQuantity",
             "description": "Description of how the price has to be calculated. For example, in percentage or absolute value, etc."
           },
           "unitPrice": {
@@ -8294,7 +8299,7 @@
                   "referencePrice": {
                     "oneOf": [
                       {
-                        "$ref": "#/components/schemas/ReferencePrice"
+                        "$ref": "#/components/schemas/CartPriceReference"
                       },
                       {
                         "type": "null"
@@ -8304,7 +8309,7 @@
                   "listPrice": {
                     "oneOf": [
                       {
-                        "$ref": "#/components/schemas/ListPrice"
+                        "$ref": "#/components/schemas/CartListPrice"
                       },
                       {
                         "type": "null"
@@ -11379,15 +11384,6 @@
           }
         }
       },
-      "Struct": {
-        "type": "object",
-        "properties": {
-          "apiAlias": {
-            "type": "string",
-            "description": "Alias which can be used to restrict response fields. For more information see [includes](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#includes-apialias)."
-          }
-        }
-      },
       "CartDeliveryPosition": {
         "type": "object",
         "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
@@ -11518,42 +11514,85 @@
           "salutation"
         ]
       },
-      "ArrayStruct": {
-        "$ref": "#/components/schemas/Struct"
-      },
-      "EntitySearchResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
+      "CartPriceQuantity": {
+        "type": "object",
+        "properties": {
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_price_quantity"
+            ]
           },
-          {
-            "type": "object",
+          "isCalculated": {
+            "type": "boolean"
+          },
+          "listPrice": {
+            "$ref": "#/components/schemas/CartListPrice"
+          },
+          "price": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "regulationPrice": {
             "properties": {
-              "entity": {
-                "type": "string"
-              },
-              "total": {
-                "type": "integer",
-                "description": "The total number of found entities"
-              },
-              "aggregations": {
-                "type": "array",
-                "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
-                "items": {
-                  "type": "object"
+              "price": {
+                "type": "number",
+                "format": "float"
+              }
+            },
+            "type": "object"
+          },
+          "taxRules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taxRate": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "name": {
+                  "type": "string"
                 }
-              },
-              "page": {
-                "type": "integer",
-                "description": "The actual page. This can be used for pagination."
-              },
-              "limit": {
-                "type": "integer",
-                "description": "The actual limit. This is used for pagination and goes together with the page."
               }
             }
+          },
+          "type": {
+            "type": "string"
           }
+        },
+        "required": [
+          "apiAlias"
         ]
+      },
+      "EntitySearchResult": {
+        "type": "object",
+        "properties": {
+          "entity": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer",
+            "description": "The total number of found entities"
+          },
+          "aggregations": {
+            "type": "array",
+            "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
+            "items": {
+              "type": "object"
+            }
+          },
+          "page": {
+            "type": "integer",
+            "description": "The actual page. This can be used for pagination."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The actual limit. This is used for pagination and goes together with the page."
+          }
+        }
       },
       "CartItems": {
         "type": "object",
@@ -11597,236 +11636,57 @@
         }
       },
       "Sitemap": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "filename": {
-                "type": "string"
-              },
-              "created": {
-                "type": "string",
-                "format": "date-time"
-              }
-            },
-            "required": [
-              "filename",
-              "created"
-            ]
-          }
-        ],
+        "type": "object",
         "properties": {
           "filename": {
+            "type": "string",
             "description": "Name of the file which holds a list of all URL's."
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
           }
-        }
+        },
+        "required": [
+          "filename",
+          "created"
+        ]
       },
       "SalesChannelContext": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ArrayStruct"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "token": {
-                "description": "Context the user session",
-                "type": "string"
-              },
-              "currentCustomerGroup": {
-                "type": "object",
-                "description": "Customer group of the current user",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "displayGross": {
-                    "type": "boolean"
-                  }
-                }
-              },
-              "fallbackCustomerGroup": {
-                "description": "Fallback group if the default customer group is not applicable",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "displayGross": {
-                    "type": "boolean"
-                  }
-                }
-              },
-              "currency": {
-                "$ref": "#/components/schemas/Currency"
-              },
-              "salesChannel": {
-                "description": "Information about the current sales channel",
-                "type": "object",
-                "properties": {
-                  "typeId": {
-                    "type": "string"
-                  },
-                  "languageId": {
-                    "type": "string"
-                  },
-                  "currencyId": {
-                    "type": "string"
-                  },
-                  "paymentMethodId": {
-                    "type": "string"
-                  },
-                  "shippingMethodId": {
-                    "type": "string"
-                  },
-                  "countryId": {
-                    "type": "string"
-                  },
-                  "navigationCategoryId": {
-                    "type": "string"
-                  },
-                  "navigationCategoryDepth": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "footerCategoryId": {
-                    "type": "string"
-                  },
-                  "serviceCategoryId": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "shortName": {
-                    "type": "string"
-                  },
-                  "accessKey": {
-                    "type": "string"
-                  },
-                  "active": {
-                    "type": "boolean"
-                  },
-                  "maintenance": {
-                    "type": "boolean"
-                  },
-                  "maintenanceIpWhitelist": {
-                    "type": "string"
-                  },
-                  "mailHeaderFooterId": {
-                    "type": "string"
-                  },
-                  "customerGroupId": {
-                    "type": "string"
-                  },
-                  "hreflangActive": {
-                    "type": "boolean"
-                  },
-                  "hreflangDefaultDomainId": {
-                    "type": "string"
-                  },
-                  "analyticsId": {
-                    "type": "string"
-                  }
-                }
-              },
-              "taxRules": {
-                "type": "array",
-                "description": "Currently active tax rules and/or rates",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "taxRate": {
-                      "type": "number",
-                      "format": "float"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "customer": {
-                "$ref": "#/components/schemas/Customer"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/PaymentMethod"
-              },
-              "shippingLocation": {
-                "type": "object",
-                "properties": {
-                  "apiAlias": {
-                    "type": "string",
-                    "enum": [
-                      "cart_delivery_shipping_location"
-                    ]
-                  },
-                  "country": {
-                    "$ref": "#/components/schemas/Country"
-                  },
-                  "address": {
-                    "$ref": "#/components/schemas/CustomerAddress"
-                  }
-                }
-              },
-              "shippingMethod": {
-                "$ref": "#/components/schemas/ShippingMethod"
-              },
-              "context": {
-                "description": "Core context with general configuration values and state",
-                "type": "object",
-                "properties": {
-                  "versionId": {
-                    "type": "string"
-                  },
-                  "currencyId": {
-                    "type": "string"
-                  },
-                  "currencyFactor": {
-                    "type": "integer"
-                  },
-                  "currencyPrecision": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "languageIdChain": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "scope": {
-                    "type": "string"
-                  },
-                  "source": {
-                    "type": "string"
-                  },
-                  "taxState": {
-                    "type": "string"
-                  },
-                  "useCache": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        ],
+        "type": "object",
         "properties": {
+          "token": {
+            "description": "Context the user session",
+            "type": "string"
+          },
           "currentCustomerGroup": {
+            "type": "object",
+            "description": "Customer group of the current user",
             "properties": {
               "name": {
+                "type": "string",
                 "description": "Name of customer group to which the customer belongs within the specific sales channel they are currently interacting with."
               },
               "displayGross": {
+                "type": "boolean",
                 "description": "When `true`, product's gross price is displayed for that customer group who belongs to the specific sales channel they are currently interacting with."
               }
             }
           },
+          "fallbackCustomerGroup": {
+            "description": "Fallback group if the default customer group is not applicable",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "displayGross": {
+                "type": "boolean"
+              }
+            }
+          },
           "currency": {
+            "$ref": "#/components/schemas/Currency",
             "properties": {
               "isoCode": {
                 "description": "Standard international three digit code to represent currency in a given sales channel. For example, USD."
@@ -11855,73 +11715,111 @@
             }
           },
           "salesChannel": {
+            "description": "Information about the current sales channel",
+            "type": "object",
             "properties": {
               "typeId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's type within a specific sales channel."
               },
               "languageId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's language within a specific sales channel."
               },
               "currencyId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's currency within a specific sales channel."
               },
               "paymentMethodId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's payment method within a specific sales channel."
               },
               "shippingMethodId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's shipping method within a specific sales channel."
               },
               "countryId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's country within a specific sales channel."
               },
               "navigationCategoryId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's navigation category within a specific sales channel."
               },
               "navigationCategoryDepth": {
+                "type": "integer",
+                "format": "int32",
                 "description": "It determines the number of levels of subcategories in the storefront category menu within a specific sales channel."
               },
               "footerCategoryId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's footer category within a specific sales channel."
               },
               "serviceCategoryId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's service category within a specific sales channel."
               },
               "name": {
+                "type": "string",
                 "description": "Name of the sales channel."
               },
               "shortName": {
+                "type": "string",
                 "description": "A short name for sales channel."
               },
               "accessKey": {
+                "type": "string",
                 "description": "Access key to store api."
               },
               "active": {
+                "type": "boolean",
                 "description": "When `true`, the sales channel is enabled."
               },
               "maintenance": {
+                "type": "boolean",
                 "description": "When `true`, it indicates that the sales channel is undergoing maintenance, and shopping is temporarily unavailable during this period."
               },
               "maintenanceIpWhitelist": {
+                "type": "string",
                 "description": "Array of IP address allowed to access the sales channel."
               },
               "mailHeaderFooterId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's mail header and footer within a specific sales channel."
               },
               "customerGroupId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's customer group within a specific sales channel."
               },
               "hreflangActive": {
+                "type": "boolean",
                 "description": "When `true`, the sales channel pages are available in different languages within a specific sales channel."
               },
               "hreflangDefaultDomainId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's hreflangDefaultDomain within a specific sales channel."
               },
               "analyticsId": {
+                "type": "string",
                 "description": "Unique identity of a sales channel's analytics within a specific sales channel."
               }
             }
           },
           "taxRules": {
+            "type": "array",
+            "description": "Currently active tax rules and/or rates",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taxRate": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
             "properties": {
               "taxRate": {
                 "description": "Rate of tax within a specific sales channel."
@@ -11932,6 +11830,7 @@
             }
           },
           "customer": {
+            "$ref": "#/components/schemas/Customer",
             "properties": {
               "groupId": {
                 "description": "Unique identity of a customer's group within a specific sales channel."
@@ -12035,6 +11934,7 @@
             }
           },
           "paymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod",
             "properties": {
               "pluginId": {
                 "description": "Unique identity of payment plugin within a specific sales channel."
@@ -12065,7 +11965,25 @@
               }
             }
           },
+          "shippingLocation": {
+            "type": "object",
+            "properties": {
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "cart_delivery_shipping_location"
+                ]
+              },
+              "country": {
+                "$ref": "#/components/schemas/Country"
+              },
+              "address": {
+                "$ref": "#/components/schemas/CustomerAddress"
+              }
+            }
+          },
           "shippingMethod": {
+            "$ref": "#/components/schemas/ShippingMethod",
             "properties": {
               "name": {
                 "description": "Name of the shipping method within a specific sales channel."
@@ -12091,29 +12009,46 @@
             }
           },
           "context": {
+            "description": "Core context with general configuration values and state",
+            "type": "object",
             "properties": {
               "versionId": {
+                "type": "string",
                 "description": "Unique identity of context's version in a specific sales channel."
               },
               "currencyId": {
+                "type": "string",
                 "description": "Unique identity of currency context in a specific sales channel."
               },
               "currencyFactor": {
+                "type": "integer",
                 "description": "Unique identity of currency factor context in a specific sales channel."
               },
               "currencyPrecision": {
+                "type": "integer",
+                "format": "int32",
                 "description": "It defines the round off value of currency to the nearest decimal point. If set to 2, it rounds off to two significant decimal points."
               },
+              "languageIdChain": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "scope": {
+                "type": "string",
                 "description": "Scope defines if its related to system or user context."
               },
               "source": {
+                "type": "string",
                 "description": "When context is related to user in the source, then there is userId."
               },
               "taxState": {
+                "type": "string",
                 "description": "Tax state can either be `gross` or `net`."
               },
               "useCache": {
+                "type": "boolean",
                 "description": "When boolean value is `true`, caching is used."
               }
             }
@@ -12152,126 +12087,6 @@
           "products",
           "total",
           "apiAlias"
-        ]
-      },
-      "DeliveryInformation": {
-        "type": "object",
-        "properties": {
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cart_delivery_information"
-            ]
-          },
-          "freeDelivery": {
-            "type": "boolean"
-          },
-          "deliveryTime": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "min": {
-                "type": "integer"
-              },
-              "max": {
-                "type": "integer"
-              },
-              "unit": {
-                "type": "string"
-              },
-              "apiAlias": {
-                "type": "string",
-                "enum": [
-                  "cart_delivery_time"
-                ]
-              }
-            }
-          },
-          "height": {
-            "type": "integer"
-          },
-          "length": {
-            "type": "integer"
-          },
-          "restockTime": {
-            "type": "integer"
-          },
-          "stock": {
-            "type": "integer"
-          },
-          "weight": {
-            "type": "integer"
-          },
-          "width": {
-            "type": "integer"
-          }
-        }
-      },
-      "ReferencePrice": {
-        "type": "object",
-        "properties": {
-          "purchaseUnit": {
-            "type": "number"
-          },
-          "referenceUnit": {
-            "type": "number"
-          },
-          "unitName": {
-            "type": "string"
-          },
-          "price": {
-            "type": "number"
-          },
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cart_price_reference"
-            ]
-          },
-          "listPrice": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ListPrice"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "regulationPrice": {
-            "type": "object",
-            "properties": {
-              "price": {
-                "type": "number"
-              },
-              "apiAlias": {
-                "type": "string",
-                "enum": [
-                  "cart_regulation_price"
-                ]
-              }
-            },
-            "nullable": true
-          },
-          "hasRange": {
-            "type": "boolean"
-          },
-          "variantId": {
-            "type": "string",
-            "format": "^[0-9a-f]{32}$",
-            "nullable": true
-          }
-        },
-        "required": [
-          "hasRange",
-          "regulationPrice",
-          "listPrice",
-          "calculatedTaxes",
-          "totalPrice",
-          "quantity",
-          "unitName"
         ]
       },
       "NavigationType": {
@@ -12915,56 +12730,6 @@
           "parameters"
         ]
       },
-      "PriceDefinition": {
-        "type": "object",
-        "properties": {
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cart_price_quantity"
-            ]
-          },
-          "isCalculated": {
-            "type": "boolean"
-          },
-          "listPrice": {
-            "$ref": "#/components/schemas/ListPrice"
-          },
-          "price": {
-            "type": "number"
-          },
-          "quantity": {
-            "type": "number"
-          },
-          "regulationPrice": {
-            "properties": {
-              "price": {
-                "type": "number",
-                "format": "float"
-              }
-            },
-            "type": "object"
-          },
-          "taxRules": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "taxRate": {
-                  "type": "number",
-                  "format": "float"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "type": {
-            "type": "string"
-          }
-        }
-      },
       "CartDelivery": {
         "type": "object",
         "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
@@ -13145,7 +12910,7 @@
           }
         }
       },
-      "AccountNewsletterRecipientResult": {
+      "AccountNewsletterRecipient": {
         "type": "object",
         "properties": {
           "status": {
@@ -13156,8 +12921,7 @@
               "direct",
               "optIn",
               "optOut"
-            ],
-            "description": "Status indicates if the customer has subscribed to the news letter or not."
+            ]
           },
           "apiAlias": {
             "type": "string",
@@ -13230,7 +12994,7 @@
             "type": "string"
           },
           "deliveryInformation": {
-            "$ref": "#/components/schemas/DeliveryInformation"
+            "$ref": "#/components/schemas/CartDeliveryInformation"
           },
           "description": {
             "type": "string",
@@ -13299,7 +13063,7 @@
               "listPrice": {
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/ListPrice"
+                    "$ref": "#/components/schemas/CartListPrice"
                   },
                   {
                     "type": "null"
@@ -13312,7 +13076,7 @@
               "referencePrice": {
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/ReferencePrice"
+                    "$ref": "#/components/schemas/CartPriceReference"
                   },
                   {
                     "type": "null"
@@ -13365,7 +13129,7 @@
             ]
           },
           "priceDefinition": {
-            "$ref": "#/components/schemas/PriceDefinition"
+            "$ref": "#/components/schemas/CartPriceQuantity"
           },
           "quantity": {
             "type": "number",
@@ -13645,6 +13409,9 @@
           "quantity": {
             "type": "number"
           },
+          "rawTotal": {
+            "type": "number"
+          },
           "totalPrice": {
             "type": "number"
           },
@@ -13680,7 +13447,7 @@
           "referencePrice": {
             "oneOf": [
               {
-                "$ref": "#/components/schemas/ReferencePrice"
+                "$ref": "#/components/schemas/CartPriceReference"
               },
               {
                 "type": "null"
@@ -13690,12 +13457,18 @@
           "listPrice": {
             "oneOf": [
               {
-                "$ref": "#/components/schemas/ListPrice"
+                "$ref": "#/components/schemas/CartListPrice"
               },
               {
                 "type": "null"
               }
             ]
+          },
+          "positionPrice": {
+            "type": "number"
+          },
+          "netPrice": {
+            "type": "number"
           },
           "regulationPrice": {
             "type": "object",
@@ -13752,7 +13525,76 @@
           "calculatedTaxes",
           "totalPrice",
           "quantity",
-          "unitPrice"
+          "unitPrice",
+          "positionPrice",
+          "netPrice",
+          "taxRules"
+        ]
+      },
+      "CartPriceReference": {
+        "type": "object",
+        "properties": {
+          "purchaseUnit": {
+            "type": "number"
+          },
+          "referenceUnit": {
+            "type": "number"
+          },
+          "unitName": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_price_reference"
+            ]
+          },
+          "listPrice": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CartListPrice"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "regulationPrice": {
+            "type": "object",
+            "properties": {
+              "price": {
+                "type": "number"
+              },
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "cart_regulation_price"
+                ]
+              }
+            },
+            "nullable": true
+          },
+          "hasRange": {
+            "type": "boolean"
+          },
+          "variantId": {
+            "type": "string",
+            "format": "^[0-9a-f]{32}$",
+            "nullable": true
+          }
+        },
+        "required": [
+          "apiAlias",
+          "hasRange",
+          "regulationPrice",
+          "listPrice",
+          "calculatedTaxes",
+          "totalPrice",
+          "quantity",
+          "unitName"
         ]
       },
       "ProductListingCriteria": {
@@ -13886,30 +13728,6 @@
           }
         }
       },
-      "ListPrice": {
-        "type": "object",
-        "description": "",
-        "properties": {
-          "discount": {
-            "type": "number"
-          },
-          "percentage": {
-            "type": "number"
-          },
-          "price": {
-            "type": "number"
-          },
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cart_list_price"
-            ]
-          }
-        },
-        "required": [
-          "apiAlias"
-        ]
-      },
       "CustomerAddressBody": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -13979,6 +13797,30 @@
           }
         },
         "type": "object"
+      },
+      "CartListPrice": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "discount": {
+            "type": "number"
+          },
+          "percentage": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_list_price"
+            ]
+          }
+        },
+        "required": [
+          "apiAlias"
+        ]
       },
       "ShippingMethodPageRouteResponse": {
         "type": "array",
@@ -14622,6 +14464,71 @@
             "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "CartDeliveryInformation": {
+        "type": "object",
+        "properties": {
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_delivery_information"
+            ]
+          },
+          "freeDelivery": {
+            "type": "boolean"
+          },
+          "deliveryTime": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "min": {
+                "type": "integer"
+              },
+              "max": {
+                "type": "integer"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "cart_delivery_time"
+                ]
+              }
+            }
+          },
+          "height": {
+            "type": "integer"
+          },
+          "length": {
+            "type": "integer"
+          },
+          "restockTime": {
+            "type": "integer"
+          },
+          "stock": {
+            "type": "integer"
+          },
+          "weight": {
+            "type": "integer"
+          },
+          "width": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "apiAlias"
+        ]
+      },
+      "AccountNewsletterRecipientResult": {
+        "properties": {
+          "status": {
+            "description": "Status indicates if the customer has subscribed to the news letter or not."
           }
         }
       },
@@ -15611,6 +15518,15 @@
               "type": "string",
               "pattern": "^[0-9a-f]{32}$"
             }
+          },
+          {
+            "description": "Instructs Shopware to try and resolve SEO URLs for the given navigation item",
+            "in": "header",
+            "name": "sw-include-seo-urls",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -16331,7 +16247,7 @@
     "/_info/openapi3.json": {
       "get": {
         "tags": [
-          "System Info & Healthcheck"
+          "System Info & Health Check"
         ],
         "summary": "Get OpenAPI Specification",
         "description": "Get information about the store API in OpenAPI format.",
@@ -16645,7 +16561,7 @@
                     "type": "string"
                   },
                   "navigationId": {
-                    "description": "Identifier of the navigation page. Can be used to override the configuration.\nTake a look at the settings of a category containing a concact form in the administration.",
+                    "description": "Identifier of the navigation page. Can be used to override the configuration.\nTake a look at the settings of a category containing a concat form in the administration.",
                     "type": "string",
                     "pattern": "^[0-9a-f]{32}$"
                   },
@@ -16942,7 +16858,7 @@
           "Newsletter"
         ],
         "summary": "Create or remove a newsletter subscription",
-        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email addrees containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirmes the newsletter subscription for the provided email address.",
+        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email address containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirms the newsletter subscription for the provided email address.",
         "operationId": "subscribeToNewsletter",
         "requestBody": {
           "required": true,
@@ -17147,7 +17063,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccountNewsletterRecipientResult"
+                  "$ref": "#/components/schemas/AccountNewsletterRecipient"
                 }
               }
             }
@@ -17471,7 +17387,29 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ArrayStruct"
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "isExpired": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "isExpired"
+                        ]
+                      }
+                    },
+                    "apiAlias": {
+                      "enum": [
+                        "array_struct"
+                      ],
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -18242,11 +18180,9 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true,
                   "properties": {
                     "redirectUrl": {
-                      "type": "string",
-                      "nullable": true
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -18478,6 +18414,15 @@
             "schema": {
               "type": "string",
               "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "description": "Instructs Shopware to try and resolve SEO URLs for the given navigation item",
+            "in": "header",
+            "name": "sw-include-seo-urls",
+            "required": false,
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -18730,7 +18675,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success response indicating the review was saved successfuly."
+            "description": "Success response indicating the review was saved successfully."
           }
         },
         "security": [
