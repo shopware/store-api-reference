@@ -3445,7 +3445,6 @@
           "activeShippingAddress",
           "id",
           "groupId",
-          "defaultPaymentMethodId",
           "salesChannelId",
           "languageId",
           "defaultBillingAddressId",
@@ -3455,6 +3454,7 @@
           "lastName",
           "email",
           "accountType",
+          "defaultPaymentMethodId",
           "createdAt"
         ],
         "properties": {
@@ -3463,10 +3463,6 @@
             "pattern": "^[0-9a-f]{32}$"
           },
           "groupId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "defaultPaymentMethodId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
@@ -3597,6 +3593,10 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
+          "defaultPaymentMethodId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
@@ -3644,9 +3644,6 @@
           "group": {
             "$ref": "#/components/schemas/CustomerGroup"
           },
-          "defaultPaymentMethod": {
-            "$ref": "#/components/schemas/PaymentMethod"
-          },
           "language": {
             "$ref": "#/components/schemas/Language"
           },
@@ -3679,6 +3676,9 @@
             "items": {
               "$ref": "#/components/schemas/Tag"
             }
+          },
+          "defaultPaymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod"
           },
           "apiAlias": {
             "type": "string",
