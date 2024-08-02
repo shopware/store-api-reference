@@ -14366,7 +14366,7 @@
                 "type": "object",
                 "properties": {
                   "cmsPageRelation": {
-                    "$ref": "#/components/schemas/PresentationCmsPage"
+                    "$ref": "#/components/schemas/DsrPresentationCmsPage"
                   }
                 }
               }
@@ -14859,137 +14859,6 @@
             "apiAlias": "category"
           },
           "apiAlias": "pwa_page_result"
-        }
-      },
-      "PresentationCmsPage": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "The presentation cms page id"
-          },
-          "title": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The title of presentation cms page"
-          },
-          "presentationId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "The presentation using this presentation cms page"
-          },
-          "dsrPresentationVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "cmsPageId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "The CMS page id the presentation using"
-          },
-          "cmsPage": {
-            "$ref": "#/components/schemas/CmsPage"
-          },
-          "cmsPageVersionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "The CMS page version id the presentation using"
-          },
-          "productId": {
-            "anyOf": [
-              {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The product id is assigned to presentation if it's product detail"
-          },
-          "productStreamId": {
-            "anyOf": [
-              {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The product stream id is assigned to presentation if it's product listing"
-          },
-          "pickedProductIds": {
-            "anyOf": [
-              {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$",
-                  "description": "Product id"
-                }
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The product id is assigned to presentation if it's product listing or instant listing"
-          },
-          "position": {
-            "type": "integer",
-            "description": "The position of slide"
-          },
-          "isInstantListing": {
-            "type": "boolean",
-            "description": "True if this slide is an instant listing"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "date-time"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "customFields": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "translated": {
-            "type": "object",
-            "properties": {
-              "title": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              }
-            }
-          }
         }
       },
       "AbstractDynamicPageOpenedPayload": {
@@ -16664,6 +16533,59 @@
         "responses": {
           "200": {
             "description": ""
+          }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
+          }
+        ]
+      }
+    },
+    "/dsr/appointment/request": {
+      "post": {
+        "tags": [
+          "Appointment"
+        ],
+        "summary": "Create appointment request",
+        "description": "Create a appointment request for a specific appointment",
+        "operationId": "createAppointmentRequest",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DsrAppointmentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "apiAlias": {
+                      "type": "string",
+                      "default": "dsr.appointment.create-appointment-request",
+                      "description": "The api alias of the API"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "The data is used to create the appointment request"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
