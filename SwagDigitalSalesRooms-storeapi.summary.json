@@ -10,10 +10,13 @@
     "/dsr/appointment/request",
     "/dsr/appointment/{appointmentId}/attendee/respond-invitation",
     "/dsr/appointment/{appointmentId}/download-ics",
+    "/dsr/appointment/{presentationPath}/basic-setting",
     "/dsr/appointment/{presentationPath}/join-as-client",
     "/dsr/interaction",
     "/dsr/product-listing",
-    "/dsr/quickview/{productId}/{cmsPageLayoutId}"
+    "/dsr/product/{productId}",
+    "/dsr/quickview/{productId}/{cmsPageLayoutId}",
+    "/dsr/shop-pages/{layoutName}"
   ],
   "schemas": [
     "AbstractDynamicPageOpenedPayload",
@@ -36,6 +39,7 @@
     "AppScriptCondition",
     "AppShippingMethod",
     "AppTemplate",
+    "AppointmentBasicSettingResponse",
     "Association",
     "AttendeeProductCollectionLastSeenResponse",
     "AttendeeProductCollectionResponse",
@@ -178,6 +182,7 @@
     "ProductListingResult",
     "ProductManufacturer",
     "ProductMedia",
+    "ProductPageResult",
     "ProductPayload",
     "ProductPrice",
     "ProductReview",
