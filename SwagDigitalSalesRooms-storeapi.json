@@ -13412,6 +13412,77 @@
           "apiAlias": "swag_digital_sales_rooms_content_appointment_struct_appointment_join_struct"
         }
       },
+      "AppointmentBasicSettingResponse": {
+        "type": "object",
+        "properties": {
+          "apiAlias": {
+            "type": "string",
+            "description": "The API alias of the appointment basic setting"
+          },
+          "mode": {
+            "type": "string",
+            "description": "The mode of the interaction"
+          },
+          "attendeeRestrictionType": {
+            "type": "string",
+            "description": "The type of attendee restriction",
+            "enum": [
+              "open",
+              "customer",
+              "rules"
+            ]
+          },
+          "videoAudioSettings": {
+            "type": "string",
+            "description": "The video and audio settings",
+            "enum": [
+              "none",
+              "both",
+              "audio_only"
+            ]
+          },
+          "canSendRequestEmail": {
+            "type": "boolean",
+            "description": "Indicates if request emails can be sent",
+            "default": false
+          },
+          "canBookAppointment": {
+            "type": "boolean",
+            "description": "Indicates if appointments can be booked",
+            "default": false
+          },
+          "bookingLink": {
+            "description": "The booking link",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "appointmentName": {
+            "type": "string",
+            "description": "The name of the appointment"
+          },
+          "salesChannelName": {
+            "type": "string",
+            "description": "The name of the sales channel"
+          }
+        },
+        "example": {
+          "apiAlias": "appointment_basic_setting",
+          "mode": "self",
+          "attendeeRestrictionType": "open",
+          "videoAudioSettings": "none",
+          "canSendRequestEmail": false,
+          "canBookAppointment": false,
+          "bookingLink": null,
+          "appointmentName": "dsr11",
+          "salesChannelName": "Storefront"
+        }
+      },
       "ClientPresentationStateResponse": {
         "type": "object",
         "properties": {
@@ -15533,6 +15604,30 @@
           "apiAlias": "pwa_page_result"
         }
       },
+      "ProductPageResult": {
+        "type": "object",
+        "properties": {
+          "cmsPage": {
+            "$ref": "#/components/schemas/CmsPage"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "configurator": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PropertyGroup"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "apiAlias": {
+            "type": "string"
+          }
+        }
+      },
       "EmptyPayload": {
         "type": "object",
         "properties": []
@@ -15991,6 +16086,44 @@
         ]
       }
     },
+    "/dsr/appointment/{presentationPath}/basic-setting": {
+      "post": {
+        "tags": [
+          "Appointment"
+        ],
+        "summary": "Get the appointment's basic settings",
+        "description": "Get all the basic settings of the appointment",
+        "operationId": "getAppointmentBasicSetting",
+        "parameters": [
+          {
+            "name": "presentationPath",
+            "in": "path",
+            "description": "Presentation path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppointmentBasicSettingResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
     "/dsr/appointment/collection/last-seen": {
       "get": {
         "tags": [
@@ -16411,6 +16544,82 @@
                       "description": "The data is used to create the appointment request"
                     }
                   }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
+          }
+        ]
+      }
+    },
+    "/dsr/shop-pages/{layoutName}": {
+      "post": {
+        "tags": [
+          "Shop pages"
+        ],
+        "summary": "Get shop pages",
+        "description": "Get shop pages by layout name",
+        "operationId": "dsrShopPages",
+        "parameters": [
+          {
+            "name": "layoutName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CmsPage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/dsr/product/{productId}": {
+      "post": {
+        "tags": [
+          "Shop pages"
+        ],
+        "summary": "Load product detail page",
+        "description": "Load product detail page with product id",
+        "operationId": "dsrShopPages",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductPageResult"
                 }
               }
             }
