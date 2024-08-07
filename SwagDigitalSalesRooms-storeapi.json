@@ -16797,6 +16797,56 @@
         ]
       }
     },
+    "/dsr/appointment/presentation/{presentationCmsPageId}/slide/{sectionId}/products": {
+      "get": {
+        "tags": [
+          "Presentation"
+        ],
+        "summary": "Fetch all products for specific slide",
+        "description": "Fetches all products for a specific slide",
+        "operationId": "getSlideProducts",
+        "parameters": [
+          {
+            "name": "presentationCmsPageId",
+            "in": "path",
+            "description": "Presentation CMS page id for which the data is requested",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "sectionId",
+            "in": "path",
+            "description": "CMS section id for which the data is requested",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListingResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
+          }
+        ]
+      }
+    },
     "/dsr/appointment/presentation/state": {
       "get": {
         "tags": [
