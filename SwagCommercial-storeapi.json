@@ -3873,6 +3873,7 @@
       "CustomerSpecificFeatures": {
         "required": [
           "customerId",
+          "features",
           "createdAt"
         ],
         "properties": {
@@ -3883,6 +3884,9 @@
           "customerId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
+          },
+          "features": {
+            "type": "object"
           },
           "createdAt": {
             "type": "string",
