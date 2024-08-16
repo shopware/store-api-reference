@@ -6552,6 +6552,10 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
+          "promotionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
           "parentId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
