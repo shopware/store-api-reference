@@ -5702,6 +5702,10 @@
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of products's version."
           },
+          "promotionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
           "parentId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
