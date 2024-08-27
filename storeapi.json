@@ -7,7 +7,7 @@
       "name": "MIT",
       "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
     },
-    "version": "6.6.9999999.9999999-dev"
+    "version": "6.6.5.1"
   },
   "servers": [
     {
@@ -5701,10 +5701,6 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of products's version."
-          },
-          "promotionId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
           },
           "parentId": {
             "type": "string",
