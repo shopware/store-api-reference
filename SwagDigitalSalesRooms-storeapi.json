@@ -13300,11 +13300,6 @@
         }
       },
       "DynamicProductListingPageOpenedPayload": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AbstractDynamicPageOpenedPayload"
-          }
-        ],
         "required": [
           "page"
         ],
@@ -13367,6 +13362,29 @@
           "apiAlias": "swag_digital_sales_rooms_content_presentation_state_sales_channel_get_get_client_presentation_state_struct"
         }
       },
+      "DynamicPageClosedPayload": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{32}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "pattern": "^[a-f0-9]{32}$",
+            "description": "The id of the page that was closed"
+          },
+          "closeAll": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether all pages were closed"
+          }
+        }
+      },
       "ToggleBroadcastModePayload": {
         "type": "object",
         "required": [
@@ -13386,30 +13404,6 @@
           }
         ]
       },
-      "InteractionName": {
-        "type": "string",
-        "description": "the name/type of the interaction",
-        "enum": [
-          "product.viewed",
-          "dynamicPage.opened",
-          "dynamicProductPage.opened",
-          "dynamicPage.closed",
-          "page.viewed",
-          "attendee.product.collection.liked",
-          "attendee.product.collection.disliked",
-          "attendee.product.collection.removed",
-          "remote.checkout.accepted",
-          "remote.checkout.declined",
-          "keep.alive",
-          "quickview.opened",
-          "quickview.closed",
-          "dynamicProductListingPage.opened",
-          "dynamicProductListingPage.loadedMore",
-          "remote.checkout.denied",
-          "guide.hovered",
-          "broadcastMode.toggled"
-        ]
-      },
       "ProductPayload": {
         "type": "object",
         "required": [
@@ -13426,7 +13420,7 @@
       "GuideHoveredPayload": {
         "type": "object",
         "properties": {
-          "$hoveredElementId": {
+          "hoveredElementId": {
             "anyOf": [
               {
                 "type": "string",
@@ -13534,32 +13528,6 @@
           "isPreview": {
             "type": "boolean",
             "description": "To see if it's a preview appointment"
-          },
-          "attendeeName": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The name of the attendee"
-          },
-          "videoUserId": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The video user id that attendee could use"
-          },
-          "b2bFeatures": {
-            "type": "object",
-            "description": "The b2b features that available for the appointment"
           }
         },
         "example": {
@@ -13572,12 +13540,6 @@
           "JWTMercureSubscriberToken": "jwt token for subscribing to updates",
           "mercureHubPublicUrl": "http://localhost:8081/.well-known/mercure",
           "JWTMercurePublisherToken": "jwt token for publishing updates",
-          "attendeeName": "attendee name",
-          "videoUserId": null,
-          "b2bFeatures": {
-            "feature1": false,
-            "feature2": true
-          },
           "id": "2d2c358f1ca04098aacf12873c2eed82",
           "newContextToken": "new context token to call the other routes",
           "attendeeId": "b6358241e4ad4a4e99d0f729d21d63be",
@@ -13610,7 +13572,8 @@
         "type": "object",
         "required": [
           "pageId",
-          "sectionId"
+          "sectionId",
+          "slideAlias"
         ],
         "properties": {
           "pageId": {
@@ -13622,6 +13585,21 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
             "description": "the id from the section within the page which was viewed"
+          },
+          "slideAlias": {
+            "type": "string",
+            "description": "the alias of the slide which was viewed"
+          },
+          "pageNumber": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "description": "the number of the page which was viewed"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         }
       },
@@ -13646,6 +13624,21 @@
           },
           "apiAlias": {
             "type": "string"
+          }
+        }
+      },
+      "ViewModeChangedPayload": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "The view mode of presentation",
+            "enum": [
+              "onlyYou",
+              "presentation",
+              "videoGrid"
+            ],
+            "default": "presentation"
           }
         }
       },
@@ -14710,6 +14703,16 @@
             "type": "integer",
             "default": 0
           },
+          "currentSlideData": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DynamicProductListingPageOpenedPayload"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "currentDynamicPage": {
             "$ref": "#/components/schemas/DynamicPageOpenedPayload"
           },
@@ -14845,6 +14848,15 @@
             "type": "boolean",
             "default": false
           },
+          "viewMode": {
+            "type": "string",
+            "enum": [
+              "onlyYou",
+              "presentation",
+              "videoGrid"
+            ],
+            "default": "presentation"
+          },
           "extensions": {
             "type": "array",
             "default": []
@@ -14898,23 +14910,40 @@
       "CreateInteractionRequestBody": {
         "type": "object",
         "required": [
-          "name"
+          "name",
+          "payload"
         ],
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/InteractionName"
+            "type": "string",
+            "description": "the name of the interaction",
+            "enum": [
+              "keep.alive",
+              "product.viewed",
+              "quickview.opened",
+              "quickview.closed",
+              "dynamicPage.opened",
+              "dynamicProductPage.opened",
+              "dynamicPage.closed",
+              "page.viewed",
+              "guide.hovered",
+              "attendee.product.collection.liked",
+              "attendee.product.collection.disliked",
+              "attendee.product.collection.removed",
+              "attendee.leave",
+              "remote.checkout.accepted",
+              "remote.checkout.denied",
+              "broadcastMode.toggled",
+              "viewMode.changed"
+            ]
           },
           "payload": {
-            "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/ProductPayload"
-              },
-              {
-                "$ref": "#/components/schemas/PageViewedPayload"
-              },
-              {
                 "$ref": "#/components/schemas/EmptyPayload"
+              },
+              {
+                "$ref": "#/components/schemas/ProductPayload"
               },
               {
                 "$ref": "#/components/schemas/DynamicPageOpenedPayload"
@@ -14923,16 +14952,43 @@
                 "$ref": "#/components/schemas/DynamicProductPageOpenedPayload"
               },
               {
-                "$ref": "#/components/schemas/DynamicProductListingPageOpenedPayload"
+                "$ref": "#/components/schemas/DynamicPageClosedPayload"
+              },
+              {
+                "$ref": "#/components/schemas/PageViewedPayload"
+              },
+              {
+                "$ref": "#/components/schemas/GuideHoveredPayload"
               },
               {
                 "$ref": "#/components/schemas/ToggleBroadcastModePayload"
               },
               {
-                "$ref": "#/components/schemas/GuideHoveredPayload"
+                "$ref": "#/components/schemas/ViewModeChangedPayload"
               }
             ],
-            "descripton": "depends on the name of the interaction which payload has to be sent"
+            "discriminator": {
+              "propertyName": "name",
+              "mapping": {
+                "keep.alive": "#/components/schemas/EmptyPayload",
+                "product.viewed": "#/components/schemas/ProductPayload",
+                "quickview.opened": "#/components/schemas/EmptyPayload",
+                "quickview.closed": "#/components/schemas/EmptyPayload",
+                "dynamicPage.opened": "#/components/schemas/DynamicPageOpenedPayload",
+                "dynamicProductPage.opened": "#/components/schemas/DynamicProductPageOpenedPayload",
+                "dynamicPage.closed": "#/components/schemas/DynamicPageClosedPayload",
+                "page.viewed": "#/components/schemas/PageViewedPayload",
+                "guide.hovered": "#/components/schemas/GuideHoveredPayload",
+                "attendee.product.collection.liked": "#/components/schemas/ProductPayload",
+                "attendee.product.collection.disliked": "#/components/schemas/ProductPayload",
+                "attendee.product.collection.removed": "#/components/schemas/ProductPayload",
+                "attendee.leave": "#/components/schemas/EmptyPayload",
+                "remote.checkout.accepted": "#/components/schemas/EmptyPayload",
+                "remote.checkout.denied": "#/components/schemas/EmptyPayload",
+                "broadcastMode.toggled": "#/components/schemas/ToggleBroadcastModePayload",
+                "viewMode.changed": "#/components/schemas/ViewModeChangedPayload"
+              }
+            }
           },
           "triggeredAt": {
             "type": "string",
@@ -14949,9 +15005,15 @@
       "AbstractDynamicPageOpenedPayload": {
         "type": "object",
         "required": [
+          "pageId",
           "type"
         ],
         "properties": {
+          "pageId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{32}$",
+            "description": "The id of the current dynamic page"
+          },
           "type": {
             "type": "string",
             "description": "The type of the current dynamic page"
@@ -14959,6 +15021,10 @@
           "opened": {
             "type": "boolean",
             "default": true
+          },
+          "position": {
+            "type": "integer",
+            "description": "The position of the dynamic page in the list of dynamic pages"
           }
         }
       },
@@ -15020,11 +15086,6 @@
       },
       "UpdateAttendeeRequestBody": {
         "type": "object",
-        "required": [
-          "attendeeName",
-          "videoUserId",
-          "guideCartPermissionsGranted"
-        ],
         "properties": {
           "attendeeName": {
             "type": "string",
