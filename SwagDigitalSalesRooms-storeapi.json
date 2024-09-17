@@ -13512,7 +13512,7 @@
             "pattern": "^[a-f0-9]{32}$",
             "description": "The id of the page that was closed"
           },
-          "closeAll": {
+          "all": {
             "type": "boolean",
             "default": false,
             "description": "Whether all pages were closed"
@@ -14041,6 +14041,66 @@
           "apiAlias": "pwa_page_result"
         }
       },
+      "CreateAppointmentRequestBody": {
+        "type": "object",
+        "description": "Includes all data you will need to attend to a appointment.",
+        "required": [
+          "salutationId",
+          "firstName",
+          "lastName",
+          "emailAddress",
+          "subject"
+        ],
+        "properties": {
+          "salutationId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The id of the salutation"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "The first name of the requester"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "The last name of the requester"
+          },
+          "emailAddress": {
+            "type": "string",
+            "format": "email",
+            "description": "The email address of the requester"
+          },
+          "companyName": {
+            "type": "string",
+            "description": "The company name of the requester"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "The phone number of the requester"
+          },
+          "subject": {
+            "type": "string",
+            "description": "The subject of the appointment"
+          },
+          "message": {
+            "type": "string",
+            "description": "The message of the appointment"
+          }
+        },
+        "example": {
+          "id": "2d2c358f1ca04098aacf12873c2eed94",
+          "appointmentId": "3b3c358f1ca04098aacf12873c2eed94",
+          "salutationId": "5m6c358f1ca04098aacf12873c2eed94",
+          "firstName": "John",
+          "lastName": "Doe",
+          "emailAddress": "john@example.com",
+          "companyName": "Example Inc.",
+          "phoneNumber": "+1234567890",
+          "subject": "Appointment subject",
+          "message": "Appointment message",
+          "requestedById": "7b7c358f1ca04098aacf12873c2eed94"
+        }
+      },
       "DynamicProductPageOpenedPayload": {
         "allOf": [
           {
@@ -14116,6 +14176,18 @@
               "declined"
             ],
             "description": "The invitation status that client responded to"
+          }
+        }
+      },
+      "ScreenSharingToggledPayload": {
+        "type": "object",
+        "required": [
+          "active"
+        ],
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "Whether the screen sharing is active or not"
           }
         }
       },
@@ -14455,6 +14527,10 @@
               "videoGrid"
             ],
             "default": "presentation"
+          },
+          "allowScreenSharing": {
+            "type": "boolean",
+            "default": false
           },
           "extensions": {
             "type": "array",
@@ -15710,7 +15786,7 @@
             "description": "the id from the section within the page which was viewed"
           },
           "slideAlias": {
-            "type": "string",
+            "type": "number",
             "description": "the alias of the slide which was viewed"
           },
           "pageNumber": {
@@ -15753,7 +15829,8 @@
               "remote.checkout.accepted",
               "remote.checkout.denied",
               "broadcastMode.toggled",
-              "viewMode.changed"
+              "viewMode.changed",
+              "screenSharing.toggled"
             ]
           },
           "payload": {
@@ -15784,6 +15861,9 @@
               },
               {
                 "$ref": "#/components/schemas/ViewModeChangedPayload"
+              },
+              {
+                "$ref": "#/components/schemas/ScreenSharingToggledPayload"
               }
             ],
             "discriminator": {
@@ -15805,7 +15885,8 @@
                 "remote.checkout.accepted": "#/components/schemas/EmptyPayload",
                 "remote.checkout.denied": "#/components/schemas/EmptyPayload",
                 "broadcastMode.toggled": "#/components/schemas/ToggleBroadcastModePayload",
-                "viewMode.changed": "#/components/schemas/ViewModeChangedPayload"
+                "viewMode.changed": "#/components/schemas/ViewModeChangedPayload",
+                "screenSharing.toggled": "#/components/schemas/ScreenSharingToggledPayload"
               }
             }
           },
@@ -16313,13 +16394,13 @@
   ],
   "paths": {
     "/dsr/shop-pages/{layoutName}": {
-      "post": {
+      "get": {
         "tags": [
           "Shop pages"
         ],
         "summary": "Get shop pages",
         "description": "Get shop pages by layout name",
-        "operationId": "dsrShopPages",
+        "operationId": "dsrReadShopPage",
         "parameters": [
           {
             "name": "layoutName",
@@ -16345,45 +16426,6 @@
         "security": [
           {
             "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/dsr/product/{productId}": {
-      "post": {
-        "tags": [
-          "Shop pages"
-        ],
-        "summary": "Load product detail page",
-        "description": "Load product detail page with product id",
-        "operationId": "dsrShopPages",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{32}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductPageResult"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKey": [],
-            "ContextToken": []
           }
         ]
       }
@@ -16468,7 +16510,7 @@
       }
     },
     "/dsr/appointment/presentation/{presentationCmsPageId}/slide/{sectionId}/products": {
-      "get": {
+      "post": {
         "tags": [
           "Presentation"
         ],
@@ -16497,6 +16539,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Criteria"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "",
@@ -16695,6 +16746,45 @@
         ]
       }
     },
+    "/dsr/product/{productId}": {
+      "get": {
+        "tags": [
+          "Shop pages"
+        ],
+        "summary": "Load product detail page",
+        "description": "Load product detail page with product id",
+        "operationId": "dsrReadProductDetailPage",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductPageResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
+          }
+        ]
+      }
+    },
     "/dsr/appointment/{presentationPath}/join-as-client": {
       "post": {
         "tags": [
@@ -16714,6 +16804,28 @@
             }
           }
         ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "attendeeName": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "The name of the attendee"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "",
@@ -16734,13 +16846,13 @@
       }
     },
     "/dsr/appointment/{presentationPath}/basic-setting": {
-      "post": {
+      "get": {
         "tags": [
           "Appointment"
         ],
         "summary": "Get the appointment's basic settings",
         "description": "Get all the basic settings of the appointment",
-        "operationId": "getAppointmentBasicSetting",
+        "operationId": "dsrReadAppointmentSettings",
         "parameters": [
           {
             "name": "presentationPath",
@@ -17165,7 +17277,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DsrAppointmentRequest"
+                "$ref": "#/components/schemas/CreateAppointmentRequestBody"
               }
             }
           }
