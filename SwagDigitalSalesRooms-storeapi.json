@@ -368,9 +368,6 @@
       },
       "AclRole": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -392,7 +389,6 @@
       "App": {
         "description": "Added since version: 6.3.1.0",
         "required": [
-          "createdAt",
           "label"
         ],
         "properties": {
@@ -419,7 +415,6 @@
       "AppActionButton": {
         "description": "Added since version: 6.3.1.0",
         "required": [
-          "createdAt",
           "label"
         ],
         "properties": {
@@ -448,8 +443,7 @@
         "required": [
           "value",
           "appId",
-          "localeId",
-          "createdAt"
+          "localeId"
         ],
         "properties": {
           "id": {
@@ -483,7 +477,6 @@
       "AppCmsBlock": {
         "description": "Added since version: 6.4.2.0",
         "required": [
-          "createdAt",
           "label"
         ],
         "properties": {
@@ -510,7 +503,6 @@
       "AppFlowAction": {
         "description": "Added since version: 6.4.10.0",
         "required": [
-          "createdAt",
           "label"
         ],
         "properties": {
@@ -536,9 +528,6 @@
       },
       "AppFlowEvent": {
         "description": "Added since version: 6.5.2.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -559,9 +548,6 @@
       },
       "AppPaymentMethod": {
         "description": "Added since version: 6.4.1.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -583,7 +569,6 @@
       "AppScriptCondition": {
         "description": "Added since version: 6.4.10.3",
         "required": [
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -609,9 +594,6 @@
       },
       "AppShippingMethod": {
         "description": "Added since version: 6.5.7.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -632,9 +614,6 @@
       },
       "AppTemplate": {
         "description": "Added since version: 6.3.1.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -662,10 +641,6 @@
           {
             "required": [
               "id",
-              "displayNestedProducts",
-              "type",
-              "productAssignmentType",
-              "createdAt",
               "name"
             ],
             "properties": {
@@ -998,10 +973,6 @@
           "childCount",
           "translated",
           "id",
-          "displayNestedProducts",
-          "type",
-          "productAssignmentType",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -1190,8 +1161,7 @@
           "slots",
           "position",
           "type",
-          "sectionId",
-          "createdAt"
+          "sectionId"
         ],
         "properties": {
           "id": {
@@ -1299,8 +1269,7 @@
           "apiAlias",
           "sections",
           "id",
-          "type",
-          "createdAt"
+          "type"
         ],
         "properties": {
           "id": {
@@ -1383,7 +1352,6 @@
           "position",
           "type",
           "pageId",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -1482,8 +1450,7 @@
           "id",
           "type",
           "slot",
-          "blockId",
-          "createdAt"
+          "blockId"
         ],
         "properties": {
           "id": {
@@ -1552,8 +1519,6 @@
           {
             "required": [
               "id",
-              "isEu",
-              "createdAt",
               "name",
               "addressFormat"
             ],
@@ -1718,8 +1683,6 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "isEu",
-          "createdAt",
           "name",
           "addressFormat"
         ],
@@ -1859,7 +1822,6 @@
               "id",
               "countryId",
               "shortCode",
-              "createdAt",
               "name"
             ],
             "properties": {
@@ -1911,7 +1873,6 @@
           "id",
           "countryId",
           "shortCode",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -1969,7 +1930,6 @@
               "isoCode",
               "itemRounding",
               "totalRounding",
-              "createdAt",
               "shortName",
               "name"
             ],
@@ -2078,7 +2038,6 @@
           "isoCode",
           "itemRounding",
           "totalRounding",
-          "createdAt",
           "shortName",
           "name"
         ],
@@ -2178,9 +2137,6 @@
       },
       "CurrencyCountryRounding": {
         "description": "Added since version: 6.4.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2201,9 +2157,6 @@
       },
       "CustomEntity": {
         "description": "Added since version: 6.4.9.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2224,9 +2177,6 @@
       },
       "CustomField": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2247,9 +2197,6 @@
       },
       "CustomFieldSet": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2270,9 +2217,6 @@
       },
       "CustomFieldSetRelation": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2307,9 +2251,7 @@
           "firstName",
           "lastName",
           "email",
-          "accountType",
-          "defaultPaymentMethodId",
-          "createdAt"
+          "defaultPaymentMethodId"
         ],
         "properties": {
           "id": {
@@ -2518,8 +2460,7 @@
           "firstName",
           "lastName",
           "city",
-          "street",
-          "createdAt"
+          "street"
         ],
         "properties": {
           "id": {
@@ -2605,7 +2546,6 @@
         "required": [
           "translated",
           "id",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -2669,9 +2609,6 @@
       },
       "CustomerRecovery": {
         "description": "Added since version: 6.1.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2719,8 +2656,7 @@
         "description": "Added since version: 6.3.4.0",
         "required": [
           "id",
-          "customerId",
-          "createdAt"
+          "customerId"
         ],
         "properties": {
           "id": {
@@ -2751,8 +2687,7 @@
         "description": "Added since version: 6.3.4.0",
         "required": [
           "id",
-          "productId",
-          "createdAt"
+          "productId"
         ],
         "properties": {
           "id": {
@@ -2787,8 +2722,7 @@
           "name",
           "min",
           "max",
-          "unit",
-          "createdAt"
+          "unit"
         ],
         "properties": {
           "id": {
@@ -2836,8 +2770,7 @@
           "fileType",
           "orderId",
           "config",
-          "deepLinkCode",
-          "createdAt"
+          "deepLinkCode"
         ],
         "properties": {
           "id": {
@@ -2933,9 +2866,7 @@
         "required": [
           "id",
           "documentTypeId",
-          "name",
-          "global",
-          "createdAt"
+          "name"
         ],
         "properties": {
           "id": {
@@ -2991,8 +2922,7 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "documentBaseConfigId",
-          "createdAt"
+          "documentBaseConfigId"
         ],
         "properties": {
           "id": {
@@ -3029,7 +2959,6 @@
         "required": [
           "id",
           "technicalName",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -3067,8 +2996,7 @@
           "presentationId",
           "salesChannelDomainId",
           "name",
-          "createdById",
-          "createdAt"
+          "createdById"
         ],
         "properties": {
           "id": {
@@ -3156,9 +3084,6 @@
         "type": "object"
       },
       "DsrAppointmentAttendee": {
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3189,9 +3114,6 @@
         "type": "object"
       },
       "DsrAppointmentRequest": {
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3211,9 +3133,6 @@
         "type": "object"
       },
       "DsrAppointmentVideoChat": {
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3247,8 +3166,7 @@
       "DsrAttendeeProductCollection": {
         "required": [
           "attendeeId",
-          "productId",
-          "createdAt"
+          "productId"
         ],
         "properties": {
           "id": {
@@ -3277,9 +3195,6 @@
         "type": "object"
       },
       "DsrInteraction": {
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3302,7 +3217,6 @@
         "required": [
           "id",
           "createdById",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -3375,8 +3289,7 @@
         "required": [
           "id",
           "presentationId",
-          "cmsPageId",
-          "createdAt"
+          "cmsPageId"
         ],
         "properties": {
           "id": {
@@ -3448,9 +3361,6 @@
       },
       "Flow": {
         "description": "Added since version: 6.4.6.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3471,9 +3381,6 @@
       },
       "FlowSequence": {
         "description": "Added since version: 6.4.6.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3494,9 +3401,6 @@
       },
       "FlowTemplate": {
         "description": "Added since version: 6.4.18.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3517,9 +3421,6 @@
       },
       "ImportExportFile": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3540,9 +3441,6 @@
       },
       "ImportExportLog": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3563,9 +3461,6 @@
       },
       "ImportExportProfile": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3589,9 +3484,6 @@
       },
       "Integration": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3619,7 +3511,6 @@
           {
             "required": [
               "id",
-              "createdAt",
               "name",
               "url"
             ],
@@ -3752,7 +3643,6 @@
         "required": [
           "apiAlias",
           "id",
-          "createdAt",
           "name",
           "url"
         ],
@@ -3838,8 +3728,7 @@
             "required": [
               "id",
               "localeId",
-              "name",
-              "createdAt"
+              "name"
             ],
             "properties": {
               "id": {
@@ -4007,8 +3896,7 @@
         "required": [
           "id",
           "localeId",
-          "name",
-          "createdAt"
+          "name"
         ],
         "properties": {
           "id": {
@@ -4066,7 +3954,6 @@
         "required": [
           "id",
           "code",
-          "createdAt",
           "name",
           "territory"
         ],
@@ -4105,9 +3992,6 @@
       },
       "LogEntry": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4129,7 +4013,6 @@
       "MailHeaderFooter": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -4177,7 +4060,6 @@
       "MailTemplate": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "createdAt",
           "subject",
           "contentHtml",
           "contentPlain"
@@ -4267,7 +4149,6 @@
         "required": [
           "id",
           "technicalName",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -4311,8 +4192,7 @@
               "id",
               "productId",
               "categoryId",
-              "salesChannelId",
-              "createdAt"
+              "salesChannelId"
             ],
             "properties": {
               "id": {
@@ -4360,8 +4240,7 @@
           "id",
           "productId",
           "categoryId",
-          "salesChannelId",
-          "createdAt"
+          "salesChannelId"
         ],
         "properties": {
           "id": {
@@ -4411,8 +4290,7 @@
           "path",
           "private",
           "url",
-          "id",
-          "createdAt"
+          "id"
         ],
         "properties": {
           "id": {
@@ -4501,9 +4379,6 @@
       },
       "MediaDefaultFolder": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4524,9 +4399,6 @@
       },
       "MediaFolder": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4547,9 +4419,6 @@
       },
       "MediaFolderConfiguration": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4603,8 +4472,7 @@
           "id",
           "mediaId",
           "width",
-          "height",
-          "createdAt"
+          "height"
         ],
         "properties": {
           "id": {
@@ -4653,8 +4521,7 @@
         "required": [
           "id",
           "width",
-          "height",
-          "createdAt"
+          "height"
         ],
         "properties": {
           "id": {
@@ -4692,9 +4559,6 @@
             "$ref": "#/components/schemas/resource"
           },
           {
-            "required": [
-              "createdAt"
-            ],
             "properties": {
               "id": {
                 "type": "string",
@@ -4717,9 +4581,6 @@
       },
       "NewsletterRecipient": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4740,9 +4601,6 @@
       },
       "Notification": {
         "description": "Added since version: 6.4.7.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4764,7 +4622,6 @@
       "NumberRange": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -4790,9 +4647,6 @@
       },
       "NumberRangeSalesChannel": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4813,9 +4667,6 @@
       },
       "NumberRangeState": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4837,7 +4688,6 @@
       "NumberRangeType": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "createdAt",
           "typeName"
         ],
         "properties": {
@@ -4873,8 +4723,7 @@
           "languageId",
           "salesChannelId",
           "orderDateTime",
-          "currencyFactor",
-          "createdAt"
+          "currencyFactor"
         ],
         "properties": {
           "id": {
@@ -5136,8 +4985,7 @@
           "firstName",
           "lastName",
           "street",
-          "city",
-          "createdAt"
+          "city"
         ],
         "properties": {
           "id": {
@@ -5223,8 +5071,7 @@
           "id",
           "email",
           "firstName",
-          "lastName",
-          "createdAt"
+          "lastName"
         ],
         "properties": {
           "id": {
@@ -5290,10 +5137,8 @@
           "shippingOrderAddressId",
           "shippingMethodId",
           "stateId",
-          "trackingCodes",
           "shippingDateEarliest",
-          "shippingDateLatest",
-          "createdAt"
+          "shippingDateLatest"
         ],
         "properties": {
           "id": {
@@ -5435,8 +5280,7 @@
         "required": [
           "id",
           "orderDeliveryId",
-          "orderLineItemId",
-          "createdAt"
+          "orderLineItemId"
         ],
         "properties": {
           "id": {
@@ -5557,10 +5401,8 @@
           "identifier",
           "quantity",
           "label",
-          "position",
           "states",
-          "children",
-          "createdAt"
+          "children"
         ],
         "properties": {
           "id": {
@@ -5810,8 +5652,7 @@
           "orderLineItemId",
           "mediaId",
           "position",
-          "accessGranted",
-          "createdAt"
+          "accessGranted"
         ],
         "properties": {
           "id": {
@@ -5902,8 +5743,7 @@
           "orderId",
           "paymentMethodId",
           "amount",
-          "stateId",
-          "createdAt"
+          "stateId"
         ],
         "properties": {
           "id": {
@@ -6024,8 +5864,7 @@
           "id",
           "orderTransactionId",
           "stateId",
-          "amount",
-          "createdAt"
+          "amount"
         ],
         "properties": {
           "id": {
@@ -6142,8 +5981,7 @@
           "id",
           "captureId",
           "stateId",
-          "amount",
-          "createdAt"
+          "amount"
         ],
         "properties": {
           "id": {
@@ -6263,8 +6101,7 @@
           "id",
           "refundId",
           "orderLineItemId",
-          "amount",
-          "createdAt"
+          "amount"
         ],
         "properties": {
           "id": {
@@ -6389,7 +6226,6 @@
           {
             "required": [
               "id",
-              "createdAt",
               "name"
             ],
             "properties": {
@@ -6512,7 +6348,6 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -6601,7 +6436,6 @@
       "Plugin": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "createdAt",
           "label"
         ],
         "properties": {
@@ -6637,7 +6471,6 @@
               "taxId",
               "productNumber",
               "stock",
-              "createdAt",
               "name"
             ],
             "properties": {
@@ -7667,7 +7500,6 @@
           "taxId",
           "productNumber",
           "stock",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -8186,8 +8018,7 @@
         "required": [
           "id",
           "productId",
-          "optionId",
-          "createdAt"
+          "optionId"
         ],
         "properties": {
           "id": {
@@ -8244,10 +8075,7 @@
         "description": "Added since version: 6.1.0.0",
         "required": [
           "id",
-          "name",
-          "position",
-          "type",
-          "createdAt"
+          "name"
         ],
         "properties": {
           "id": {
@@ -8295,9 +8123,6 @@
       },
       "ProductCrossSellingAssignedProducts": {
         "description": "Added since version: 6.2.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8321,8 +8146,7 @@
         "required": [
           "id",
           "productId",
-          "mediaId",
-          "createdAt"
+          "mediaId"
         ],
         "properties": {
           "id": {
@@ -8373,9 +8197,6 @@
       },
       "ProductExport": {
         "description": "Added since version: 6.1.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8397,7 +8218,6 @@
       "ProductFeatureSet": {
         "description": "Added since version: 6.3.0.0",
         "required": [
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -8446,7 +8266,6 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -8498,8 +8317,7 @@
         "required": [
           "id",
           "productId",
-          "mediaId",
-          "createdAt"
+          "mediaId"
         ],
         "properties": {
           "id": {
@@ -8550,9 +8368,6 @@
       },
       "ProductPrice": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8580,8 +8395,7 @@
           "salesChannelId",
           "languageId",
           "title",
-          "content",
-          "createdAt"
+          "content"
         ],
         "properties": {
           "id": {
@@ -8638,9 +8452,6 @@
       },
       "ProductSearchConfig": {
         "description": "Added since version: 6.3.5.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8661,9 +8472,6 @@
       },
       "ProductSearchConfigField": {
         "description": "Added since version: 6.3.5.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8684,9 +8492,6 @@
       },
       "ProductSearchKeyword": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8710,7 +8515,6 @@
         "required": [
           "key",
           "priority",
-          "createdAt",
           "label"
         ],
         "properties": {
@@ -8748,7 +8552,6 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -8783,9 +8586,6 @@
       },
       "ProductStreamFilter": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8806,9 +8606,6 @@
       },
       "ProductVisibility": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8830,7 +8627,6 @@
       "Promotion": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -8859,9 +8655,6 @@
       },
       "PromotionDiscount": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8882,9 +8675,6 @@
       },
       "PromotionDiscountPrices": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8905,9 +8695,6 @@
       },
       "PromotionIndividualCode": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8928,9 +8715,6 @@
       },
       "PromotionSalesChannel": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8951,9 +8735,6 @@
       },
       "PromotionSetgroup": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -8976,9 +8757,6 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "displayType",
-          "sortingType",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -9040,7 +8818,6 @@
           "option",
           "id",
           "groupId",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -9097,8 +8874,7 @@
       "Rule": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "name",
-          "createdAt"
+          "name"
         ],
         "properties": {
           "id": {
@@ -9129,9 +8905,6 @@
       },
       "RuleCondition": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -9161,7 +8934,6 @@
           "shippingMethodId",
           "countryId",
           "navigationCategoryId",
-          "createdAt",
           "name",
           "homeEnabled"
         ],
@@ -9305,9 +9077,6 @@
       },
       "SalesChannelAnalytics": {
         "description": "Added since version: 6.2.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -9334,8 +9103,7 @@
           "salesChannelId",
           "languageId",
           "currencyId",
-          "snippetSetId",
-          "createdAt"
+          "snippetSetId"
         ],
         "properties": {
           "id": {
@@ -9392,7 +9160,6 @@
       "SalesChannelType": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -9426,7 +9193,6 @@
             "required": [
               "id",
               "salutationKey",
-              "createdAt",
               "displayName",
               "letterName"
             ],
@@ -9470,7 +9236,6 @@
         "required": [
           "id",
           "salutationKey",
-          "createdAt",
           "displayName",
           "letterName"
         ],
@@ -9509,9 +9274,6 @@
       },
       "ScheduledTask": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -9532,9 +9294,6 @@
       },
       "Script": {
         "description": "Added since version: 6.4.7.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -9566,8 +9325,7 @@
               "foreignKey",
               "routeName",
               "pathInfo",
-              "seoPathInfo",
-              "createdAt"
+              "seoPathInfo"
             ],
             "properties": {
               "id": {
@@ -9638,8 +9396,7 @@
           "foreignKey",
           "routeName",
           "pathInfo",
-          "seoPathInfo",
-          "createdAt"
+          "seoPathInfo"
         ],
         "properties": {
           "id": {
@@ -9703,13 +9460,11 @@
             "readOnly": true
           }
         },
-        "type": "object"
+        "type": "object",
+        "title": "SeoUrlEntity"
       },
       "SeoUrlTemplate": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -9748,8 +9503,6 @@
             "required": [
               "id",
               "deliveryTimeId",
-              "taxType",
-              "createdAt",
               "name"
             ],
             "properties": {
@@ -9996,8 +9749,6 @@
         "required": [
           "id",
           "deliveryTimeId",
-          "taxType",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -10082,8 +9833,7 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "shippingMethodId",
-          "createdAt"
+          "shippingMethodId"
         ],
         "properties": {
           "id": {
@@ -10141,8 +9891,7 @@
         "required": [
           "setId",
           "translationKey",
-          "value",
-          "createdAt"
+          "value"
         ],
         "properties": {
           "id": {
@@ -10179,8 +9928,7 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "name",
-          "iso",
-          "createdAt"
+          "iso"
         ],
         "properties": {
           "id": {
@@ -10218,7 +9966,6 @@
       "StateMachine": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -10256,9 +10003,6 @@
       },
       "StateMachineHistory": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -10287,7 +10031,6 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "technicalName",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -10322,9 +10065,6 @@
       },
       "StateMachineTransition": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -10348,8 +10088,7 @@
         "required": [
           "id",
           "configurationKey",
-          "configurationValue",
-          "createdAt"
+          "configurationValue"
         ],
         "properties": {
           "id": {
@@ -10391,8 +10130,7 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "name",
-          "createdAt"
+          "name"
         ],
         "properties": {
           "id": {
@@ -10420,9 +10158,7 @@
         "required": [
           "id",
           "taxRate",
-          "name",
-          "position",
-          "createdAt"
+          "name"
         ],
         "properties": {
           "id": {
@@ -10462,7 +10198,6 @@
         "required": [
           "id",
           "priority",
-          "createdAt",
           "name"
         ],
         "properties": {
@@ -10508,9 +10243,6 @@
       },
       "TaxRule": {
         "description": "Added since version: 6.1.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -10532,7 +10264,6 @@
       "TaxRuleType": {
         "description": "Added since version: 6.1.0.0",
         "required": [
-          "createdAt",
           "typeName"
         ],
         "properties": {
@@ -10562,8 +10293,7 @@
           "id",
           "name",
           "author",
-          "active",
-          "createdAt"
+          "active"
         ],
         "properties": {
           "id": {
@@ -10634,7 +10364,6 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "createdAt",
           "shortCode",
           "name"
         ],
@@ -10670,9 +10399,6 @@
       },
       "User": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -10693,9 +10419,6 @@
       },
       "UserAccessKey": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -10716,9 +10439,6 @@
       },
       "UserConfig": {
         "description": "Added since version: 6.3.5.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -10739,9 +10459,6 @@
       },
       "UserRecovery": {
         "description": "Added since version: 6.0.0.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -10762,9 +10479,6 @@
       },
       "Webhook": {
         "description": "Added since version: 6.3.1.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -10785,9 +10499,6 @@
       },
       "WebhookEventLog": {
         "description": "Added since version: 6.4.1.0",
-        "required": [
-          "createdAt"
-        ],
         "properties": {
           "id": {
             "type": "string",
