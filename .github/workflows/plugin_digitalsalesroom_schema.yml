@@ -61,7 +61,7 @@ jobs:
           jq . ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json | sponge ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
 
       - name: Create DSR PR
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v7
         with:
           add-paths: ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
           author: shopwareBot <example@example.com>
