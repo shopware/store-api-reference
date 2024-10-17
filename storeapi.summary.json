@@ -23,6 +23,7 @@
     "/account/register",
     "/account/register-confirm",
     "/app-system/{name}/generate-token",
+    "/breadcrumb/{id}",
     "/category",
     "/category/{navigationId}",
     "/checkout/cart",
@@ -69,7 +70,8 @@
     "/search-suggest",
     "/seo-url",
     "/shipping-method",
-    "/sitemap"
+    "/sitemap",
+    "/sitemap/{filePath}"
   ],
   "schemas": [
     "AccountNewsletterRecipient",
@@ -93,6 +95,8 @@
     "AppShippingMethod",
     "AppTemplate",
     "Association",
+    "Breadcrumb",
+    "BreadcrumbCollection",
     "CalculatedPrice",
     "Cart",
     "CartDelivery",
@@ -204,6 +208,7 @@
     "PaymentMethod",
     "PaymentMethodJsonApi",
     "Plugin",
+    "Price",
     "Product",
     "ProductConfiguratorSetting",
     "ProductCrossSelling",
