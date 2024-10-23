@@ -12533,11 +12533,7 @@
             }
           },
           "associations": {
-            "type": "array",
-            "description": "Associations to include. For more information, see [Search Queries > Associations](https://shopware.stoplight.io/docs/store-api/cf710bf73d0cd-search-queries#associations)",
-            "items": {
-              "$ref": "#/components/schemas/Association"
-            }
+            "$ref": "#/components/schemas/Associations"
           },
           "post-filter": {
             "type": "array",
@@ -12567,7 +12563,10 @@
             }
           },
           "aggregations": {
-            "$ref": "#/components/schemas/Aggregations"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aggregation"
+            }
           },
           "fields": {
             "type": "array",
@@ -12589,17 +12588,17 @@
             "$ref": "#/components/schemas/TotalCountMode"
           },
           "includes": {
-            "$ref": "#/components/schemas/Include"
+            "$ref": "#/components/schemas/Includes"
           }
         }
       },
-      "Association": {
+      "Associations": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/Criteria"
         }
       },
-      "Include": {
+      "Includes": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -12608,70 +12607,67 @@
           }
         }
       },
-      "Aggregations": {
-        "type": "array",
-        "items": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/AggregationMetrics"
-            },
-            {
-              "title": "AggregationEntity",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationEntity"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationFilter",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationTerms",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationTerms"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationHistogram",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationHistogram"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationRange",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationRange"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            }
-          ]
-        }
+      "Aggregation": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AggregationMetrics"
+          },
+          {
+            "title": "AggregationEntity",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationEntity"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationFilter",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationFilter"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationTerms",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationTerms"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationHistogram",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationHistogram"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationRange",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationRange"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          }
+        ]
       },
       "SubAggregations": {
         "type": "object",
@@ -12852,10 +12848,10 @@
           "operator": {
             "type": "string",
             "enum": [
-              "AND",
               "and",
-              "OR",
-              "or"
+              "or",
+              "nor",
+              "nand"
             ]
           },
           "queries": {
