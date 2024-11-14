@@ -1474,7 +1474,12 @@
             "type": "object"
           },
           "customFields": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "_uniqueIdentifier": {
+                "type": "string"
+              }
+            }
           },
           "data": {
             "type": "object",
@@ -1502,7 +1507,22 @@
             "readOnly": true
           },
           "translated": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "config": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "block": {
             "$ref": "#/components/schemas/CmsBlock"
@@ -7483,6 +7503,9 @@
               }
             },
             "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/DiscountLineItemPayload"
           }
         ]
       },
@@ -12079,7 +12102,9 @@
           "promotion",
           "discount",
           "container",
-          "quantity"
+          "quantity",
+          "dsr-line-item-discount",
+          "dsr-cart-discount"
         ]
       },
       "LineItem": {
@@ -12274,6 +12299,34 @@
           },
           "uniqueIdentifier": {
             "type": "string"
+          },
+          "extensions": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "attendees": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "required": [
@@ -12533,11 +12586,7 @@
             }
           },
           "associations": {
-            "type": "array",
-            "description": "Associations to include. For more information, see [Search Queries > Associations](https://shopware.stoplight.io/docs/store-api/cf710bf73d0cd-search-queries#associations)",
-            "items": {
-              "$ref": "#/components/schemas/Association"
-            }
+            "$ref": "#/components/schemas/Associations"
           },
           "post-filter": {
             "type": "array",
@@ -12567,7 +12616,10 @@
             }
           },
           "aggregations": {
-            "$ref": "#/components/schemas/Aggregations"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aggregation"
+            }
           },
           "fields": {
             "type": "array",
@@ -12589,17 +12641,17 @@
             "$ref": "#/components/schemas/TotalCountMode"
           },
           "includes": {
-            "$ref": "#/components/schemas/Include"
+            "$ref": "#/components/schemas/Includes"
           }
         }
       },
-      "Association": {
+      "Associations": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/Criteria"
         }
       },
-      "Include": {
+      "Includes": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -12608,70 +12660,67 @@
           }
         }
       },
-      "Aggregations": {
-        "type": "array",
-        "items": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/AggregationMetrics"
-            },
-            {
-              "title": "AggregationEntity",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationEntity"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationFilter",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationTerms",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationTerms"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationHistogram",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationHistogram"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationRange",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationRange"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            }
-          ]
-        }
+      "Aggregation": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AggregationMetrics"
+          },
+          {
+            "title": "AggregationEntity",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationEntity"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationFilter",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationFilter"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationTerms",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationTerms"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationHistogram",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationHistogram"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationRange",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationRange"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          }
+        ]
       },
       "SubAggregations": {
         "type": "object",
@@ -12852,10 +12901,10 @@
           "operator": {
             "type": "string",
             "enum": [
-              "AND",
               "and",
-              "OR",
-              "or"
+              "or",
+              "nor",
+              "nand"
             ]
           },
           "queries": {
@@ -13186,94 +13235,66 @@
           }
         }
       },
-      "CreateInteractionRequestBody": {
-        "type": "object",
-        "required": [
-          "name",
-          "payload"
+      "DynamicInteractionBody": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EmptyInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/ProductInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/DynamicPageOpenedInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/DynamicPageClosedInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/DynamicProductPageOpenedInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/PageViewedInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/GuideHoveredInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/ToggleBroadcastModeInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/ViewModeChangedInteraction"
+          },
+          {
+            "$ref": "#/components/schemas/ScreenSharingToggledInteraction"
+          }
         ],
+        "discriminator": {
+          "propertyName": "name",
+          "mapping": {
+            "keep.alive": "#/components/schemas/EmptyInteraction",
+            "quickview.opened": "#/components/schemas/EmptyInteraction",
+            "quickview.closed": "#/components/schemas/EmptyInteraction",
+            "attendee.leave": "#/components/schemas/EmptyInteraction",
+            "remote.checkout.accepted": "#/components/schemas/EmptyInteraction",
+            "remote.checkout.denied": "#/components/schemas/EmptyInteraction",
+            "product.viewed": "#/components/schemas/ProductInteraction",
+            "attendee.product.collection.liked": "#/components/schemas/ProductInteraction",
+            "attendee.product.collection.disliked": "#/components/schemas/ProductInteraction",
+            "attendee.product.collection.removed": "#/components/schemas/ProductInteraction",
+            "dynamicPage.opened": "#/components/schemas/DynamicPageOpenedInteraction",
+            "dynamicPage.closed": "#/components/schemas/DynamicPageClosedInteraction",
+            "dynamicProductPage.opened": "#/components/schemas/DynamicProductPageOpenedInteraction",
+            "page.viewed": "#/components/schemas/PageViewedInteraction",
+            "guide.hovered": "#/components/schemas/GuideHoveredInteraction",
+            "broadcastMode.toggled": "#/components/schemas/ToggleBroadcastModeInteraction",
+            "viewMode.changed": "#/components/schemas/ViewModeChangedInteraction",
+            "screenSharing.toggled": "#/components/schemas/ScreenSharingToggledInteraction"
+          }
+        }
+      },
+      "BaseInteraction": {
+        "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "the name of the interaction",
-            "enum": [
-              "keep.alive",
-              "product.viewed",
-              "quickview.opened",
-              "quickview.closed",
-              "dynamicPage.opened",
-              "dynamicProductPage.opened",
-              "dynamicPage.closed",
-              "page.viewed",
-              "guide.hovered",
-              "attendee.product.collection.liked",
-              "attendee.product.collection.disliked",
-              "attendee.product.collection.removed",
-              "attendee.leave",
-              "remote.checkout.accepted",
-              "remote.checkout.denied",
-              "broadcastMode.toggled",
-              "viewMode.changed",
-              "screenSharing.toggled"
-            ]
-          },
-          "payload": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/EmptyPayload"
-              },
-              {
-                "$ref": "#/components/schemas/ProductPayload"
-              },
-              {
-                "$ref": "#/components/schemas/DynamicPageOpenedPayload"
-              },
-              {
-                "$ref": "#/components/schemas/DynamicProductPageOpenedPayload"
-              },
-              {
-                "$ref": "#/components/schemas/DynamicPageClosedPayload"
-              },
-              {
-                "$ref": "#/components/schemas/PageViewedPayload"
-              },
-              {
-                "$ref": "#/components/schemas/GuideHoveredPayload"
-              },
-              {
-                "$ref": "#/components/schemas/ToggleBroadcastModePayload"
-              },
-              {
-                "$ref": "#/components/schemas/ViewModeChangedPayload"
-              },
-              {
-                "$ref": "#/components/schemas/ScreenSharingToggledPayload"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "name",
-              "mapping": {
-                "keep.alive": "#/components/schemas/EmptyPayload",
-                "product.viewed": "#/components/schemas/ProductPayload",
-                "quickview.opened": "#/components/schemas/EmptyPayload",
-                "quickview.closed": "#/components/schemas/EmptyPayload",
-                "dynamicPage.opened": "#/components/schemas/DynamicPageOpenedPayload",
-                "dynamicProductPage.opened": "#/components/schemas/DynamicProductPageOpenedPayload",
-                "dynamicPage.closed": "#/components/schemas/DynamicPageClosedPayload",
-                "page.viewed": "#/components/schemas/PageViewedPayload",
-                "guide.hovered": "#/components/schemas/GuideHoveredPayload",
-                "attendee.product.collection.liked": "#/components/schemas/ProductPayload",
-                "attendee.product.collection.disliked": "#/components/schemas/ProductPayload",
-                "attendee.product.collection.removed": "#/components/schemas/ProductPayload",
-                "attendee.leave": "#/components/schemas/EmptyPayload",
-                "remote.checkout.accepted": "#/components/schemas/EmptyPayload",
-                "remote.checkout.denied": "#/components/schemas/EmptyPayload",
-                "broadcastMode.toggled": "#/components/schemas/ToggleBroadcastModePayload",
-                "viewMode.changed": "#/components/schemas/ViewModeChangedPayload",
-                "screenSharing.toggled": "#/components/schemas/ScreenSharingToggledPayload"
-              }
-            }
-          },
           "triggeredAt": {
             "type": "string",
             "description": "The time when the interaction was triggered",
@@ -13285,6 +13306,232 @@
             "default": -1
           }
         }
+      },
+      "EmptyInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object",
+                "additionalProperties": false,
+                "minProperties": 0,
+                "maxProperties": 0
+              }
+            }
+          }
+        ]
+      },
+      "ProductInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/ProductPayload"
+              }
+            }
+          }
+        ]
+      },
+      "DynamicPageOpenedInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/DynamicPageOpenedPayload"
+              }
+            }
+          }
+        ]
+      },
+      "DynamicProductPageOpenedInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/DynamicProductPageOpenedPayload"
+              }
+            }
+          }
+        ]
+      },
+      "DynamicPageClosedInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/DynamicPageClosedPayload"
+              }
+            }
+          }
+        ]
+      },
+      "PageViewedInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/PageViewedPayload"
+              }
+            }
+          }
+        ]
+      },
+      "GuideHoveredInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/GuideHoveredPayload"
+              }
+            }
+          }
+        ]
+      },
+      "ToggleBroadcastModeInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/ToggleBroadcastModePayload"
+              }
+            }
+          }
+        ]
+      },
+      "ViewModeChangedInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/ViewModeChangedPayload"
+              }
+            }
+          }
+        ]
+      },
+      "ScreenSharingToggledInteraction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseInteraction"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "payload"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/ScreenSharingToggledPayload"
+              }
+            }
+          }
+        ]
+      },
+      "CreateInteractionRequestBody": {
+        "$ref": "#/components/schemas/DynamicInteractionBody"
       },
       "DynamicProductListingPageOpenedPayload": {
         "required": [
@@ -13808,6 +14055,10 @@
       },
       "PresentationStructure": {
         "type": "object",
+        "required": [
+          "cmsPageResults",
+          "navigation"
+        ],
         "properties": {
           "cmsPageResults": {
             "type": "array",
@@ -13834,6 +14085,14 @@
             "type": "array",
             "items": {
               "type": "object",
+              "required": [
+                "cmsPageId",
+                "groupId",
+                "groupName",
+                "index",
+                "sectionId",
+                "sectionName"
+              ],
               "properties": {
                 "index": {
                   "type": "integer",
@@ -14812,55 +15071,48 @@
           "apiAlias": "pwa_page_result"
         }
       },
+      "BasePresentationSlideData": {
+        "properties": {
+          "cmsPage": {
+            "$ref": "#/components/schemas/CmsPage"
+          },
+          "extensions": {
+            "type": "object",
+            "properties": {
+              "cmsPageRelation": {
+                "$ref": "#/components/schemas/PresentationCmsPage"
+              }
+            }
+          }
+        }
+      },
       "PresentationSlideData": {
         "type": "object",
-        "allOf": [
-          {
-            "properties": {
-              "cmsPage": {
-                "$ref": "#/components/schemas/CmsPage"
-              },
-              "extensions": {
-                "type": "object",
-                "properties": {
-                  "cmsPageRelation": {
-                    "$ref": "#/components/schemas/DsrPresentationCmsPage"
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "oneOf": [
-          {
+        "properties": {
+          "cmsPage": {
+            "$ref": "#/components/schemas/CmsPage"
+          },
+          "extensions": {
             "type": "object",
-            "description": "A product result contains product information and product variant/configuration information. It corresponds with presentation product page",
             "properties": {
-              "product": {
-                "$ref": "#/components/schemas/Product"
-              },
-              "configurator": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/PropertyGroup"
-                }
+              "cmsPageRelation": {
+                "$ref": "#/components/schemas/PresentationCmsPage"
               }
             }
           },
-          {
-            "type": "object",
-            "description": "A category result contains category information. It corresponds with a presentation category page",
-            "properties": {
-              "category": {
-                "$ref": "#/components/schemas/Category"
-              }
-            }
+          "product": {
+            "$ref": "#/components/schemas/Product"
           },
-          {
-            "type": "null",
-            "description": "A landing page result contains no specific fields."
+          "category": {
+            "$ref": "#/components/schemas/Category"
+          },
+          "configurator": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyGroup"
+            }
           }
-        ],
+        },
         "example": {
           "extensions": {
             "cmsPageRelation": {
@@ -15340,6 +15592,28 @@
           }
         }
       },
+      "DiscountLineItemPayload": {
+        "type": "object",
+        "properties": {
+          "discountType": {
+            "type": "string",
+            "enum": [
+              "percentage",
+              "absolute"
+            ]
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "float",
+            "maximum": 0
+          },
+          "discountPrice": {
+            "type": "number",
+            "format": "float",
+            "maximum": 0
+          }
+        }
+      },
       "ProductPayload": {
         "type": "object",
         "required": [
@@ -15370,6 +15644,34 @@
           }
         }
       },
+      "PresentationCmsPage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DsrPresentationCmsPage"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "pickedProductIds": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$",
+                      "description": "Product id"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "The product id is assigned to presentation if it's product listing or instant listing"
+              }
+            }
+          }
+        ]
+      },
       "AppointmentBasicSettingResponse": {
         "type": "object",
         "properties": {
@@ -15379,7 +15681,11 @@
           },
           "mode": {
             "type": "string",
-            "description": "The mode of the interaction"
+            "description": "The mode of the interaction",
+            "enum": [
+              "guided",
+              "self"
+            ]
           },
           "attendeeRestrictionType": {
             "type": "string",
@@ -15396,7 +15702,7 @@
             "enum": [
               "none",
               "both",
-              "audio_only"
+              "audio-only"
             ]
           },
           "canSendRequestEmail": {
@@ -15678,7 +15984,13 @@
           },
           "b2bFeatures": {
             "type": "object",
-            "description": "The b2b features that available for the appointment"
+            "description": "The b2b features that available for the appointment",
+            "properties": {
+              "quoteManagement": {
+                "type": "boolean",
+                "description": "To know if the quote management is enabled for current customer"
+              }
+            }
           }
         },
         "example": {
