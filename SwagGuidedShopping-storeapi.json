@@ -7,7 +7,7 @@
       "name": "MIT",
       "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
     },
-    "version": "6.6.7.0"
+    "version": "6.6.8.2"
   },
   "servers": [
     {
@@ -10076,243 +10076,88 @@
         },
         "type": "object"
       },
-      "AggregationEntity": {
-        "title": "AggregationEntity",
+      "Breadcrumb": {
         "type": "object",
         "properties": {
           "name": {
-            "description": "Give your aggregation an identifier, so you can find it easier",
             "type": "string"
+          },
+          "categoryId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
           },
           "type": {
-            "description": "The type of aggregation",
             "type": "string",
             "enum": [
-              "entity"
+              "page",
+              "link",
+              "folder"
             ]
           },
-          "field": {
-            "description": "The field you want to aggregate over.",
+          "translated": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "customFields": {
+                "type": "object"
+              },
+              "slotConfig": {
+                "type": "object"
+              },
+              "linkType": {
+                "type": "string",
+                "enum": [
+                  "external",
+                  "category",
+                  "product",
+                  "landing_page"
+                ]
+              },
+              "internalLink": {
+                "type": "string"
+              },
+              "externalLink": {
+                "type": "string"
+              },
+              "linkNewTab": {
+                "type": "boolean"
+              },
+              "description": {
+                "type": "string"
+              },
+              "metaTitle": {
+                "type": "string"
+              },
+              "metaDescription": {
+                "type": "string"
+              },
+              "keywords": {
+                "type": "string"
+              }
+            }
+          },
+          "path": {
             "type": "string"
           },
-          "definition": {
-            "description": "The entity definition e.g \"product_manufacturer\".",
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "type",
-          "field",
-          "definition"
-        ]
-      },
-      "AggregationFilter": {
-        "title": "AggregationFilter",
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Give your aggregation an identifier, so you can find it easier",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of aggregation",
-            "type": "string",
-            "enum": [
-              "filter"
-            ]
-          },
-          "filter": {
+          "seoUrls": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Filters"
+              "$ref": "#/components/schemas/SeoUrl"
             }
-          }
-        },
-        "required": [
-          "name",
-          "type",
-          "filter"
-        ]
-      },
-      "AggregationTerms": {
-        "title": "AggregationTerms",
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Give your aggregation an identifier, so you can find it easier",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of aggregation",
-            "type": "string",
-            "enum": [
-              "terms"
-            ]
-          },
-          "field": {
-            "description": "The field you want to aggregate over.",
-            "type": "string"
-          },
-          "limit": {
-            "description": "The number of terms to return",
-            "type": "number"
-          },
-          "sort": {
-            "type": "array",
-            "description": "Sorting the aggregation result.",
-            "items": {
-              "$ref": "#/components/schemas/Sort"
-            }
-          }
-        },
-        "required": [
-          "name",
-          "type",
-          "field"
-        ]
-      },
-      "AggregationHistogram": {
-        "title": "AggregationHistogram",
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Give your aggregation an identifier, so you can find it easier",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of aggregation",
-            "type": "string",
-            "enum": [
-              "histogram"
-            ]
-          },
-          "field": {
-            "description": "The field you want to aggregate over.",
-            "type": "string"
-          },
-          "interval": {
-            "description": "The interval of the histogram",
-            "type": "number"
-          },
-          "format": {
-            "description": "The format of the histogram",
-            "type": "string"
-          },
-          "timeZone": {
-            "description": "The timezone of the histogram",
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "type",
-          "field"
-        ]
-      },
-      "AggregationRange": {
-        "title": "AggregationRange",
-        "description": "For more information, see [Aggregations Reference > Range Aggregation](https://developer.shopware.com/docs/resources/references/core-reference/dal-reference/aggregations-reference.html#range-aggregations)",
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Give your aggregation an identifier, so you can find it easier",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of aggregation",
-            "type": "string",
-            "enum": [
-              "range"
-            ]
-          },
-          "field": {
-            "description": "The field you want to aggregate over.",
-            "type": "string"
-          },
-          "ranges": {
-            "description": "The ranges of the aggregation",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "anyOf": [
-                {
-                  "type": "object",
-                  "title": "From and to",
-                  "properties": {
-                    "from": {
-                      "type": "number",
-                      "description": "The lower bound of the range"
-                    },
-                    "to": {
-                      "type": "number",
-                      "description": "The upper bound of the range"
-                    }
-                  },
-                  "required": [
-                    "from",
-                    "to"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "title": "From only",
-                  "properties": {
-                    "from": {
-                      "type": "string",
-                      "description": "The lower bound of the range"
-                    }
-                  },
-                  "required": [
-                    "from"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "title": "To only",
-                  "properties": {
-                    "to": {
-                      "type": "string",
-                      "description": "The upper bound of the range"
-                    }
-                  },
-                  "required": [
-                    "to"
-                  ]
-                }
-              ]
-            }
-          }
-        },
-        "required": [
-          "name",
-          "type",
-          "field",
-          "ranges"
-        ]
-      },
-      "AccountNewsletterRecipient": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "enum": [
-              "undefined",
-              "notSet",
-              "direct",
-              "optIn",
-              "optOut"
-            ]
           },
           "apiAlias": {
             "type": "string",
             "enum": [
-              "account_newsletter_recipient"
+              "breadcrumb"
             ]
           }
         },
         "required": [
-          "status",
+          "name",
+          "categoryId",
+          "type",
+          "translated",
+          "path",
           "apiAlias"
         ]
       },
@@ -10386,64 +10231,190 @@
         },
         "type": "object"
       },
-      "EntitySearchResult": {
+      "AggregationMetrics": {
         "type": "object",
         "properties": {
-          "entity": {
+          "name": {
             "type": "string"
           },
-          "total": {
-            "type": "integer",
-            "description": "The total number of found entities"
-          },
-          "aggregations": {
-            "type": "array",
-            "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
-            "items": {
-              "type": "object"
-            }
-          },
-          "page": {
-            "type": "integer",
-            "description": "The actual page. This can be used for pagination."
-          },
-          "limit": {
-            "type": "integer",
-            "description": "The actual limit. This is used for pagination and goes together with the page."
-          }
-        }
-      },
-      "Sitemap": {
-        "type": "object",
-        "properties": {
-          "filename": {
-            "type": "string"
-          },
-          "created": {
+          "type": {
             "type": "string",
-            "format": "date-time"
+            "enum": [
+              "avg",
+              "count",
+              "max",
+              "min",
+              "stats",
+              "sum"
+            ]
+          },
+          "field": {
+            "type": "string"
           }
         },
         "required": [
-          "filename",
-          "created"
+          "name",
+          "type",
+          "field"
         ]
       },
-      "ProductListingFlags": {
+      "FindProductVariantRouteResponse": {
         "type": "object",
-        "description": "Additional flags for product listings",
         "properties": {
-          "no-aggregations": {
-            "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
-            "type": "string",
-            "nullable": true
-          },
-          "only-aggregations": {
-            "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
-            "type": "string",
-            "nullable": true
+          "foundCombination": {
+            "type": "object",
+            "properties": {
+              "variantId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
+      },
+      "CartPriceQuantity": {
+        "type": "object",
+        "properties": {
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_price_quantity"
+            ]
+          },
+          "isCalculated": {
+            "type": "boolean"
+          },
+          "listPrice": {
+            "$ref": "#/components/schemas/CartListPrice"
+          },
+          "price": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "regulationPrice": {
+            "properties": {
+              "price": {
+                "type": "number",
+                "format": "float"
+              }
+            },
+            "type": "object"
+          },
+          "taxRules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taxRate": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "apiAlias"
+        ]
+      },
+      "NavigationRouteResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Category"
+        }
+      },
+      "Price": {
+        "type": "object",
+        "description": "Price object",
+        "properties": {
+          "currencyId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "gross": {
+            "description": "",
+            "type": "number"
+          },
+          "net": {
+            "description": "",
+            "type": "number"
+          },
+          "linked": {
+            "description": "",
+            "type": "boolean"
+          },
+          "listPrice": {
+            "description": "",
+            "type": "object",
+            "properties": {
+              "currencyId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "gross": {
+                "description": "",
+                "type": "number"
+              },
+              "net": {
+                "description": "",
+                "type": "number"
+              },
+              "linked": {
+                "description": "",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "gross",
+              "net"
+            ]
+          },
+          "regulationPrice": {
+            "description": "",
+            "type": "object",
+            "properties": {
+              "currencyId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "gross": {
+                "description": "",
+                "type": "number"
+              },
+              "net": {
+                "description": "",
+                "type": "number"
+              },
+              "linked": {
+                "description": "",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "gross",
+              "net"
+            ]
+          }
+        },
+        "required": [
+          "currencyId",
+          "gross",
+          "net"
+        ]
       },
       "CartDelivery": {
         "type": "object",
@@ -10495,6 +10466,329 @@
             "$ref": "#/components/schemas/ShippingMethod"
           }
         }
+      },
+      "ProductDetailResponse": {
+        "type": "object",
+        "description": "Represents a product along with detailed information required to display a variant selection.",
+        "properties": {
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "configurator": {
+            "type": "array",
+            "description": "List of property groups with their corresponding options and information on how to display them.",
+            "items": {
+              "$ref": "#/components/schemas/PropertyGroup"
+            }
+          }
+        },
+        "required": [
+          "product"
+        ]
+      },
+      "CartPriceReference": {
+        "type": "object",
+        "properties": {
+          "purchaseUnit": {
+            "type": "number"
+          },
+          "referenceUnit": {
+            "type": "number"
+          },
+          "unitName": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_price_reference"
+            ]
+          },
+          "listPrice": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CartListPrice"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "regulationPrice": {
+            "type": "object",
+            "properties": {
+              "price": {
+                "type": "number"
+              },
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "cart_regulation_price"
+                ]
+              }
+            },
+            "nullable": true
+          },
+          "hasRange": {
+            "type": "boolean"
+          },
+          "variantId": {
+            "type": "string",
+            "format": "^[0-9a-f]{32}$",
+            "nullable": true
+          }
+        },
+        "required": [
+          "apiAlias",
+          "hasRange",
+          "regulationPrice",
+          "listPrice",
+          "calculatedTaxes",
+          "totalPrice",
+          "quantity",
+          "unitName"
+        ]
+      },
+      "Cart": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Name of the cart - for example `guest-cart`",
+            "type": "string"
+          },
+          "token": {
+            "description": "Context token identifying the cart and the user session",
+            "type": "string"
+          },
+          "price": {
+            "$ref": "#/components/schemas/CalculatedPrice"
+          },
+          "lineItems": {
+            "description": "All items within the cart",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItem"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
+            "items": {
+              "$ref": "#/components/schemas/CartError"
+            }
+          },
+          "deliveries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CartDelivery"
+            }
+          },
+          "transactions": {
+            "description": "A list of all payment transactions associated with the current cart.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "paymentMethodId": {
+                  "type": "string"
+                },
+                "amount": {
+                  "$ref": "#/components/schemas/CalculatedPrice"
+                }
+              }
+            }
+          },
+          "modified": {
+            "type": "boolean"
+          },
+          "customerComment": {
+            "type": "string",
+            "description": "A comment that can be added to the cart.",
+            "nullable": true
+          },
+          "affiliateCode": {
+            "type": "string",
+            "description": "An affiliate tracking code",
+            "nullable": true
+          },
+          "campaignCode": {
+            "type": "string",
+            "description": "A campaign tracking code",
+            "nullable": true
+          }
+        }
+      },
+      "CartError": {
+        "type": "object",
+        "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
+        "properties": {
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "level": {
+                "type": "number",
+                "enum": [
+                  0,
+                  10,
+                  20
+                ],
+                "description": "* `0` - notice,\n* `10` - warning,\n* `20` - error"
+              },
+              "message": {
+                "type": "string"
+              },
+              "messageKey": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ProductListingResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EntitySearchResult"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "currentFilters": {
+                "type": "object",
+                "description": "Contains the state of the filters. These can be used to create listing filters.",
+                "properties": {
+                  "navigationId": {
+                    "type": "string"
+                  },
+                  "manufacturer": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "price": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "integer",
+                        "default": 0
+                      },
+                      "max": {
+                        "type": "integer",
+                        "default": 0
+                      }
+                    },
+                    "required": [
+                      "min",
+                      "max"
+                    ]
+                  },
+                  "rating": {
+                    "type": "integer",
+                    "nullable": true
+                  },
+                  "shipping-free": {
+                    "type": "boolean",
+                    "default": false
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "search": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "manufacturer",
+                  "navigationId",
+                  "price",
+                  "properties",
+                  "rating",
+                  "shipping-free"
+                ]
+              },
+              "availableSortings": {
+                "type": "array",
+                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "translated": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "label"
+                      ]
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "priority": {
+                      "type": "number"
+                    },
+                    "apiAlias": {
+                      "type": "string",
+                      "enum": [
+                        "product_sorting"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "translated",
+                    "key",
+                    "priority",
+                    "apiAlias"
+                  ]
+                }
+              },
+              "sorting": {
+                "type": "string"
+              },
+              "elements": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              },
+              "entity": {
+                "type": "string",
+                "enum": [
+                  "product"
+                ]
+              },
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "product_listing"
+                ]
+              }
+            },
+            "required": [
+              "elements",
+              "availableSortings",
+              "currentFilters",
+              "apiAlias"
+            ]
+          }
+        ]
       },
       "SalesChannelContext": {
         "type": "object",
@@ -10681,386 +10975,21 @@
           }
         }
       },
-      "NavigationRouteResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/Category"
+      "ProductListingFlags": {
+        "type": "object",
+        "description": "Additional flags for product listings",
+        "properties": {
+          "no-aggregations": {
+            "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
+            "type": "string",
+            "nullable": true
+          },
+          "only-aggregations": {
+            "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
+            "type": "string",
+            "nullable": true
+          }
         }
-      },
-      "LineItemType": {
-        "type": "string",
-        "enum": [
-          "product",
-          "credit",
-          "custom",
-          "promotion",
-          "discount",
-          "container",
-          "quantity"
-        ]
-      },
-      "LineItem": {
-        "type": "object",
-        "properties": {
-          "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LineItem"
-            }
-          },
-          "cover": {
-            "$ref": "#/components/schemas/ProductMedia"
-          },
-          "dataContextHash": {
-            "type": "string"
-          },
-          "dataTimestamp": {
-            "type": "string"
-          },
-          "deliveryInformation": {
-            "$ref": "#/components/schemas/CartDeliveryInformation"
-          },
-          "description": {
-            "type": "string"
-          },
-          "good": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "modified": {
-            "type": "boolean"
-          },
-          "modifiedByApp": {
-            "type": "boolean"
-          },
-          "payload": {
-            "$ref": "#/components/schemas/ProductJsonApi"
-          },
-          "price": {
-            "type": "object",
-            "properties": {
-              "apiAlias": {
-                "type": "string",
-                "enum": [
-                  "calculated_price"
-                ]
-              },
-              "calculatedTaxes": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "apiAlias": {
-                      "type": "string",
-                      "enum": [
-                        "cart_tax_calculated"
-                      ]
-                    },
-                    "tax": {
-                      "type": "number"
-                    },
-                    "taxRate": {
-                      "type": "number"
-                    },
-                    "price": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "apiAlias",
-                    "tax",
-                    "taxRate",
-                    "price"
-                  ]
-                }
-              },
-              "listPrice": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/CartListPrice"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "quantity": {
-                "type": "number"
-              },
-              "referencePrice": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/CartPriceReference"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "regulationPrice": {
-                "type": "object",
-                "properties": {
-                  "price": {
-                    "type": "number"
-                  },
-                  "apiAlias": {
-                    "type": "string",
-                    "enum": [
-                      "cart_regulation_price"
-                    ]
-                  }
-                },
-                "nullable": true
-              },
-              "totalPrice": {
-                "type": "number"
-              },
-              "unitPrice": {
-                "type": "number"
-              },
-              "taxRules": {
-                "type": "array",
-                "description": "Currently active tax rules and/or rates",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "taxRate": {
-                      "type": "number",
-                      "format": "float"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            },
-            "required": [
-              "apiAlias",
-              "totalPrice",
-              "quantity",
-              "unitPrice"
-            ]
-          },
-          "priceDefinition": {
-            "$ref": "#/components/schemas/CartPriceQuantity"
-          },
-          "quantity": {
-            "type": "number"
-          },
-          "quantityInformation": {
-            "type": "object",
-            "properties": {
-              "maxPurchase": {
-                "type": "number"
-              },
-              "minPurchase": {
-                "type": "number"
-              },
-              "purchaseSteps": {
-                "type": "number"
-              }
-            }
-          },
-          "referencedId": {
-            "type": "string"
-          },
-          "removable": {
-            "type": "boolean"
-          },
-          "stackable": {
-            "type": "boolean"
-          },
-          "states": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "is-physical",
-                "is-download"
-              ]
-            }
-          },
-          "type": {
-            "$ref": "#/components/schemas/LineItemType"
-          },
-          "uniqueIdentifier": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "type"
-        ]
-      },
-      "CartDeliveryInformation": {
-        "type": "object",
-        "properties": {
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cart_delivery_information"
-            ]
-          },
-          "freeDelivery": {
-            "type": "boolean"
-          },
-          "deliveryTime": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "min": {
-                "type": "integer"
-              },
-              "max": {
-                "type": "integer"
-              },
-              "unit": {
-                "type": "string"
-              },
-              "apiAlias": {
-                "type": "string",
-                "enum": [
-                  "cart_delivery_time"
-                ]
-              }
-            }
-          },
-          "height": {
-            "type": "integer"
-          },
-          "length": {
-            "type": "integer"
-          },
-          "restockTime": {
-            "type": "integer"
-          },
-          "stock": {
-            "type": "integer"
-          },
-          "weight": {
-            "type": "integer"
-          },
-          "width": {
-            "type": "integer"
-          }
-        },
-        "required": [
-          "apiAlias"
-        ]
-      },
-      "AggregationMetrics": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "avg",
-              "count",
-              "max",
-              "min",
-              "stats",
-              "sum"
-            ]
-          },
-          "field": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "type",
-          "field"
-        ]
-      },
-      "Price": {
-        "type": "object",
-        "description": "Price object",
-        "properties": {
-          "currencyId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "gross": {
-            "description": "",
-            "type": "number"
-          },
-          "net": {
-            "description": "",
-            "type": "number"
-          },
-          "linked": {
-            "description": "",
-            "type": "boolean"
-          },
-          "listPrice": {
-            "description": "",
-            "type": "object",
-            "properties": {
-              "currencyId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "gross": {
-                "description": "",
-                "type": "number"
-              },
-              "net": {
-                "description": "",
-                "type": "number"
-              },
-              "linked": {
-                "description": "",
-                "type": "boolean"
-              }
-            },
-            "required": [
-              "gross",
-              "net"
-            ]
-          },
-          "regulationPrice": {
-            "description": "",
-            "type": "object",
-            "properties": {
-              "currencyId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "gross": {
-                "description": "",
-                "type": "number"
-              },
-              "net": {
-                "description": "",
-                "type": "number"
-              },
-              "linked": {
-                "description": "",
-                "type": "boolean"
-              }
-            },
-            "required": [
-              "gross",
-              "net"
-            ]
-          }
-        },
-        "required": [
-          "currencyId",
-          "gross",
-          "net"
-        ]
       },
       "ProductListingCriteria": {
         "allOf": [
@@ -11152,74 +11081,137 @@
           }
         ]
       },
-      "Cart": {
+      "CalculatedPrice": {
         "type": "object",
+        "description": "Represents a product along with detailed information required to display a variant selection.",
         "properties": {
-          "name": {
-            "description": "Name of the cart - for example `guest-cart`",
-            "type": "string"
+          "unitPrice": {
+            "type": "number"
           },
-          "token": {
-            "description": "Context token identifying the cart and the user session",
-            "type": "string"
+          "quantity": {
+            "type": "number"
           },
-          "price": {
-            "$ref": "#/components/schemas/CalculatedPrice"
+          "rawTotal": {
+            "type": "number"
           },
-          "lineItems": {
-            "description": "All items within the cart",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LineItem"
-            }
+          "totalPrice": {
+            "type": "number"
           },
-          "errors": {
-            "type": "array",
-            "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
-            "items": {
-              "$ref": "#/components/schemas/CartError"
-            }
-          },
-          "deliveries": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CartDelivery"
-            }
-          },
-          "transactions": {
-            "description": "A list of all payment transactions associated with the current cart.",
+          "calculatedTaxes": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "paymentMethodId": {
-                  "type": "string"
+                "apiAlias": {
+                  "type": "string",
+                  "enum": [
+                    "cart_tax_calculated"
+                  ]
                 },
-                "amount": {
-                  "$ref": "#/components/schemas/CalculatedPrice"
+                "tax": {
+                  "type": "number"
+                },
+                "taxRate": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "apiAlias",
+                "tax",
+                "taxRate",
+                "price"
+              ]
+            }
+          },
+          "referencePrice": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CartPriceReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "listPrice": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CartListPrice"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "positionPrice": {
+            "type": "number"
+          },
+          "netPrice": {
+            "type": "number"
+          },
+          "regulationPrice": {
+            "type": "object",
+            "properties": {
+              "price": {
+                "type": "number"
+              },
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "cart_regulation_price"
+                ]
+              }
+            },
+            "nullable": true
+          },
+          "hasRange": {
+            "type": "boolean"
+          },
+          "variantId": {
+            "type": "string",
+            "format": "^[0-9a-f]{32}$",
+            "nullable": true
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "calculated_price"
+            ]
+          },
+          "taxRules": {
+            "type": "array",
+            "description": "Currently active tax rules and/or rates",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taxRate": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "name": {
+                  "type": "string"
                 }
               }
             }
-          },
-          "modified": {
-            "type": "boolean"
-          },
-          "customerComment": {
-            "type": "string",
-            "description": "A comment that can be added to the cart.",
-            "nullable": true
-          },
-          "affiliateCode": {
-            "type": "string",
-            "description": "An affiliate tracking code",
-            "nullable": true
-          },
-          "campaignCode": {
-            "type": "string",
-            "description": "A campaign tracking code",
-            "nullable": true
           }
-        }
+        },
+        "required": [
+          "apiAlias",
+          "hasRange",
+          "regulationPrice",
+          "listPrice",
+          "referencePrice",
+          "calculatedTaxes",
+          "totalPrice",
+          "quantity",
+          "unitPrice",
+          "positionPrice",
+          "netPrice",
+          "taxRules"
+        ]
       },
       "CartListPrice": {
         "type": "object",
@@ -11245,464 +11237,16 @@
           "apiAlias"
         ]
       },
-      "FindProductVariantRouteResponse": {
+      "CartItems": {
         "type": "object",
-        "properties": {
-          "foundCombination": {
-            "type": "object",
-            "properties": {
-              "variantId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "Breadcrumb": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "categoryId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "page",
-              "link",
-              "folder"
-            ]
-          },
-          "translated": {
-            "type": "object",
-            "additionalProperties": true,
-            "properties": {
-              "customFields": {
-                "type": "object"
-              },
-              "slotConfig": {
-                "type": "object"
-              },
-              "linkType": {
-                "type": "string",
-                "enum": [
-                  "external",
-                  "category",
-                  "product",
-                  "landing_page"
-                ]
-              },
-              "internalLink": {
-                "type": "string"
-              },
-              "externalLink": {
-                "type": "string"
-              },
-              "linkNewTab": {
-                "type": "boolean"
-              },
-              "description": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              },
-              "keywords": {
-                "type": "string"
-              }
-            }
-          },
-          "path": {
-            "type": "string"
-          },
-          "seoUrls": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SeoUrl"
-            }
-          },
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "breadcrumb"
-            ]
-          }
-        },
-        "required": [
-          "name",
-          "categoryId",
-          "type",
-          "translated",
-          "path",
-          "apiAlias"
-        ]
-      },
-      "ProductListingResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/EntitySearchResult"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "currentFilters": {
-                "type": "object",
-                "description": "Contains the state of the filters. These can be used to create listing filters.",
-                "properties": {
-                  "navigationId": {
-                    "type": "string"
-                  },
-                  "manufacturer": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[0-9a-f]{32}$"
-                    }
-                  },
-                  "price": {
-                    "type": "object",
-                    "properties": {
-                      "min": {
-                        "type": "integer",
-                        "default": 0
-                      },
-                      "max": {
-                        "type": "integer",
-                        "default": 0
-                      }
-                    },
-                    "required": [
-                      "min",
-                      "max"
-                    ]
-                  },
-                  "rating": {
-                    "type": "integer",
-                    "nullable": true
-                  },
-                  "shipping-free": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "properties": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[0-9a-f]{32}$"
-                    }
-                  },
-                  "search": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "manufacturer",
-                  "navigationId",
-                  "price",
-                  "properties",
-                  "rating",
-                  "shipping-free"
-                ]
-              },
-              "availableSortings": {
-                "type": "array",
-                "description": "Contains the available sorting. These can be used to show a sorting select-box in the product listing.",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string"
-                    },
-                    "translated": {
-                      "type": "object",
-                      "properties": {
-                        "label": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "label"
-                      ]
-                    },
-                    "key": {
-                      "type": "string"
-                    },
-                    "priority": {
-                      "type": "number"
-                    },
-                    "apiAlias": {
-                      "type": "string",
-                      "enum": [
-                        "product_sorting"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "label",
-                    "translated",
-                    "key",
-                    "priority",
-                    "apiAlias"
-                  ]
-                }
-              },
-              "sorting": {
-                "type": "string"
-              },
-              "elements": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              },
-              "entity": {
-                "type": "string",
-                "enum": [
-                  "product"
-                ]
-              },
-              "apiAlias": {
-                "type": "string",
-                "enum": [
-                  "product_listing"
-                ]
-              }
-            },
-            "required": [
-              "elements",
-              "availableSortings",
-              "currentFilters",
-              "apiAlias"
-            ]
-          }
-        ]
-      },
-      "CustomerAddressRead": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "readOnly": true
-          },
-          "customerId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "readOnly": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "country": {
-            "$ref": "#/components/schemas/Country"
-          },
-          "countryState": {
-            "$ref": "#/components/schemas/CountryState",
-            "nullable": true
-          },
-          "salutation": {
-            "$ref": "#/components/schemas/Salutation"
-          }
-        },
-        "required": [
-          "customerId",
-          "createdAt",
-          "updatedAt",
-          "country",
-          "salutation"
-        ]
-      },
-      "SuccessResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        }
-      },
-      "CartPriceReference": {
-        "type": "object",
-        "properties": {
-          "purchaseUnit": {
-            "type": "number"
-          },
-          "referenceUnit": {
-            "type": "number"
-          },
-          "unitName": {
-            "type": "string"
-          },
-          "price": {
-            "type": "number"
-          },
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cart_price_reference"
-            ]
-          },
-          "listPrice": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CartListPrice"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "regulationPrice": {
-            "type": "object",
-            "properties": {
-              "price": {
-                "type": "number"
-              },
-              "apiAlias": {
-                "type": "string",
-                "enum": [
-                  "cart_regulation_price"
-                ]
-              }
-            },
-            "nullable": true
-          },
-          "hasRange": {
-            "type": "boolean"
-          },
-          "variantId": {
-            "type": "string",
-            "format": "^[0-9a-f]{32}$",
-            "nullable": true
-          }
-        },
-        "required": [
-          "apiAlias",
-          "hasRange",
-          "regulationPrice",
-          "listPrice",
-          "calculatedTaxes",
-          "totalPrice",
-          "quantity",
-          "unitName"
-        ]
-      },
-      "CartDeliveryPosition": {
-        "type": "object",
-        "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
-        "properties": {
-          "deliveryDate": {
-            "type": "object",
-            "properties": {
-              "earliest": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "latest": {
-                "type": "string",
-                "format": "date-time"
-              }
-            }
-          },
-          "identifier": {
-            "type": "string"
-          },
-          "lineItem": {
-            "$ref": "#/components/schemas/LineItem"
-          },
-          "price": {
-            "$ref": "#/components/schemas/CalculatedPrice"
-          }
-        }
-      },
-      "NavigationType": {
-        "type": "string",
-        "enum": [
-          "main-navigation",
-          "footer-navigation",
-          "service-navigation"
-        ]
-      },
-      "CartError": {
-        "type": "object",
-        "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
         "properties": {
           "items": {
-            "type": "object",
-            "properties": {
-              "key": {
-                "type": "string"
-              },
-              "level": {
-                "type": "number",
-                "enum": [
-                  0,
-                  10,
-                  20
-                ],
-                "description": "* `0` - notice,\n* `10` - warning,\n* `20` - error"
-              },
-              "message": {
-                "type": "string"
-              },
-              "messageKey": {
-                "type": "string"
-              }
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItem"
             }
           }
         }
-      },
-      "CrossSellingElementCollection": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/CrossSellingElement"
-        }
-      },
-      "OrderRouteResponse": {
-        "type": "object",
-        "properties": {
-          "orders": {
-            "allOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Order"
-                }
-              },
-              {
-                "$ref": "#/components/schemas/EntitySearchResult"
-              }
-            ]
-          },
-          "paymentChangeable": {
-            "type": "object",
-            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
-            "additionalProperties": {
-              "type": "boolean"
-            }
-          }
-        },
-        "required": [
-          "orders"
-        ]
       },
       "ShippingMethodPageRouteResponse": {
         "type": "array",
@@ -12046,137 +11590,459 @@
           }
         }
       },
-      "CalculatedPrice": {
+      "NavigationType": {
+        "type": "string",
+        "enum": [
+          "main-navigation",
+          "footer-navigation",
+          "service-navigation"
+        ]
+      },
+      "CrossSellingElement": {
         "type": "object",
-        "description": "Represents a product along with detailed information required to display a variant selection.",
         "properties": {
-          "unitPrice": {
-            "type": "number"
+          "crossSelling": {
+            "$ref": "#/components/schemas/ProductCrossSelling"
           },
-          "quantity": {
-            "type": "number"
-          },
-          "rawTotal": {
-            "type": "number"
-          },
-          "totalPrice": {
-            "type": "number"
-          },
-          "calculatedTaxes": {
+          "products": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "apiAlias": {
-                  "type": "string",
-                  "enum": [
-                    "cart_tax_calculated"
-                  ]
-                },
-                "tax": {
-                  "type": "number"
-                },
-                "taxRate": {
-                  "type": "number"
-                },
-                "price": {
-                  "type": "number"
-                }
-              },
-              "required": [
-                "apiAlias",
-                "tax",
-                "taxRate",
-                "price"
-              ]
+              "$ref": "#/components/schemas/Product"
             }
           },
-          "referencePrice": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CartPriceReference"
-              },
-              {
-                "type": "null"
-              }
-            ]
+          "total": {
+            "type": "integer",
+            "format": "int32"
           },
-          "listPrice": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CartListPrice"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "positionPrice": {
-            "type": "number"
-          },
-          "netPrice": {
-            "type": "number"
-          },
-          "regulationPrice": {
-            "type": "object",
-            "properties": {
-              "price": {
-                "type": "number"
-              },
-              "apiAlias": {
-                "type": "string",
-                "enum": [
-                  "cart_regulation_price"
-                ]
-              }
-            },
-            "nullable": true
-          },
-          "hasRange": {
-            "type": "boolean"
-          },
-          "variantId": {
+          "streamId": {
             "type": "string",
-            "format": "^[0-9a-f]{32}$",
-            "nullable": true
+            "format": "uuid"
           },
           "apiAlias": {
             "type": "string",
             "enum": [
-              "calculated_price"
+              "cross_selling_element"
             ]
-          },
-          "taxRules": {
+          }
+        },
+        "required": [
+          "crossSelling",
+          "products",
+          "total",
+          "apiAlias"
+        ]
+      },
+      "LineItemType": {
+        "type": "string",
+        "enum": [
+          "product",
+          "credit",
+          "custom",
+          "promotion",
+          "discount",
+          "container",
+          "quantity"
+        ]
+      },
+      "LineItem": {
+        "type": "object",
+        "properties": {
+          "children": {
             "type": "array",
-            "description": "Currently active tax rules and/or rates",
             "items": {
-              "type": "object",
-              "properties": {
-                "taxRate": {
-                  "type": "number",
-                  "format": "float"
+              "$ref": "#/components/schemas/LineItem"
+            }
+          },
+          "cover": {
+            "$ref": "#/components/schemas/ProductMedia"
+          },
+          "dataContextHash": {
+            "type": "string"
+          },
+          "dataTimestamp": {
+            "type": "string"
+          },
+          "deliveryInformation": {
+            "$ref": "#/components/schemas/CartDeliveryInformation"
+          },
+          "description": {
+            "type": "string"
+          },
+          "good": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "modified": {
+            "type": "boolean"
+          },
+          "modifiedByApp": {
+            "type": "boolean"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/ProductJsonApi"
+          },
+          "price": {
+            "type": "object",
+            "properties": {
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "calculated_price"
+                ]
+              },
+              "calculatedTaxes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "apiAlias": {
+                      "type": "string",
+                      "enum": [
+                        "cart_tax_calculated"
+                      ]
+                    },
+                    "tax": {
+                      "type": "number"
+                    },
+                    "taxRate": {
+                      "type": "number"
+                    },
+                    "price": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "apiAlias",
+                    "tax",
+                    "taxRate",
+                    "price"
+                  ]
+                }
+              },
+              "listPrice": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CartListPrice"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "referencePrice": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CartPriceReference"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "regulationPrice": {
+                "type": "object",
+                "properties": {
+                  "price": {
+                    "type": "number"
+                  },
+                  "apiAlias": {
+                    "type": "string",
+                    "enum": [
+                      "cart_regulation_price"
+                    ]
+                  }
                 },
-                "name": {
-                  "type": "string"
+                "nullable": true
+              },
+              "totalPrice": {
+                "type": "number"
+              },
+              "unitPrice": {
+                "type": "number"
+              },
+              "taxRules": {
+                "type": "array",
+                "description": "Currently active tax rules and/or rates",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "taxRate": {
+                      "type": "number",
+                      "format": "float"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
+            },
+            "required": [
+              "apiAlias",
+              "totalPrice",
+              "quantity",
+              "unitPrice"
+            ]
+          },
+          "priceDefinition": {
+            "$ref": "#/components/schemas/CartPriceQuantity"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "quantityInformation": {
+            "type": "object",
+            "properties": {
+              "maxPurchase": {
+                "type": "number"
+              },
+              "minPurchase": {
+                "type": "number"
+              },
+              "purchaseSteps": {
+                "type": "number"
+              }
+            }
+          },
+          "referencedId": {
+            "type": "string"
+          },
+          "removable": {
+            "type": "boolean"
+          },
+          "stackable": {
+            "type": "boolean"
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "is-physical",
+                "is-download"
+              ]
+            }
+          },
+          "type": {
+            "$ref": "#/components/schemas/LineItemType"
+          },
+          "uniqueIdentifier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "AccountNewsletterRecipient": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "undefined",
+              "notSet",
+              "direct",
+              "optIn",
+              "optOut"
+            ]
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "account_newsletter_recipient"
+            ]
+          }
+        },
+        "required": [
+          "status",
+          "apiAlias"
+        ]
+      },
+      "EntitySearchResult": {
+        "type": "object",
+        "properties": {
+          "entity": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer",
+            "description": "The total number of found entities"
+          },
+          "aggregations": {
+            "type": "array",
+            "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
+            "items": {
+              "type": "object"
+            }
+          },
+          "page": {
+            "type": "integer",
+            "description": "The actual page. This can be used for pagination."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The actual limit. This is used for pagination and goes together with the page."
+          }
+        }
+      },
+      "CartDeliveryInformation": {
+        "type": "object",
+        "properties": {
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "cart_delivery_information"
+            ]
+          },
+          "freeDelivery": {
+            "type": "boolean"
+          },
+          "deliveryTime": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "min": {
+                "type": "integer"
+              },
+              "max": {
+                "type": "integer"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "apiAlias": {
+                "type": "string",
+                "enum": [
+                  "cart_delivery_time"
+                ]
+              }
+            }
+          },
+          "height": {
+            "type": "integer"
+          },
+          "length": {
+            "type": "integer"
+          },
+          "restockTime": {
+            "type": "integer"
+          },
+          "stock": {
+            "type": "integer"
+          },
+          "weight": {
+            "type": "integer"
+          },
+          "width": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "apiAlias"
+        ]
+      },
+      "OrderRouteResponse": {
+        "type": "object",
+        "properties": {
+          "orders": {
+            "allOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              },
+              {
+                "$ref": "#/components/schemas/EntitySearchResult"
+              }
+            ]
+          },
+          "paymentChangeable": {
+            "type": "object",
+            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
+            "additionalProperties": {
+              "type": "boolean"
             }
           }
         },
         "required": [
-          "apiAlias",
-          "hasRange",
-          "regulationPrice",
-          "listPrice",
-          "referencePrice",
-          "calculatedTaxes",
-          "totalPrice",
-          "quantity",
-          "unitPrice",
-          "positionPrice",
-          "netPrice",
-          "taxRules"
+          "orders"
         ]
+      },
+      "Sitemap": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "filename",
+          "created"
+        ]
+      },
+      "CartDeliveryPosition": {
+        "type": "object",
+        "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
+        "properties": {
+          "deliveryDate": {
+            "type": "object",
+            "properties": {
+              "earliest": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "latest": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "lineItem": {
+            "$ref": "#/components/schemas/LineItem"
+          },
+          "price": {
+            "$ref": "#/components/schemas/CalculatedPrice"
+          }
+        }
+      },
+      "WishlistLoadRouteResponse": {
+        "type": "object",
+        "properties": {
+          "wishlist": {
+            "type": "object",
+            "properties": {
+              "customerId": {
+                "type": "string"
+              },
+              "salesChannelId": {
+                "type": "string"
+              }
+            }
+          },
+          "products": {
+            "$ref": "#/components/schemas/ProductListingResult"
+          }
+        }
       },
       "Criteria": {
         "type": "object",
@@ -12229,11 +12095,7 @@
             }
           },
           "associations": {
-            "type": "array",
-            "description": "Associations to include. For more information, see [Search Queries > Associations](https://shopware.stoplight.io/docs/store-api/cf710bf73d0cd-search-queries#associations)",
-            "items": {
-              "$ref": "#/components/schemas/Association"
-            }
+            "$ref": "#/components/schemas/Associations"
           },
           "post-filter": {
             "type": "array",
@@ -12263,7 +12125,10 @@
             }
           },
           "aggregations": {
-            "$ref": "#/components/schemas/Aggregations"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aggregation"
+            }
           },
           "fields": {
             "type": "array",
@@ -12285,17 +12150,17 @@
             "$ref": "#/components/schemas/TotalCountMode"
           },
           "includes": {
-            "$ref": "#/components/schemas/Include"
+            "$ref": "#/components/schemas/Includes"
           }
         }
       },
-      "Association": {
+      "Associations": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/Criteria"
         }
       },
-      "Include": {
+      "Includes": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -12304,70 +12169,67 @@
           }
         }
       },
-      "Aggregations": {
-        "type": "array",
-        "items": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/AggregationMetrics"
-            },
-            {
-              "title": "AggregationEntity",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationEntity"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationFilter",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationTerms",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationTerms"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationHistogram",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationHistogram"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            },
-            {
-              "title": "AggregationRange",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AggregationRange"
-                },
-                {
-                  "$ref": "#/components/schemas/SubAggregations"
-                }
-              ]
-            }
-          ]
-        }
+      "Aggregation": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AggregationMetrics"
+          },
+          {
+            "title": "AggregationEntity",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationEntity"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationFilter",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationFilter"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationTerms",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationTerms"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationHistogram",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationHistogram"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationRange",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationRange"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          }
+        ]
       },
       "SubAggregations": {
         "type": "object",
@@ -12548,10 +12410,10 @@
           "operator": {
             "type": "string",
             "enum": [
-              "AND",
               "and",
-              "OR",
-              "or"
+              "or",
+              "nor",
+              "nand"
             ]
           },
           "queries": {
@@ -12600,141 +12462,275 @@
           "parameters"
         ]
       },
-      "CartPriceQuantity": {
+      "AggregationEntity": {
+        "title": "AggregationEntity",
         "type": "object",
         "properties": {
-          "apiAlias": {
-            "type": "string",
-            "enum": [
-              "cart_price_quantity"
-            ]
-          },
-          "isCalculated": {
-            "type": "boolean"
-          },
-          "listPrice": {
-            "$ref": "#/components/schemas/CartListPrice"
-          },
-          "price": {
-            "type": "number"
-          },
-          "quantity": {
-            "type": "number"
-          },
-          "regulationPrice": {
-            "properties": {
-              "price": {
-                "type": "number",
-                "format": "float"
-              }
-            },
-            "type": "object"
-          },
-          "taxRules": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "taxRate": {
-                  "type": "number",
-                  "format": "float"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            }
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
           },
           "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "entity"
+            ]
+          },
+          "field": {
+            "description": "The field you want to aggregate over.",
+            "type": "string"
+          },
+          "definition": {
+            "description": "The entity definition e.g \"product_manufacturer\".",
             "type": "string"
           }
         },
         "required": [
-          "apiAlias"
+          "name",
+          "type",
+          "field",
+          "definition"
         ]
       },
-      "ProductDetailResponse": {
-        "type": "object",
-        "description": "Represents a product along with detailed information required to display a variant selection.",
-        "properties": {
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "configurator": {
-            "type": "array",
-            "description": "List of property groups with their corresponding options and information on how to display them.",
-            "items": {
-              "$ref": "#/components/schemas/PropertyGroup"
-            }
-          }
-        },
-        "required": [
-          "product"
-        ]
-      },
-      "CartItems": {
+      "AggregationFilter": {
+        "title": "AggregationFilter",
         "type": "object",
         "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LineItem"
-            }
-          }
-        }
-      },
-      "WishlistLoadRouteResponse": {
-        "type": "object",
-        "properties": {
-          "wishlist": {
-            "type": "object",
-            "properties": {
-              "customerId": {
-                "type": "string"
-              },
-              "salesChannelId": {
-                "type": "string"
-              }
-            }
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
           },
-          "products": {
-            "$ref": "#/components/schemas/ProductListingResult"
-          }
-        }
-      },
-      "CrossSellingElement": {
-        "type": "object",
-        "properties": {
-          "crossSelling": {
-            "$ref": "#/components/schemas/ProductCrossSelling"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            }
-          },
-          "total": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "streamId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "apiAlias": {
+          "type": {
+            "description": "The type of aggregation",
             "type": "string",
             "enum": [
-              "cross_selling_element"
+              "filter"
             ]
+          },
+          "filter": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filters"
+            }
           }
         },
         "required": [
-          "crossSelling",
-          "products",
-          "total",
-          "apiAlias"
+          "name",
+          "type",
+          "filter"
         ]
+      },
+      "AggregationTerms": {
+        "title": "AggregationTerms",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "terms"
+            ]
+          },
+          "field": {
+            "description": "The field you want to aggregate over.",
+            "type": "string"
+          },
+          "limit": {
+            "description": "The number of terms to return",
+            "type": "number"
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sorting the aggregation result.",
+            "items": {
+              "$ref": "#/components/schemas/Sort"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "field"
+        ]
+      },
+      "AggregationHistogram": {
+        "title": "AggregationHistogram",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "histogram"
+            ]
+          },
+          "field": {
+            "description": "The field you want to aggregate over.",
+            "type": "string"
+          },
+          "interval": {
+            "description": "The interval of the histogram",
+            "type": "number"
+          },
+          "format": {
+            "description": "The format of the histogram",
+            "type": "string"
+          },
+          "timeZone": {
+            "description": "The timezone of the histogram",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "field"
+        ]
+      },
+      "AggregationRange": {
+        "title": "AggregationRange",
+        "description": "For more information, see [Aggregations Reference > Range Aggregation](https://developer.shopware.com/docs/resources/references/core-reference/dal-reference/aggregations-reference.html#range-aggregations)",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "range"
+            ]
+          },
+          "field": {
+            "description": "The field you want to aggregate over.",
+            "type": "string"
+          },
+          "ranges": {
+            "description": "The ranges of the aggregation",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "anyOf": [
+                {
+                  "type": "object",
+                  "title": "From and to",
+                  "properties": {
+                    "from": {
+                      "type": "number",
+                      "description": "The lower bound of the range"
+                    },
+                    "to": {
+                      "type": "number",
+                      "description": "The upper bound of the range"
+                    }
+                  },
+                  "required": [
+                    "from",
+                    "to"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "title": "From only",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "The lower bound of the range"
+                    }
+                  },
+                  "required": [
+                    "from"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "title": "To only",
+                  "properties": {
+                    "to": {
+                      "type": "string",
+                      "description": "The upper bound of the range"
+                    }
+                  },
+                  "required": [
+                    "to"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "field",
+          "ranges"
+        ]
+      },
+      "CustomerAddressRead": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "countryState": {
+            "$ref": "#/components/schemas/CountryState",
+            "nullable": true
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation"
+          }
+        },
+        "required": [
+          "customerId",
+          "createdAt",
+          "updatedAt",
+          "country",
+          "salutation"
+        ]
+      },
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CrossSellingElementCollection": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/CrossSellingElement"
+        }
       }
     },
     "responses": {
@@ -12872,30 +12868,6 @@
       },
       "204": {
         "description": "No Content"
-      },
-      "ContextTokenResponse": {
-        "description": "Returns the context token. Use that as your `sw-context-token` header for subsequent requests. Redirect if getRedirectUrl is set.",
-        "headers": {
-          "sw-context-token": {
-            "description": "Contains sw-context-token value",
-            "schema": {
-              "type": "string"
-            }
-          }
-        },
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "redirectUrl": {
-                  "description": "Define the URL which browser will be redirected to",
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
       },
       "OpenApi3": {
         "description": "Returns information about the store API.",
@@ -13082,6 +13054,30 @@
                 "openapi",
                 "info"
               ]
+            }
+          }
+        }
+      },
+      "ContextTokenResponse": {
+        "description": "Returns the context token. Use that as your `sw-context-token` header for subsequent requests. Redirect if getRedirectUrl is set.",
+        "headers": {
+          "sw-context-token": {
+            "description": "Contains sw-context-token value",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "redirectUrl": {
+                  "description": "Define the URL which browser will be redirected to",
+                  "type": "string"
+                }
+              }
             }
           }
         }
