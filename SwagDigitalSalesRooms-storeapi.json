@@ -7,7 +7,7 @@
       "name": "MIT",
       "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
     },
-    "version": "6.6.9999999.9999999-dev"
+    "version": "6.6.9999999-dev"
   },
   "servers": [
     {
@@ -4315,8 +4315,7 @@
             "pattern": "^[0-9a-f]{32}$"
           },
           "mimeType": {
-            "type": "string",
-            "readOnly": true
+            "type": "string"
           },
           "fileExtension": {
             "type": "string",
@@ -4328,8 +4327,7 @@
             "readOnly": true
           },
           "fileName": {
-            "type": "string",
-            "readOnly": true
+            "type": "string"
           },
           "fileSize": {
             "type": "integer",
