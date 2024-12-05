@@ -7,7 +7,7 @@
       "name": "MIT",
       "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
     },
-    "version": "6.6.9999999.9999999-dev"
+    "version": "6.6.9999999-dev"
   },
   "servers": [
     {
@@ -4277,7 +4277,6 @@
           },
           "mimeType": {
             "type": "string",
-            "readOnly": true,
             "description": "A string sent along with a file indicating the type of the file. For example: image/jpeg."
           },
           "fileExtension": {
@@ -4293,7 +4292,6 @@
           },
           "fileName": {
             "type": "string",
-            "readOnly": true,
             "description": "Name of the media file uploaded."
           },
           "fileSize": {
