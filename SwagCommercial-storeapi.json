@@ -7,7 +7,7 @@
       "name": "MIT",
       "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
     },
-    "version": "6.6.9999999.9999999-dev"
+    "version": "6.6.9999999-dev"
   },
   "servers": [
     {
@@ -5113,8 +5113,7 @@
             "pattern": "^[0-9a-f]{32}$"
           },
           "mimeType": {
-            "type": "string",
-            "readOnly": true
+            "type": "string"
           },
           "fileExtension": {
             "type": "string",
@@ -5126,8 +5125,7 @@
             "readOnly": true
           },
           "fileName": {
-            "type": "string",
-            "readOnly": true
+            "type": "string"
           },
           "fileSize": {
             "type": "integer",
@@ -12366,6 +12364,25 @@
         },
         "type": "object"
       },
+      "SpatialSceneGroup": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "SpatialSceneLight": {
         "properties": {
           "id": {
@@ -12385,7 +12402,45 @@
         },
         "type": "object"
       },
+      "SpatialSceneMaterial": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "SpatialSceneObject": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "SpatialScenePrimitive": {
         "properties": {
           "id": {
             "type": "string",
@@ -17077,7 +17132,7 @@
         "tags": [
           "B2B Employee Management"
         ],
-        "summary": "Create a single role and returns the role",
+        "summary": "Create a single role and return the role",
         "description": "This route is used to create and return an role",
         "operationId": "createRole",
         "parameters": [],
@@ -17186,7 +17241,7 @@
       },
       "post": {
         "tags": [
-          "B2B"
+          "B2B Employee Management"
         ],
         "summary": "Fetch a list of roles",
         "description": "This route is used to load roles",
@@ -17246,7 +17301,7 @@
         "tags": [
           "B2B Employee Management"
         ],
-        "summary": "Fetch a one role by id",
+        "summary": "Fetch one role by id",
         "description": "This route is used to fetch one role by id",
         "operationId": "readRole",
         "parameters": [
@@ -17281,9 +17336,9 @@
       },
       "patch": {
         "tags": [
-          "B2B"
+          "B2B Employee Management"
         ],
-        "summary": "Update a one role by id",
+        "summary": "Update one role by id",
         "description": "This route is used to update one role by id",
         "operationId": "updateRole",
         "parameters": [
@@ -17345,9 +17400,9 @@
       },
       "delete": {
         "tags": [
-          "B2B"
+          "B2B Employee Management"
         ],
-        "summary": "Delete an role by id",
+        "summary": "Delete one role by id",
         "description": "This route is used to delete one role by id",
         "operationId": "deleteRole",
         "parameters": [
@@ -17415,7 +17470,7 @@
         "tags": [
           "B2B Employee Management"
         ],
-        "summary": "Create a single employee and returns the employee",
+        "summary": "Create a single employee and return the employee",
         "description": "This route is used to create and return an employee",
         "operationId": "createEmployee",
         "parameters": [],
@@ -17473,13 +17528,69 @@
       }
     },
     "/employee": {
-      "post": {
+      "get": {
         "tags": [
           "B2B Employee Management"
         ],
         "summary": "Fetch a list of employees",
         "description": "This route is used to load employees",
         "operationId": "readEmployees",
+        "parameters": [],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing employees",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/B2bEmployee"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "B2B Employee Management"
+        ],
+        "summary": "Fetch a list of employees",
+        "description": "This route is used to load employees",
+        "operationId": "readEmployeesPOST",
         "parameters": [],
         "requestBody": {
           "required": false,
@@ -17570,9 +17681,9 @@
       },
       "patch": {
         "tags": [
-          "B2B"
+          "B2B Employee Management"
         ],
-        "summary": "Update a one employee by id",
+        "summary": "Update one employee by id",
         "description": "This route is used to update one employee by id",
         "operationId": "updateEmployee",
         "parameters": [
@@ -17635,9 +17746,9 @@
       },
       "delete": {
         "tags": [
-          "B2B"
+          "B2B Employee Management"
         ],
-        "summary": "Delete an employee by id",
+        "summary": "Delete one employee by id",
         "description": "This route is used to delete one employee by id",
         "operationId": "deleteEmployee",
         "parameters": [
