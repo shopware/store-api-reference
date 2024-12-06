@@ -2315,20 +2315,11 @@
           "lastName": {
             "type": "string"
           },
-          "company": {
-            "type": "string"
-          },
           "email": {
             "type": "string"
           },
           "title": {
             "type": "string"
-          },
-          "vatIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "affiliateCode": {
             "type": "string"
@@ -2398,9 +2389,6 @@
             },
             "readOnly": true
           },
-          "accountType": {
-            "type": "string"
-          },
           "createdById": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
@@ -2469,7 +2457,47 @@
             ]
           }
         },
-        "type": "object"
+        "type": "object",
+        "oneOf": [
+          {
+            "required": [
+              "accountType"
+            ],
+            "properties": {
+              "accountType": {
+                "type": "string",
+                "enum": [
+                  "private"
+                ]
+              }
+            }
+          },
+          {
+            "required": [
+              "accountType",
+              "vatIds",
+              "company"
+            ],
+            "properties": {
+              "accountType": {
+                "type": "string",
+                "enum": [
+                  "business"
+                ]
+              },
+              "vatIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "company": {
+                "type": "string"
+              }
+            }
+          }
+        ]
       },
       "CustomerAddress": {
         "description": "Added since version: 6.0.0.0",
