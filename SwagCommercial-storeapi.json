@@ -3411,20 +3411,11 @@
           "lastName": {
             "type": "string"
           },
-          "company": {
-            "type": "string"
-          },
           "email": {
             "type": "string"
           },
           "title": {
             "type": "string"
-          },
-          "vatIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "affiliateCode": {
             "type": "string"
@@ -3493,9 +3484,6 @@
               "pattern": "^[0-9a-f]{32}$"
             },
             "readOnly": true
-          },
-          "accountType": {
-            "type": "string"
           },
           "createdById": {
             "type": "string",
@@ -3599,7 +3587,47 @@
             ]
           }
         },
-        "type": "object"
+        "type": "object",
+        "oneOf": [
+          {
+            "required": [
+              "accountType"
+            ],
+            "properties": {
+              "accountType": {
+                "type": "string",
+                "enum": [
+                  "private"
+                ]
+              }
+            }
+          },
+          {
+            "required": [
+              "accountType",
+              "vatIds",
+              "company"
+            ],
+            "properties": {
+              "accountType": {
+                "type": "string",
+                "enum": [
+                  "business"
+                ]
+              },
+              "vatIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "company": {
+                "type": "string"
+              }
+            }
+          }
+        ]
       },
       "CustomerAddress": {
         "description": "Added since version: 6.0.0.0",
@@ -17492,6 +17520,11 @@
                     "description": "Email of the new employee",
                     "type": "string"
                   },
+                  "languageId": {
+                    "description": "Identifier of the [language](#/System%20%26%20Context/readLanguages) to be set for the new employee.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
                   "roleId": {
                     "description": "Id of the role of the new employee",
                     "type": "string",
@@ -17501,7 +17534,8 @@
                 "required": [
                   "firstName",
                   "lastName",
-                  "email"
+                  "email",
+                  "languageId"
                 ],
                 "type": "object"
               }
