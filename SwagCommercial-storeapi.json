@@ -10318,6 +10318,474 @@
         },
         "type": "object"
       },
+      "QuoteJsonApi": {
+        "description": "Added since version: 6.5.3.0",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resource"
+          },
+          {
+            "required": [
+              "id",
+              "stateId",
+              "currencyId",
+              "languageId",
+              "salesChannelId",
+              "customerId"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "versionId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "stateId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "userId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "currencyId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "languageId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "salesChannelId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "createdById": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "updatedById": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "customerId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "orderId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "orderVersionId": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "quoteNumber": {
+                "type": "string"
+              },
+              "expirationDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "sentAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "price": {
+                "required": [
+                  "netPrice",
+                  "totalPrice",
+                  "positionPrice",
+                  "rawTotal",
+                  "taxStatus"
+                ],
+                "properties": {
+                  "netPrice": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "totalPrice": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "calculatedTaxes": {
+                    "type": "object"
+                  },
+                  "taxRules": {
+                    "type": "object"
+                  },
+                  "positionPrice": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "rawTotal": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "taxStatus": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "shippingCosts": {
+                "required": [
+                  "unitPrice",
+                  "totalPrice",
+                  "quantity"
+                ],
+                "properties": {
+                  "unitPrice": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "totalPrice": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "calculatedTaxes": {
+                    "type": "object"
+                  },
+                  "taxRules": {
+                    "type": "object"
+                  },
+                  "referencePrice": {
+                    "type": "object"
+                  },
+                  "listPrice": {
+                    "properties": {
+                      "price": {
+                        "type": "number",
+                        "format": "float"
+                      },
+                      "discount": {
+                        "type": "number",
+                        "format": "float"
+                      },
+                      "percentage": {
+                        "type": "number",
+                        "format": "float"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "regulationPrice": {
+                    "properties": {
+                      "price": {
+                        "type": "number",
+                        "format": "float"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "discount": {
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                },
+                "type": "object"
+              },
+              "taxStatus": {
+                "type": "string",
+                "readOnly": true
+              },
+              "amountTotal": {
+                "type": "number",
+                "format": "float",
+                "readOnly": true
+              },
+              "amountNet": {
+                "type": "number",
+                "format": "float",
+                "readOnly": true
+              },
+              "subtotalNet": {
+                "type": "number",
+                "format": "float"
+              },
+              "totalDiscount": {
+                "type": "number",
+                "format": "float"
+              },
+              "customFields": {
+                "type": "object"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "relationships": {
+                "properties": {
+                  "stateMachineState": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/quote/c48e929b2b1eabba2ba036884433345e/stateMachineState"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "state_machine_state"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "1ab22d393154f21e3be76aca3ec3ee31"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "currency": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/quote/c48e929b2b1eabba2ba036884433345e/currency"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "currency"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "1af0389838508d7016a9841eb6273962"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "language": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/quote/c48e929b2b1eabba2ba036884433345e/language"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "language"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "8512ae7d57b1396273f76fe6ed341a23"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "lineItems": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/quote/c48e929b2b1eabba2ba036884433345e/lineItems"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "quote_line_item"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "a042af1aa9f3853fe3cd7dabc065568f"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "deliveries": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/quote/c48e929b2b1eabba2ba036884433345e/deliveries"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "quote_delivery"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "6fc31b6b9cd717cc0dcb81152308f8af"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "transactions": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/quote/c48e929b2b1eabba2ba036884433345e/transactions"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "quote_transaction"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "c15b977dd99332ca8623fbdfb86827e8"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "comments": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/quote/c48e929b2b1eabba2ba036884433345e/comments"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "quote_comment"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "a5d491060952aa8ad5fdee071be752de"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "documents": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/quote/c48e929b2b1eabba2ba036884433345e/documents"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "quote_document"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "21f64da1e5792c8295b964d159a14491"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
       "Quote": {
         "description": "Added since version: 6.5.3.0",
         "required": [
