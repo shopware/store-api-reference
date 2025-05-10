@@ -10665,6 +10665,10 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
+          "combinable": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
           "customFields": {
             "type": "object"
           },
