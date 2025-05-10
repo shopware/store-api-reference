@@ -9366,6 +9366,10 @@
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identity of media."
           },
+          "combinable": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
