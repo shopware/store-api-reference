@@ -21205,6 +21205,368 @@
           }
         ]
       }
+    },
+    "/organization-unit": {
+      "post": {
+        "tags": [
+          "B2B Organization Unit"
+        ],
+        "summary": "Create new organization unit",
+        "description": "This route is used to create a new organization",
+        "operationId": "createOrganizationUnit",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "description": "Organization unit name",
+                    "type": "string"
+                  },
+                  "shippingAddressIds": {
+                    "description": "Identifier (UUID) of the addresses for shipping.",
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "properties": {
+                        "customerAddressId": {
+                          "type": "string",
+                          "description": "The Identifier (UUID) of the customer address",
+                          "pattern": "^[0-9a-f]{32}$"
+                        }
+                      },
+                      "required": [
+                        "customerAddressId"
+                      ]
+                    }
+                  },
+                  "billingAddressIds": {
+                    "description": "Identifier (UUID) of the addresses for billing.",
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "properties": {
+                        "customerAddressId": {
+                          "type": "string",
+                          "description": "The Identifier (UUID) of the customer address",
+                          "pattern": "^[0-9a-f]{32}$"
+                        }
+                      },
+                      "required": [
+                        "customerAddressId"
+                      ]
+                    }
+                  },
+                  "paymentMethodIds": {
+                    "description": "Identifier (UUID) of the payment methods.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "shippingMethodIds": {
+                    "description": "Identifier (UUID) of the shipping methods.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "employeeIds": {
+                    "description": "Identifier (UUID) of employees.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "defaultShippingAddressId": {
+                    "description": "Identifier (UUID) of the default shipping address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "defaultBillingAddressId": {
+                    "description": "Identifier (UUID) of the default billing address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name",
+                  "shippingAddressIds",
+                  "billingAddressIds",
+                  "paymentMethodIds",
+                  "shippingMethodIds",
+                  "defaultShippingAddressId",
+                  "defaultBillingAddressId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created organization unit"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "B2B Organization Units"
+        ],
+        "summary": "Delete organization units",
+        "description": "This route is used to delete organization units",
+        "operationId": "removeOrganizationUnits",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "ids"
+                ],
+                "properties": {
+                  "ids": {
+                    "description": "Organization Unit ids",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content response"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/organization-units": {
+      "post": {
+        "tags": [
+          "B2B Organization Units"
+        ],
+        "summary": "Load Organization Units",
+        "description": "This route is used to load all Organization Units",
+        "operationId": "readOrganizationUnits",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Criteria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing Organization Units",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/B2bComponentsOrganization"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/organization-unit/{id}": {
+      "post": {
+        "tags": [
+          "B2B Organization Units"
+        ],
+        "summary": "Load one Organization Unit",
+        "description": "This route is used to load one Organization Unit",
+        "operationId": "readOrganizationUnit",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the Organization Unit to be fetched",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization Unit entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bComponentsOrganization"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "B2B Organization Units"
+        ],
+        "summary": "Update Organization Unit",
+        "description": "This route is used to update Organization Unit",
+        "operationId": "updateOrganizationUnit",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the Organization Unit to be fetched",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "description": "Organization unit name",
+                    "type": "string"
+                  },
+                  "shippingAddressIds": {
+                    "description": "Identifier (UUID) of the addresses for shipping.",
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "properties": {
+                        "customerAddressId": {
+                          "type": "string",
+                          "description": "The Identifier (UUID) of the customer address",
+                          "pattern": "^[0-9a-f]{32}$"
+                        }
+                      },
+                      "required": [
+                        "customerAddressId",
+                        "id"
+                      ]
+                    }
+                  },
+                  "billingAddressIds": {
+                    "description": "Identifier (UUID) of the addresses for billing.",
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "properties": {
+                        "customerAddressId": {
+                          "type": "string",
+                          "description": "The Identifier (UUID) of the customer address",
+                          "pattern": "^[0-9a-f]{32}$"
+                        }
+                      },
+                      "required": [
+                        "customerAddressId",
+                        "id"
+                      ]
+                    }
+                  },
+                  "paymentMethodIds": {
+                    "description": "Identifier (UUID) of the payment methods.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "shippingMethodIds": {
+                    "description": "Identifier (UUID) of the shipping methods.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "employeeIds": {
+                    "description": "Identifier (UUID) of employees.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "defaultShippingAddressId": {
+                    "description": "Identifier (UUID) of the default shipping address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "defaultBillingAddressId": {
+                    "description": "Identifier (UUID) of the default billing address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Updated organization unit"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
     }
   },
   "tags": [
