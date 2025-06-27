@@ -16955,7 +16955,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/NoneFieldsCriteria"
+                    "$ref": "#/components/schemas/Criteria"
                   },
                   {
                     "properties": {
@@ -18368,7 +18368,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/NoneFieldsCriteria"
+                    "$ref": "#/components/schemas/Criteria"
                   }
                 ]
               }
