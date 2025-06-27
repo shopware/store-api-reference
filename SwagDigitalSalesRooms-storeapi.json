@@ -17975,6 +17975,70 @@
           }
         ]
       }
+    },
+    "/dsr/appointment/{appointmentId}/shopping-lists": {
+      "get": {
+        "tags": [
+          "Appointment"
+        ],
+        "summary": "Load line item ids of a shopping lists from appointment cache",
+        "description": "Load line item ids of a shopping lists from the appointment cache",
+        "operationId": "getSharingShoppingList",
+        "parameters": [
+          {
+            "name": "appointmentId",
+            "in": "path",
+            "description": "The appointment id you are joining",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "apiAlias": {
+                      "type": "string",
+                      "default": "dsr.appointment.load-shopping-lists",
+                      "description": "The api alias of the API"
+                    },
+                    "data": {
+                      "type": "object",
+                      "example": {
+                        "apiAlias": "dsr.appointment.load-shopping-lists",
+                        "data": {
+                          "01938f89c632709ba4d65eb53604bf5b": {
+                            "quantity": "1"
+                          },
+                          "01938f89c8647036a617b7d88e1e24f5": {
+                            "quantity": "1"
+                          },
+                          "01938f8a23d47305b1e289163cea5074": {
+                            "quantity": "1"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
+          }
+        ]
+      }
     }
   },
   "tags": [
