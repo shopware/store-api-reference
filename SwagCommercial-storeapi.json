@@ -13645,6 +13645,7 @@
           "convertedOrder",
           "subscriptionNumber",
           "nextSchedule",
+          "followingNextSchedule",
           "salesChannelId",
           "subscriptionPlanName",
           "subscriptionIntervalName",
@@ -13669,6 +13670,11 @@
             "type": "string"
           },
           "nextSchedule": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "followingNextSchedule": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "string",
             "format": "date-time"
           },
