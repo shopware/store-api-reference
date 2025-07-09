@@ -4176,6 +4176,12 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerWishlistProduct"
+            }
           }
         },
         "type": "object"
@@ -10162,7 +10168,6 @@
       "ProductReview": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "points",
           "id",
           "productId",
           "salesChannelId",
@@ -10190,6 +10195,9 @@
           "languageId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
+          },
+          "externalUser": {
+            "type": "string"
           },
           "title": {
             "type": "string"
@@ -10219,12 +10227,6 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
-          },
-          "customerId": {
-            "type": "string"
-          },
-          "externalUser": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -13645,6 +13647,7 @@
           "convertedOrder",
           "subscriptionNumber",
           "nextSchedule",
+          "followingNextSchedule",
           "salesChannelId",
           "subscriptionPlanName",
           "subscriptionIntervalName",
@@ -13669,6 +13672,11 @@
             "type": "string"
           },
           "nextSchedule": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "followingNextSchedule": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "string",
             "format": "date-time"
           },
