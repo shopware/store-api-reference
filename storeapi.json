@@ -12955,7 +12955,7 @@
             }
           },
           "cover": {
-            "$ref": "#/components/schemas/ProductMedia"
+            "$ref": "#/components/schemas/Media"
           },
           "dataContextHash": {
             "type": "string"
@@ -17617,7 +17617,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Get information about current customer",
-        "description": "Returns information about the current customer.",
+        "description": "Returns information about the current customer.\n\n**Available Associations:**\n- `group` - Customer group determining pricing and permissions\n- `language` - Preferred language for customer communication\n- `lastPaymentMethod` - Last used payment method by the customer\n- `defaultBillingAddress` - Default billing address for the customer\n- `activeBillingAddress` - Currently active billing address in the session\n- `defaultShippingAddress` - Default shipping address for the customer\n- `activeShippingAddress` - Currently active shipping address in the session\n- `salutation` - Customer salutation (e.g., Mr., Mrs., Ms.)\n- `addresses` - All addresses saved for the customer\n- `tags` - Tags assigned to the customer for organization and segmentation",
         "operationId": "readCustomer",
         "requestBody": {
           "required": false,
@@ -18421,7 +18421,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch languages",
-        "description": "Perform a filtered search for languages.",
+        "description": "Perform a filtered search for languages.\n\n**Available Associations:**\n- `locale` - Locale defining regional settings (date, time, number formats)\n- `translationCode` - Locale used for translating content\n- `children` - Child languages inheriting from this parent language",
         "operationId": "readLanguages",
         "parameters": [
           {
@@ -18480,7 +18480,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch languages",
-        "description": "Perform a filtered search for languages.",
+        "description": "Perform a filtered search for languages.\n\n**Available Associations:**\n- `locale` - Locale defining regional settings (date, time, number formats)\n- `translationCode` - Locale used for translating content\n- `children` - Child languages inheriting from this parent language",
         "operationId": "readLanguagesGet",
         "parameters": [
           {
@@ -18702,7 +18702,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a list of categories",
-        "description": "Perform a filtered search for categories.",
+        "description": "Perform a filtered search for categories.\n\n**Available Associations:**\n- `children` - Child categories within this category for hierarchical navigation\n- `media` - Category image or banner\n- `tags` - Tags for organizing and filtering categories\n- `cmsPage` - CMS page layout for the category\n- `seoUrls` - SEO-friendly URLs for the category across different sales channels",
         "operationId": "readCategoryList",
         "parameters": [
           {
@@ -18761,7 +18761,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a list of categories",
-        "description": "Perform a filtered search for categories.",
+        "description": "Perform a filtered search for categories.\n\n**Available Associations:**\n- `children` - Child categories within this category for hierarchical navigation\n- `media` - Category image or banner\n- `tags` - Tags for organizing and filtering categories\n- `cmsPage` - CMS page layout for the category\n- `seoUrls` - SEO-friendly URLs for the category across different sales channels",
         "operationId": "readCategoryListGet",
         "parameters": [
           {
@@ -18839,7 +18839,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a single category",
-        "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.",
+        "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.\n\n**Available Associations:**\n- `children` - Child categories within this category for hierarchical navigation\n- `media` - Category image or banner\n- `tags` - Tags for organizing and filtering categories\n- `cmsPage` - CMS page layout for the category\n- `seoUrls` - SEO-friendly URLs for the category across different sales channels",
         "operationId": "readCategory",
         "parameters": [
           {
@@ -18931,7 +18931,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a single category",
-        "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.",
+        "description": "This endpoint returns information about the category, as well as a fully resolved (hydrated with mapping values) CMS page, if one is assigned to the category. You can pass slots which should be resolved exclusively.\n\n**Available Associations:**\n- `children` - Child categories within this category for hierarchical navigation\n- `media` - Category image or banner\n- `tags` - Tags for organizing and filtering categories\n- `cmsPage` - CMS page layout for the category\n- `seoUrls` - SEO-friendly URLs for the category across different sales channels",
         "operationId": "readCategoryGet",
         "parameters": [
           {
@@ -20014,6 +20014,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           }
         },
         "security": [
@@ -20500,7 +20503,7 @@
           "Content"
         ],
         "summary": "Fetch and resolve a CMS page",
-        "description": "Loads a content management page by its identifier and resolve the slot data. This could be media files, product listing and so on.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
+        "description": "Loads a content management page by its identifier and resolve the slot data. This could be media files, product listing and so on.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.\n\n**Available Associations:**\n- `sections` - Content sections within the CMS page (layout blocks containing slots)\n- `previewMedia` - Preview image for the CMS page in admin panel and page selection\n- `landingPages` - Landing pages using this CMS layout",
         "operationId": "readCms",
         "parameters": [
           {
@@ -20586,7 +20589,7 @@
           "Content"
         ],
         "summary": "Fetch and resolve a CMS page",
-        "description": "Loads a content management page by its identifier and resolve the slot data. This could be media files, product listing and so on.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
+        "description": "Loads a content management page by its identifier and resolve the slot data. This could be media files, product listing and so on.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.\n\n**Available Associations:**\n- `sections` - Content sections within the CMS page (layout blocks containing slots)\n- `previewMedia` - Preview image for the CMS page in admin panel and page selection\n- `landingPages` - Landing pages using this CMS layout",
         "operationId": "readCmsGet",
         "parameters": [
           {
@@ -20931,7 +20934,7 @@
           "Product"
         ],
         "summary": "Fetch a product listing by category",
-        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.",
+        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProductListing",
         "parameters": [
           {
@@ -21956,7 +21959,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch shipping methods",
-        "description": "Perform a filtered search for shipping methods.",
+        "description": "Perform a filtered search for shipping methods.\n\n**Available Associations:**\n- `prices` - Shipping method price configurations (based on current cart and context)\n- `deliveryTime` - Delivery time information (min/max days, unit)\n- `media` - Media/images associated with the shipping method (loaded by default)\n- `availabilityRule` - Availability rule determining when this method is available\n- `tax` - Tax configuration for the shipping method\n\n**Example with associations:**\n```json\n{\n  \"associations\": {\n    \"prices\": {},\n    \"deliveryTime\": {}\n  }\n}\n```\n\nNote: The `prices` association is essential for accessing shipping cost configurations.",
         "operationId": "readShippingMethod",
         "parameters": [
           {
@@ -22056,7 +22059,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch shipping methods",
-        "description": "Perform a filtered search for shipping methods.",
+        "description": "Perform a filtered search for shipping methods.\n\n**Available Associations:**\n- `prices` - Shipping method price configurations (graduated prices, quantity-based pricing)\n- `deliveryTime` - Delivery time information (min/max days, unit)\n- `media` - Media/images associated with the shipping method (loaded by default)\n- `availabilityRule` - Availability rule determining when this method is available\n- `tax` - Tax configuration for the shipping method\n\nNote: The `prices` association is essential for accessing shipping cost configurations.",
         "operationId": "readShippingMethodGet",
         "parameters": [
           {
@@ -22134,7 +22137,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a landing page with the resolved CMS page",
-        "description": "Loads a landing page by its identifier and resolves the CMS page.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.",
+        "description": "Loads a landing page by its identifier and resolves the CMS page.\n\n**Important notice**\n\nThe criteria passed with this route also affects the listing, if there is one within the cms page.\n\n**Available Associations:**\n- `cmsPage` - CMS page layout for the landing page\n- `seoUrls` - SEO-friendly URLs for the landing page across different sales channels",
         "operationId": "readLandingPage",
         "parameters": [
           {
@@ -22260,7 +22263,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch countries",
-        "description": "Perform a filtered search for countries",
+        "description": "Perform a filtered search for countries\n\n**Available Associations:**\n- `states` - States/provinces/regions within the country",
         "operationId": "readCountry",
         "parameters": [
           {
@@ -22319,7 +22322,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch countries",
-        "description": "Perform a filtered search for countries",
+        "description": "Perform a filtered search for countries\n\n**Available Associations:**\n- `states` - States/provinces/regions within the country",
         "operationId": "readCountryGet",
         "parameters": [
           {
@@ -22577,7 +22580,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a list of orders",
-        "description": "List orders of a customer.",
+        "description": "List orders of a customer.\n\n**Available Associations:**\n- `stateMachineState` - Current order state (e.g., open, in_progress, completed, cancelled)\n- `primaryOrderDelivery` - Primary delivery information for the order\n- `primaryOrderTransaction` - Primary payment transaction for the order\n- `orderCustomer` - Customer information associated with the order\n- `currency` - Currency used for the order\n- `language` - Language used when placing the order\n- `addresses` - All addresses associated with the order (billing and shipping)\n- `billingAddress` - Billing address for the order\n- `deliveries` - Delivery information including shipping address and tracking\n- `lineItems` - Order line items (products, discounts, fees)\n- `transactions` - Payment transactions for the order\n- `documents` - Generated documents (invoices, delivery notes, credit notes)\n- `tags` - Tags assigned to the order for organization and filtering",
         "operationId": "readOrder",
         "parameters": [
           {
@@ -22890,7 +22893,7 @@
           "Product"
         ],
         "summary": "Fetch a single product",
-        "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.",
+        "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProductDetail",
         "parameters": [
           {
@@ -22995,7 +22998,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a list of products",
-        "description": "List products that match the given criteria. For performance reasons a limit should always be set.",
+        "description": "List products that match the given criteria. For performance reasons a limit should always be set.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProduct",
         "parameters": [
           {
@@ -23054,7 +23057,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a list of products",
-        "description": "List products that match the given criteria. For performance reasons a limit should always be set.",
+        "description": "List products that match the given criteria. For performance reasons a limit should always be set.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProductGet",
         "parameters": [
           {
