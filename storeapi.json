@@ -7,7 +7,7 @@
       "name": "MIT",
       "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
     },
-    "version": "6.7.3.0"
+    "version": "6.7.4.2"
   },
   "servers": [
     {
@@ -20014,6 +20014,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           }
         },
         "security": [
