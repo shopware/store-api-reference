@@ -12102,7 +12102,7 @@
             }
           },
           "cover": {
-            "$ref": "#/components/schemas/ProductMedia"
+            "$ref": "#/components/schemas/Media"
           },
           "dataContextHash": {
             "type": "string"
@@ -18226,6 +18226,114 @@
               }
             }
           }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
+          }
+        ]
+      }
+    },
+    "/dsr/customer/generate-login-token": {
+      "post": {
+        "tags": [
+          "Customer account"
+        ],
+        "summary": "Generate login token that can be used to login to Storefront from DSR",
+        "description": "Generate login token that can be used to login to Storefront from DSR",
+        "operationId": "dsrGenerateLoginToken",
+        "body": {
+          "type": "object",
+          "properties": {
+            "storefrontUrl": {
+              "type": "string"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "apiAlias": {
+                      "type": "string",
+                      "default": "dsr.storefront-login.response"
+                    },
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
+          }
+        ]
+      }
+    },
+    "/dsr/customer/automatic-login": {
+      "post": {
+        "tags": [
+          "Customer account"
+        ],
+        "summary": "Automatic login from DSR to Storefront",
+        "description": "Automatic login from DSR to Storefront",
+        "operationId": "dsrAutomaticLogin",
+        "body": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextTokenResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
+          }
+        ]
+      }
+    },
+    "/dsr/customer/migrate-visitor-session": {
+      "post": {
+        "tags": [
+          "Customer account"
+        ],
+        "summary": "Migrate visitor session from DSR to Storefront",
+        "description": "Migrate visitor session from DSR to Storefront",
+        "operationId": "dsrMigrateVisitorSession",
+        "body": {
+          "type": "object",
+          "properties": {
+            "contextToken": {
+              "type": "string"
+            }
+          }
+        },
+        "responses": {
+          "204": []
         },
         "security": [
           {
