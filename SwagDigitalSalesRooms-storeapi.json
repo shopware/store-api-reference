@@ -810,6 +810,7 @@
                     "type": "object"
                   },
                   "children": {
+                    "description": "Child categories within this category for hierarchical navigation",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -841,6 +842,7 @@
                     "type": "object"
                   },
                   "media": {
+                    "description": "Category image or banner",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -870,6 +872,7 @@
                     "type": "object"
                   },
                   "tags": {
+                    "description": "Tags for organizing and filtering categories",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -901,6 +904,7 @@
                     "type": "object"
                   },
                   "cmsPage": {
+                    "description": "CMS page layout for the category",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -930,6 +934,7 @@
                     "type": "object"
                   },
                   "seoUrls": {
+                    "description": "SEO-friendly URLs for the category across different sales channels",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -1135,24 +1140,29 @@
             "$ref": "#/components/schemas/Category"
           },
           "children": {
+            "description": "Child categories within this category for hierarchical navigation",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Category"
             }
           },
           "media": {
-            "$ref": "#/components/schemas/Media"
+            "$ref": "#/components/schemas/Media",
+            "description": "Category image or banner"
           },
           "tags": {
+            "description": "Tags for organizing and filtering categories",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Tag"
             }
           },
           "cmsPage": {
-            "$ref": "#/components/schemas/CmsPage"
+            "$ref": "#/components/schemas/CmsPage",
+            "description": "CMS page layout for the category"
           },
           "seoUrls": {
+            "description": "SEO-friendly URLs for the category across different sales channels",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SeoUrl"
@@ -1335,15 +1345,18 @@
             "type": "object"
           },
           "sections": {
+            "description": "Content sections within the CMS page (layout blocks containing slots)",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CmsSection"
             }
           },
           "previewMedia": {
-            "$ref": "#/components/schemas/Media"
+            "$ref": "#/components/schemas/Media",
+            "description": "Preview image for the CMS page in admin panel and page selection"
           },
           "landingPages": {
+            "description": "Landing pages using this CMS layout",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/LandingPage"
@@ -1686,6 +1699,7 @@
               "relationships": {
                 "properties": {
                   "states": {
+                    "description": "States/provinces/regions within the country",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -1848,6 +1862,7 @@
             "type": "object"
           },
           "states": {
+            "description": "States/provinces/regions within the country",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CountryState"
@@ -2432,36 +2447,46 @@
             "readOnly": true
           },
           "group": {
-            "$ref": "#/components/schemas/CustomerGroup"
+            "$ref": "#/components/schemas/CustomerGroup",
+            "description": "Customer group determining pricing and permissions"
           },
           "language": {
-            "$ref": "#/components/schemas/Language"
+            "$ref": "#/components/schemas/Language",
+            "description": "Preferred language for customer communication"
           },
           "lastPaymentMethod": {
-            "$ref": "#/components/schemas/PaymentMethod"
+            "$ref": "#/components/schemas/PaymentMethod",
+            "description": "Last used payment method by the customer"
           },
           "defaultBillingAddress": {
-            "$ref": "#/components/schemas/CustomerAddress"
+            "$ref": "#/components/schemas/CustomerAddress",
+            "description": "Default billing address for the customer"
           },
           "activeBillingAddress": {
-            "$ref": "#/components/schemas/CustomerAddress"
+            "$ref": "#/components/schemas/CustomerAddress",
+            "description": "Currently active billing address in the session"
           },
           "defaultShippingAddress": {
-            "$ref": "#/components/schemas/CustomerAddress"
+            "$ref": "#/components/schemas/CustomerAddress",
+            "description": "Default shipping address for the customer"
           },
           "activeShippingAddress": {
-            "$ref": "#/components/schemas/CustomerAddress"
+            "$ref": "#/components/schemas/CustomerAddress",
+            "description": "Currently active shipping address in the session"
           },
           "salutation": {
-            "$ref": "#/components/schemas/Salutation"
+            "$ref": "#/components/schemas/Salutation",
+            "description": "Customer salutation (e.g., Mr., Mrs., Ms.)"
           },
           "addresses": {
+            "description": "All addresses saved for the customer",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomerAddress"
             }
           },
           "tags": {
+            "description": "Tags assigned to the customer for organization and segmentation",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Tag"
@@ -3694,6 +3719,7 @@
               "relationships": {
                 "properties": {
                   "cmsPage": {
+                    "description": "CMS page layout for the landing page",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -3723,6 +3749,7 @@
                     "type": "object"
                   },
                   "seoUrls": {
+                    "description": "SEO-friendly URLs for the landing page across different sales channels",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -3824,9 +3851,11 @@
             "type": "object"
           },
           "cmsPage": {
-            "$ref": "#/components/schemas/CmsPage"
+            "$ref": "#/components/schemas/CmsPage",
+            "description": "CMS page layout for the landing page"
           },
           "seoUrls": {
+            "description": "SEO-friendly URLs for the landing page across different sales channels",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SeoUrl"
@@ -3921,6 +3950,7 @@
                     "type": "object"
                   },
                   "locale": {
+                    "description": "Locale defining regional settings (date, time, number formats)",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -3950,6 +3980,7 @@
                     "type": "object"
                   },
                   "translationCode": {
+                    "description": "Locale used for translating content",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -3979,6 +4010,7 @@
                     "type": "object"
                   },
                   "children": {
+                    "description": "Child languages inheriting from this parent language",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -4064,12 +4096,15 @@
             "$ref": "#/components/schemas/Language"
           },
           "locale": {
-            "$ref": "#/components/schemas/Locale"
+            "$ref": "#/components/schemas/Locale",
+            "description": "Locale defining regional settings (date, time, number formats)"
           },
           "translationCode": {
-            "$ref": "#/components/schemas/Locale"
+            "$ref": "#/components/schemas/Locale",
+            "description": "Locale used for translating content"
           },
           "children": {
+            "description": "Child languages inheriting from this parent language",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Language"
@@ -4591,6 +4626,7 @@
             "type": "object"
           },
           "thumbnails": {
+            "description": "Generated thumbnail images in various sizes",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MediaThumbnail"
@@ -5177,57 +5213,70 @@
             "readOnly": true
           },
           "stateMachineState": {
-            "$ref": "#/components/schemas/StateMachineState"
+            "$ref": "#/components/schemas/StateMachineState",
+            "description": "Current order state (e.g., open, in_progress, completed, cancelled)"
           },
           "primaryOrderDelivery": {
-            "$ref": "#/components/schemas/OrderDelivery"
+            "$ref": "#/components/schemas/OrderDelivery",
+            "description": "Primary delivery information for the order"
           },
           "primaryOrderTransaction": {
-            "$ref": "#/components/schemas/OrderTransaction"
+            "$ref": "#/components/schemas/OrderTransaction",
+            "description": "Primary payment transaction for the order"
           },
           "orderCustomer": {
-            "$ref": "#/components/schemas/OrderCustomer"
+            "$ref": "#/components/schemas/OrderCustomer",
+            "description": "Customer information associated with the order"
           },
           "currency": {
-            "$ref": "#/components/schemas/Currency"
+            "$ref": "#/components/schemas/Currency",
+            "description": "Currency used for the order"
           },
           "language": {
-            "$ref": "#/components/schemas/Language"
+            "$ref": "#/components/schemas/Language",
+            "description": "Language used when placing the order"
           },
           "addresses": {
+            "description": "All addresses associated with the order (billing and shipping)",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderAddress"
             }
           },
           "billingAddress": {
-            "$ref": "#/components/schemas/OrderAddress"
+            "$ref": "#/components/schemas/OrderAddress",
+            "description": "Billing address for the order"
           },
           "deliveries": {
+            "description": "Delivery information including shipping address and tracking",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderDelivery"
             }
           },
           "lineItems": {
+            "description": "Order line items (products, discounts, fees)",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderLineItem"
             }
           },
           "transactions": {
+            "description": "Payment transactions for the order",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderTransaction"
             }
           },
           "documents": {
+            "description": "Generated documents (invoices, delivery notes, credit notes)",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Document"
             }
           },
           "tags": {
+            "description": "Tags assigned to the order for organization and filtering",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Tag"
@@ -5521,15 +5570,19 @@
             "readOnly": true
           },
           "stateMachineState": {
-            "$ref": "#/components/schemas/StateMachineState"
+            "$ref": "#/components/schemas/StateMachineState",
+            "description": "Current delivery state (e.g., open, shipped, delivered, cancelled)"
           },
           "shippingOrderAddress": {
-            "$ref": "#/components/schemas/OrderAddress"
+            "$ref": "#/components/schemas/OrderAddress",
+            "description": "Shipping address for this delivery"
           },
           "shippingMethod": {
-            "$ref": "#/components/schemas/ShippingMethod"
+            "$ref": "#/components/schemas/ShippingMethod",
+            "description": "Shipping method used for this delivery"
           },
           "positions": {
+            "description": "Line items included in this delivery",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderDeliveryPosition"
@@ -5869,18 +5922,22 @@
             "readOnly": true
           },
           "cover": {
-            "$ref": "#/components/schemas/Media"
+            "$ref": "#/components/schemas/Media",
+            "description": "Line item image or thumbnail"
           },
           "product": {
-            "$ref": "#/components/schemas/Product"
+            "$ref": "#/components/schemas/Product",
+            "description": "Referenced product if this is a product line item"
           },
           "orderDeliveryPositions": {
+            "description": "Delivery positions for this line item",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderDeliveryPosition"
             }
           },
           "downloads": {
+            "description": "Digital downloads associated with this line item",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderLineItemDownload"
@@ -6110,12 +6167,15 @@
             "readOnly": true
           },
           "stateMachineState": {
-            "$ref": "#/components/schemas/StateMachineState"
+            "$ref": "#/components/schemas/StateMachineState",
+            "description": "Current payment transaction state (e.g., open, paid, cancelled)"
           },
           "paymentMethod": {
-            "$ref": "#/components/schemas/PaymentMethod"
+            "$ref": "#/components/schemas/PaymentMethod",
+            "description": "Payment method used for this transaction"
           },
           "captures": {
+            "description": "Payment captures for this transaction",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderTransactionCapture"
@@ -6550,6 +6610,7 @@
               "relationships": {
                 "properties": {
                   "media": {
+                    "description": "Payment method logo or icon image",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -6646,7 +6707,8 @@
             "type": "object"
           },
           "media": {
-            "$ref": "#/components/schemas/Media"
+            "$ref": "#/components/schemas/Media",
+            "description": "Payment method logo or icon image"
           }
         },
         "type": "object"
@@ -7047,6 +7109,7 @@
               "relationships": {
                 "properties": {
                   "downloads": {
+                    "description": "Downloadable files associated with the product (e.g., manuals, digital content)",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7107,6 +7170,7 @@
                     "type": "object"
                   },
                   "children": {
+                    "description": "Product variants that inherit from this parent product",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7138,6 +7202,7 @@
                     "type": "object"
                   },
                   "deliveryTime": {
+                    "description": "Estimated delivery time for the product",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7167,6 +7232,7 @@
                     "type": "object"
                   },
                   "tax": {
+                    "description": "Tax configuration (rate and calculation rules)",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7196,6 +7262,7 @@
                     "type": "object"
                   },
                   "manufacturer": {
+                    "description": "Product manufacturer or brand information",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7225,6 +7292,7 @@
                     "type": "object"
                   },
                   "unit": {
+                    "description": "Product unit of measure (e.g., piece, liter, kg)",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7254,6 +7322,7 @@
                     "type": "object"
                   },
                   "cover": {
+                    "description": "Main product image displayed in listings and detail pages",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7283,6 +7352,7 @@
                     "type": "object"
                   },
                   "cmsPage": {
+                    "description": "Custom CMS page layout for the product detail page",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7312,6 +7382,7 @@
                     "type": "object"
                   },
                   "canonicalProduct": {
+                    "description": "Canonical product reference for variant consolidation and SEO purposes",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7341,6 +7412,7 @@
                     "type": "object"
                   },
                   "media": {
+                    "description": "Product images and media gallery",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7372,6 +7444,7 @@
                     "type": "object"
                   },
                   "crossSellings": {
+                    "description": "Cross-selling configurations (related products, accessories, similar items)",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7403,6 +7476,7 @@
                     "type": "object"
                   },
                   "configuratorSettings": {
+                    "description": "Variant configurator settings defining available options for product variants",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7434,6 +7508,7 @@
                     "type": "object"
                   },
                   "productReviews": {
+                    "description": "Customer reviews and ratings for the product",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7465,6 +7540,7 @@
                     "type": "object"
                   },
                   "mainCategories": {
+                    "description": "Primary category assignments per sales channel for SEO and navigation",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7496,6 +7572,7 @@
                     "type": "object"
                   },
                   "seoUrls": {
+                    "description": "SEO-friendly URLs for the product across different sales channels",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7527,6 +7604,7 @@
                     "type": "object"
                   },
                   "options": {
+                    "description": "Product variant options (e.g., size, color) that define different variants",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7558,6 +7636,7 @@
                     "type": "object"
                   },
                   "properties": {
+                    "description": "Product properties and characteristics for filtering",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7589,6 +7668,7 @@
                     "type": "object"
                   },
                   "categories": {
+                    "description": "Categories this product is assigned to",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7620,6 +7700,7 @@
                     "type": "object"
                   },
                   "streams": {
+                    "description": "Dynamic product streams this product belongs to based on defined filters",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7651,6 +7732,7 @@
                     "type": "object"
                   },
                   "categoriesRo": {
+                    "description": "Read-only category tree including all parent categories for optimized queries",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7682,6 +7764,7 @@
                     "type": "object"
                   },
                   "tags": {
+                    "description": "Tags for organizing and filtering products",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -7713,6 +7796,7 @@
                     "type": "object"
                   },
                   "seoCategory": {
+                    "description": "Main category used for SEO URL generation in the current sales channel",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -8158,6 +8242,7 @@
             "type": "object"
           },
           "downloads": {
+            "description": "Downloadable files associated with the product (e.g., manuals, digital content)",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductDownload"
@@ -8167,106 +8252,127 @@
             "$ref": "#/components/schemas/Product"
           },
           "children": {
+            "description": "Product variants that inherit from this parent product",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Product"
             }
           },
           "deliveryTime": {
-            "$ref": "#/components/schemas/DeliveryTime"
+            "$ref": "#/components/schemas/DeliveryTime",
+            "description": "Estimated delivery time for the product"
           },
           "tax": {
-            "$ref": "#/components/schemas/Tax"
+            "$ref": "#/components/schemas/Tax",
+            "description": "Tax configuration (rate and calculation rules)"
           },
           "manufacturer": {
-            "$ref": "#/components/schemas/ProductManufacturer"
+            "$ref": "#/components/schemas/ProductManufacturer",
+            "description": "Product manufacturer or brand information"
           },
           "unit": {
-            "$ref": "#/components/schemas/Unit"
+            "$ref": "#/components/schemas/Unit",
+            "description": "Product unit of measure (e.g., piece, liter, kg)"
           },
           "cover": {
-            "$ref": "#/components/schemas/ProductMedia"
+            "$ref": "#/components/schemas/ProductMedia",
+            "description": "Main product image displayed in listings and detail pages"
           },
           "cmsPage": {
-            "$ref": "#/components/schemas/CmsPage"
+            "$ref": "#/components/schemas/CmsPage",
+            "description": "Custom CMS page layout for the product detail page"
           },
           "canonicalProduct": {
-            "$ref": "#/components/schemas/Product"
+            "$ref": "#/components/schemas/Product",
+            "description": "Canonical product reference for variant consolidation and SEO purposes"
           },
           "media": {
+            "description": "Product images and media gallery",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductMedia"
             }
           },
           "crossSellings": {
+            "description": "Cross-selling configurations (related products, accessories, similar items)",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductCrossSelling"
             }
           },
           "configuratorSettings": {
+            "description": "Variant configurator settings defining available options for product variants",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductConfiguratorSetting"
             }
           },
           "productReviews": {
+            "description": "Customer reviews and ratings for the product",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductReview"
             }
           },
           "mainCategories": {
+            "description": "Primary category assignments per sales channel for SEO and navigation",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MainCategory"
             }
           },
           "seoUrls": {
+            "description": "SEO-friendly URLs for the product across different sales channels",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SeoUrl"
             }
           },
           "options": {
+            "description": "Product variant options (e.g., size, color) that define different variants",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PropertyGroupOption"
             }
           },
           "properties": {
+            "description": "Product properties and characteristics for filtering",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PropertyGroupOption"
             }
           },
           "categories": {
+            "description": "Categories this product is assigned to",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Category"
             }
           },
           "streams": {
+            "description": "Dynamic product streams this product belongs to based on defined filters",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductStream"
             }
           },
           "categoriesRo": {
+            "description": "Read-only category tree including all parent categories for optimized queries",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Category"
             }
           },
           "tags": {
+            "description": "Tags for organizing and filtering products",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Tag"
             }
           },
           "seoCategory": {
-            "$ref": "#/components/schemas/Category"
+            "$ref": "#/components/schemas/Category",
+            "description": "Main category used for SEO URL generation in the current sales channel"
           },
           "apiAlias": {
             "type": "string",
@@ -9327,34 +9433,43 @@
             "type": "object"
           },
           "language": {
-            "$ref": "#/components/schemas/Language"
+            "$ref": "#/components/schemas/Language",
+            "description": "Default language for the sales channel"
           },
           "currency": {
-            "$ref": "#/components/schemas/Currency"
+            "$ref": "#/components/schemas/Currency",
+            "description": "Default currency for the sales channel"
           },
           "paymentMethod": {
-            "$ref": "#/components/schemas/PaymentMethod"
+            "$ref": "#/components/schemas/PaymentMethod",
+            "description": "Default payment method for the sales channel"
           },
           "shippingMethod": {
-            "$ref": "#/components/schemas/ShippingMethod"
+            "$ref": "#/components/schemas/ShippingMethod",
+            "description": "Default shipping method for the sales channel"
           },
           "country": {
-            "$ref": "#/components/schemas/Country"
+            "$ref": "#/components/schemas/Country",
+            "description": "Default country for the sales channel"
           },
           "domains": {
+            "description": "Domain URLs configured for the sales channel",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SalesChannelDomain"
             }
           },
           "navigationCategory": {
-            "$ref": "#/components/schemas/Category"
+            "$ref": "#/components/schemas/Category",
+            "description": "Root category for navigation menu"
           },
           "footerCategory": {
-            "$ref": "#/components/schemas/Category"
+            "$ref": "#/components/schemas/Category",
+            "description": "Root category for footer navigation"
           },
           "serviceCategory": {
-            "$ref": "#/components/schemas/Category"
+            "$ref": "#/components/schemas/Category",
+            "description": "Root category for service pages"
           },
           "hreflangDefaultDomain": {
             "$ref": "#/components/schemas/SalesChannelDomain"
@@ -9850,6 +9965,7 @@
               "relationships": {
                 "properties": {
                   "deliveryTime": {
+                    "description": "Estimated delivery time information",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -9879,6 +9995,7 @@
                     "type": "object"
                   },
                   "availabilityRule": {
+                    "description": "Rule defining when this shipping method is available",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -9908,6 +10025,7 @@
                     "type": "object"
                   },
                   "prices": {
+                    "description": "Shipping prices based on weight, volume, or cart value",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -9939,6 +10057,7 @@
                     "type": "object"
                   },
                   "media": {
+                    "description": "Shipping method logo or carrier image",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -9968,6 +10087,7 @@
                     "type": "object"
                   },
                   "tags": {
+                    "description": "Tags for organizing shipping methods",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -9999,6 +10119,7 @@
                     "type": "object"
                   },
                   "tax": {
+                    "description": "Tax configuration for shipping costs",
                     "properties": {
                       "links": {
                         "type": "object",
@@ -10095,28 +10216,34 @@
             "type": "object"
           },
           "deliveryTime": {
-            "$ref": "#/components/schemas/DeliveryTime"
+            "$ref": "#/components/schemas/DeliveryTime",
+            "description": "Estimated delivery time information"
           },
           "availabilityRule": {
-            "$ref": "#/components/schemas/Rule"
+            "$ref": "#/components/schemas/Rule",
+            "description": "Rule defining when this shipping method is available"
           },
           "prices": {
+            "description": "Shipping prices based on weight, volume, or cart value",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ShippingMethodPrice"
             }
           },
           "media": {
-            "$ref": "#/components/schemas/Media"
+            "$ref": "#/components/schemas/Media",
+            "description": "Shipping method logo or carrier image"
           },
           "tags": {
+            "description": "Tags for organizing shipping methods",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Tag"
             }
           },
           "tax": {
-            "$ref": "#/components/schemas/Tax"
+            "$ref": "#/components/schemas/Tax",
+            "description": "Tax configuration for shipping costs"
           }
         },
         "type": "object"
@@ -17715,6 +17842,38 @@
           "default": "application/json"
         }
       },
+      "noAggregations": {
+        "name": "no-aggregations",
+        "in": "query",
+        "description": "Resets all aggregations in the criteria. This parameter is a flag, the value has no effect.",
+        "required": false,
+        "schema": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "onlyAggregations": {
+        "name": "only-aggregations",
+        "in": "query",
+        "description": "If this flag is set, no products are fetched. Sorting and associations are also ignored. This parameter is a flag, the value has no effect.",
+        "required": false,
+        "schema": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
       "criteriaPage": {
         "name": "page",
         "in": "query",
@@ -17889,6 +18048,28 @@
         },
         "style": "deepObject",
         "explode": true
+      },
+      "CompressedCriteria": {
+        "name": "_criteria",
+        "in": "query",
+        "description": "Compressed and encoded criteria object. Format: base64url(gzip(json_encode(criteria))). This parameter allows passing complex criteria as a single encoded string instead of multiple query parameters. The criteria object should be JSON-encoded, then gzipped, and finally base64url-encoded. The criteria object structure is defined in the Criteria schema (see #/components/schemas/Criteria).",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "format": "base64url",
+          "example": "H4sIAAAAAAAAA6tWykpNzFGyqlbKz8lPTSxRslJKSi0pzSsFAGcQr7sHAAAA"
+        }
+      },
+      "CompressedNoneFieldsCriteria": {
+        "name": "_criteria",
+        "in": "query",
+        "description": "Compressed and encoded criteria object. Format: base64url(gzip(json_encode(criteria))). This parameter allows passing complex criteria as a single encoded string instead of multiple query parameters. The criteria object should be JSON-encoded, then gzipped, and finally base64url-encoded. The criteria object structure is defined in the NoneFieldsCriteria schema (see #/components/schemas/NoneFieldsCriteria).",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "format": "base64url",
+          "example": "H4sIAAAAAAAAA6tWykpNzFGyqlbKz8lPTSxRslJKSi0pzSsFAGcQr7sHAAAA"
+        }
       }
     },
     "securitySchemes": {
