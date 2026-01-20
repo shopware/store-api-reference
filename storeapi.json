@@ -2769,6 +2769,213 @@
           }
         ]
       },
+      "CustomerAddressJsonApi": {
+        "description": "Added since version: 6.0.0.0",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/resource"
+          },
+          {
+            "required": [
+              "id",
+              "customerId",
+              "countryId",
+              "firstName",
+              "lastName",
+              "city",
+              "street"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "customerId": {
+                "description": "Unique identity of customer.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "countryId": {
+                "description": "Unique identity of country.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "countryStateId": {
+                "description": "Unique identity of country's state.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "salutationId": {
+                "description": "Unique identity of salutation.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "firstName": {
+                "description": "First name of the customer.",
+                "type": "string"
+              },
+              "lastName": {
+                "description": "Last name of the customer.",
+                "type": "string"
+              },
+              "zipcode": {
+                "description": "Postal or zip code of customer's address.",
+                "type": "string"
+              },
+              "city": {
+                "description": "Name of customer's city.",
+                "type": "string"
+              },
+              "company": {
+                "description": "Name of customer's company.",
+                "type": "string"
+              },
+              "street": {
+                "description": "Name of customer's street.",
+                "type": "string"
+              },
+              "department": {
+                "description": "Name of customer's department.",
+                "type": "string"
+              },
+              "title": {
+                "description": "Titles given to customer like Dr. , Prof., etc",
+                "type": "string"
+              },
+              "phoneNumber": {
+                "description": "Customer's phone number.",
+                "type": "string"
+              },
+              "additionalAddressLine1": {
+                "description": "Additional customer's address information.",
+                "type": "string"
+              },
+              "additionalAddressLine2": {
+                "description": "Additional customer's address information.",
+                "type": "string"
+              },
+              "hash": {
+                "description": "Runtime field, cannot be used as part of the criteria.",
+                "type": "string"
+              },
+              "customFields": {
+                "type": "object"
+              },
+              "isDefaultBillingAddress": {
+                "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+                "type": "boolean"
+              },
+              "isDefaultShippingAddress": {
+                "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+                "type": "boolean"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "relationships": {
+                "properties": {
+                  "country": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/customer-address/1b4b031005f93d02d887e7d66efb653b/country"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "country"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "e909c2d7067ea37437cf97fe11d91bd0"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "countryState": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/customer-address/1b4b031005f93d02d887e7d66efb653b/countryState"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "country_state"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "cb6a9764567191fb74fe28d8d6a4819d"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "salutation": {
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/customer-address/1b4b031005f93d02d887e7d66efb653b/salutation"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "salutation"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "7a6efb02514153b5aa9a8f40c6f8bcc3"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
       "CustomerAddress": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -2857,6 +3064,14 @@
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "isDefaultBillingAddress": {
+            "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "isDefaultShippingAddress": {
+            "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
@@ -14935,11 +15150,18 @@
             "type": "string",
             "description": "Hash of the current cookie configuration. Can be used to detect changes in cookie configuration.",
             "example": "f86b6a872cb83dbd22d838ceda1aa3d4"
+          },
+          "languageId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The language ID for which the cookie configuration was generated. Used to store hashes per language.",
+            "example": "2fbb5fe2e29a4d70aa5854ce7ce3e20b"
           }
         },
         "required": [
           "elements",
           "hash",
+          "languageId",
           "apiAlias"
         ],
         "example": {
@@ -15021,7 +15243,8 @@
               "apiAlias": "cookie_group"
             }
           ],
-          "hash": "f86b6a872cb83dbd22d838ceda1aa3d4"
+          "hash": "f86b6a872cb83dbd22d838ceda1aa3d4",
+          "languageId": "2fbb5fe2e29a4d70aa5854ce7ce3e20b"
         }
       },
       "Criteria": {
