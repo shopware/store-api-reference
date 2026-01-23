@@ -44,6 +44,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ generate-schema,vars ]
     steps:
+      - name: Clone SwagCommercial plugin
+        run: git clone https://github.com/shopware/SwagCommercial.git custom/plugins/SwagCommercial
+        
       - name: Checkout
         uses: actions/checkout@v4
 
