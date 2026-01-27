@@ -28,24 +28,10 @@ jobs:
     steps:
       - run: echo "Exposing env vars"
 
-  get-token:
-    runs-on: ubuntu-22.04
-    permissions:
-      id-token: write
-      contents: read
-    outputs:
-      token: ${{ steps.token.outputs.token }}
-    steps:
-      - name: Issue GitHub token with octo-sts
-        id: token
-        uses: octo-sts/action@6177b4481c00308b3839969c3eca88c96a91775f
-        with:
-          scope: shopware
-          identity: OpenApiDocs
-
-  # This workflow contains a single job called "build" 
+  # This workflow contains a single job called "build"
+  # When docs-ci declares OCTO_STS_TOKEN in workflow_call.secrets, add a get-token job and pass it for private repo clones
   generate-schema:
-    needs: [vars, get-token]
+    needs: vars
     uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
     with:
       schema_flags: --store-api -b ${{ needs.vars.outputs.PLUGIN_NAME }}
@@ -55,8 +41,7 @@ jobs:
       composer_packages: ${{ needs.vars.outputs.COMPOSER_PACKAGES }}
       shopware_version: ${{ inputs.shopware_version }}
       php_version: ${{ inputs.php_version }}
-    secrets:
-      OCTO_STS_TOKEN: ${{ needs.get-token.outputs.token }}
+    secrets: inherit
 
   open-pr:
     name: "Open a pull request"
