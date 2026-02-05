@@ -15,6 +15,8 @@ on:
 env:
   PLUGIN_NAME: SwagCommercial
   PLUGIN_URL: github.com/shopware/SwagCommercial.git
+  # Branch to clone for this plugin (set per store-api-reference branch, e.g. trunk or 6.6.x)
+  PLUGIN_BRANCH: 6.7.7.x
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel 
 jobs:
@@ -23,6 +25,7 @@ jobs:
     outputs:
       PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
       PLUGIN_URL: ${{ env.PLUGIN_URL }}
+      PLUGIN_BRANCH: ${{ env.PLUGIN_BRANCH }}
     steps:
       - run: echo "Exposing env vars"
 
@@ -36,6 +39,7 @@ jobs:
       schema_file: ${{ needs.vars.outputs.PLUGIN_NAME }}-storeapi.json
       plugin_name: ${{ needs.vars.outputs.PLUGIN_NAME }}
       plugin_url: ${{ needs.vars.outputs.PLUGIN_URL }}
+      plugin_branch: ${{ needs.vars.outputs.PLUGIN_BRANCH }}
       shopware_version: ${{ inputs.shopware_version }}
       php_version: ${{ inputs.php_version }}
     secrets: inherit
