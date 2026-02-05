@@ -32,7 +32,7 @@ jobs:
 
   # This workflow contains a single job called "build"
   generate-schema:
-    uses: shopware/docs-ci/.github/workflows/generate_schema.yml@main
+    uses: shopware/docs-ci/.github/workflows/generate_schema_new.yml@main
     with:
       schema_flags: --store-api
       schema_file: storeapi.json

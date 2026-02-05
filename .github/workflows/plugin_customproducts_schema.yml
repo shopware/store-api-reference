@@ -1,4 +1,4 @@
-name: Update Commercial Store API
+name: Update Custom Products Store API
 
 on:
   workflow_call:
@@ -13,8 +13,8 @@ on:
         type: string
 
 env:
-  PLUGIN_NAME: SwagCommercial
-  PLUGIN_URL: github.com/shopware/SwagCommercial.git
+  PLUGIN_NAME: SwagCustomizedProducts
+  PLUGIN_URL: github.com/shopware/SwagCustomizedProducts.git
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel 
 jobs:
