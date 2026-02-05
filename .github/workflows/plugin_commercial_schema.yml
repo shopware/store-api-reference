@@ -16,7 +16,7 @@ env:
   PLUGIN_NAME: SwagCommercial
   PLUGIN_URL: github.com/shopware/SwagCommercial.git
   # Branch to clone for this plugin (set per store-api-reference branch, e.g. trunk or 6.6.x)
-  PLUGIN_BRANCH: trunk
+  PLUGIN_BRANCH: 6.7.7.x
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel 
 jobs:
