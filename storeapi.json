@@ -9627,6 +9627,10 @@
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
           },
+          "internal": {
+            "description": "When the boolean value is `true` indicating that it is for internal use only and will not appear in product stream listings.",
+            "type": "boolean"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
