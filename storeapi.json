@@ -5611,10 +5611,6 @@
             "description": "Title name given to customer like DR. , Prof., etc.",
             "type": "string"
           },
-          "vatId": {
-            "description": "Unique identity of VAT.",
-            "type": "string"
-          },
           "phoneNumber": {
             "description": "Phone number of the customer.",
             "type": "string"
@@ -5634,6 +5630,11 @@
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "vatId": {
+            "description": "Unique identity of VAT.",
+            "type": "string",
+            "deprecated": true
           },
           "createdAt": {
             "type": "string",
@@ -20167,7 +20168,17 @@
         },
         "responses": {
           "200": {
-            "description": "The newsletter confirmation was successful."
+            "description": "The newsletter confirmation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           }
         },
         "security": [
@@ -20254,7 +20265,37 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "success",
+                    "status"
+                  ],
+                  "properties": {
+                    "success": {
+                      "description": "Indicates whether the subscribe request was successful.",
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "description": "The subscription status.",
+                      "type": "string",
+                      "enum": [
+                        "notSet",
+                        "optIn",
+                        "optOut",
+                        "direct"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           }
         },
         "security": [
@@ -20293,7 +20334,17 @@
         },
         "responses": {
           "200": {
-            "description": "Unsubscribing was successful."
+            "description": "Unsubscribing was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           }
         },
         "security": [
