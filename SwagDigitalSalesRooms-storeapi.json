@@ -5769,10 +5769,6 @@
             "description": "Title name given to customer like DR. , Prof., etc.",
             "type": "string"
           },
-          "vatId": {
-            "description": "Unique identity of VAT.",
-            "type": "string"
-          },
           "phoneNumber": {
             "description": "Phone number of the customer.",
             "type": "string"
@@ -5791,6 +5787,11 @@
           },
           "customFields": {
             "type": "object"
+          },
+          "vatId": {
+            "description": "Unique identity of VAT.",
+            "type": "string",
+            "deprecated": true
           },
           "createdAt": {
             "type": "string",
