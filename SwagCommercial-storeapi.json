@@ -1237,6 +1237,305 @@
         },
         "type": "object"
       },
+      "B2bComponentsIndividualPricing": {
+        "description": "Added since version: 6.7.8.0",
+        "required": [
+          "id",
+          "active",
+          "showStrikeThrough",
+          "name",
+          "target",
+          "priority",
+          "applyToAllProducts",
+          "useValidityRange",
+          "actionType",
+          "tiers"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "showStrikeThrough": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "applyToAllProducts": {
+            "type": "boolean"
+          },
+          "productStreamId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "useValidityRange": {
+            "type": "boolean"
+          },
+          "validFrom": {
+            "type": "string"
+          },
+          "validUntil": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "actionType": {
+            "type": "string"
+          },
+          "actionAmount": {
+            "type": "number",
+            "format": "float"
+          },
+          "createdById": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "updatedById": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "tagIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "readOnly": true
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "createdBy": {
+            "$ref": "#/components/schemas/User"
+          },
+          "updatedBy": {
+            "$ref": "#/components/schemas/User"
+          },
+          "productStream": {
+            "$ref": "#/components/schemas/ProductStream"
+          },
+          "tiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/B2bComponentsIndividualPricingTier"
+            }
+          },
+          "companyAssignments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/B2bComponentsIndividualPricingCompanyAssignment"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsIndividualPricingCompanyAssignment": {
+        "description": "Added since version: 6.7.8.0",
+        "required": [
+          "id",
+          "individualPricingId",
+          "customerId",
+          "scope"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "individualPricingId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "organizationUnitIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "individualPricing": {
+            "$ref": "#/components/schemas/B2bComponentsIndividualPricing"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
+          },
+          "units": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/B2bComponentsOrganization"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsIndividualPricingCompanyAssignmentUnit": {
+        "description": "Added since version: 6.7.8.0",
+        "required": [
+          "assignmentId",
+          "orgUnitId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "assignmentId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "orgUnitId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "assignment": {
+            "$ref": "#/components/schemas/B2bComponentsIndividualPricingCompanyAssignment"
+          },
+          "orgUnit": {
+            "$ref": "#/components/schemas/B2bComponentsOrganization"
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsIndividualPricingComputedCache": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsIndividualPricingTag": {
+        "description": "Added since version: 6.7.8.0",
+        "required": [
+          "individualPricingId",
+          "tagId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "individualPricingId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "tagId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "individualPricing": {
+            "$ref": "#/components/schemas/B2bComponentsIndividualPricing"
+          },
+          "tag": {
+            "$ref": "#/components/schemas/Tag"
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsIndividualPricingTier": {
+        "description": "Added since version: 6.7.8.0",
+        "required": [
+          "individualPricingId",
+          "id",
+          "qtyFrom",
+          "price"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "individualPricingId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "qtyFrom": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "qtyTo": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "price": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Price"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "individualPricing": {
+            "$ref": "#/components/schemas/B2bComponentsIndividualPricing"
+          }
+        },
+        "type": "object"
+      },
       "B2bComponentsOrganization": {
         "required": [
           "id",
@@ -22254,7 +22553,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Identifier of the quote to be reinvited",
+            "description": "Identifier of the quote to send message",
             "required": true,
             "schema": {
               "type": "string",
@@ -22273,6 +22572,48 @@
                     "type": "string"
                   }
                 },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content response"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/quote/{id}/read-message": {
+      "post": {
+        "tags": [
+          "B2B Quote Management"
+        ],
+        "summary": "Mark messages as read in a quote",
+        "description": "This route is used to mark all messages as read in the specified quote.",
+        "operationId": "markMessagesAsReadInQuote",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the quote whose messages will be marked as read",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
                 "type": "object"
               }
             }
@@ -23638,34 +23979,18 @@
                     "description": "Identifier (UUID) of the addresses for shipping.",
                     "type": "array",
                     "items": {
-                      "type": "array",
-                      "properties": {
-                        "customerAddressId": {
-                          "type": "string",
-                          "description": "The Identifier (UUID) of the customer address",
-                          "pattern": "^[0-9a-f]{32}$"
-                        }
-                      },
-                      "required": [
-                        "customerAddressId"
-                      ]
+                      "type": "string",
+                      "description": "The Identifier (UUID) of the customer address",
+                      "pattern": "^[0-9a-f]{32}$"
                     }
                   },
                   "billingAddressIds": {
                     "description": "Identifier (UUID) of the addresses for billing.",
                     "type": "array",
                     "items": {
-                      "type": "array",
-                      "properties": {
-                        "customerAddressId": {
-                          "type": "string",
-                          "description": "The Identifier (UUID) of the customer address",
-                          "pattern": "^[0-9a-f]{32}$"
-                        }
-                      },
-                      "required": [
-                        "customerAddressId"
-                      ]
+                      "type": "string",
+                      "description": "The Identifier (UUID) of the customer address",
+                      "pattern": "^[0-9a-f]{32}$"
                     }
                   },
                   "paymentMethodIds": {
@@ -23893,36 +24218,18 @@
                     "description": "Identifier (UUID) of the addresses for shipping.",
                     "type": "array",
                     "items": {
-                      "type": "array",
-                      "properties": {
-                        "customerAddressId": {
-                          "type": "string",
-                          "description": "The Identifier (UUID) of the customer address",
-                          "pattern": "^[0-9a-f]{32}$"
-                        }
-                      },
-                      "required": [
-                        "customerAddressId",
-                        "id"
-                      ]
+                      "type": "string",
+                      "description": "The Identifier (UUID) of the customer address",
+                      "pattern": "^[0-9a-f]{32}$"
                     }
                   },
                   "billingAddressIds": {
                     "description": "Identifier (UUID) of the addresses for billing.",
                     "type": "array",
                     "items": {
-                      "type": "array",
-                      "properties": {
-                        "customerAddressId": {
-                          "type": "string",
-                          "description": "The Identifier (UUID) of the customer address",
-                          "pattern": "^[0-9a-f]{32}$"
-                        }
-                      },
-                      "required": [
-                        "customerAddressId",
-                        "id"
-                      ]
+                      "type": "string",
+                      "description": "The Identifier (UUID) of the customer address",
+                      "pattern": "^[0-9a-f]{32}$"
                     }
                   },
                   "paymentMethodIds": {
