@@ -104,7 +104,7 @@ jobs:
           {
             echo ":books: *Weekly Docs Update (Git Repository)*"
             echo ""
-            echo "*API Docs*"
+            echo "*Dev Docs*"
             echo ""
             echo "*PRs*"
             echo ":inbox_tray: $PR_OPENED PRs opened"
@@ -126,7 +126,7 @@ jobs:
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: repo-stats-report
+          name: repo-stats-report-${{ matrix.repo }}
           path: |
             detail.md
             slack.md
