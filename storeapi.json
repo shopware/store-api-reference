@@ -741,10 +741,6 @@
                 "description": "When boolean value is `true`, the category is listed for selection.",
                 "type": "boolean"
               },
-              "cmsPageIdSwitched": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "boolean"
-              },
               "visibleChildCount": {
                 "description": "Runtime field, cannot be used as part of the criteria.",
                 "type": "integer",
@@ -799,6 +795,11 @@
               "customEntityTypeId": {
                 "type": "string",
                 "pattern": "^[0-9a-f]{32}$"
+              },
+              "cmsPageIdSwitched": {
+                "description": "Runtime field, cannot be used as part of the criteria.",
+                "type": "boolean",
+                "deprecated": true
               },
               "seoUrl": {
                 "description": "Runtime field, cannot be used as part of the criteria.",
@@ -1111,10 +1112,6 @@
             "description": "When boolean value is `true`, the category is listed for selection.",
             "type": "boolean"
           },
-          "cmsPageIdSwitched": {
-            "description": "Runtime field, cannot be used as part of the criteria.",
-            "type": "boolean"
-          },
           "visibleChildCount": {
             "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "integer",
@@ -1180,6 +1177,11 @@
           "customEntityTypeId": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
+          },
+          "cmsPageIdSwitched": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean",
+            "deprecated": true
           },
           "seoUrl": {
             "description": "Runtime field, cannot be used as part of the criteria.",
