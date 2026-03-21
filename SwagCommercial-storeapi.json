@@ -873,6 +873,9 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
+          "customFields": {
+            "type": "object"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
@@ -954,9 +957,6 @@
       },
       "B2bComponentsApprovalRuleAppScriptCondition": {
         "description": "Added since version: 6.6.3.0",
-        "required": [
-          "name"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -1066,6 +1066,9 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
           },
           "organizations": {
             "type": "array",
@@ -4552,7 +4555,7 @@
             "format": "date-time"
           },
           "hash": {
-            "description": "Password hash for customer recovery.",
+            "description": "Customer registration double opt-in hash for confirming the customer account.",
             "type": "string"
           },
           "guest": {
@@ -8909,8 +8912,7 @@
       "OrderReturnLineItemReason": {
         "required": [
           "id",
-          "reasonKey",
-          "content"
+          "reasonKey"
         ],
         "properties": {
           "id": {
@@ -15687,6 +15689,10 @@
             "type": "string"
           },
           "additionalAddressLine2": {
+            "type": "string"
+          },
+          "hash": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
             "type": "string"
           },
           "customFields": {
@@ -24820,7 +24826,7 @@
           "B2B Budget Management"
         ],
         "summary": "Load single budget",
-        "description": "This route is used to load one budget by ID\n\n**Available Associations:**\n- `organizations`\n- `notificationRecipients`\n- `reviewerRole`\n- `currency`",
+        "description": "This route is used to load one budget by ID\n\n**Available Associations:**\n- `customer`\n- `organizations`\n- `notificationRecipients`\n- `reviewerRole`\n- `currency`",
         "operationId": "readBudget",
         "requestBody": {
           "required": false,
@@ -24870,7 +24876,7 @@
           "B2B Budget Management"
         ],
         "summary": "Load single budget",
-        "description": "This route is used to load one budget by ID\n\n**Available Associations:**\n- `organizations`\n- `notificationRecipients`\n- `reviewerRole`\n- `currency`",
+        "description": "This route is used to load one budget by ID\n\n**Available Associations:**\n- `customer`\n- `organizations`\n- `notificationRecipients`\n- `reviewerRole`\n- `currency`",
         "operationId": "readBudgetGet",
         "parameters": [
           {
