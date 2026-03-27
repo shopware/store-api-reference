@@ -55,7 +55,8 @@
     "/shopping-lists",
     "/shopping-lists/add-to-cart",
     "/sso/auth/{providerId}",
-    "/sso/redirect/{providerId}"
+    "/sso/redirect/{providerId}",
+    "/store-api/product/{productId}/recommended-bundles"
   ],
   "schemas": [
     "AccountNewsletterRecipient",
@@ -117,6 +118,9 @@
     "B2bOrderEmployee",
     "B2bPermission",
     "Breadcrumb",
+    "BundleDiscount",
+    "BundleItem",
+    "BundleProduct",
     "CalculatedPrice",
     "Cart",
     "CartDelivery",
