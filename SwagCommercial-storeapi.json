@@ -9940,6 +9940,11 @@
                 "type": "string",
                 "pattern": "^[0-9a-f]{32}$"
               },
+              "openGraphMediaId": {
+                "description": "Media used as Open Graph image for social media sharing.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
               "productNumber": {
                 "description": "Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.",
                 "type": "string"
@@ -10132,6 +10137,12 @@
               },
               "customFields": {
                 "type": "object"
+              },
+              "ogTitle": {
+                "type": "string"
+              },
+              "ogDescription": {
+                "type": "string"
               },
               "type": {
                 "description": "The type of the product, e.g., physical or digital.",
@@ -10659,6 +10670,36 @@
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
                             "example": "41d0e299ca1abeb2094852da042165c7"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "openGraphMedia": {
+                    "description": "Open Graph image for social media sharing",
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/product/deb10517653c255364175796ace3553f/openGraphMedia"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "media"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "bbda52d941a3452369a00f2880f4f358"
                           }
                         }
                       }
@@ -11230,6 +11271,11 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
+          "openGraphMediaId": {
+            "description": "Media used as Open Graph image for social media sharing.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
           "productNumber": {
             "description": "Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.",
             "type": "string"
@@ -11422,6 +11468,12 @@
           },
           "customFields": {
             "type": "object"
+          },
+          "ogTitle": {
+            "type": "string"
+          },
+          "ogDescription": {
+            "type": "string"
           },
           "type": {
             "description": "The type of the product, e.g., physical or digital.",
@@ -11822,6 +11874,10 @@
           "cover": {
             "$ref": "#/components/schemas/ProductMedia",
             "description": "Main product image displayed in listings and detail pages"
+          },
+          "openGraphMedia": {
+            "$ref": "#/components/schemas/Media",
+            "description": "Open Graph image for social media sharing"
           },
           "cmsPage": {
             "$ref": "#/components/schemas/CmsPage",
@@ -14744,6 +14800,46 @@
           },
           "salesChannelDefaultHreflang": {
             "$ref": "#/components/schemas/SalesChannel"
+          }
+        },
+        "type": "object"
+      },
+      "SalesChannelTrackingCustomer": {
+        "description": "Added since version: 6.7.9.0",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "SalesChannelTrackingOrder": {
+        "description": "Added since version: 6.7.9.0",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
           }
         },
         "type": "object"
@@ -20193,6 +20289,50 @@
           ],
           "hash": "f86b6a872cb83dbd22d838ceda1aa3d4",
           "languageId": "2fbb5fe2e29a4d70aa5854ce7ce3e20b"
+        }
+      },
+      "ProductPurchaseLimit": {
+        "type": "object",
+        "description": "Current quantity purchase limits for a product.",
+        "required": [
+          "productId",
+          "minPurchase",
+          "purchaseSteps",
+          "maxPurchase",
+          "stock",
+          "apiAlias"
+        ],
+        "properties": {
+          "productId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The product ID."
+          },
+          "minPurchase": {
+            "type": "integer",
+            "description": "Minimum quantity a customer can purchase."
+          },
+          "purchaseSteps": {
+            "type": "integer",
+            "description": "Step increment for quantity selection."
+          },
+          "maxPurchase": {
+            "type": "integer",
+            "description": "Maximum quantity a customer can purchase, reflecting current stock for closeout products."
+          },
+          "stock": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Current stock level of the product."
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "product_purchase_limit"
+            ]
+          }
         }
       },
       "SuccessResponse": {
