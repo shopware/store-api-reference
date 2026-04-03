@@ -7458,6 +7458,11 @@
                 "type": "string",
                 "pattern": "^[0-9a-f]{32}$"
               },
+              "openGraphMediaId": {
+                "description": "Media used as Open Graph image for social media sharing.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
               "productNumber": {
                 "description": "Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.",
                 "type": "string"
@@ -7650,6 +7655,12 @@
               },
               "customFields": {
                 "type": "object"
+              },
+              "ogTitle": {
+                "type": "string"
+              },
+              "ogDescription": {
+                "type": "string"
               },
               "type": {
                 "description": "The type of the product, e.g., physical or digital.",
@@ -7948,6 +7959,36 @@
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
                             "example": "41d0e299ca1abeb2094852da042165c7"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "openGraphMedia": {
+                    "description": "Open Graph image for social media sharing",
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/product/deb10517653c255364175796ace3553f/openGraphMedia"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "media"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "bbda52d941a3452369a00f2880f4f358"
                           }
                         }
                       }
@@ -8526,6 +8567,11 @@
             "pattern": "^[0-9a-f]{32}$",
             "description": "Unique identifier of CMS page's version."
           },
+          "openGraphMediaId": {
+            "description": "Media used as Open Graph image for social media sharing.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
           "productNumber": {
             "description": "Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.",
             "type": "string"
@@ -8733,6 +8779,12 @@
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
           },
+          "ogTitle": {
+            "type": "string"
+          },
+          "ogDescription": {
+            "type": "string"
+          },
           "type": {
             "description": "The type of the product, e.g., physical or digital.",
             "type": "string",
@@ -8908,6 +8960,10 @@
           "cover": {
             "$ref": "#/components/schemas/ProductMedia",
             "description": "Main product image displayed in listings and detail pages"
+          },
+          "openGraphMedia": {
+            "$ref": "#/components/schemas/Media",
+            "description": "Open Graph image for social media sharing"
           },
           "cmsPage": {
             "$ref": "#/components/schemas/CmsPage",
@@ -10340,6 +10396,46 @@
           },
           "salesChannelDefaultHreflang": {
             "$ref": "#/components/schemas/SalesChannel"
+          }
+        },
+        "type": "object"
+      },
+      "SalesChannelTrackingCustomer": {
+        "description": "Added since version: 6.7.9.0",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "SalesChannelTrackingOrder": {
+        "description": "Added since version: 6.7.9.0",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
           }
         },
         "type": "object"
@@ -15333,6 +15429,50 @@
           "languageId": "2fbb5fe2e29a4d70aa5854ce7ce3e20b"
         }
       },
+      "ProductPurchaseLimit": {
+        "type": "object",
+        "description": "Current quantity purchase limits for a product.",
+        "required": [
+          "productId",
+          "minPurchase",
+          "purchaseSteps",
+          "maxPurchase",
+          "stock",
+          "apiAlias"
+        ],
+        "properties": {
+          "productId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The product ID."
+          },
+          "minPurchase": {
+            "type": "integer",
+            "description": "Minimum quantity a customer can purchase."
+          },
+          "purchaseSteps": {
+            "type": "integer",
+            "description": "Step increment for quantity selection."
+          },
+          "maxPurchase": {
+            "type": "integer",
+            "description": "Maximum quantity a customer can purchase, reflecting current stock for closeout products."
+          },
+          "stock": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Current stock level of the product."
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "product_purchase_limit"
+            ]
+          }
+        }
+      },
       "SuccessResponse": {
         "type": "object",
         "properties": {
@@ -19435,7 +19575,7 @@
           "Product"
         ],
         "summary": "Fetch a single product",
-        "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
+        "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `openGraphMedia` - Open Graph image for social media sharing\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProductDetail",
         "parameters": [
           {
@@ -19537,7 +19677,7 @@
           "Product"
         ],
         "summary": "Fetch a single product",
-        "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
+        "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `openGraphMedia` - Open Graph image for social media sharing\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProductDetailGet",
         "parameters": [
           {
@@ -19659,7 +19799,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a list of products",
-        "description": "List products that match the given criteria. For performance reasons a limit should always be set.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
+        "description": "List products that match the given criteria. For performance reasons a limit should always be set.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `openGraphMedia` - Open Graph image for social media sharing\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProduct",
         "parameters": [
           {
@@ -19718,7 +19858,7 @@
           "Endpoints supporting Criteria "
         ],
         "summary": "Fetch a list of products",
-        "description": "List products that match the given criteria. For performance reasons a limit should always be set.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
+        "description": "List products that match the given criteria. For performance reasons a limit should always be set.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `openGraphMedia` - Open Graph image for social media sharing\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProductGet",
         "parameters": [
           {
@@ -20070,6 +20210,54 @@
           {
             "ApiKey": [],
             "ContextToken": []
+          }
+        ]
+      }
+    },
+    "/product/purchase-limit": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Fetch current purchase quantity limits for products",
+        "description": "Returns the current min/max/step purchase constraints for the given products, reflecting live stock or configured limitations. Intended for use on PDP to show actual values on product pages.",
+        "operationId": "readProductsPurchaseLimit",
+        "parameters": [
+          {
+            "name": "ids[]",
+            "in": "query",
+            "description": "List of product IDs to fetch quantity limits for.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current quantity limits for the requested products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductPurchaseLimit"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
           }
         ]
       }
@@ -22135,7 +22323,7 @@
           "Product"
         ],
         "summary": "Fetch a product listing by category",
-        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
+        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `openGraphMedia` - Open Graph image for social media sharing\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProductListing",
         "parameters": [
           {
@@ -22229,7 +22417,7 @@
           "Product"
         ],
         "summary": "Fetch a product listing by category",
-        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
+        "description": "Fetches a product listing for a specific category. It also provides filters, sortings and property aggregations, analogous to the /search endpoint.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `openGraphMedia` - Open Graph image for social media sharing\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
         "operationId": "readProductListingGet",
         "parameters": [
           {
