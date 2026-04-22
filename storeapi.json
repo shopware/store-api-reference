@@ -7485,12 +7485,6 @@
                 "description": "When the value is set to true, the product is hidden when sold out.",
                 "type": "boolean"
               },
-              "availableStock": {
-                "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
-                "type": "integer",
-                "format": "int64",
-                "readOnly": true
-              },
               "stock": {
                 "description": "Indicates the number of products available.",
                 "type": "integer",
@@ -7675,6 +7669,13 @@
                 "items": {
                   "type": "string"
                 },
+                "readOnly": true,
+                "deprecated": true
+              },
+              "availableStock": {
+                "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
+                "type": "integer",
+                "format": "int64",
                 "readOnly": true,
                 "deprecated": true
               },
@@ -8594,12 +8595,6 @@
             "description": "When the value is set to true, the product is hidden when sold out.",
             "type": "boolean"
           },
-          "availableStock": {
-            "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
-            "type": "integer",
-            "format": "int64",
-            "readOnly": true
-          },
           "stock": {
             "description": "Indicate the number of product/s currently in stock. As soon as the order status of an order is set to completed, the stock is reduced.",
             "type": "integer",
@@ -8801,6 +8796,13 @@
             "readOnly": true,
             "deprecated": true,
             "description": "Internal field."
+          },
+          "availableStock": {
+            "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true,
+            "deprecated": true
           },
           "calculatedPrice": {
             "type": "object",
@@ -10499,6 +10501,11 @@
               "customFields": {
                 "type": "object"
               },
+              "position": {
+                "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+                "type": "integer",
+                "format": "int64"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -10546,6 +10553,11 @@
           "customFields": {
             "type": "object",
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
           },
           "createdAt": {
             "type": "string",
