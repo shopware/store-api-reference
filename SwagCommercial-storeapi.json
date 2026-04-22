@@ -9967,12 +9967,6 @@
                 "description": "When the value is set to true, the product is hidden when sold out.",
                 "type": "boolean"
               },
-              "availableStock": {
-                "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
-                "type": "integer",
-                "format": "int64",
-                "readOnly": true
-              },
               "stock": {
                 "description": "Indicates the number of products available.",
                 "type": "integer",
@@ -10157,6 +10151,13 @@
                 "items": {
                   "type": "string"
                 },
+                "readOnly": true,
+                "deprecated": true
+              },
+              "availableStock": {
+                "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
+                "type": "integer",
+                "format": "int64",
                 "readOnly": true,
                 "deprecated": true
               },
@@ -11298,12 +11299,6 @@
             "description": "When the value is set to true, the product is hidden when sold out.",
             "type": "boolean"
           },
-          "availableStock": {
-            "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
-            "type": "integer",
-            "format": "int64",
-            "readOnly": true
-          },
           "stock": {
             "description": "Indicates the number of products available.",
             "type": "integer",
@@ -11488,6 +11483,13 @@
             "items": {
               "type": "string"
             },
+            "readOnly": true,
+            "deprecated": true
+          },
+          "availableStock": {
+            "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
+            "type": "integer",
+            "format": "int64",
             "readOnly": true,
             "deprecated": true
           },
@@ -14901,6 +14903,11 @@
               "customFields": {
                 "type": "object"
               },
+              "position": {
+                "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+                "type": "integer",
+                "format": "int64"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -14944,6 +14951,11 @@
           },
           "customFields": {
             "type": "object"
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
           },
           "createdAt": {
             "type": "string",
