@@ -7,7 +7,7 @@
       "name": "MIT",
       "url": "https://github.com/shopware/shopware/blob/trunk/LICENSE"
     },
-    "version": "6.7.9.0"
+    "version": "6.7.10.0"
   },
   "servers": [
     {
@@ -4308,6 +4308,11 @@
               "pattern": "^[0-9a-f]{32}$"
             },
             "readOnly": true
+          },
+          "requestedGroupId": {
+            "description": "Unique identity of requested group.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
           },
           "createdById": {
             "type": "string",
@@ -9515,6 +9520,11 @@
                 "type": "string",
                 "pattern": "^[0-9a-f]{32}$"
               },
+              "openGraphMediaId": {
+                "description": "Media used as Open Graph image for social media sharing.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
               "productNumber": {
                 "description": "Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.",
                 "type": "string"
@@ -9536,12 +9546,6 @@
               "isCloseout": {
                 "description": "When the value is set to true, the product is hidden when sold out.",
                 "type": "boolean"
-              },
-              "availableStock": {
-                "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
-                "type": "integer",
-                "format": "int64",
-                "readOnly": true
               },
               "stock": {
                 "description": "Indicates the number of products available.",
@@ -9708,6 +9712,12 @@
               "customFields": {
                 "type": "object"
               },
+              "ogTitle": {
+                "type": "string"
+              },
+              "ogDescription": {
+                "type": "string"
+              },
               "type": {
                 "description": "The type of the product, e.g., physical or digital.",
                 "type": "string",
@@ -9721,6 +9731,13 @@
                 "items": {
                   "type": "string"
                 },
+                "readOnly": true,
+                "deprecated": true
+              },
+              "availableStock": {
+                "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
+                "type": "integer",
+                "format": "int64",
                 "readOnly": true,
                 "deprecated": true
               },
@@ -10041,6 +10058,36 @@
                             "type": "string",
                             "pattern": "^[0-9a-f]{32}$",
                             "example": "41d0e299ca1abeb2094852da042165c7"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "openGraphMedia": {
+                    "description": "Open Graph image for social media sharing",
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "related": {
+                            "type": "string",
+                            "format": "uri-reference",
+                            "example": "/product/deb10517653c255364175796ace3553f/openGraphMedia"
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "media"
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{32}$",
+                            "example": "bbda52d941a3452369a00f2880f4f358"
                           }
                         }
                       }
@@ -10612,6 +10659,11 @@
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
+          "openGraphMediaId": {
+            "description": "Media used as Open Graph image for social media sharing.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
           "productNumber": {
             "description": "Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.",
             "type": "string"
@@ -10633,12 +10685,6 @@
           "isCloseout": {
             "description": "When the value is set to true, the product is hidden when sold out.",
             "type": "boolean"
-          },
-          "availableStock": {
-            "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
-            "type": "integer",
-            "format": "int64",
-            "readOnly": true
           },
           "stock": {
             "description": "Indicates the number of products available.",
@@ -10805,6 +10851,12 @@
           "customFields": {
             "type": "object"
           },
+          "ogTitle": {
+            "type": "string"
+          },
+          "ogDescription": {
+            "type": "string"
+          },
           "type": {
             "description": "The type of the product, e.g., physical or digital.",
             "type": "string",
@@ -10818,6 +10870,13 @@
             "items": {
               "type": "string"
             },
+            "readOnly": true,
+            "deprecated": true
+          },
+          "availableStock": {
+            "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
+            "type": "integer",
+            "format": "int64",
             "readOnly": true,
             "deprecated": true
           },
@@ -11011,6 +11070,10 @@
           "cover": {
             "$ref": "#/components/schemas/ProductMedia",
             "description": "Main product image displayed in listings and detail pages"
+          },
+          "openGraphMedia": {
+            "$ref": "#/components/schemas/Media",
+            "description": "Open Graph image for social media sharing"
           },
           "cmsPage": {
             "$ref": "#/components/schemas/CmsPage",
@@ -13937,6 +14000,46 @@
         },
         "type": "object"
       },
+      "SalesChannelTrackingCustomer": {
+        "description": "Added since version: 6.7.9.0",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "SalesChannelTrackingOrder": {
+        "description": "Added since version: 6.7.9.0",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "SalesChannelType": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -13994,6 +14097,11 @@
               "customFields": {
                 "type": "object"
               },
+              "position": {
+                "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+                "type": "integer",
+                "format": "int64"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time",
@@ -14037,6 +14145,11 @@
           },
           "customFields": {
             "type": "object"
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
           },
           "createdAt": {
             "type": "string",
@@ -16928,6 +17041,50 @@
           "product"
         ]
       },
+      "ProductPurchaseLimit": {
+        "type": "object",
+        "description": "Current quantity purchase limits for a product.",
+        "required": [
+          "productId",
+          "minPurchase",
+          "purchaseSteps",
+          "maxPurchase",
+          "stock",
+          "apiAlias"
+        ],
+        "properties": {
+          "productId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The product ID."
+          },
+          "minPurchase": {
+            "type": "integer",
+            "description": "Minimum quantity a customer can purchase."
+          },
+          "purchaseSteps": {
+            "type": "integer",
+            "description": "Step increment for quantity selection."
+          },
+          "maxPurchase": {
+            "type": "integer",
+            "description": "Maximum quantity a customer can purchase, reflecting current stock for closeout products."
+          },
+          "stock": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Current stock level of the product."
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "product_purchase_limit"
+            ]
+          }
+        }
+      },
       "CartDeliveryPosition": {
         "type": "object",
         "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
@@ -19444,39 +19601,62 @@
         "description": "Price object",
         "properties": {
           "currencyId": {
+            "description": "Unique identity of the associated currency.",
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
           },
           "gross": {
-            "description": "",
+            "description": "Gross price for the associated currency.",
             "type": "number"
           },
           "net": {
-            "description": "",
+            "description": "Net price for the associated currency.",
             "type": "number"
           },
           "linked": {
-            "description": "",
+            "description": "Whether gross and net prices are linked through the tax configuration.",
             "type": "boolean"
           },
+          "percentage": {
+            "description": "Discount percentage relative to the list price for the gross and net amounts. `null` when no list price is set.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "gross": {
+                "description": "Discount percentage relative to the gross list price.",
+                "type": "number"
+              },
+              "net": {
+                "description": "Discount percentage relative to the net list price.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "gross",
+              "net"
+            ]
+          },
           "listPrice": {
-            "description": "",
+            "description": "Reference list price for displaying discounts.",
             "type": "object",
             "properties": {
               "currencyId": {
+                "description": "Unique identity of the associated currency.",
                 "type": "string",
                 "pattern": "^[0-9a-f]{32}$"
               },
               "gross": {
-                "description": "",
+                "description": "Gross list price for the associated currency.",
                 "type": "number"
               },
               "net": {
-                "description": "",
+                "description": "Net list price for the associated currency.",
                 "type": "number"
               },
               "linked": {
-                "description": "",
+                "description": "Whether gross and net list prices are linked through the tax configuration.",
                 "type": "boolean"
               }
             },
@@ -19486,23 +19666,24 @@
             ]
           },
           "regulationPrice": {
-            "description": "",
+            "description": "Reference price used for legal price disclosures.",
             "type": "object",
             "properties": {
               "currencyId": {
+                "description": "Unique identity of the associated currency.",
                 "type": "string",
                 "pattern": "^[0-9a-f]{32}$"
               },
               "gross": {
-                "description": "",
+                "description": "Gross regulation price for the associated currency.",
                 "type": "number"
               },
               "net": {
-                "description": "",
+                "description": "Net regulation price for the associated currency.",
                 "type": "number"
               },
               "linked": {
-                "description": "",
+                "description": "Whether gross and net regulation prices are linked through the tax configuration.",
                 "type": "boolean"
               }
             },
