@@ -41,7 +41,7 @@ jobs:
       shopware_version: ${{ inputs.shopware_version }}
       php_version: ${{ inputs.php_version }}
     secrets: inherit
-  
+
   generate-commercial-trunk:
     if: ${{ inputs.trigger_commercial_schema }}
     uses: ./.github/workflows/plugin_commercial_schema.yml
@@ -49,7 +49,7 @@ jobs:
       shopware_version: ${{ inputs.shopware_version }}
       php_version: ${{ inputs.php_version }}
     secrets: inherit
-  
+
   generate-digitalsalesroom-trunk:
     if: ${{ inputs.trigger_digitalsalesroom_schema }}
     uses: ./.github/workflows/plugin_digitalsalesroom_schema.yml
