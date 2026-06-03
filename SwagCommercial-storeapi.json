@@ -743,7 +743,7 @@
         "type": "object"
       },
       "AppMcpPrompt": {
-        "description": "Added since version: 6.7.0.0",
+        "description": "Added since version: 6.7.11.0",
         "required": [
           "label"
         ],
@@ -769,7 +769,7 @@
         "type": "object"
       },
       "AppMcpResource": {
-        "description": "Added since version: 6.7.0.0",
+        "description": "Added since version: 6.7.11.0",
         "required": [
           "label"
         ],
@@ -795,7 +795,7 @@
         "type": "object"
       },
       "AppMcpTool": {
-        "description": "Added since version: 6.7.0.0",
+        "description": "Added since version: 6.7.11.0",
         "required": [
           "label"
         ],
@@ -1144,6 +1144,42 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
+          },
+          "extensions": {
+            "properties": {
+              "subscriptionBudgets": {
+                "properties": {
+                  "links": {
+                    "type": "object",
+                    "properties": {
+                      "related": {
+                        "type": "string",
+                        "format": "uri-reference",
+                        "example": "/b2b-components-budget/1e4002da52224f484ff690aa9b0bfb2a/subscriptionBudgets"
+                      }
+                    }
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "b2b_components_subscription_budget"
+                        },
+                        "id": {
+                          "type": "string",
+                          "example": "db9b610a5feba7efda832033f6be0bbf"
+                        }
+                      }
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
           },
           "customer": {
             "$ref": "#/components/schemas/Customer"
@@ -2525,6 +2561,22 @@
           },
           "product": {
             "$ref": "#/components/schemas/Product"
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsSubscriptionBudget": {
+        "description": "Added since version: 6.7.0.0",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "subscription": {
+            "$ref": "#/components/schemas/Subscription"
+          },
+          "budget": {
+            "$ref": "#/components/schemas/B2bComponentsBudget"
           }
         },
         "type": "object"
@@ -16268,6 +16320,35 @@
                   }
                 },
                 "type": "object"
+              },
+              "subscriptionBudget": {
+                "properties": {
+                  "links": {
+                    "type": "object",
+                    "properties": {
+                      "related": {
+                        "type": "string",
+                        "format": "uri-reference",
+                        "example": "/subscription/787ad0b7a17de4ad6b1711bbf8d79fcb/subscriptionBudget"
+                      }
+                    }
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "b2b_components_subscription_budget"
+                      },
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{32}$",
+                        "example": "6b2732717e6360e8eccfd947596f4e64"
+                      }
+                    }
+                  }
+                },
+                "type": "object"
               }
             },
             "type": "object"
@@ -25927,7 +26008,7 @@
           "B2B Budget Management"
         ],
         "summary": "Load single budget",
-        "description": "This route is used to load one budget by ID\n\n**Available Associations:**\n- `customer`\n- `organizations`\n- `notificationRecipients`\n- `reviewerRole`\n- `currency`",
+        "description": "This route is used to load one budget by ID\n\n**Available Associations:**\n- `customer`\n- `organizations`\n- `notificationRecipients`\n- `reviewerRole`\n- `currency`\n- `subscriptionBudgets`",
         "operationId": "readBudget",
         "requestBody": {
           "required": false,
@@ -25980,7 +26061,7 @@
           "B2B Budget Management"
         ],
         "summary": "Load single budget",
-        "description": "This route is used to load one budget by ID\n\n**Available Associations:**\n- `customer`\n- `organizations`\n- `notificationRecipients`\n- `reviewerRole`\n- `currency`",
+        "description": "This route is used to load one budget by ID\n\n**Available Associations:**\n- `customer`\n- `organizations`\n- `notificationRecipients`\n- `reviewerRole`\n- `currency`\n- `subscriptionBudgets`",
         "operationId": "readBudgetGet",
         "parameters": [
           {
