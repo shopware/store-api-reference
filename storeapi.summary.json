@@ -2,6 +2,7 @@
   "paths": [
     "/_info/openapi3.json",
     "/_info/routes",
+    "/_mcp",
     "/account/address",
     "/account/address/default-billing/{addressId}",
     "/account/address/default-shipping/{addressId}",
@@ -280,6 +281,7 @@
     "SalesChannelAnalytics",
     "SalesChannelContext",
     "SalesChannelDomain",
+    "SalesChannelFile",
     "SalesChannelTrackingCustomer",
     "SalesChannelTrackingOrder",
     "SalesChannelType",
