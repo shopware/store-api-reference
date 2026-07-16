@@ -43,7 +43,7 @@ jobs:
       - id: check
         env:
           VERSION: ${{ inputs.shopware_version }}
-          BRANCH: ${{ github.ref_name }}
+          BRANCH: ${{ github.ref_type != 'tag' && (github.head_ref || github.ref_name) || github.event.repository.default_branch }}
         run: |
           # Map branch -> expected version pattern. Bump `latest` when it moves.
           case "$BRANCH" in
