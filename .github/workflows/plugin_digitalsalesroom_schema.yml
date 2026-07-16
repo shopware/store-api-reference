@@ -16,7 +16,7 @@ env:
   PLUGIN_NAME: SwagDigitalSalesRooms
   PLUGIN_URL: github.com/shopware/swagdigitalsalesrooms.git
   COMPOSER_PACKAGES: shopware-pwa/shopware-pwa dev-master symfony/mercure ^0.6.2 spatie/icalendar-generator ^2.5
-  PLUGIN_BRANCH: main
+  PLUGIN_BRANCH: 6.6.x
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
