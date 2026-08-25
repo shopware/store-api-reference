@@ -3940,6 +3940,45 @@
           "categories"
         ]
       },
+      "B2bComponentsOrganizationCustomerAddress": {
+        "required": [
+          "id",
+          "organizationId",
+          "customerAddressId",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "organizationId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customerAddressId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "type": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "customerAddress": {
+            "$ref": "#/components/schemas/CustomerAddress"
+          }
+        },
+        "type": "object"
+      },
       "B2bComponentsRole": {
         "required": [
           "id",
@@ -4015,6 +4054,80 @@
           }
         },
         "type": "object"
+      },
+      "EmployeeAvailableContextsResponse": {
+        "type": "object",
+        "required": [
+          "contextSelectionRequired",
+          "contexts"
+        ],
+        "properties": {
+          "contextSelectionRequired": {
+            "description": "True when the account has more than one context and none is active yet, so the storefront must prompt the user to pick one before continuing.",
+            "type": "boolean"
+          },
+          "contexts": {
+            "description": "Every active membership the logged-in account can act as.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmployeeContext"
+            }
+          },
+          "defaultEmployeeId": {
+            "description": "The account's default context, auto-activated on the next login. Null when no default is set.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          }
+        }
+      },
+      "EmployeeContext": {
+        "type": "object",
+        "required": [
+          "employeeId",
+          "companyName",
+          "active"
+        ],
+        "properties": {
+          "employeeId": {
+            "description": "Identifier of the employee identity that represents this membership.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "companyId": {
+            "description": "Identifier of the business partner customer (company). Null when the context is not bound to a specific customer record.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "companyName": {
+            "description": "Display name of the company this context belongs to.",
+            "type": "string"
+          },
+          "roleId": {
+            "description": "Identifier of the B2B role granted in this context. Null when no role is assigned.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "roleName": {
+            "description": "Name of the B2B role granted in this context. Null when no role is assigned.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "active": {
+            "description": "Whether this context is the one currently active for the session.",
+            "type": "boolean"
+          }
+        }
       },
       "B2bComponentsIndividualPricing": {
         "description": "Added since version: 6.7.8.0",
@@ -4386,119 +4499,6 @@
           }
         },
         "type": "object"
-      },
-      "B2bComponentsOrganizationCustomerAddress": {
-        "required": [
-          "id",
-          "organizationId",
-          "customerAddressId",
-          "type"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "organizationId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "customerAddressId": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "type": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "customerAddress": {
-            "$ref": "#/components/schemas/CustomerAddress"
-          }
-        },
-        "type": "object"
-      },
-      "EmployeeAvailableContextsResponse": {
-        "type": "object",
-        "required": [
-          "contextSelectionRequired",
-          "contexts"
-        ],
-        "properties": {
-          "contextSelectionRequired": {
-            "description": "True when the account has more than one context and none is active yet, so the storefront must prompt the user to pick one before continuing.",
-            "type": "boolean"
-          },
-          "contexts": {
-            "description": "Every active membership the logged-in account can act as.",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EmployeeContext"
-            }
-          },
-          "defaultEmployeeId": {
-            "description": "The account's default context, auto-activated on the next login. Null when no default is set.",
-            "type": [
-              "string",
-              "null"
-            ],
-            "pattern": "^[0-9a-f]{32}$"
-          }
-        }
-      },
-      "EmployeeContext": {
-        "type": "object",
-        "required": [
-          "employeeId",
-          "companyName",
-          "active"
-        ],
-        "properties": {
-          "employeeId": {
-            "description": "Identifier of the employee identity that represents this membership.",
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "companyId": {
-            "description": "Identifier of the business partner customer (company). Null when the context is not bound to a specific customer record.",
-            "type": [
-              "string",
-              "null"
-            ],
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "companyName": {
-            "description": "Display name of the company this context belongs to.",
-            "type": "string"
-          },
-          "roleId": {
-            "description": "Identifier of the B2B role granted in this context. Null when no role is assigned.",
-            "type": [
-              "string",
-              "null"
-            ],
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "roleName": {
-            "description": "Name of the B2B role granted in this context. Null when no role is assigned.",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "active": {
-            "description": "Whether this context is the one currently active for the session.",
-            "type": "boolean"
-          }
-        }
       },
       "QuoteComment": {
         "required": [
@@ -17221,6 +17221,163 @@
         ]
       }
     },
+    "/employee/context": {
+      "get": {
+        "tags": [
+          "B2B Employee Context"
+        ],
+        "summary": "List the employee contexts available to the logged-in account",
+        "description": "Returns every active membership the current account can act as, whether a context selection is still required, and the account default. Requires the ORGANIZATION_UNITS feature and license.",
+        "operationId": "getEmployeeContextsGet",
+        "responses": {
+          "200": {
+            "description": "The available employee contexts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeAvailableContextsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "B2B Employee Context"
+        ],
+        "summary": "List the employee contexts available to the logged-in account",
+        "description": "Returns every active membership the current account can act as, whether a context selection is still required, and the account default. Requires the ORGANIZATION_UNITS feature and license.",
+        "operationId": "getEmployeeContexts",
+        "responses": {
+          "200": {
+            "description": "The employee contexts available to the account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeAvailableContextsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          }
+        ]
+      }
+    },
+    "/employee/context/switch": {
+      "post": {
+        "tags": [
+          "B2B Employee Context"
+        ],
+        "summary": "Switch the active employee context",
+        "description": "Activates the given context for the current session and returns a new context token. Optionally sets or unsets that context as the account default. Requires the ORGANIZATION_UNITS feature and license.",
+        "operationId": "switchEmployeeContext",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "employeeId"
+                ],
+                "properties": {
+                  "employeeId": {
+                    "description": "Identifier of the employee identity (membership) to activate.",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "setDefault": {
+                    "description": "When present, sets (true) or clears (false) this context as the account default.",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ContextTokenResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          }
+        ]
+      }
+    },
+    "/employee/context/cancel": {
+      "post": {
+        "tags": [
+          "B2B Employee Context"
+        ],
+        "summary": "Cancel a pending context selection",
+        "description": "Clears the pending account that was staged during login when a context selection was required, returning the session to a clean state. Requires the ORGANIZATION_UNITS feature and license.",
+        "operationId": "cancelEmployeeContext",
+        "responses": {
+          "204": {
+            "description": "The pending context selection was cleared"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          }
+        ]
+      }
+    },
     "/permission": {
       "get": {
         "tags": [
@@ -18453,163 +18610,6 @@
         "security": [
           {
             "ApiKey": []
-          }
-        ]
-      }
-    },
-    "/employee/context": {
-      "get": {
-        "tags": [
-          "B2B Employee Context"
-        ],
-        "summary": "List the employee contexts available to the logged-in account",
-        "description": "Returns every active membership the current account can act as, whether a context selection is still required, and the account default. Requires the ORGANIZATION_UNITS feature and license.",
-        "operationId": "getEmployeeContextsGet",
-        "responses": {
-          "200": {
-            "description": "The available employee contexts",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmployeeAvailableContextsResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "$ref": "#/components/responses/403"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/swLanguageId"
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "B2B Employee Context"
-        ],
-        "summary": "List the employee contexts available to the logged-in account",
-        "description": "Returns every active membership the current account can act as, whether a context selection is still required, and the account default. Requires the ORGANIZATION_UNITS feature and license.",
-        "operationId": "getEmployeeContexts",
-        "responses": {
-          "200": {
-            "description": "The employee contexts available to the account",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmployeeAvailableContextsResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "$ref": "#/components/responses/403"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/swLanguageId"
-          }
-        ]
-      }
-    },
-    "/employee/context/switch": {
-      "post": {
-        "tags": [
-          "B2B Employee Context"
-        ],
-        "summary": "Switch the active employee context",
-        "description": "Activates the given context for the current session and returns a new context token. Optionally sets or unsets that context as the account default. Requires the ORGANIZATION_UNITS feature and license.",
-        "operationId": "switchEmployeeContext",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "employeeId"
-                ],
-                "properties": {
-                  "employeeId": {
-                    "description": "Identifier of the employee identity (membership) to activate.",
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{32}$"
-                  },
-                  "setDefault": {
-                    "description": "When present, sets (true) or clears (false) this context as the account default.",
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
-          },
-          "403": {
-            "$ref": "#/components/responses/403"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/swLanguageId"
-          }
-        ]
-      }
-    },
-    "/employee/context/cancel": {
-      "post": {
-        "tags": [
-          "B2B Employee Context"
-        ],
-        "summary": "Cancel a pending context selection",
-        "description": "Clears the pending account that was staged during login when a context selection was required, returning the session to a clean state. Requires the ORGANIZATION_UNITS feature and license.",
-        "operationId": "cancelEmployeeContext",
-        "responses": {
-          "204": {
-            "description": "The pending context selection was cleared"
-          },
-          "403": {
-            "$ref": "#/components/responses/403"
-          }
-        },
-        "security": [
-          {
-            "ApiKey": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/swLanguageId"
           }
         ]
       }
