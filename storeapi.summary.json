@@ -81,7 +81,8 @@
     "/shipping-method",
     "/shop-settings",
     "/sitemap",
-    "/sitemap/{filePath}"
+    "/sitemap/{filePath}",
+    "/snippet"
   ],
   "schemas": [
     "AccountNewsletterRecipient",
@@ -277,6 +278,7 @@
     "Sitemap",
     "Snippet",
     "SnippetSet",
+    "SnippetSetResult",
     "Sort",
     "StateMachine",
     "StateMachineHistory",
