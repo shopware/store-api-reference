@@ -13255,6 +13255,7 @@
         "headers": {
           "sw-context-token": {
             "description": "Contains sw-context-token value",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -13332,6 +13333,30 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/Currency"
+              }
+            }
+          }
+        }
+      },
+      "GatewayContextTokenResponse": {
+        "description": "Returns the context update result. Responses that return a context token include it in the response headers.",
+        "headers": {
+          "sw-context-token": {
+            "description": "Contains sw-context-token value for gateway responses that return a context token.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "redirectUrl": {
+                  "description": "Define the URL which browser will be redirected to",
+                  "type": "string"
+                }
               }
             }
           }
