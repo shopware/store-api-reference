@@ -2388,6 +2388,37 @@
         "properties": {
           "extensions": {
             "properties": {
+              "subscriptionPlans": {
+                "properties": {
+                  "links": {
+                    "type": "object",
+                    "properties": {
+                      "related": {
+                        "type": "string",
+                        "format": "uri-reference",
+                        "example": "/product/deb10517653c255364175796ace3553f/subscriptionPlans"
+                      }
+                    }
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "subscription_plan"
+                        },
+                        "id": {
+                          "type": "string",
+                          "example": "ed94874505da2886dc66a3a3d3968972"
+                        }
+                      }
+                    }
+                  }
+                },
+                "type": "object"
+              },
               "reviewSummaries": {
                 "properties": {
                   "links": {
@@ -5994,10 +6025,8 @@
             "type": "string"
           },
           "discountPrice": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Price"
-            }
+            "type": "object",
+            "$ref": "#/components/schemas/CalculatedPrice"
           },
           "createdAt": {
             "type": "string",
@@ -6011,6 +6040,12 @@
           },
           "translated": {
             "type": "object"
+          },
+          "subscriptionIntervals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubscriptionInterval"
+            }
           },
           "subscriptions": {
             "type": "array",
@@ -14596,6 +14631,7 @@
         "headers": {
           "sw-context-token": {
             "description": "Contains sw-context-token value",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -14673,6 +14709,30 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/Currency"
+              }
+            }
+          }
+        }
+      },
+      "GatewayContextTokenResponse": {
+        "description": "Returns the context update result. Responses that return a context token include it in the response headers.",
+        "headers": {
+          "sw-context-token": {
+            "description": "Contains sw-context-token value for gateway responses that return a context token.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "redirectUrl": {
+                  "description": "Define the URL which browser will be redirected to",
+                  "type": "string"
+                }
               }
             }
           }
@@ -15454,6 +15514,12 @@
           },
           "400": {
             "$ref": "#/components/responses/400"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "security": [
@@ -15505,6 +15571,12 @@
           },
           "400": {
             "$ref": "#/components/responses/400"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "security": [
@@ -15558,6 +15630,12 @@
           },
           "400": {
             "$ref": "#/components/responses/400"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "security": [
@@ -15648,6 +15726,12 @@
           },
           "400": {
             "$ref": "#/components/responses/400"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "security": [
@@ -15736,6 +15820,12 @@
           },
           "400": {
             "$ref": "#/components/responses/400"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "security": [
@@ -15808,6 +15898,12 @@
           },
           "400": {
             "$ref": "#/components/responses/400"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "security": [
@@ -17217,6 +17313,269 @@
         "security": [
           {
             "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/account/me": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Fetch the current account context",
+        "description": "Fetches the currently authenticated account context, including current actor information, optional B2B context, resolved permissions and feature flags.",
+        "operationId": "readCurrentAccountContext",
+        "responses": {
+          "200": {
+            "description": "Current account context",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "actorType": {
+                      "description": "Type of the currently authenticated actor.",
+                      "type": "string",
+                      "enum": [
+                        "customer",
+                        "businessPartner",
+                        "employee"
+                      ]
+                    },
+                    "account": {
+                      "description": "Generic information about the currently authenticated actor.",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of the current actor. This is the employee account identifier for employee logins and the customer identifier otherwise.",
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{32}$"
+                        },
+                        "firstName": {
+                          "description": "First name of the current actor.",
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "description": "Last name of the current actor.",
+                          "type": "string"
+                        },
+                        "email": {
+                          "description": "Email address of the current actor.",
+                          "type": "string"
+                        },
+                        "company": {
+                          "description": "Company name of the current customer account, if available.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "firstName",
+                        "lastName",
+                        "email",
+                        "company"
+                      ]
+                    },
+                    "employee": {
+                      "description": "Employee-specific context for the current actor. This is null for non-employee logins.",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "roleId": {
+                          "description": "Identifier of the assigned employee role.",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "pattern": "^[0-9a-f]{32}$"
+                        },
+                        "roleName": {
+                          "description": "Name of the assigned employee role.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "additionalProperties": true
+                    },
+                    "businessPartner": {
+                      "description": "Business partner context for the current account. This is null for regular customer logins.",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of the business partner context.",
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{32}$"
+                        },
+                        "customerId": {
+                          "description": "Identifier of the related customer account.",
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{32}$"
+                        },
+                        "company": {
+                          "description": "Company name of the related customer account, if available.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "customerId",
+                        "company"
+                      ]
+                    },
+                    "permissions": {
+                      "description": "Permission information for the current account.",
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "description": "Raw ACL permission identifiers resolved from the employee role. Empty for non-employee logins.",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "capabilities": {
+                          "description": "Resolved frontend-facing capabilities derived from permissions and enabled features. Additional capability keys may be contributed by providers.",
+                          "type": "object",
+                          "properties": {
+                            "canOrder": {
+                              "type": "boolean"
+                            },
+                            "canReadEmployees": {
+                              "type": "boolean"
+                            },
+                            "canManageEmployees": {
+                              "type": "boolean"
+                            },
+                            "canReadRoles": {
+                              "type": "boolean"
+                            },
+                            "canManageRoles": {
+                              "type": "boolean"
+                            },
+                            "canViewAllOrders": {
+                              "type": "boolean"
+                            },
+                            "canApproveOrders": {
+                              "type": "boolean"
+                            },
+                            "canApproveAllOrders": {
+                              "type": "boolean"
+                            },
+                            "canReadApprovalRules": {
+                              "type": "boolean"
+                            },
+                            "canManageApprovalRules": {
+                              "type": "boolean"
+                            },
+                            "canRequestQuotes": {
+                              "type": "boolean"
+                            },
+                            "canManageQuotes": {
+                              "type": "boolean"
+                            },
+                            "canViewAllQuotes": {
+                              "type": "boolean"
+                            },
+                            "canViewAllBudgets": {
+                              "type": "boolean"
+                            },
+                            "canManageBudgets": {
+                              "type": "boolean"
+                            },
+                            "canPlaceOrderWithoutSpecifyingBudget": {
+                              "type": "boolean"
+                            },
+                            "canManageOrganizationUnits": {
+                              "type": "boolean"
+                            },
+                            "canViewAllSubscriptions": {
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "required": [
+                        "raw",
+                        "capabilities"
+                      ]
+                    },
+                    "features": {
+                      "description": "Feature availability keyed by commercial feature code for the current customer account.",
+                      "type": "object",
+                      "properties": {
+                        "EMPLOYEE_MANAGEMENT": {
+                          "type": "boolean"
+                        },
+                        "ORGANIZATION_UNITS": {
+                          "type": "boolean"
+                        },
+                        "ORDER_APPROVAL": {
+                          "type": "boolean"
+                        },
+                        "BUDGET_MANAGEMENT": {
+                          "type": "boolean"
+                        },
+                        "QUOTE_MANAGEMENT": {
+                          "type": "boolean"
+                        },
+                        "SHOPPING_LISTS": {
+                          "type": "boolean"
+                        },
+                        "QUICK_ORDER": {
+                          "type": "boolean"
+                        },
+                        "ADVANCED_PRODUCT_CATALOGS": {
+                          "type": "boolean"
+                        }
+                      },
+                      "additionalProperties": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "required": [
+                    "actorType",
+                    "account",
+                    "employee",
+                    "businessPartner",
+                    "permissions",
+                    "features"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
           }
         ]
       }
