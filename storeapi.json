@@ -211,6 +211,7 @@
         "headers": {
           "sw-context-token": {
             "description": "Contains sw-context-token value",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -288,6 +289,30 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/Currency"
+              }
+            }
+          }
+        }
+      },
+      "GatewayContextTokenResponse": {
+        "description": "Returns the context update result. Responses that return a context token include it in the response headers.",
+        "headers": {
+          "sw-context-token": {
+            "description": "Contains sw-context-token value for gateway responses that return a context token.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "redirectUrl": {
+                  "description": "Define the URL which browser will be redirected to",
+                  "type": "string"
+                }
               }
             }
           }
@@ -14116,14 +14141,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a success response indicating a successful update.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
+            "$ref": "#/components/responses/ContextTokenResponse"
           },
           "400": {
             "$ref": "#/components/responses/400",
@@ -14256,25 +14274,17 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "isExpired": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "isExpired"
-                        ]
-                      }
+                    "isExpired": {
+                      "type": "boolean"
                     },
                     "apiAlias": {
                       "type": "string",
                       "const": "array_struct"
                     }
-                  }
+                  },
+                  "required": [
+                    "isExpired"
+                  ]
                 }
               }
             }
@@ -14806,7 +14816,16 @@
         },
         "responses": {
           "200": {
-            "description": "Returns the logged in customer. The customer is automatically logged in with the `sw-context-token` header provided, which can be reused for subsequent requests."
+            "description": "Returns the logged in customer. The customer is automatically logged in with the `sw-context-token` header provided, which can be reused for subsequent requests.",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains the new sw-context-token value.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "401": {
             "$ref": "#/components/responses/401",
@@ -14870,7 +14889,7 @@
                     "type": "boolean"
                   },
                   "storefrontUrl": {
-                    "description": "URL of the storefront for that registration. Used in confirmation emails. Has to be one of the configured domains of the sales channel.",
+                    "description": "URL of the storefront for that registration. Used in the double opt-in confirmation email. Only required and validated against the configured domains of the sales channel when double opt-in registration is enabled.",
                     "type": "string"
                   },
                   "requestedGroupId": {
@@ -14878,10 +14897,10 @@
                     "type": "string"
                   },
                   "billingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
+                    "$ref": "#/components/schemas/CustomerAddressBody"
                   },
                   "shippingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
+                    "$ref": "#/components/schemas/CustomerAddressBody"
                   },
                   "guest": {
                     "description": "If set, will create a guest customer. Guest customers can re-use an email address and don't need a password.",
@@ -14978,6 +14997,14 @@
         "responses": {
           "200": {
             "description": "Success",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains the new sw-context-token value.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -16189,6 +16216,15 @@
         "responses": {
           "200": {
             "description": "The updated cart.",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains sw-context-token value",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -16926,6 +16962,15 @@
         "responses": {
           "200": {
             "description": "Returns the current context.",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains sw-context-token value",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -17069,7 +17114,7 @@
         "operationId": "contextGateway",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
+            "$ref": "#/components/responses/GatewayContextTokenResponse"
           },
           "400": {
             "description": "App server communication error"
@@ -17123,7 +17168,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
+            "$ref": "#/components/responses/GatewayContextTokenResponse"
           },
           "400": {
             "description": "App server communication error"
@@ -17958,6 +18003,22 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Technical name of the document v2 format to return. Defaults to `pdf` Ignored for v1 documents.",
+            "schema": {
+              "type": "string",
+              "default": "pdf",
+              "examples": [
+                "pdf",
+                "html",
+                "zugferd_xml",
+                "zugferd_embedded_pdf"
+              ]
+            }
           }
         ],
         "requestBody": {
@@ -18010,6 +18071,16 @@
           },
           "403": {
             "description": "Forbidden."
+          },
+          "429": {
+            "description": "Too many guest authentication attempts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/failure"
+                }
+              }
+            }
           },
           "404": {
             "description": "Document not found."
@@ -18070,6 +18141,22 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Technical name of the document v2 format to return. Defaults to `pdf` Ignored for v1 documents.",
+            "schema": {
+              "type": "string",
+              "default": "pdf",
+              "examples": [
+                "pdf",
+                "html",
+                "zugferd_xml",
+                "zugferd_embedded_pdf"
+              ]
+            }
           }
         ],
         "responses": {
@@ -18103,6 +18190,16 @@
           },
           "403": {
             "description": "Forbidden."
+          },
+          "429": {
+            "description": "Too many guest authentication attempts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/failure"
+                }
+              }
+            }
           },
           "404": {
             "description": "Document not found."
@@ -20224,7 +20321,7 @@
           "Newsletter"
         ],
         "summary": "Create or remove a newsletter subscription",
-        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email address containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirms the newsletter subscription for the provided email address.",
+        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email address containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirms the newsletter subscription for the provided email address.\n\nIf double opt-in is enabled for the sales channel, `direct` and `confirmSubscribe` behave like `subscribe`.",
         "operationId": "subscribeToNewsletter",
         "requestBody": {
           "required": true,
