@@ -211,6 +211,7 @@
         "headers": {
           "sw-context-token": {
             "description": "Contains sw-context-token value",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -223,7 +224,10 @@
               "properties": {
                 "redirectUrl": {
                   "description": "Define the URL which browser will be redirected to",
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               }
             }
@@ -288,6 +292,33 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/Currency"
+              }
+            }
+          }
+        }
+      },
+      "GatewayContextTokenResponse": {
+        "description": "Returns the context update result. Responses that return a context token include it in the response headers.",
+        "headers": {
+          "sw-context-token": {
+            "description": "Contains sw-context-token value for gateway responses that return a context token.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "redirectUrl": {
+                  "description": "Define the URL which browser will be redirected to",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
               }
             }
           }
@@ -535,7 +566,7 @@
                 },
                 "aggregations": {
                   "description": "aggregation result",
-                  "type": "object"
+                  "$ref": "#/components/schemas/EntitySearchResult/properties/aggregations"
                 },
                 "elements": {
                   "type": "array",
@@ -647,7 +678,7 @@
                     },
                     "aggregations": {
                       "description": "aggregation result",
-                      "type": "object"
+                      "$ref": "#/components/schemas/EntitySearchResult/properties/aggregations"
                     },
                     "elements": {
                       "type": "array",
@@ -1387,7 +1418,6 @@
             }
           },
           "errors": {
-            "type": "object",
             "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
             "anyOf": [
               {
@@ -1667,13 +1697,18 @@
           },
           "messageKey": {
             "type": "string"
+          },
+          "block": {
+            "type": "boolean",
+            "description": "Whether the error blocks the order from being placed."
           }
         },
         "required": [
           "key",
           "level",
           "message",
-          "messageKey"
+          "messageKey",
+          "block"
         ]
       },
       "CartItems": {
@@ -2609,8 +2644,38 @@
             "description": "Unique identity of CMS block version."
           },
           "fieldConfig": {
-            "type": "object",
-            "description": "Con info of cms slot"
+            "description": "Con info of cms slot",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "static",
+                    "mapped",
+                    "default",
+                    "product_stream"
+                  ]
+                },
+                "value": {
+                  "description": "Configured value; its type depends on the field (string, number, boolean, array or null)."
+                },
+                "apiAlias": {
+                  "type": "string",
+                  "const": "cms_data_resolver_field_config"
+                }
+              },
+              "required": [
+                "name",
+                "source",
+                "value",
+                "apiAlias"
+              ]
+            }
           },
           "type": {
             "description": "It indicates the types of content that can be defined within the slot which includes `image`, `text`, `form`, `product-listing`, `category-navigation`, `product-box`, `buy-box`, `sidebar-filter`, etc.",
@@ -2668,6 +2733,23 @@
           }
         },
         "type": "object"
+      },
+      "ContactFormRouteResponse": {
+        "type": "object",
+        "required": [
+          "individualSuccessMessage",
+          "apiAlias"
+        ],
+        "properties": {
+          "individualSuccessMessage": {
+            "description": "Confirmation text of the form element the submission was resolved to, or of the category that overrides it. Empty when neither is configured.",
+            "type": "string"
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "contact_form_result"
+          }
+        }
       },
       "ContextMeasurementSystemInfo": {
         "type": "object",
@@ -2930,8 +3012,7 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "name",
-          "addressFormat"
+          "name"
         ],
         "properties": {
           "id": {
@@ -4273,6 +4354,7 @@
           "countryId",
           "firstName",
           "lastName",
+          "zipcode",
           "city",
           "street"
         ],
@@ -4296,12 +4378,23 @@
             "type": "string"
           },
           "zipcode": {
-            "type": "string"
+            "description": "Postal code. Every country on a default installation has `postalCodeRequired` enabled. For a country without it, an empty value is accepted.",
+            "type": "string",
+            "maxLength": 50
           },
           "city": {
             "type": "string"
           },
+          "accountType": {
+            "description": "Type of the account the address belongs to, `private` or `business`. A `business` address requires `company`, which is only enforced while the `core.loginRegistration.showAccountTypeSelection` setting is enabled. The value is not stored on the address. During registration the billing address follows the top-level `accountType` instead, and the shipping address keeps its own.",
+            "type": "string",
+            "enum": [
+              "private",
+              "business"
+            ]
+          },
           "company": {
+            "description": "Company of the address. Required when `accountType` is `business`.",
             "type": "string"
           },
           "street": {
@@ -4314,12 +4407,15 @@
             "type": "string"
           },
           "phoneNumber": {
+            "description": "Phone number. Required when the `core.loginRegistration.showPhoneNumberField` and `core.loginRegistration.phoneNumberFieldRequired` settings are both enabled. Both are off by default.",
             "type": "string"
           },
           "additionalAddressLine1": {
+            "description": "Required when the `core.loginRegistration.showAdditionalAddressField1` and `core.loginRegistration.additionalAddressField1Required` settings are both enabled. Both are off by default.",
             "type": "string"
           },
           "additionalAddressLine2": {
+            "description": "Required when the `core.loginRegistration.showAdditionalAddressField2` and `core.loginRegistration.additionalAddressField2Required` settings are both enabled. Both are off by default.",
             "type": "string"
           },
           "customFields": {
@@ -4335,6 +4431,39 @@
             "$ref": "#/components/schemas/Salutation"
           }
         },
+        "allOf": [
+          {
+            "anyOf": [
+              {
+                "properties": {
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "private"
+                    ]
+                  }
+                }
+              },
+              {
+                "required": [
+                  "accountType",
+                  "company"
+                ],
+                "properties": {
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "business"
+                    ]
+                  },
+                  "company": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        ],
         "type": "object"
       },
       "CustomerAddressRead": {
@@ -4690,11 +4819,19 @@
             "description": "The total number of found entities"
           },
           "aggregations": {
-            "type": "array",
-            "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
-            "items": {
-              "type": "object"
-            }
+            "description": "Contains aggregated data keyed by the aggregation name. A simple example is the determination of the average price from a product search query. An empty array is returned when no aggregations were requested.",
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object"
+                }
+              },
+              {
+                "type": "array",
+                "maxItems": 0
+              }
+            ]
           },
           "page": {
             "type": "integer",
@@ -5858,11 +5995,13 @@
                 "description": "Number of items of each product."
               },
               "calculatedTaxes": {
-                "type": "object",
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes",
                 "description": "Contains calculated taxes based on shipping costs/methods."
               },
               "taxRules": {
-                "type": "object",
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules",
                 "description": "Pricing based on multiple taxes."
               },
               "referencePrice": {
@@ -6313,11 +6452,13 @@
                 "description": "Number of items of each product."
               },
               "calculatedTaxes": {
-                "type": "object",
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes",
                 "description": "Contains calculated taxes based on shipping costs/methods."
               },
               "taxRules": {
-                "type": "object",
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules",
                 "description": "Pricing based on multiple taxes."
               },
               "referencePrice": {
@@ -6454,11 +6595,13 @@
                 "description": "Number of items of each product."
               },
               "calculatedTaxes": {
-                "type": "object",
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes",
                 "description": "Contains calculated taxes based on order delivery price."
               },
               "taxRules": {
-                "type": "object",
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules",
                 "description": "Pricing based on multiple taxes."
               },
               "referencePrice": {
@@ -6611,10 +6754,18 @@
             "type": "string"
           },
           "payload": {
-            "type": "object",
+            "description": "Any data related to product is passed.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0,
             "properties": {
               "categoryIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -6622,12 +6773,24 @@
                 "readOnly": true
               },
               "createdAt": {
-                "type": "string",
-                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Date in the storage format `Y-m-d H:i:s.v`, not RFC 3339.",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
                 "readOnly": true
               },
               "customFields": {
-                "type": "object"
+                "anyOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                ]
               },
               "features": {
                 "type": "array"
@@ -6639,14 +6802,20 @@
                 "type": "boolean"
               },
               "manufacturerId": {
-                "type": "string",
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "pattern": "^[0-9a-f]{32}$"
               },
               "markAsTopseller": {
                 "type": "boolean"
               },
               "optionIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -6654,20 +6823,39 @@
                 "readOnly": true
               },
               "options": {
+                "description": "Variant options of the product as group and option name pairs.",
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/PropertyGroupOption"
+                  "type": "object",
+                  "properties": {
+                    "group": {
+                      "type": "string"
+                    },
+                    "option": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "group",
+                    "option"
+                  ]
                 }
               },
               "parentId": {
-                "type": "string",
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "pattern": "^[0-9a-f]{32}$"
               },
               "productNumber": {
                 "type": "string"
               },
               "propertyIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -6675,15 +6863,22 @@
                 "readOnly": true
               },
               "releaseDate": {
-                "type": "string",
-                "format": "date-time"
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Date in the storage format `Y-m-d H:i:s.v`, not RFC 3339.",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$"
               },
               "stock": {
                 "type": "integer",
                 "format": "int64"
               },
               "streamIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -6691,7 +6886,10 @@
                 "readOnly": true
               },
               "tagIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -6705,8 +6903,7 @@
               "productType": {
                 "$ref": "#/components/schemas/Product/properties/type"
               }
-            },
-            "description": "Any data related to product is passed."
+            }
           },
           "good": {
             "description": "When set to true, it indicates the line item is physical else it is virtual.",
@@ -6819,7 +7016,12 @@
             "description": "To store additional data to an order line item from extensions."
           },
           "translated": {
-            "type": "object"
+            "description": "Order line items have no translatable fields, so this is an empty array.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0
           }
         },
         "type": "object"
@@ -6918,11 +7120,19 @@
             ]
           },
           "paymentChangeable": {
-            "type": "object",
-            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
-            "additionalProperties": {
-              "type": "boolean"
-            }
+            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed. An empty array is returned when there are no entries.",
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "type": "array",
+                "maxItems": 0
+              }
+            ]
           }
         },
         "required": [
@@ -6987,10 +7197,12 @@
                 "description": "Number of items of each product."
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -7025,7 +7237,12 @@
             "type": "object"
           },
           "validationData": {
-            "type": "object"
+            "description": "An empty array is returned when there is no validation data.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0
           },
           "stateId": {
             "description": "Unique identity of state.",
@@ -7158,10 +7375,12 @@
                 "description": "Number of items of each product."
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -7322,10 +7541,12 @@
                 "description": "Number of items of each product."
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -7496,10 +7717,12 @@
                 "description": "Number of items of each product."
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -8106,13 +8329,7 @@
           "calculatedPrices": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/CalculatedPrice"
-                }
-              ]
+              "$ref": "#/components/schemas/CalculatedPrice"
             },
             "description": "Runtime field, cannot be used as part of the criteria."
           },
@@ -9985,7 +10202,6 @@
                 },
                 "required": [
                   "manufacturer",
-                  "navigationId",
                   "price",
                   "properties",
                   "rating",
@@ -10499,8 +10715,6 @@
       "PropertyGroupOption": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "group",
-          "option",
           "translated",
           "id",
           "groupId",
@@ -10562,9 +10776,6 @@
           },
           "group": {
             "$ref": "#/components/schemas/PropertyGroup"
-          },
-          "option": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -10638,6 +10849,23 @@
           "listPrice",
           "unitName"
         ]
+      },
+      "RevocationRequestRouteResponse": {
+        "type": "object",
+        "required": [
+          "individualSuccessMessage",
+          "apiAlias"
+        ],
+        "properties": {
+          "individualSuccessMessage": {
+            "description": "Confirmation text of the form element the submission was resolved to, or of the category that overrides it. Empty when neither is configured.",
+            "type": "string"
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "array_struct"
+          }
+        }
       },
       "Rule": {
         "description": "Added since version: 6.0.0.0",
@@ -13741,11 +13969,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -13847,54 +14071,65 @@
                   "birthdayYear": {
                     "description": "Birthday year",
                     "type": "integer"
+                  },
+                  "customFields": {
+                    "description": "Custom fields of the customer. Only fields defined for the customer entity are stored.",
+                    "type": "object"
                   }
                 },
-                "oneOf": [
+                "allOf": [
                   {
-                    "properties": {
-                      "accountType": {
-                        "description": "Type of the customer account. Default value is 'private'.",
-                        "type": "string",
-                        "enum": [
-                          "private"
+                    "anyOf": [
+                      {
+                        "properties": {
+                          "accountType": {
+                            "description": "Type of the customer account. Default value is 'private'.",
+                            "type": "string",
+                            "enum": [
+                              "private"
+                            ],
+                            "default": "private"
+                          },
+                          "company": {
+                            "description": "Not used for a private account, the value is cleared.",
+                            "type": "string"
+                          },
+                          "vatIds": {
+                            "description": "Not used for a private account, the value is cleared.",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "required": [
+                          "accountType",
+                          "company"
                         ],
-                        "default": "private"
-                      },
-                      "company": {
-                        "type": "null"
-                      },
-                      "vatIds": {
-                        "type": "null"
+                        "properties": {
+                          "accountType": {
+                            "description": "Type of the customer account. Can be `private` or `business`.",
+                            "type": "string",
+                            "enum": [
+                              "business"
+                            ]
+                          },
+                          "company": {
+                            "description": "Company of the customer. Required whenever `accountType` is `business`.",
+                            "type": "string"
+                          },
+                          "vatIds": {
+                            "description": "VAT IDs of the customer's company. Only valid when `accountType` is `business`, and only required when the country of the default billing address has `vatIdRequired` enabled.",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
                       }
-                    }
-                  },
-                  {
-                    "required": [
-                      "accountType",
-                      "company",
-                      "vatIds"
-                    ],
-                    "properties": {
-                      "accountType": {
-                        "description": "Type of the customer account. Can be `private` or `business`.",
-                        "type": "string",
-                        "enum": [
-                          "business"
-                        ]
-                      },
-                      "company": {
-                        "description": "Company of the customer. Only required when `accountType` is `business`.",
-                        "type": "string"
-                      },
-                      "vatIds": {
-                        "description": "VAT IDs of the customer's company. Only valid when `accountType` is `business`.",
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "minItems": 1
-                      }
-                    }
+                    ]
                   }
                 ]
               }
@@ -14116,14 +14351,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a success response indicating a successful update.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
+            "$ref": "#/components/responses/ContextTokenResponse"
           },
           "400": {
             "$ref": "#/components/responses/400",
@@ -14256,25 +14484,17 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "isExpired": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "isExpired"
-                        ]
-                      }
+                    "isExpired": {
+                      "type": "boolean"
                     },
                     "apiAlias": {
                       "type": "string",
                       "const": "array_struct"
                     }
-                  }
+                  },
+                  "required": [
+                    "isExpired"
+                  ]
                 }
               }
             }
@@ -14318,11 +14538,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/NoneFieldsCriteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/NoneFieldsCriteria"
               }
             }
           }
@@ -14530,11 +14746,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -14621,21 +14833,42 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "username",
-                  "password"
-                ],
-                "properties": {
-                  "username": {
-                    "description": "Email",
-                    "type": "string"
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "email",
+                      "password"
+                    ],
+                    "properties": {
+                      "email": {
+                        "description": "Email address of the customer. Takes precedence over `username` when both are sent.",
+                        "type": "string"
+                      },
+                      "password": {
+                        "description": "Password",
+                        "type": "string"
+                      }
+                    }
                   },
-                  "password": {
-                    "description": "Password",
-                    "type": "string"
+                  {
+                    "type": "object",
+                    "required": [
+                      "username",
+                      "password"
+                    ],
+                    "properties": {
+                      "username": {
+                        "description": "Email address of the customer. Kept for backwards compatibility; `email` is the preferred field.",
+                        "type": "string"
+                      },
+                      "password": {
+                        "description": "Password",
+                        "type": "string"
+                      }
+                    }
                   }
-                },
-                "type": "object"
+                ]
               }
             }
           }
@@ -14806,7 +15039,16 @@
         },
         "responses": {
           "200": {
-            "description": "Returns the logged in customer. The customer is automatically logged in with the `sw-context-token` header provided, which can be reused for subsequent requests."
+            "description": "Returns the logged in customer. The customer is automatically logged in with the `sw-context-token` header provided, which can be reused for subsequent requests.",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains the new sw-context-token value.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "401": {
             "$ref": "#/components/responses/401",
@@ -14858,19 +15100,19 @@
                     "type": "string"
                   },
                   "firstName": {
-                    "description": "Customer first name. Value will be reused for shipping and billing address if not provided explicitly.",
+                    "description": "Customer first name. Required unless a `billingAddress` is sent, whose first name is used instead. When both are sent, this value also replaces the first name of the billing address.",
                     "type": "string"
                   },
                   "lastName": {
-                    "description": "Customer last name. Value will be reused for shipping and billing address if not provided explicitly.",
+                    "description": "Customer last name. Required unless a `billingAddress` is sent, whose last name is used instead. When both are sent, this value also replaces the last name of the billing address.",
                     "type": "string"
                   },
                   "acceptedDataProtection": {
-                    "description": "Flag indicating accepted data protection",
+                    "description": "Flag indicating accepted data protection. Only required when the `core.loginRegistration.requireDataProtectionCheckbox` setting is enabled, which is off by default.",
                     "type": "boolean"
                   },
                   "storefrontUrl": {
-                    "description": "URL of the storefront for that registration. Used in confirmation emails. Has to be one of the configured domains of the sales channel.",
+                    "description": "URL of the storefront for that registration. Used in the double opt-in confirmation email. Only required when double opt-in is enabled, through `core.loginRegistration.doubleOptInRegistration` for customers or `core.loginRegistration.doubleOptInGuestOrder` for guests, both off by default. The value then has to match one of the domains configured for the sales channel.",
                     "type": "string"
                   },
                   "requestedGroupId": {
@@ -14878,10 +15120,12 @@
                     "type": "string"
                   },
                   "billingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
+                    "description": "Billing address of the customer. Required unless a `shippingAddress` is sent, which is then used as the billing address as well.",
+                    "$ref": "#/components/schemas/CustomerAddressBody"
                   },
                   "shippingAddress": {
-                    "$ref": "#/components/schemas/CustomerAddress"
+                    "description": "Shipping address of the customer. When no `billingAddress` is sent, this address becomes the default billing address too.",
+                    "$ref": "#/components/schemas/CustomerAddressBody"
                   },
                   "guest": {
                     "description": "If set, will create a guest customer. Guest customers can re-use an email address and don't need a password.",
@@ -14911,63 +15155,149 @@
                   "campaignCode": {
                     "description": "Field can be used to store a campaign tracking code",
                     "type": "string"
+                  },
+                  "customFields": {
+                    "description": "Custom fields of the customer. Only fields defined for the customer entity are stored.",
+                    "type": "object"
+                  },
+                  "redirectTo": {
+                    "description": "Route name the double opt-in confirmation link points to. Only used when double opt-in registration is enabled.",
+                    "type": "string"
+                  },
+                  "redirectParameters": {
+                    "description": "Additional parameters for the double opt-in confirmation link, as a JSON encoded string. Only used when double opt-in registration is enabled.",
+                    "type": "string"
                   }
                 },
                 "required": [
-                  "email",
-                  "password",
-                  "firstName",
-                  "lastName",
-                  "acceptedDataProtection",
-                  "storefrontUrl",
-                  "billingAddress"
+                  "email"
                 ],
-                "oneOf": [
+                "allOf": [
                   {
-                    "properties": {
-                      "accountType": {
-                        "description": "Type of the customer account. Default value is 'private'.",
-                        "type": "string",
-                        "enum": [
-                          "private"
+                    "anyOf": [
+                      {
+                        "required": [
+                          "billingAddress"
                         ],
-                        "default": "private"
+                        "properties": {
+                          "billingAddress": {
+                            "$ref": "#/components/schemas/CustomerAddressBody"
+                          }
+                        }
                       },
-                      "company": {
-                        "type": "null"
-                      },
-                      "vatIds": {
-                        "type": "null"
+                      {
+                        "required": [
+                          "shippingAddress",
+                          "firstName",
+                          "lastName"
+                        ],
+                        "properties": {
+                          "shippingAddress": {
+                            "$ref": "#/components/schemas/CustomerAddressBody"
+                          },
+                          "firstName": {
+                            "type": "string"
+                          },
+                          "lastName": {
+                            "type": "string"
+                          }
+                        }
                       }
-                    }
+                    ]
                   },
                   {
-                    "required": [
-                      "accountType",
-                      "company",
-                      "vatIds"
-                    ],
-                    "properties": {
-                      "accountType": {
-                        "description": "Type of the customer account. Can be `private` or `business`.",
-                        "type": "string",
-                        "enum": [
-                          "business"
-                        ]
+                    "anyOf": [
+                      {
+                        "required": [
+                          "guest"
+                        ],
+                        "properties": {
+                          "guest": {
+                            "const": true
+                          }
+                        }
                       },
-                      "company": {
-                        "description": "Company of the customer. Only required when `accountType` is `business`.",
-                        "type": "string"
-                      },
-                      "vatIds": {
-                        "description": "VAT IDs of the customer's company. Only valid when `accountType` is `business`.",
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "minItems": 1
+                      {
+                        "required": [
+                          "password"
+                        ],
+                        "properties": {
+                          "password": {
+                            "type": "string"
+                          }
+                        }
                       }
-                    }
+                    ]
+                  },
+                  {
+                    "anyOf": [
+                      {
+                        "properties": {
+                          "accountType": {
+                            "description": "Type of the customer account. Default value is 'private'.",
+                            "type": "string",
+                            "enum": [
+                              "private"
+                            ],
+                            "default": "private"
+                          },
+                          "company": {
+                            "description": "Not used for a private account, the value is ignored.",
+                            "type": "string"
+                          },
+                          "vatIds": {
+                            "description": "Not used for a private account, the value is ignored.",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "required": [
+                          "accountType"
+                        ],
+                        "properties": {
+                          "accountType": {
+                            "description": "Type of the customer account. Can be `private` or `business`.",
+                            "type": "string",
+                            "enum": [
+                              "business"
+                            ]
+                          },
+                          "billingAddress": {
+                            "description": "For a business account the billing address has to carry the `company`, which becomes the company of the customer. Only enforced while the `core.loginRegistration.showAccountTypeSelection` setting is enabled.",
+                            "allOf": [
+                              {
+                                "$ref": "#/components/schemas/CustomerAddressBody"
+                              },
+                              {
+                                "required": [
+                                  "company"
+                                ],
+                                "properties": {
+                                  "company": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "company": {
+                            "description": "Not read during registration. The company of the customer is taken from `billingAddress`, falling back to `shippingAddress`.",
+                            "type": "string"
+                          },
+                          "vatIds": {
+                            "description": "VAT IDs of the customer's company. Only valid when `accountType` is `business`, and only required when the country of the sent address has `vatIdRequired` enabled.",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    ]
                   }
                 ],
                 "type": "object"
@@ -14978,6 +15308,14 @@
         "responses": {
           "200": {
             "description": "Success",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains the new sw-context-token value.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -15435,6 +15773,9 @@
               }
             }
           },
+          "204": {
+            "description": "The product has no main category in this sales channel, so no breadcrumb can be built."
+          },
           "400": {
             "$ref": "#/components/responses/400"
           },
@@ -15483,11 +15824,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -15651,11 +15988,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ProductListingCriteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/ProductListingCriteria"
               }
             }
           }
@@ -16143,14 +16476,7 @@
         "operationId": "deleteCart",
         "responses": {
           "204": {
-            "description": "Successfully deleted the cart",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
+            "description": "Successfully deleted the cart"
           },
           "401": {
             "$ref": "#/components/responses/401",
@@ -16189,6 +16515,15 @@
         "responses": {
           "200": {
             "description": "The updated cart.",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains sw-context-token value",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -16462,63 +16797,43 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
+                  "required": [
+                    "payments",
+                    "shipments",
+                    "errors"
+                  ],
                   "properties": {
-                    "paymentMethods": {
-                      "properties": {
-                        "total": {
-                          "description": "Total amount",
-                          "type": "integer"
-                        },
-                        "aggregations": {
-                          "description": "aggregation result",
-                          "type": "object"
-                        },
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/PaymentMethod"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "shippingMethods": {
-                      "properties": {
-                        "total": {
-                          "description": "Total amount",
-                          "type": "integer"
-                        },
-                        "aggregations": {
-                          "description": "aggregation result",
-                          "type": "object"
-                        },
-                        "elements": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/ShippingMethod"
-                          }
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "errors": {
+                    "payments": {
+                      "description": "Payment methods that are available after the gateway ran.",
                       "type": "array",
                       "items": {
-                        "properties": {
-                          "code": {
-                            "description": "Error code",
-                            "type": "string"
-                          },
-                          "detail": {
-                            "description": "Error detail",
-                            "type": "string"
-                          },
-                          "blocking": {
-                            "description": "If the error is blocking",
-                            "type": "boolean"
+                        "$ref": "#/components/schemas/PaymentMethod"
+                      }
+                    },
+                    "shipments": {
+                      "description": "Shipping methods that are available after the gateway ran.",
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ShippingMethod"
+                      }
+                    },
+                    "errors": {
+                      "description": "Cart errors added by the gateway. An empty list is returned as `[]`, otherwise the errors are keyed by their id.",
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/CartError"
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": {
+                            "$ref": "#/components/schemas/CartError"
                           }
                         }
-                      }
+                      ]
                     }
                   }
                 }
@@ -16837,22 +17152,26 @@
             "application/json": {
               "schema": {
                 "required": [
+                  "salutationId",
                   "email",
                   "subject",
-                  "comment"
+                  "comment",
+                  "firstName",
+                  "lastName",
+                  "phone"
                 ],
                 "properties": {
                   "salutationId": {
-                    "description": "Identifier of the salutation. Use `/api/salutation` endpoint to fetch possible values.",
+                    "description": "Identifier of the salutation. Use `/api/salutation` endpoint to fetch possible values. This field is always required and cannot be disabled by a system setting.",
                     "type": "string",
                     "pattern": "^[0-9a-f]{32}$"
                   },
                   "firstName": {
-                    "description": "Firstname. This field may be required depending on the system settings.",
+                    "description": "First name. Required on a default installation, can be turned off with the `core.basicInformation.firstNameFieldRequired` setting.",
                     "type": "string"
                   },
                   "lastName": {
-                    "description": "Lastname. This field may be required depending on the system settings.",
+                    "description": "Last name. Required on a default installation, can be turned off with the `core.basicInformation.lastNameFieldRequired` setting.",
                     "type": "string"
                   },
                   "email": {
@@ -16860,7 +17179,7 @@
                     "type": "string"
                   },
                   "phone": {
-                    "description": "Phone. This field may be required depending on the system settings.",
+                    "description": "Phone. Required on a default installation, can be turned off with the `core.basicInformation.phoneNumberFieldRequired` setting.",
                     "type": "string"
                   },
                   "subject": {
@@ -16897,7 +17216,14 @@
         },
         "responses": {
           "200": {
-            "description": "Message sent successful."
+            "description": "Message sent successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactFormRouteResponse"
+                }
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/400",
@@ -16926,6 +17252,15 @@
         "responses": {
           "200": {
             "description": "Returns the current context.",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains sw-context-token value",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -17069,9 +17404,10 @@
         "operationId": "contextGateway",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
+            "$ref": "#/components/responses/GatewayContextTokenResponse"
           },
           "400": {
+            "$ref": "#/components/responses/400",
             "description": "App server communication error"
           },
           "401": {
@@ -17123,9 +17459,10 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/ContextTokenResponse"
+            "$ref": "#/components/responses/GatewayContextTokenResponse"
           },
           "400": {
+            "$ref": "#/components/responses/400",
             "description": "App server communication error"
           },
           "401": {
@@ -17225,11 +17562,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -17376,11 +17709,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -17518,11 +17847,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/NoneFieldsCriteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/NoneFieldsCriteria"
               }
             }
           }
@@ -17761,11 +18086,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -17958,6 +18279,22 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Technical name of the document v2 format to return. Defaults to `pdf` Ignored for v1 documents.",
+            "schema": {
+              "type": "string",
+              "default": "pdf",
+              "examples": [
+                "pdf",
+                "html",
+                "zugferd_xml",
+                "zugferd_embedded_pdf"
+              ]
+            }
           }
         ],
         "requestBody": {
@@ -18010,6 +18347,16 @@
           },
           "403": {
             "description": "Forbidden."
+          },
+          "429": {
+            "description": "Too many guest authentication attempts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/failure"
+                }
+              }
+            }
           },
           "404": {
             "description": "Document not found."
@@ -18070,6 +18417,22 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Technical name of the document v2 format to return. Defaults to `pdf` Ignored for v1 documents.",
+            "schema": {
+              "type": "string",
+              "default": "pdf",
+              "examples": [
+                "pdf",
+                "html",
+                "zugferd_xml",
+                "zugferd_embedded_pdf"
+              ]
+            }
           }
         ],
         "responses": {
@@ -18103,6 +18466,16 @@
           },
           "403": {
             "description": "Forbidden."
+          },
+          "429": {
+            "description": "Too many guest authentication attempts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/failure"
+                }
+              }
+            }
           },
           "404": {
             "description": "Document not found."
@@ -18724,11 +19097,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -19001,6 +19370,7 @@
                       }
                     },
                     "required": [
+                      "method",
                       "params"
                     ]
                   },
@@ -19019,7 +19389,10 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "method"
+                    ]
                   },
                   {
                     "title": "tools/call",
@@ -19046,6 +19419,7 @@
                       }
                     },
                     "required": [
+                      "method",
                       "params"
                     ]
                   },
@@ -19064,7 +19438,10 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "method"
+                    ]
                   },
                   {
                     "title": "resources/read",
@@ -19086,6 +19463,7 @@
                       }
                     },
                     "required": [
+                      "method",
                       "params"
                     ]
                   },
@@ -19104,7 +19482,10 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "method"
+                    ]
                   },
                   {
                     "title": "prompts/get",
@@ -19133,6 +19514,7 @@
                       }
                     },
                     "required": [
+                      "method",
                       "params"
                     ]
                   },
@@ -19142,7 +19524,10 @@
                       "method": {
                         "const": "ping"
                       }
-                    }
+                    },
+                    "required": [
+                      "method"
+                    ]
                   }
                 ]
               }
@@ -19955,11 +20340,9 @@
                         "format": "int32"
                       },
                       "buildTree": {
-                        "description": "Return the categories as a tree or as a flat list.",
-                        "type": "array",
-                        "items": {
-                          "type": "object"
-                        }
+                        "description": "Return the categories as a tree or as a flat list. Defaults to true.",
+                        "type": "boolean",
+                        "default": true
                       }
                     },
                     "type": "object"
@@ -20064,16 +20447,12 @@
           {
             "name": "buildTree",
             "in": "query",
-            "description": "Return the categories as a tree or as a flat list.",
+            "description": "Return the categories as a tree or as a flat list. Defaults to true.",
             "required": false,
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "object"
-              }
-            },
-            "style": "deepObject",
-            "explode": true
+              "type": "boolean",
+              "default": true
+            }
           },
           {
             "$ref": "#/components/parameters/criteriaPage"
@@ -20224,7 +20603,7 @@
           "Newsletter"
         ],
         "summary": "Create or remove a newsletter subscription",
-        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email address containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirms the newsletter subscription for the provided email address.",
+        "description": "This route is used to create/remove/confirm a newsletter subscription.\n\nThe `option` property controls what should happen:\n* `direct`: The subscription is directly active and does not need a confirmation.\n* `subscribe`: An email will be send to the provided email address containing a link to the /newsletter/confirm route.\nThe subscription is only successful, if the /newsletter/confirm route is called with the generated hashes.\n* `unsubscribe`: The email address will be removed from the newsletter subscriptions.\n* `confirmSubscribe`: Confirms the newsletter subscription for the provided email address.\n\nIf double opt-in is enabled for the sales channel, `direct` and `confirmSubscribe` behave like `subscribe`.",
         "operationId": "subscribeToNewsletter",
         "requestBody": {
           "required": true,
@@ -20246,7 +20625,7 @@
                     "type": "string"
                   },
                   "storefrontUrl": {
-                    "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email.",
+                    "description": "Url of the storefront of the shop. This will be used for generating the link to the /newsletter/confirm inside the confirm email. The value has to match one of the domains configured for the sales channel, otherwise the request is rejected. When the `core.newsletter.doubleOptInDomain` setting is filled, the sent value is replaced by that domain and not validated.",
                     "type": "string"
                   },
                   "salutationId": {
@@ -20549,32 +20928,28 @@
                         "type": "array",
                         "description": "Pass the deepLinkCode criteria filter to allow for guest user authentification. Not required, if a user (guest or not) is already logged in.",
                         "items": {
-                          "allOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "string",
-                                  "enum": [
-                                    "equals"
-                                  ]
-                                },
-                                "field": {
-                                  "type": "string",
-                                  "enum": [
-                                    "deepLinkCode"
-                                  ]
-                                },
-                                "value": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "type",
-                                "field",
-                                "value"
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "equals"
                               ]
+                            },
+                            "field": {
+                              "type": "string",
+                              "enum": [
+                                "deepLinkCode"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
                             }
+                          },
+                          "required": [
+                            "type",
+                            "field",
+                            "value"
                           ]
                         }
                       },
@@ -21417,7 +21792,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "pattern": "^[0-9a-f]{32}$'"
+              "pattern": "^[0-9a-f]{32}$"
             }
           },
           {
@@ -21472,6 +21847,15 @@
               "schema": {
                 "allOf": [
                   {
+                    "properties": {
+                      "slots": {
+                        "description": "Resolves only the given slot identifiers. The identifiers have to be separated by a `|` character.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  {
                     "$ref": "#/components/schemas/NoneFieldsCriteria"
                   }
                 ]
@@ -21524,7 +21908,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "pattern": "^[0-9a-f]{32}$'"
+              "pattern": "^[0-9a-f]{32}$"
             }
           },
           {
@@ -21552,6 +21936,15 @@
             "required": false,
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "slots",
+            "in": "query",
+            "description": "Resolves only the given slot identifiers. The identifiers have to be separated by a `|` character.",
+            "required": false,
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -21667,11 +22060,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -21818,11 +22207,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -22017,8 +22402,7 @@
               "schema": {
                 "required": [
                   "title",
-                  "content",
-                  "points"
+                  "content"
                 ],
                 "properties": {
                   "name": {
@@ -22038,7 +22422,7 @@
                     "type": "string"
                   },
                   "points": {
-                    "description": "The review rating for the product.",
+                    "description": "The review rating for the product. When it is omitted, the review is saved without a rating.",
                     "type": "number",
                     "format": "double"
                   }
@@ -22049,7 +22433,7 @@
           }
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "Success response indicating the review was saved successfully."
           },
           "400": {
@@ -22313,15 +22697,17 @@
               "schema": {
                 "required": [
                   "email",
-                  "contractNumber"
+                  "contractNumber",
+                  "firstName",
+                  "lastName"
                 ],
                 "properties": {
                   "firstName": {
-                    "description": "First name. This field may be required depending on the system settings.",
+                    "description": "First name. Required on a default installation, can be turned off with the `core.basicInformation.firstNameFieldRequired` setting.",
                     "type": "string"
                   },
                   "lastName": {
-                    "description": "Last name. This field may be required depending on the system settings.",
+                    "description": "Last name. Required on a default installation, can be turned off with the `core.basicInformation.lastNameFieldRequired` setting.",
                     "type": "string"
                   },
                   "email": {
@@ -22362,7 +22748,14 @@
         },
         "responses": {
           "200": {
-            "description": "Message sent successfully."
+            "description": "Message sent successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RevocationRequestRouteResponse"
+                }
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/400",
@@ -22413,11 +22806,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -23269,11 +23658,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -23425,11 +23810,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Criteria"
-                  }
-                ]
+                "$ref": "#/components/schemas/Criteria"
               }
             }
           }
@@ -23452,7 +23833,7 @@
                         },
                         "aggregations": {
                           "description": "aggregation result",
-                          "type": "object"
+                          "$ref": "#/components/schemas/EntitySearchResult/properties/aggregations"
                         },
                         "elements": {
                           "type": "array",
