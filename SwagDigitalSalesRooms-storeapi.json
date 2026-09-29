@@ -428,13 +428,7 @@
           "calculatedPrices": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/CalculatedPrice"
-                }
-              ]
+              "$ref": "#/components/schemas/CalculatedPrice"
             }
           },
           "calculatedMaxPurchase": {
@@ -1027,7 +1021,38 @@
             "pattern": "^[0-9a-f]{32}$"
           },
           "fieldConfig": {
-            "type": "object"
+            "description": "Resolved configuration of the slot fields.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "static",
+                    "mapped",
+                    "default",
+                    "product_stream"
+                  ]
+                },
+                "value": {
+                  "description": "Configured value; its type depends on the field (string, number, boolean, array or null)."
+                },
+                "apiAlias": {
+                  "type": "string",
+                  "const": "cms_data_resolver_field_config"
+                }
+              },
+              "required": [
+                "name",
+                "source",
+                "value",
+                "apiAlias"
+              ]
+            }
           },
           "type": {
             "description": "It indicates the types of content that can be defined within the slot which includes `image`, `text`, `form`, `product-listing`, `category-navigation`, `product-box`, `buy-box`, `sidebar-filter`, etc.",
@@ -5452,7 +5477,6 @@
             }
           },
           "errors": {
-            "type": "object",
             "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
             "anyOf": [
               {
@@ -5712,13 +5736,18 @@
           },
           "messageKey": {
             "type": "string"
+          },
+          "block": {
+            "type": "boolean",
+            "description": "Whether the error blocks the order from being placed."
           }
         },
         "required": [
           "key",
           "level",
           "message",
-          "messageKey"
+          "messageKey",
+          "block"
         ]
       },
       "CartItems": {
@@ -6588,6 +6617,23 @@
         },
         "type": "object"
       },
+      "ContactFormRouteResponse": {
+        "type": "object",
+        "required": [
+          "individualSuccessMessage",
+          "apiAlias"
+        ],
+        "properties": {
+          "individualSuccessMessage": {
+            "description": "Confirmation text of the form element the submission was resolved to, or of the category that overrides it. Empty when neither is configured.",
+            "type": "string"
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "contact_form_result"
+          }
+        }
+      },
       "ContextMeasurementSystemInfo": {
         "type": "object",
         "description": "Configuration of the measurement system used in the store, by default including units for length and weight.",
@@ -6849,8 +6895,7 @@
         "description": "Added since version: 6.0.0.0",
         "required": [
           "id",
-          "name",
-          "addressFormat"
+          "name"
         ],
         "properties": {
           "id": {
@@ -8098,6 +8143,7 @@
           "countryId",
           "firstName",
           "lastName",
+          "zipcode",
           "city",
           "street"
         ],
@@ -8121,12 +8167,23 @@
             "type": "string"
           },
           "zipcode": {
-            "type": "string"
+            "description": "Postal code. Every country on a default installation has `postalCodeRequired` enabled. For a country without it, an empty value is accepted.",
+            "type": "string",
+            "maxLength": 50
           },
           "city": {
             "type": "string"
           },
+          "accountType": {
+            "description": "Type of the account the address belongs to, `private` or `business`. A `business` address requires `company`, which is only enforced while the `core.loginRegistration.showAccountTypeSelection` setting is enabled. The value is not stored on the address. During registration the billing address follows the top-level `accountType` instead, and the shipping address keeps its own.",
+            "type": "string",
+            "enum": [
+              "private",
+              "business"
+            ]
+          },
           "company": {
+            "description": "Company of the address. Required when `accountType` is `business`.",
             "type": "string"
           },
           "street": {
@@ -8139,12 +8196,15 @@
             "type": "string"
           },
           "phoneNumber": {
+            "description": "Phone number. Required when the `core.loginRegistration.showPhoneNumberField` and `core.loginRegistration.phoneNumberFieldRequired` settings are both enabled. Both are off by default.",
             "type": "string"
           },
           "additionalAddressLine1": {
+            "description": "Required when the `core.loginRegistration.showAdditionalAddressField1` and `core.loginRegistration.additionalAddressField1Required` settings are both enabled. Both are off by default.",
             "type": "string"
           },
           "additionalAddressLine2": {
+            "description": "Required when the `core.loginRegistration.showAdditionalAddressField2` and `core.loginRegistration.additionalAddressField2Required` settings are both enabled. Both are off by default.",
             "type": "string"
           },
           "customFields": {
@@ -8160,6 +8220,39 @@
             "$ref": "#/components/schemas/Salutation"
           }
         },
+        "allOf": [
+          {
+            "anyOf": [
+              {
+                "properties": {
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "private"
+                    ]
+                  }
+                }
+              },
+              {
+                "required": [
+                  "accountType",
+                  "company"
+                ],
+                "properties": {
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "business"
+                    ]
+                  },
+                  "company": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        ],
         "type": "object"
       },
       "CustomerAddressRead": {
@@ -8487,11 +8580,19 @@
             "description": "The total number of found entities"
           },
           "aggregations": {
-            "type": "array",
-            "description": "Contains aggregated data. A simple example is the determination of the average price from a product search query.",
-            "items": {
-              "type": "object"
-            }
+            "description": "Contains aggregated data keyed by the aggregation name. A simple example is the determination of the average price from a product search query. An empty array is returned when no aggregations were requested.",
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object"
+                }
+              },
+              {
+                "type": "array",
+                "maxItems": 0
+              }
+            ]
           },
           "page": {
             "type": "integer",
@@ -9381,10 +9482,12 @@
                 "format": "int64"
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -9810,10 +9913,12 @@
                 "format": "int64"
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -9936,10 +10041,12 @@
                 "format": "int64"
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -10079,10 +10186,18 @@
             "type": "string"
           },
           "payload": {
-            "type": "object",
+            "description": "Snapshot data of the referenced item. Product line items contain the product data listed below; other line item types may carry different keys or an empty array.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0,
             "properties": {
               "categoryIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -10090,12 +10205,24 @@
                 "readOnly": true
               },
               "createdAt": {
-                "type": "string",
-                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Date in the storage format `Y-m-d H:i:s.v`, not RFC 3339.",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
                 "readOnly": true
               },
               "customFields": {
-                "type": "object"
+                "anyOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                ]
               },
               "features": {
                 "type": "array"
@@ -10107,14 +10234,20 @@
                 "type": "boolean"
               },
               "manufacturerId": {
-                "type": "string",
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "pattern": "^[0-9a-f]{32}$"
               },
               "markAsTopseller": {
                 "type": "boolean"
               },
               "optionIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -10122,20 +10255,39 @@
                 "readOnly": true
               },
               "options": {
+                "description": "Variant options of the product as group and option name pairs.",
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/PropertyGroupOption"
+                  "type": "object",
+                  "properties": {
+                    "group": {
+                      "type": "string"
+                    },
+                    "option": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "group",
+                    "option"
+                  ]
                 }
               },
               "parentId": {
-                "type": "string",
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "pattern": "^[0-9a-f]{32}$"
               },
               "productNumber": {
                 "type": "string"
               },
               "propertyIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -10143,15 +10295,22 @@
                 "readOnly": true
               },
               "releaseDate": {
-                "type": "string",
-                "format": "date-time"
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Date in the storage format `Y-m-d H:i:s.v`, not RFC 3339.",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$"
               },
               "stock": {
                 "type": "integer",
                 "format": "int64"
               },
               "streamIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -10159,7 +10318,10 @@
                 "readOnly": true
               },
               "tagIds": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
                   "type": "string",
                   "pattern": "^[0-9a-f]{32}$"
@@ -10282,7 +10444,12 @@
             "type": "object"
           },
           "translated": {
-            "type": "object"
+            "description": "Order line items have no translatable fields, so this is an empty array.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0
           }
         },
         "type": "object"
@@ -10377,11 +10544,19 @@
             ]
           },
           "paymentChangeable": {
-            "type": "object",
-            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed.",
-            "additionalProperties": {
-              "type": "boolean"
-            }
+            "description": "The key-value pairs contain the uuid of the order as key and a boolean as value, indicating that the payment method can still be changed. An empty array is returned when there are no entries.",
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "type": "array",
+                "maxItems": 0
+              }
+            ]
           }
         },
         "required": [
@@ -10440,10 +10615,12 @@
                 "format": "int64"
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -10478,7 +10655,12 @@
             "type": "object"
           },
           "validationData": {
-            "type": "object"
+            "description": "An empty array is returned when there is no validation data.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0
           },
           "stateId": {
             "description": "Unique identity of state.",
@@ -10571,10 +10753,12 @@
                 "format": "int64"
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -10695,10 +10879,12 @@
                 "format": "int64"
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -10828,10 +11014,12 @@
                 "format": "int64"
               },
               "calculatedTaxes": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/calculatedTaxes"
               },
               "taxRules": {
-                "type": "object"
+                "type": "array",
+                "$ref": "#/components/schemas/CalculatedPrice/properties/taxRules"
               },
               "referencePrice": {
                 "type": "object"
@@ -11444,7 +11632,6 @@
                 },
                 "required": [
                   "manufacturer",
-                  "navigationId",
                   "price",
                   "properties",
                   "rating",
@@ -11933,8 +12120,6 @@
       "PropertyGroupOption": {
         "description": "Added since version: 6.0.0.0",
         "required": [
-          "group",
-          "option",
           "translated",
           "id",
           "groupId",
@@ -11991,9 +12176,6 @@
           },
           "group": {
             "$ref": "#/components/schemas/PropertyGroup"
-          },
-          "option": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -12067,6 +12249,23 @@
           "listPrice",
           "unitName"
         ]
+      },
+      "RevocationRequestRouteResponse": {
+        "type": "object",
+        "required": [
+          "individualSuccessMessage",
+          "apiAlias"
+        ],
+        "properties": {
+          "individualSuccessMessage": {
+            "description": "Confirmation text of the form element the submission was resolved to, or of the category that overrides it. Empty when neither is configured.",
+            "type": "string"
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "array_struct"
+          }
+        }
       },
       "Rule": {
         "description": "Added since version: 6.0.0.0",
@@ -13255,6 +13454,7 @@
         "headers": {
           "sw-context-token": {
             "description": "Contains sw-context-token value",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -13267,7 +13467,10 @@
               "properties": {
                 "redirectUrl": {
                   "description": "Define the URL which browser will be redirected to",
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               }
             }
@@ -13332,6 +13535,33 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/Currency"
+              }
+            }
+          }
+        }
+      },
+      "GatewayContextTokenResponse": {
+        "description": "Returns the context update result. Responses that return a context token include it in the response headers.",
+        "headers": {
+          "sw-context-token": {
+            "description": "Contains sw-context-token value for gateway responses that return a context token.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "redirectUrl": {
+                  "description": "Define the URL which browser will be redirected to",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
               }
             }
           }
@@ -13579,7 +13809,7 @@
                 },
                 "aggregations": {
                   "description": "aggregation result",
-                  "type": "object"
+                  "$ref": "#/components/schemas/EntitySearchResult/properties/aggregations"
                 },
                 "elements": {
                   "type": "array",
@@ -13691,7 +13921,7 @@
                     },
                     "aggregations": {
                       "description": "aggregation result",
-                      "type": "object"
+                      "$ref": "#/components/schemas/EntitySearchResult/properties/aggregations"
                     },
                     "elements": {
                       "type": "array",
