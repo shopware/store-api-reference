@@ -1,5 +1,6 @@
 {
   "paths": [
+    "/account/me",
     "/advanced-product-catalogs/categories",
     "/advanced-product-catalogs/categories/remove",
     "/advanced-product-catalogs/categories/search",
@@ -14,6 +15,7 @@
     "/budgets/delete",
     "/checkout/budget/{budgetId}/statistic",
     "/checkout/budgets",
+    "/checkout/bundle/{bundleId}/detach",
     "/employee",
     "/employee/context",
     "/employee/context/cancel",
@@ -119,6 +121,7 @@
     "CmsPage",
     "CmsSection",
     "CmsSlot",
+    "ContactFormRouteResponse",
     "ContextMeasurementSystemInfo",
     "CookieEntry",
     "CookieEntryCollection",
@@ -207,6 +210,7 @@
     "QuoteTransaction",
     "RangeFilter",
     "ReferencePrice",
+    "RevocationRequestRouteResponse",
     "Rule",
     "SalesChannel",
     "SalesChannelContext",
