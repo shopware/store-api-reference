@@ -188,6 +188,15 @@
           "technicalName": {
             "type": "string"
           },
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "email",
+            "maxLength": 254,
+            "description": "Optional email address of this organisation unit. Not inherited from the parent."
+          },
           "description": {
             "type": "string"
           },
@@ -19211,6 +19220,15 @@
                     "description": "Organization unit name",
                     "type": "string"
                   },
+                  "email": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "email",
+                    "maxLength": 254,
+                    "description": "Optional email address of this organisation unit. Not inherited from the parent."
+                  },
                   "technicalName": {
                     "description": "Stable, human-readable technical identifier of the organization unit. Optional.",
                     "type": "string"
@@ -19497,6 +19515,15 @@
                   "name": {
                     "description": "Organization unit name",
                     "type": "string"
+                  },
+                  "email": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "email",
+                    "maxLength": 254,
+                    "description": "Optional email address of this organisation unit. Not inherited from the parent."
                   },
                   "technicalName": {
                     "description": "Stable, human-readable technical identifier of the organization unit. Optional.",
