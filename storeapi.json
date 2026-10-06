@@ -709,6 +709,16 @@
           "pattern": "^[0-9a-f]{32}$"
         }
       },
+      "swContextSource": {
+        "name": "sw-context-source",
+        "in": "header",
+        "description": "Set to `session` to resolve the context from the storefront session cookie instead of a context token. Mutually exclusive with `sw-context-token`: sending both fails with HTTP 400 and `FRAMEWORK__ROUTING_SESSION_CONTEXT_NOT_RESOLVABLE`, as does a session that cannot be resumed.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "const": "session"
+        }
+      },
       "criteriaPage": {
         "name": "page",
         "in": "query",
@@ -1350,6 +1360,12 @@
                 "type": "object",
                 "properties": {
                   "price": {
+                    "type": "number"
+                  },
+                  "discount": {
+                    "type": "number"
+                  },
+                  "percentage": {
                     "type": "number"
                   },
                   "apiAlias": {
@@ -5376,6 +5392,12 @@
                       "price": {
                         "type": "number"
                       },
+                      "discount": {
+                        "type": "number"
+                      },
+                      "percentage": {
+                        "type": "number"
+                      },
                       "apiAlias": {
                         "type": "string",
                         "const": "cart_regulation_price"
@@ -8376,6 +8398,12 @@
                     "type": "object",
                     "properties": {
                       "price": {
+                        "type": "number"
+                      },
+                      "discount": {
+                        "type": "number"
+                      },
+                      "percentage": {
                         "type": "number"
                       }
                     },
@@ -14021,6 +14049,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14169,6 +14200,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14243,6 +14277,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14308,6 +14345,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14375,6 +14415,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14445,6 +14488,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14520,6 +14566,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14590,6 +14639,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       },
@@ -14618,6 +14670,11 @@
             "ApiKey": [],
             "ContextToken": []
           }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
         ]
       }
     },
@@ -14638,6 +14695,9 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -14682,6 +14742,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -14816,6 +14879,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14900,6 +14966,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -14968,6 +15037,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -15001,6 +15073,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -15069,6 +15144,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -15341,6 +15419,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -15417,6 +15498,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -15481,6 +15565,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -15505,6 +15592,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -15552,6 +15642,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -15636,6 +15729,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -15660,6 +15756,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -15760,6 +15859,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -15817,6 +15919,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -15907,6 +16012,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -15982,6 +16090,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -16193,6 +16304,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -16299,6 +16413,9 @@
           },
           {
             "$ref": "#/components/parameters/CompressedCriteria"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -16378,6 +16495,9 @@
               "type": "string",
               "pattern": "^[0-9a-f]{32}$"
             }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -16443,6 +16563,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -16487,6 +16610,11 @@
           {
             "ApiKey": []
           }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
         ]
       }
     },
@@ -16501,6 +16629,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -16567,6 +16698,9 @@
                 "pattern": "^[0-9a-f]{32}$"
               }
             }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -16605,6 +16739,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -16658,6 +16795,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -16722,6 +16862,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -16853,6 +16996,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -16892,6 +17038,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -17105,6 +17254,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -17144,6 +17296,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -17282,6 +17437,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       },
@@ -17369,6 +17527,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -17426,6 +17587,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       },
@@ -17455,6 +17619,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -17516,6 +17683,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -17555,6 +17725,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -17654,6 +17827,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -17702,6 +17878,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -17792,6 +17971,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -17840,6 +18022,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -17927,6 +18112,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -17969,6 +18157,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -18019,6 +18210,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -18079,6 +18273,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -18189,6 +18386,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -18211,6 +18411,9 @@
               "type": "string",
               "pattern": "^[0-9a-f]{32}$"
             }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -18295,6 +18498,9 @@
                 "zugferd_embedded_pdf"
               ]
             }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -18433,6 +18639,9 @@
                 "zugferd_embedded_pdf"
               ]
             }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -18513,6 +18722,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -18634,6 +18846,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       },
@@ -18673,6 +18888,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -18810,6 +19028,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -19036,6 +19257,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -19090,6 +19314,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -19180,6 +19407,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -19213,6 +19443,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -19287,6 +19520,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -20071,6 +20307,9 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -20191,6 +20430,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       },
@@ -20217,6 +20459,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -20321,6 +20566,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -20501,6 +20749,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -20593,6 +20844,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -20708,6 +20962,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -20766,6 +21023,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -20823,6 +21083,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -20907,6 +21170,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -21029,6 +21295,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -21122,6 +21391,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -21186,6 +21458,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -21288,6 +21563,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -21338,6 +21616,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -21408,6 +21689,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -21629,6 +21913,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -21691,6 +21978,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -21747,6 +22037,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -21838,6 +22131,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -21994,6 +22290,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -22053,6 +22352,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -22143,6 +22445,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -22200,6 +22505,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -22325,6 +22633,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -22394,6 +22705,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -22485,6 +22799,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -22536,6 +22853,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -22644,6 +22964,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -22688,6 +23011,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -22799,6 +23125,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -22889,6 +23218,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -22932,6 +23264,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -23000,6 +23335,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -23083,6 +23421,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -23301,6 +23642,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -23373,6 +23717,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -23596,6 +23943,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -23651,6 +24001,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -23744,6 +24097,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -23803,6 +24159,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "requestBody": {
@@ -23926,6 +24285,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -24345,6 +24707,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
@@ -24360,6 +24725,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -24409,6 +24777,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
@@ -24471,6 +24842,9 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ],
         "responses": {
