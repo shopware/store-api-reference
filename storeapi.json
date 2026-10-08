@@ -11769,7 +11769,10 @@
             "enum": [
               "frontend.navigation.page",
               "frontend.landing.page",
-              "frontend.detail.page"
+              "frontend.detail.page",
+              "store-api.category.detail",
+              "store-api.landing-page.detail",
+              "store-api.product.detail"
             ]
           },
           "pathInfo": {
@@ -16995,6 +16998,16 @@
         ],
         "parameters": [
           {
+            "name": "orderId",
+            "in": "query",
+            "description": "Evaluates the availability for this order of the current customer instead of the current session.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
             "$ref": "#/components/parameters/swLanguageId"
           },
           {
@@ -21477,6 +21490,11 @@
                       "onlyAvailable": {
                         "description": "List only available",
                         "type": "boolean"
+                      },
+                      "orderId": {
+                        "description": "Evaluates the availability for this order of the current customer instead of the current session. The availability filter is only applied together with `onlyAvailable`.",
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{32}$"
                       }
                     },
                     "type": "object"
@@ -21560,6 +21578,16 @@
           },
           {
             "$ref": "#/components/parameters/CompressedCriteria"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "description": "Evaluates the availability for this order of the current customer instead of the current session. The availability filter is only applied together with `onlyAvailable`.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
@@ -24169,7 +24197,21 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Criteria"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Criteria"
+                  },
+                  {
+                    "properties": {
+                      "orderId": {
+                        "description": "Evaluates the availability for this order of the current customer instead of the current session. The availability filter is only applied together with `onlyAvailable`.",
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{32}$"
+                      }
+                    },
+                    "type": "object"
+                  }
+                ]
               }
             }
           }
@@ -24282,6 +24324,16 @@
           },
           {
             "$ref": "#/components/parameters/CompressedCriteria"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "description": "Evaluates the availability for this order of the current customer instead of the current session. The availability filter is only applied together with `onlyAvailable`.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
