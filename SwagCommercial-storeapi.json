@@ -2585,39 +2585,6 @@
                 },
                 "type": "object"
               },
-              "bundleSalesChannels": {
-                "description": "Sales channels in which this bundle is available.",
-                "properties": {
-                  "links": {
-                    "type": "object",
-                    "properties": {
-                      "related": {
-                        "type": "string",
-                        "format": "uri-reference",
-                        "example": "/product/deb10517653c255364175796ace3553f/bundleSalesChannels"
-                      }
-                    }
-                  },
-                  "data": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "example": "sales_channel"
-                        },
-                        "id": {
-                          "type": "string",
-                          "example": "d4aa52cb00cd89c5e047c6a5c72a0384"
-                        }
-                      }
-                    }
-                  }
-                },
-                "type": "object",
-                "readOnly": true
-              },
               "bundleItemsCount": {
                 "description": "Runtime-only number of currently available bundle items used for storefront display and validation. Runtime field, cannot be used as part of the criteria.",
                 "type": "integer",
@@ -14292,7 +14259,10 @@
             "enum": [
               "frontend.navigation.page",
               "frontend.landing.page",
-              "frontend.detail.page"
+              "frontend.detail.page",
+              "store-api.category.detail",
+              "store-api.landing-page.detail",
+              "store-api.product.detail"
             ]
           },
           "pathInfo": {
