@@ -897,7 +897,7 @@
       "CompressedCriteria": {
         "name": "_criteria",
         "in": "query",
-        "description": "Compressed and encoded criteria object. Format: base64url(gzip(json_encode(criteria))). This parameter allows passing complex criteria as a single encoded string instead of multiple query parameters. The criteria object should be JSON-encoded, then gzipped, and finally base64url-encoded. The criteria object structure is defined in the Criteria schema (see #/components/schemas/Criteria).",
+        "description": "Compressed and encoded criteria object. Format: base64url(gzip(json_encode(criteria))). This parameter allows passing complex criteria as a single encoded string instead of multiple query parameters. The criteria object should be JSON-encoded, then gzipped, and finally base64url-encoded. The criteria object structure is defined in the Criteria schema (see #/components/schemas/Criteria). Besides the criteria, the object can contain the other query parameters of the route, so it works as a compressed query string on every Store API GET route. A field in `_criteria` takes precedence over a query parameter of the same name, other query parameters are applied next to it.",
         "required": false,
         "schema": {
           "type": "string",
@@ -908,7 +908,7 @@
       "CompressedNoneFieldsCriteria": {
         "name": "_criteria",
         "in": "query",
-        "description": "Compressed and encoded criteria object. Format: base64url(gzip(json_encode(criteria))). This parameter allows passing complex criteria as a single encoded string instead of multiple query parameters. The criteria object should be JSON-encoded, then gzipped, and finally base64url-encoded. The criteria object structure is defined in the NoneFieldsCriteria schema (see #/components/schemas/NoneFieldsCriteria).",
+        "description": "Compressed and encoded criteria object. Format: base64url(gzip(json_encode(criteria))). This parameter allows passing complex criteria as a single encoded string instead of multiple query parameters. The criteria object should be JSON-encoded, then gzipped, and finally base64url-encoded. The criteria object structure is defined in the NoneFieldsCriteria schema (see #/components/schemas/NoneFieldsCriteria). Besides the criteria, the object can contain the other query parameters of the route, so it works as a compressed query string on every Store API GET route. A field in `_criteria` takes precedence over a query parameter of the same name, other query parameters are applied next to it.",
         "required": false,
         "schema": {
           "type": "string",
@@ -4908,58 +4908,6 @@
         "type": "object",
         "additionalProperties": true
       },
-      "resource": {
-        "description": "\"Resource objects\" appear in a JSON API document to represent resources.",
-        "type": "object",
-        "required": [
-          "type",
-          "id"
-        ],
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/attributes"
-          },
-          "relationships": {
-            "$ref": "#/components/schemas/relationships"
-          },
-          "links": {
-            "$ref": "#/components/schemas/links"
-          },
-          "meta": {
-            "$ref": "#/components/schemas/meta"
-          }
-        }
-      },
-      "relationshipLinks": {
-        "description": "A resource object **MAY** contain references to other resource objects (\"relationships\"). Relationships may be to-one or to-many. Relationships can be specified by including a member in a resource's links object.",
-        "type": "object",
-        "additionalProperties": true,
-        "properties": {
-          "self": {
-            "allOf": [
-              {
-                "description": "A `self` member, whose value is a URL for the relationship itself (a \"relationship URL\"). This URL allows the client to directly manipulate the relationship. For example, it would allow a client to remove an `author` from an `article` without deleting the people resource itself.",
-                "type": "array",
-                "items": {
-                  "type": "object"
-                }
-              },
-              {
-                "$ref": "#/components/schemas/link"
-              }
-            ]
-          },
-          "related": {
-            "$ref": "#/components/schemas/link"
-          }
-        }
-      },
       "links": {
         "type": "object",
         "additionalProperties": {
@@ -4991,82 +4939,6 @@
             }
           }
         ]
-      },
-      "attributes": {
-        "description": "Members of the attributes object (\"attributes\") represent information about the resource object in which it's defined.",
-        "type": "object",
-        "additionalProperties": true
-      },
-      "relationships": {
-        "description": "Members of the relationships object (\"relationships\") represent references from the resource object in which it's defined to other resource objects.",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/relationship"
-        }
-      },
-      "relationship": {
-        "description": "A relationship object describes links, resource linkage, or meta-information for a related resource.",
-        "type": "object",
-        "minProperties": 1,
-        "properties": {
-          "links": {
-            "$ref": "#/components/schemas/relationshipLinks"
-          },
-          "data": {
-            "description": "Member, whose value represents \"resource linkage\".",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/relationshipToOne"
-              },
-              {
-                "$ref": "#/components/schemas/relationshipToMany"
-              }
-            ]
-          },
-          "meta": {
-            "$ref": "#/components/schemas/meta"
-          }
-        },
-        "additionalProperties": false
-      },
-      "relationshipToOne": {
-        "allOf": [
-          {
-            "description": "References to other resource objects in a to-one (\"relationship\"). Relationships can be specified by including a member in a resource's links object."
-          },
-          {
-            "$ref": "#/components/schemas/linkage"
-          }
-        ]
-      },
-      "relationshipToMany": {
-        "description": "An array of objects each containing \"type\" and \"id\" members for to-many relationships.",
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/linkage"
-        },
-        "uniqueItems": true
-      },
-      "linkage": {
-        "description": "The \"type\" and \"id\" to non-empty members.",
-        "type": "object",
-        "required": [
-          "type",
-          "id"
-        ],
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$"
-          },
-          "meta": {
-            "$ref": "#/components/schemas/meta"
-          }
-        },
-        "additionalProperties": false
       },
       "error": {
         "type": "object",
@@ -5325,7 +5197,7 @@
             "type": "boolean"
           },
           "payload": {
-            "$ref": "#/components/schemas/ProductJsonApi"
+            "$ref": "#/components/schemas/OrderLineItem/properties/payload"
           },
           "price": {
             "type": "object",
@@ -5473,8 +5345,8 @@
             "description": "Allows to change the quantity of the line item when set to true."
           },
           "states": {
-            "deprecated": true,
             "type": "array",
+            "deprecated": true,
             "items": {
               "type": "string",
               "enum": [
@@ -5494,6 +5366,46 @@
         "required": [
           "id",
           "type"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "const": "product"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "payload": {
+                  "$ref": "#/components/schemas/ProductLineItemPayload"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "const": "promotion"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "payload": {
+                  "$ref": "#/components/schemas/PromotionLineItemPayload"
+                }
+              }
+            }
+          }
         ]
       },
       "ListPrice": {
@@ -6782,150 +6694,7 @@
               "array"
             ],
             "maxItems": 0,
-            "properties": {
-              "categoryIds": {
-                "type": [
-                  "array",
-                  "null"
-                ],
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "createdAt": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "description": "Date in the storage format `Y-m-d H:i:s.v`, not RFC 3339.",
-                "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
-                "readOnly": true
-              },
-              "customFields": {
-                "anyOf": [
-                  {
-                    "type": "object"
-                  },
-                  {
-                    "type": "array",
-                    "maxItems": 0
-                  }
-                ]
-              },
-              "features": {
-                "type": "array"
-              },
-              "isCloseout": {
-                "type": "boolean"
-              },
-              "isNew": {
-                "type": "boolean"
-              },
-              "manufacturerId": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "markAsTopseller": {
-                "type": "boolean"
-              },
-              "optionIds": {
-                "type": [
-                  "array",
-                  "null"
-                ],
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "options": {
-                "description": "Variant options of the product as group and option name pairs.",
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "group": {
-                      "type": "string"
-                    },
-                    "option": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "group",
-                    "option"
-                  ]
-                }
-              },
-              "parentId": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "productNumber": {
-                "type": "string"
-              },
-              "propertyIds": {
-                "type": [
-                  "array",
-                  "null"
-                ],
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "releaseDate": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "description": "Date in the storage format `Y-m-d H:i:s.v`, not RFC 3339.",
-                "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$"
-              },
-              "stock": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "streamIds": {
-                "type": [
-                  "array",
-                  "null"
-                ],
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "tagIds": {
-                "type": [
-                  "array",
-                  "null"
-                ],
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "taxId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "productType": {
-                "$ref": "#/components/schemas/Product/properties/type"
-              }
-            }
+            "additionalProperties": true
           },
           "good": {
             "description": "When set to true, it indicates the line item is physical else it is virtual.",
@@ -6965,15 +6734,22 @@
           },
           "type": {
             "description": "Type refers to the entity type of an item whether it is product or promotion for instance.",
-            "type": "string",
-            "enum": [
-              "product",
-              "credit",
-              "custom",
-              "promotion",
-              "container",
-              "discount",
-              "quantity"
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "product",
+                  "credit",
+                  "custom",
+                  "promotion",
+                  "container",
+                  "discount",
+                  "quantity"
+                ]
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "customFields": {
@@ -7046,7 +6822,47 @@
             "maxItems": 0
           }
         },
-        "type": "object"
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "const": "product"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "payload": {
+                  "$ref": "#/components/schemas/ProductLineItemPayload"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "const": "promotion"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "payload": {
+                  "$ref": "#/components/schemas/PromotionLineItemPayload"
+                }
+              }
+            }
+          }
+        ]
       },
       "OrderLineItemDownload": {
         "description": "Added since version: 6.4.19.0",
@@ -8854,1150 +8670,194 @@
         },
         "type": "object"
       },
-      "ProductJsonApi": {
-        "description": "Added since version: 6.0.0.0",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/resource",
-            "required": [
-              "options"
+      "ProductLineItemPayload": {
+        "description": "Payload of a `product` line item: a snapshot of the product taken when the line item was calculated. An order keeps the payload of the version that placed it, so orders from older versions can lack keys added since. Extensions declare the keys they add in their own Store API schema files, which adds them here; undeclared keys aren't part of this schema.",
+        "type": "object",
+        "required": [
+          "categoryIds",
+          "createdAt",
+          "customFields",
+          "features",
+          "isCloseout",
+          "isNew",
+          "manufacturerId",
+          "markAsTopseller",
+          "optionIds",
+          "options",
+          "parentId",
+          "productNumber",
+          "propertyIds",
+          "releaseDate",
+          "stock",
+          "streamIds",
+          "tagIds",
+          "taxId"
+        ],
+        "properties": {
+          "categoryIds": {
+            "type": [
+              "array",
+              "null"
             ],
-            "properties": {
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "group",
-                    "option",
-                    "translated"
-                  ],
-                  "properties": {
-                    "group": {
-                      "type": "string"
-                    },
-                    "option": {
-                      "type": "string"
-                    },
-                    "translated": {
-                      "type": "object",
-                      "properties": {
-                        "group": {
-                          "type": "string"
-                        },
-                        "option": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "group",
-                        "option"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "readOnly": true
           },
-          {
-            "required": [
-              "id",
-              "taxId",
-              "productNumber",
-              "stock",
-              "name"
+          "createdAt": {
+            "type": [
+              "string",
+              "null"
             ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "versionId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "parentId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "parentVersionId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "manufacturerId": {
-                "description": "Unique identity of the manufacturer.",
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "productManufacturerVersionId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "unitId": {
-                "description": "Unique identity of the unit.",
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "taxId": {
-                "description": "Unique identity of tax.",
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "coverId": {
-                "description": "Unique identity of a ProductMedia item used as product cover.",
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "productMediaVersionId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "deliveryTimeId": {
-                "description": "Unique identity of delivery time.",
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "canonicalProductId": {
-                "description": "Unique identity of canonical product.",
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "canonicalProductVersionId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "cmsPageId": {
-                "description": "Unique identity of CMS page.",
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "cmsPageVersionId": {
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "openGraphMediaId": {
-                "description": "Media used as Open Graph image for social media sharing.",
-                "type": "string",
-                "pattern": "^[0-9a-f]{32}$"
-              },
-              "productNumber": {
-                "description": "Unique number assigned to individual products. Define rules for automatic assignment of every product creation as per your number range.",
-                "type": "string"
-              },
-              "restockTime": {
-                "description": "The restock time in days indicates how long it will take until a sold out item is back in stock.",
-                "type": "integer",
-                "format": "int64"
-              },
-              "active": {
-                "description": "When boolean value is `true`, the products are available for selection in the storefront for purchase.",
-                "type": "boolean"
-              },
-              "available": {
-                "description": "Indicates weather the product is available or not.",
-                "type": "boolean",
-                "readOnly": true
-              },
-              "isCloseout": {
-                "description": "When the value is set to true, the product is hidden when sold out.",
-                "type": "boolean"
-              },
-              "availableStock": {
-                "description": "Indicates the number of products still available. This value results from the stock minus the open orders.",
-                "type": "integer",
-                "format": "int64",
-                "readOnly": true
-              },
-              "stock": {
-                "description": "Indicates the number of products available.",
-                "type": "integer",
-                "format": "int64"
-              },
-              "displayGroup": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "string",
-                "readOnly": true
-              },
-              "manufacturerNumber": {
-                "description": "Unique number that describes the manufacturer.",
-                "type": "string"
-              },
-              "ean": {
-                "description": "Indicates EAN of the product.",
-                "type": "string"
-              },
-              "purchaseSteps": {
-                "description": "Specifies the scales in which the item is to be offered. For example, a scale of 2 means that your customers can purchase 2, 4, 6 products, etc., but not 1, 3 or 5.",
-                "type": "integer",
-                "format": "int64"
-              },
-              "maxPurchase": {
-                "description": "Maximum number of items that can be purchased.",
-                "type": "integer",
-                "format": "int64"
-              },
-              "minPurchase": {
-                "description": "Minimum number of items that can be purchased.",
-                "type": "integer",
-                "format": "int64"
-              },
-              "purchaseUnit": {
-                "description": "Quantity of the item purchased. For example, 500ml, 2kg, etc.",
-                "type": "number",
-                "format": "float"
-              },
-              "referenceUnit": {
-                "description": "Price of purchased item calculated as per the reference unit. Say, you bought 500ml of milk and the price is calculated in reference to 1000ml.",
-                "type": "number",
-                "format": "float"
-              },
-              "shippingFree": {
-                "description": "Indicates weather the shipping price is free or not.",
-                "type": "boolean"
-              },
-              "markAsTopseller": {
-                "description": "Indicates weather the product is top seller or not.",
-                "type": "boolean"
-              },
-              "weight": {
-                "description": "The weight of the product.",
-                "type": "number",
-                "format": "float"
-              },
-              "width": {
-                "description": "The width of the product.",
-                "type": "number",
-                "format": "float"
-              },
-              "height": {
-                "description": "The height of the product.",
-                "type": "number",
-                "format": "float"
-              },
-              "length": {
-                "description": "The length of the product.",
-                "type": "number",
-                "format": "float"
-              },
-              "releaseDate": {
-                "description": "The release date of a product or product model. This can be used to distinguish the exact variant of a product.",
-                "type": "string",
-                "format": "date-time"
-              },
-              "ratingAverage": {
-                "description": "Average of all the ratings.",
-                "type": "number",
-                "format": "float",
-                "readOnly": true
-              },
-              "categoryTree": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "propertyIds": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "optionIds": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "streamIds": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "tagIds": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "categoryIds": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{32}$"
-                },
-                "readOnly": true
-              },
-              "childCount": {
-                "type": "integer",
-                "format": "int64",
-                "readOnly": true
-              },
-              "sales": {
-                "description": "Frequency of the product sales.",
-                "type": "integer",
-                "format": "int64",
-                "readOnly": true
-              },
-              "metaDescription": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "keywords": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "descriptionTeaser": {
-                "description": "Read-only, HTML-stripped excerpt of the description, derived on write.",
-                "type": "string",
-                "readOnly": true
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "packUnit": {
-                "type": "string"
-              },
-              "packUnitPlural": {
-                "type": "string"
-              },
-              "customFields": {
+            "description": "Date in the storage format `Y-m-d H:i:s.v`, not RFC 3339.",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+            "readOnly": true
+          },
+          "customFields": {
+            "anyOf": [
+              {
                 "type": "object"
               },
-              "ogTitle": {
-                "type": "string"
-              },
-              "ogDescription": {
-                "type": "string"
-              },
-              "type": {
-                "description": "The type of the product, e.g., physical or digital.",
-                "type": "string",
-                "enum": [
-                  "physical",
-                  "digital"
-                ]
-              },
-              "states": {
+              {
                 "type": "array",
-                "items": {
+                "maxItems": 0
+              }
+            ]
+          },
+          "features": {
+            "description": "Essential characteristics of the product's feature set, in display order.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
                   "type": "string"
                 },
-                "readOnly": true,
-                "deprecated": true
-              },
-              "calculatedPrice": {
-                "type": "object"
-              },
-              "calculatedPrices": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "additionalProperties": false
+                "value": {
+                  "description": "Depends on `type`, for example a string, a price or a list of property options."
+                },
+                "type": {
+                  "type": "string"
                 }
               },
-              "calculatedMaxPurchase": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "integer",
-                "format": "int64"
-              },
-              "calculatedCheapestPrice": {
-                "type": "object"
-              },
-              "isNew": {
-                "description": "Runtime field, cannot be used as part of the criteria.",
-                "type": "boolean"
-              },
-              "sortedProperties": {
-                "type": "object"
-              },
-              "measurements": {
-                "type": "object"
-              },
-              "createdAt": {
-                "type": "string",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "updatedAt": {
-                "type": "string",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "translated": {
-                "type": "object"
-              },
-              "relationships": {
-                "properties": {
-                  "downloads": {
-                    "description": "Downloadable files associated with the product (e.g., manuals, digital content)",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/downloads"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "product_download"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "d07d50a751bc6ddf12bf3af0efee9b45"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "parent": {
-                    "description": "Unique identity of the product.",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/parent"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "product"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "d0e45878043844ffc41aac437e86b602"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "children": {
-                    "description": "Product variants that inherit from this parent product",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/children"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "product"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "268184c12df027f536154d099d497b31"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "deliveryTime": {
-                    "description": "Estimated delivery time for the product",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/deliveryTime"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "delivery_time"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "8c888ae25a7bd42057370e31f7e01044"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "tax": {
-                    "description": "Tax configuration (rate and calculation rules)",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/tax"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "tax"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "06565e5611f23fdf8cc43e5077b92b54"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "manufacturer": {
-                    "description": "Product manufacturer or brand information",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/manufacturer"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "product_manufacturer"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "c2904bca62b22443d6cf5e9d89cab204"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "unit": {
-                    "description": "Product unit of measure (e.g., piece, liter, kg)",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/unit"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "unit"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "3e34bdebd9bd5edda27e8728904a2552"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "cover": {
-                    "description": "Main product image displayed in listings and detail pages",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/cover"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "product_media"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "41d0e299ca1abeb2094852da042165c7"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "openGraphMedia": {
-                    "description": "Open Graph image for social media sharing",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/openGraphMedia"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "media"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "bbda52d941a3452369a00f2880f4f358"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "cmsPage": {
-                    "description": "Custom CMS page layout for the product detail page",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/cmsPage"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "cms_page"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "7b1460918b1abb93311108f3dc021c9b"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "canonicalProduct": {
-                    "description": "Canonical product reference for variant consolidation and SEO purposes",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/canonicalProduct"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "product"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "023995a50b56c0de077323e958b2bbcd"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "media": {
-                    "description": "Product images and media gallery",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/media"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "product_media"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "62933a2951ef01f4eafd9bdf4d3cd2f0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "crossSellings": {
-                    "description": "Cross-selling configurations (related products, accessories, similar items)",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/crossSellings"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "product_cross_selling"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "89936e14544d1b403cecef938101b6b0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "configuratorSettings": {
-                    "description": "Variant configurator settings defining available options for product variants",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/configuratorSettings"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "product_configurator_setting"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "c0827fee13725d41f1fd7e292243f5aa"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "productReviews": {
-                    "description": "Customer reviews and ratings for the product",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/productReviews"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "product_review"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "01e78541ea343ed72424a5222796a4cd"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "mainCategories": {
-                    "description": "Primary category assignments per sales channel for SEO and navigation",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/mainCategories"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "main_category"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "1fb731fc4139cbb575429e28846f0c39"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "seoUrls": {
-                    "description": "SEO-friendly URLs for the product across different sales channels",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/seoUrls"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "seo_url"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "5321b5a71127b8b98cdd4b068ad56c4c"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "options": {
-                    "description": "Product variant options (e.g., size, color) that define different variants",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/options"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "property_group_option"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "93da65a9fd0004d9477aeac024e08e15"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "properties": {
-                    "description": "Product properties and characteristics for filtering",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/properties"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "property_group_option"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "74693d2fc58b46bd06410f278e39aa71"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "categories": {
-                    "description": "Categories this product is assigned to",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/categories"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "category"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "b0b5ccb4a195a07fd3eed14affb8695f"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "streams": {
-                    "description": "Dynamic product streams this product belongs to based on defined filters",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/streams"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "product_stream"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "2f6f4768f1c2d7c8f1f54823723f1a70"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "categoriesRo": {
-                    "description": "Read-only category tree including all parent categories for optimized queries",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/categoriesRo"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "category"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "7f0702d3a90d965b8c9158c451f43fdb"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "tags": {
-                    "description": "Tags for organizing and filtering products",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/tags"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "example": "tag"
-                            },
-                            "id": {
-                              "type": "string",
-                              "example": "d57ac45256849d9b13e2422d91580fb9"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "seoCategory": {
-                    "description": "Main category used for SEO URL generation in the current sales channel",
-                    "properties": {
-                      "links": {
-                        "type": "object",
-                        "properties": {
-                          "related": {
-                            "type": "string",
-                            "format": "uri-reference",
-                            "example": "/product/deb10517653c255364175796ace3553f/seoCategory"
-                          }
-                        }
-                      },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "example": "category"
-                          },
-                          "id": {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{32}$",
-                            "example": "9354d004d12e03d35ad8292bf0bb234d"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              }
+              "required": [
+                "label",
+                "value",
+                "type"
+              ]
+            }
+          },
+          "isCloseout": {
+            "type": "boolean"
+          },
+          "isNew": {
+            "type": "boolean"
+          },
+          "manufacturerId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "markAsTopseller": {
+            "type": "boolean"
+          },
+          "optionIds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
             },
-            "type": "object"
+            "readOnly": true
+          },
+          "options": {
+            "description": "Variant options of the product as group and option name pairs.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "group": {
+                  "type": "string"
+                },
+                "option": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "group",
+                "option"
+              ]
+            }
+          },
+          "parentId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "productNumber": {
+            "type": "string"
+          },
+          "propertyIds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "readOnly": true
+          },
+          "releaseDate": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Date in the storage format `Y-m-d H:i:s.v`, not RFC 3339.",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$"
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "streamIds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "readOnly": true
+          },
+          "tagIds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "readOnly": true
+          },
+          "taxId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "productType": {
+            "$ref": "#/components/schemas/Product/properties/type",
+            "description": "Can be missing on carts saved before 6.7.7.0."
           }
-        ]
+        }
       },
       "ProductListingCriteria": {
         "allOf": [
@@ -10671,6 +9531,198 @@
           }
         },
         "type": "object"
+      },
+      "PromotionLineItemPayload": {
+        "description": "Payload of a `promotion` line item: the discount it applies and the promotion it belongs to. An order keeps the payload of the version that placed it, so orders from older versions can lack keys added since. Extensions declare the keys they add in their own Store API schema files, which adds them here; undeclared keys aren't part of this schema.",
+        "type": "object",
+        "required": [
+          "code",
+          "conditionRuleIds",
+          "discountId",
+          "discountScope",
+          "discountType",
+          "exclusions",
+          "filter",
+          "groupId",
+          "hasGlobalRedemptionLimit",
+          "hasPersonaRestriction",
+          "limitedRedemptions",
+          "maxValue",
+          "preventCombination",
+          "priority",
+          "promotionCodeType",
+          "promotionId",
+          "setGroups",
+          "value"
+        ],
+        "properties": {
+          "code": {
+            "description": "Code the promotion was redeemed with. Empty for promotions without a code.",
+            "type": "string"
+          },
+          "promotionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "discountId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "discountType": {
+            "type": "string",
+            "enum": [
+              "absolute",
+              "percentage",
+              "fixed",
+              "fixed_unit"
+            ]
+          },
+          "discountScope": {
+            "type": "string",
+            "enum": [
+              "cart",
+              "delivery",
+              "set",
+              "setgroup"
+            ]
+          },
+          "value": {
+            "description": "Configured discount value as a numeric string.",
+            "type": "string"
+          },
+          "maxValue": {
+            "description": "Maximum discount of a percentage discount in the cart currency as a numeric string. Empty if there is no maximum.",
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "promotionCodeType": {
+            "type": "string",
+            "enum": [
+              "fixed",
+              "individual",
+              "global"
+            ]
+          },
+          "preventCombination": {
+            "type": "boolean"
+          },
+          "exclusions": {
+            "description": "IDs of promotions that cannot be combined with this one.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          "limitedRedemptions": {
+            "type": "boolean"
+          },
+          "hasGlobalRedemptionLimit": {
+            "type": "boolean"
+          },
+          "hasPersonaRestriction": {
+            "type": "boolean"
+          },
+          "conditionRuleIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          "groupId": {
+            "description": "Set group the discount applies to. Empty unless `discountScope` is `setgroup`.",
+            "type": "string"
+          },
+          "setGroups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "groupId": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "packagerKey": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "sorterKey": {
+                  "type": "string"
+                },
+                "rules": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            }
+          },
+          "filter": {
+            "type": "object",
+            "properties": {
+              "considerAdvancedRules": {
+                "type": "boolean"
+              },
+              "sorterKey": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "applierKey": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "usageKey": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "pickerKey": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "composition": {
+            "description": "Line items the discount was spread over, with the discount amount each one received. Not set for delivery discounts.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer"
+                },
+                "discount": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id",
+                "quantity",
+                "discount"
+              ]
+            }
+          }
+        }
       },
       "PropertyGroup": {
         "description": "Added since version: 6.0.0.0",
@@ -14117,19 +13169,18 @@
                       {
                         "properties": {
                           "accountType": {
-                            "description": "Type of the customer account. Default value is 'private'.",
+                            "description": "Type of the customer account. If it is omitted, the customer keeps the current account type.",
                             "type": "string",
                             "enum": [
                               "private"
-                            ],
-                            "default": "private"
+                            ]
                           },
                           "company": {
-                            "description": "Not used for a private account, the value is cleared.",
+                            "description": "Cleared for a private account. If `accountType` is omitted for a business customer, the company is only changed when it is sent, and must not be empty then.",
                             "type": "string"
                           },
                           "vatIds": {
-                            "description": "Not used for a private account, the value is cleared.",
+                            "description": "Cleared for a private account. If `accountType` is omitted for a business customer, the VAT IDs are only changed when they are sent, and are validated as for `business` then.",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -14155,7 +13206,7 @@
                             "type": "string"
                           },
                           "vatIds": {
-                            "description": "VAT IDs of the customer's company. Only valid when `accountType` is `business`, and only required when the country of the default billing address has `vatIdRequired` enabled.",
+                            "description": "VAT IDs of the customer's company. Only valid when `accountType` is `business`, and validated against the country of the active billing address: required when it has `vatIdRequired` enabled, and checked against its VAT ID pattern when it has `checkVatIdPattern` enabled.",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -16306,6 +15357,9 @@
             }
           },
           {
+            "$ref": "#/components/parameters/CompressedCriteria"
+          },
+          {
             "$ref": "#/components/parameters/swLanguageId"
           },
           {
@@ -16672,6 +15726,10 @@
           "401": {
             "$ref": "#/components/responses/401",
             "description": "The `sw-access-key` header is missing."
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "Too many repeated line item additions. Wait for the number of seconds provided in the error before retrying."
           }
         },
         "security": [
@@ -16783,6 +15841,76 @@
         "security": [
           {
             "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/cart/reorder/{orderId}": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Add the products of an order to the cart",
+        "description": "This route adds the product line items of an existing order to the current cart. Only the order id is sent; the order is resolved for the logged-in customer and the current sales channel. Products that are no longer available in the sales channel are skipped and reported as errors on the returned cart.",
+        "operationId": "reorder",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "Identifier of the order whose products should be added to the cart.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated cart.",
+            "headers": {
+              "sw-context-token": {
+                "description": "Contains sw-context-token value",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "The `sw-access-key` header is missing."
+          },
+          "403": {
+            "$ref": "#/components/responses/403",
+            "description": "No customer is logged in."
+          },
+          "404": {
+            "$ref": "#/components/responses/404",
+            "description": "The `orderId` does not reference an order of the logged-in customer in this sales channel."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": [],
+            "ContextToken": []
           }
         ]
       }
@@ -17264,6 +16392,9 @@
                 }
               ]
             }
+          },
+          {
+            "$ref": "#/components/parameters/CompressedCriteria"
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
@@ -19269,6 +18400,9 @@
             }
           },
           {
+            "$ref": "#/components/parameters/CompressedCriteria"
+          },
+          {
             "$ref": "#/components/parameters/swLanguageId"
           },
           {
@@ -19533,6 +18667,15 @@
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "name": "toolsets",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated toolsets whose tools `tools/list` advertises from the first request of the connection, for example `store-api`. `all` selects every toolset, and unknown names are ignored. It is part of the URL the client connects to, so it applies to every request of the session. `shopware-toolsets-list` reports these toolsets as enabled.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "$ref": "#/components/parameters/swContextSource"
@@ -20460,8 +19603,8 @@
           {
             "name": "ids[]",
             "in": "query",
-            "description": "Identifier (UUID) of the media entity to be fetched.",
-            "required": true,
+            "description": "Identifier (UUID) of the media entity to be fetched. Required unless it is sent inside `_criteria`.",
+            "required": false,
             "schema": {
               "type": "array",
               "items": {
@@ -20469,6 +19612,9 @@
                 "pattern": "^[0-9a-f]{32}$"
               }
             }
+          },
+          {
+            "$ref": "#/components/parameters/CompressedCriteria"
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
@@ -22064,6 +21210,9 @@
             }
           },
           {
+            "$ref": "#/components/parameters/CompressedCriteria"
+          },
+          {
             "$ref": "#/components/parameters/swLanguageId"
           },
           {
@@ -22764,7 +21913,7 @@
                     "type": "string"
                   },
                   "points": {
-                    "description": "The review rating for the product. When it is omitted, the review is saved without a rating.",
+                    "description": "The review rating for the product, from 1 to 5. When it is omitted, the review is saved without a rating. From Shopware 6.8.0.0 on it is required.",
                     "type": "number",
                     "format": "double"
                   }
@@ -22972,8 +22121,8 @@
           {
             "name": "options[]",
             "in": "query",
-            "description": "The options parameter for the variant to find. Array of option IDs.",
-            "required": true,
+            "description": "The options parameter for the variant to find. Array of option IDs. Can also be sent inside `_criteria`.",
+            "required": false,
             "schema": {
               "type": "array",
               "items": {
@@ -22989,6 +22138,9 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "$ref": "#/components/parameters/CompressedCriteria"
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
@@ -23520,8 +22672,8 @@
           {
             "name": "search",
             "in": "query",
-            "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag.",
-            "required": true,
+            "description": "Using the search parameter, the server performs a text search on all records based on their data model and weighting as defined in the entity definition using the SearchRanking flag. Required unless it is sent inside `_criteria`.",
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -23667,6 +22819,9 @@
           },
           {
             "$ref": "#/components/parameters/onlyAggregations"
+          },
+          {
+            "$ref": "#/components/parameters/CompressedCriteria"
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
@@ -23968,6 +23123,9 @@
           },
           {
             "$ref": "#/components/parameters/onlyAggregations"
+          },
+          {
+            "$ref": "#/components/parameters/CompressedCriteria"
           },
           {
             "$ref": "#/components/parameters/swLanguageId"
