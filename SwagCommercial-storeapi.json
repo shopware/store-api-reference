@@ -455,6 +455,12 @@
           "cartPayload": {
             "type": "string"
           },
+          "originalCartPayload": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "price": {
             "required": [
               "netPrice",
@@ -566,6 +572,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/B2bComponentsPendingOrderAddress"
+            }
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/B2bComponentsPendingOrderHistory"
             }
           }
         },
@@ -2150,6 +2162,20 @@
             },
             "type": "object"
           },
+          "payload": {
+            "properties": {
+              "pickedItems": {
+                "$ref": "#/components/schemas/GroupedBundleLineItemPayload/properties/pickedItems"
+              }
+            },
+            "description": "Data owned by the line item type. `product` and `promotion` line items carry `ProductLineItemPayload` and `PromotionLineItemPayload`. Core defines no payload for `credit`, `custom`, `container` and `discount` line items, theirs holds whatever their creator set, for example the admin, an integration or an app script. Types added by extensions carry their own keys, and extensions can add keys to the core payloads too. An empty payload is an empty array.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0,
+            "additionalProperties": true
+          },
           "id": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
@@ -2210,15 +2236,6 @@
           "label": {
             "description": "It is a typical product name given to the line item.",
             "type": "string"
-          },
-          "payload": {
-            "description": "Data owned by the line item type. `product` and `promotion` line items carry `ProductLineItemPayload` and `PromotionLineItemPayload`. Core defines no payload for `credit`, `custom`, `container` and `discount` line items, theirs holds whatever their creator set, for example the admin, an integration or an app script. Types added by extensions carry their own keys, and extensions can add keys to the core payloads too. An empty payload is an empty array.",
-            "type": [
-              "object",
-              "array"
-            ],
-            "maxItems": 0,
-            "additionalProperties": true
           },
           "good": {
             "description": "When set to true, it indicates the line item is physical else it is virtual.",
@@ -4586,6 +4603,92 @@
         },
         "type": "object"
       },
+      "B2bComponentsPendingOrderHistory": {
+        "description": "Added since version: 6.7.15.0",
+        "required": [
+          "id",
+          "pendingOrderId",
+          "action"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "pendingOrderId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "employeeId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "line_item_added",
+              "line_item_removed",
+              "line_item_quantity_changed"
+            ]
+          },
+          "payload": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "employee": {
+            "$ref": "#/components/schemas/B2bEmployee"
+          }
+        },
+        "type": "object"
+      },
+      "B2bPendingOrderLineItemChangeResult": {
+        "description": "Added since version: 6.7.15.0",
+        "type": "object",
+        "properties": {
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "b2b_pending_order_line_item_change_result"
+            ]
+          },
+          "removedPromotions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "promotionId"
+              ],
+              "properties": {
+                "promotionId": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "label": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "removedPromotions"
+        ]
+      },
       "QuoteComment": {
         "required": [
           "id",
@@ -5884,6 +5987,42 @@
           }
         }
       },
+      "GroupedBundleLineItemPayload": {
+        "description": "Payload of a `grouped_bundle` line item, sent to add a product bundle. Product bundles only.",
+        "type": "object",
+        "properties": {
+          "pickedItems": {
+            "description": "Product bundles only: the products picked for a `grouped_bundle` line item whose `referencedId` is the bundle ID. One entry per bundle item; optional ones may be left out. If missing or empty, each bundle item gets its default variant.",
+            "type": "array",
+            "writeOnly": true,
+            "items": {
+              "type": "object",
+              "required": [
+                "bundleItemId",
+                "productId",
+                "quantity"
+              ],
+              "properties": {
+                "bundleItemId": {
+                  "description": "ID of the bundle item.",
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "productId": {
+                  "description": "ID of the picked product: a variant of the bundle item's product, not in `excludedVariants`, or the product itself if it has no variants.",
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{32}$"
+                },
+                "quantity": {
+                  "description": "Quantity per bundle: the bundle item's `quantity` if `quantityLocked` is true, else between its `min` and `max`.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        }
+      },
       "LineItem": {
         "allOf": [
           {
@@ -5913,6 +6052,25 @@
               "properties": {
                 "payload": {
                   "$ref": "#/components/schemas/BundleDiscountLineItemPayload"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "const": "grouped_bundle"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "payload": {
+                  "$ref": "#/components/schemas/GroupedBundleLineItemPayload"
                 }
               }
             }
@@ -18749,6 +18907,546 @@
         ]
       }
     },
+    "/pending-order/{id}/line-item/add": {
+      "post": {
+        "tags": [
+          "B2B Order Approval"
+        ],
+        "summary": "Add a product to a pending order",
+        "description": "This route is used by an approver to add a product to a pending order before deciding on it",
+        "operationId": "addPendingOrderLineItem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the pending order the product is added to",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "productId"
+                ],
+                "properties": {
+                  "productId": {
+                    "description": "Identifier of the product to add",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "quantity": {
+                    "description": "Quantity to add, defaults to 1",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The change was applied. `removedPromotions` lists the promotions that no longer apply after it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bPendingOrderLineItemChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/pending-order/{id}/line-item/{lineItemId}/remove": {
+      "post": {
+        "tags": [
+          "B2B Order Approval"
+        ],
+        "summary": "Remove a product from a pending order",
+        "description": "This route is used by an approver to remove a product line item from a pending order before deciding on it",
+        "operationId": "removePendingOrderLineItem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the pending order the line item belongs to",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "lineItemId",
+            "in": "path",
+            "description": "Identifier of the line item to remove",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The change was applied. `removedPromotions` lists the promotions that no longer apply after it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bPendingOrderLineItemChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "B2B Order Approval"
+        ],
+        "summary": "Remove a product from a pending order",
+        "description": "This route is used by an approver to remove a product line item from a pending order before deciding on it",
+        "operationId": "deletePendingOrderLineItem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the pending order the line item belongs to",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "lineItemId",
+            "in": "path",
+            "description": "Identifier of the line item to remove",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The change was applied. `removedPromotions` lists the promotions that no longer apply after it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bPendingOrderLineItemChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/pending-order/{id}/product-search": {
+      "get": {
+        "tags": [
+          "B2B Order Approval"
+        ],
+        "summary": "Search products that can be added to a pending order",
+        "description": "This route searches products in the sales channel context of the pending order. Products already contained in the pending order carry a pendingOrderLineItem extension.",
+        "operationId": "searchPendingOrderProductsGet",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the pending order the search is scoped to",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search term",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found products; products already contained in the pending order carry a pendingOrderLineItem extension with the id and quantity of their line item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "allOf": [
+                              {
+                                "$ref": "#/components/schemas/Product"
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "extensions": {
+                                    "type": "object",
+                                    "properties": {
+                                      "pendingOrderLineItem": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string",
+                                            "description": "Id of the cart line item that already contains this product"
+                                          },
+                                          "quantity": {
+                                            "type": "integer",
+                                            "description": "Current quantity of that line item"
+                                          },
+                                          "apiAlias": {
+                                            "type": "string",
+                                            "example": "pending_order_line_item"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "B2B Order Approval"
+        ],
+        "summary": "Search products that can be added to a pending order",
+        "description": "This route searches products in the sales channel context of the pending order. Products already contained in the pending order carry a pendingOrderLineItem extension.",
+        "operationId": "searchPendingOrderProducts",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the pending order the search is scoped to",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search term",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found products; products already contained in the pending order carry a pendingOrderLineItem extension with the id and quantity of their line item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "allOf": [
+                              {
+                                "$ref": "#/components/schemas/Product"
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "extensions": {
+                                    "type": "object",
+                                    "properties": {
+                                      "pendingOrderLineItem": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string",
+                                            "description": "Id of the cart line item that already contains this product"
+                                          },
+                                          "quantity": {
+                                            "type": "integer",
+                                            "description": "Current quantity of that line item"
+                                          },
+                                          "apiAlias": {
+                                            "type": "string",
+                                            "example": "pending_order_line_item"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/pending-order/{id}/line-item/{lineItemId}/quantity": {
+      "post": {
+        "tags": [
+          "B2B Order Approval"
+        ],
+        "summary": "Change the quantity of a pending order item",
+        "description": "This route is used by an approver to change the quantity of a product line item before deciding on the pending order",
+        "operationId": "changePendingOrderLineItemQuantity",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the pending order the line item belongs to",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "lineItemId",
+            "in": "path",
+            "description": "Identifier of the line item to change",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "quantity"
+                ],
+                "properties": {
+                  "quantity": {
+                    "description": "New quantity, must be at least 1",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The change was applied. `removedPromotions` lists the promotions that no longer apply after it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bPendingOrderLineItemChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "B2B Order Approval"
+        ],
+        "summary": "Change the quantity of a pending order item",
+        "description": "This route is used by an approver to change the quantity of a product line item before deciding on the pending order",
+        "operationId": "patchPendingOrderLineItemQuantity",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the pending order the line item belongs to",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "lineItemId",
+            "in": "path",
+            "description": "Identifier of the line item to change",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "quantity"
+                ],
+                "properties": {
+                  "quantity": {
+                    "description": "New quantity, must be at least 1",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The change was applied. `removedPromotions` lists the promotions that no longer apply after it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2bPendingOrderLineItemChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
     "/organization-unit": {
       "post": {
         "tags": [
@@ -22129,6 +22827,22 @@
         "security": [
           {
             "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/checkout/cart/line-item": {
+      "post": {
+        "tags": [
+          "Cart",
+          "Product Bundles"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
           }
         ]
       }
