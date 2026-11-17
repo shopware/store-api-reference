@@ -4451,6 +4451,9 @@
                 },
                 "amount": {
                   "$ref": "#/components/schemas/CalculatedPrice"
+                },
+                "payload": {
+                  "$ref": "#/components/schemas/OrderTransaction/properties/payload"
                 }
               }
             }
@@ -4547,6 +4550,9 @@
           },
           "shippingMethod": {
             "$ref": "#/components/schemas/ShippingMethod"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/OrderDelivery/properties/payload"
           }
         }
       },
@@ -8769,6 +8775,20 @@
             },
             "type": "object"
           },
+          "position": {
+            "description": "Position of the delivery in the cart the order was placed from, starting at 1.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "payload": {
+            "description": "Data extensions attached to the delivery in the cart. Core defines no keys. An empty payload is an empty array.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0,
+            "additionalProperties": true
+          },
           "customFields": {
             "type": "object"
           },
@@ -9387,6 +9407,15 @@
             "description": "Unique identity of state.",
             "type": "string",
             "pattern": "^[0-9a-f]{32}$"
+          },
+          "payload": {
+            "description": "Data extensions attached to the transaction in the cart. Core defines no keys. An empty payload is an empty array.",
+            "type": [
+              "object",
+              "array"
+            ],
+            "maxItems": 0,
+            "additionalProperties": true
           },
           "customFields": {
             "type": "object"
