@@ -165,6 +165,468 @@
           "startDate"
         ]
       },
+      "B2bComponentsDocumentPortal": {
+        "properties": {
+          "extensions": {
+            "properties": {
+              "documentPortalBreadcrumb": {
+                "type": "object"
+              },
+              "documentPortalReferences": {
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The company customer that owns the document."
+          },
+          "categoryId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "folderId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Null for a document at the company root."
+          },
+          "sourceType": {
+            "type": "string",
+            "enum": [
+              "manual",
+              "order",
+              "quote"
+            ]
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "fileExtension": {
+            "type": "string"
+          },
+          "documentFormat": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Logical format, e.g. pdf, xml or zugferd_embedded_pdf; null for a legacy document, whose file extension is the fallback."
+          },
+          "fileSize": {
+            "type": "integer"
+          },
+          "documentDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deepLinkCode": {
+            "type": "string",
+            "description": "Required by the preview and download routes of the document."
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "float"
+          },
+          "currencyId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "mediaId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "relatedFolderId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "organizationId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salesChannelId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "orderDocumentId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteDocumentId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quoteDocumentVersionId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdById": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdByEmployeeId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdByCustomerId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "creator": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true,
+            "description": "Runtime label of the creator: System, Merchant for an Administration user, the company customer or the employee; null without a creator."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "readOnly": true
+          },
+          "category": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/B2bComponentsDocumentPortalCategory"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Only present when the association was requested; null when the category is not visible to the company."
+          },
+          "relatedFolder": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/B2bComponentsDocumentPortalFolder"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Only present when the association was requested."
+          },
+          "organization": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/B2bComponentsOrganization"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Only present when the association was requested."
+          },
+          "currency": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Currency"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Only present when the association was requested."
+          },
+          "notificationRecipients": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "b2b_components_document_portal"
+            ]
+          }
+        },
+        "type": "object",
+        "description": "A Document Portal document of a company: a manually uploaded file or a synced order or quote document. Store API reads are limited to the documents of the authenticated company.",
+        "required": [
+          "id",
+          "customerId",
+          "sourceType",
+          "fileName",
+          "fileSize",
+          "documentDate",
+          "fileExtension"
+        ]
+      },
+      "B2bComponentsDocumentPortalFolder": {
+        "properties": {
+          "extensions": {
+            "properties": {
+              "documentPortalReferences": {
+                "type": "object"
+              },
+              "documentPortalBreadcrumb": {
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The company customer that owns the folder."
+          },
+          "parentId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Null for a root folder."
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "system",
+              "global",
+              "local"
+            ],
+            "description": "system and global folders are managed by the merchant, local folders by the company."
+          },
+          "name": {
+            "type": "string"
+          },
+          "autoRenamed": {
+            "type": "boolean"
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true,
+            "description": "Pipe-separated IDs of the ancestors."
+          },
+          "itemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "readOnly": true,
+            "description": "Runtime count of descendant folders plus documents in the complete subtree, excluding the folder itself. Calculated on API reads and independent of listing filters."
+          },
+          "createdById": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdByEmployeeId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdByCustomerId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "creator": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true,
+            "description": "Runtime label of the creator: System, Merchant for an Administration user, the company customer or the employee; null without a creator."
+          },
+          "organizationId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salesChannelId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "relatedFolderId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The folder this folder is related to, e.g. the order folder of a return folder."
+          },
+          "templateId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "readOnly": true
+          },
+          "parent": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/B2bComponentsDocumentPortalFolder"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Only present when the association was requested."
+          },
+          "relatedFolder": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/B2bComponentsDocumentPortalFolder"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Only present when the association was requested."
+          },
+          "organization": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/B2bComponentsOrganization"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Only present when the association was requested."
+          },
+          "documents": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/B2bComponentsDocumentPortal"
+            },
+            "description": "Only present when the association was requested."
+          },
+          "relatedDocuments": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/B2bComponentsDocumentPortal"
+            }
+          },
+          "relatedFolders": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/B2bComponentsDocumentPortalFolder"
+            }
+          },
+          "notificationRecipients": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "b2b_components_document_portal_folder"
+            ]
+          }
+        },
+        "type": "object",
+        "description": "A Document Portal folder of a company. Store API reads are limited to the folders of the authenticated company.",
+        "required": [
+          "id",
+          "customerId",
+          "name",
+          "autoRenamed"
+        ]
+      },
       "B2bComponentsOrganization": {
         "properties": {
           "extensions": {
@@ -4042,6 +4504,481 @@
         "required": [
           "categories"
         ]
+      },
+      "B2bComponentsDocumentPortalAuditLog": {
+        "description": "A read-only audit entry of a Document Portal document or folder. Store API reads are limited to the authenticated company.",
+        "required": [
+          "id",
+          "customerId",
+          "action",
+          "systemOperation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "documentPortalId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "folderId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "action": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The recorded action, including actions provided by extensions."
+          },
+          "createdById": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "createdByEmployeeId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "createdByCustomerId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "systemOperation": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "creator": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true,
+            "description": "Runtime creator label: System, Merchant for an Administration user, the company customer or the employee; null without a creator. Cannot be used in Criteria."
+          },
+          "payload": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": true,
+            "readOnly": true,
+            "description": "The original action-specific audit payload, including field changes and snapshots when available."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "readOnly": true
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "b2b_components_document_portal_audit_log"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsDocumentPortalCategory": {
+        "description": "A category owned by the authenticated company. System and global categories are company copies of templates. Store API listings return active categories that are not hidden by the merchant.",
+        "required": [
+          "id",
+          "name",
+          "customerId",
+          "autoRenamed",
+          "createdByType",
+          "hiddenByAdmin"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The company category ID used in categoryId and reassignment payloads; never the template ID."
+          },
+          "name": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The owning company customer, required for every scope."
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "system",
+              "global",
+              "local"
+            ]
+          },
+          "templateId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "The source template ID for system/global copies; null for local categories. Category references use id instead."
+          },
+          "documentType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "autoRenamed": {
+            "type": "boolean"
+          },
+          "createdById": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdByEmployeeId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdByCustomerId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "creator": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true,
+            "description": "Runtime label of the creator: System, Merchant for an Administration user, the company customer or the employee; null without a creator."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "readOnly": true
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "b2b_components_document_portal_category"
+            ]
+          },
+          "createdByType": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "user",
+              "customer",
+              "employee",
+              "system",
+              null
+            ],
+            "readOnly": true,
+            "description": "Immutable creator type, retained when the account is deleted. Null for historical categories whose creator cannot be determined."
+          },
+          "hiddenByAdmin": {
+            "type": "boolean",
+            "readOnly": true,
+            "description": "Merchant-controlled visibility for this company. Hidden categories cannot be listed, assigned or managed from the Store API."
+          }
+        },
+        "type": "object"
+      },
+      "B2bComponentsDocumentPortalComment": {
+        "type": "object",
+        "description": "A comment on a Document Portal document or folder. Store API reads are scoped to the authenticated company through the target item.",
+        "required": [
+          "id",
+          "comment"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "documentPortalId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "folderId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "comment": {
+            "type": "string",
+            "description": "The stored comment text. The creation endpoint validates its request length; existing comments are returned in full."
+          },
+          "seenAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "createdById": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdByEmployeeId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdByCustomerId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "creator": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true,
+            "description": "Runtime creator label when available. Cannot be used in Criteria. Storefront author formatting belongs to the controller."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "readOnly": true
+          },
+          "apiAlias": {
+            "type": "string",
+            "enum": [
+              "b2b_components_document_portal_comment"
+            ]
+          }
+        }
+      },
+      "DocumentPortalBulkDownloadRequest": {
+        "type": "object",
+        "description": "Flat selection: ids of the ticked rows, ids of the rows unticked below a ticked folder and, in a search listing, the active filter. At least one of documentIds, folderIds or filter is required.",
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Accepted for symmetry with the Admin API and ignored; the company is the authenticated context."
+          },
+          "folderId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Scope folder. Every selected item must lie inside it; it is the outermost directory of the archive and names it."
+          },
+          "filter": {
+            "$ref": "#/components/schemas/DocumentPortalBulkDownloadFilter"
+          },
+          "documentIds": {
+            "$ref": "#/components/schemas/DocumentPortalBulkDownloadIdList"
+          },
+          "folderIds": {
+            "$ref": "#/components/schemas/DocumentPortalBulkDownloadIdList"
+          },
+          "excludeDocumentIds": {
+            "$ref": "#/components/schemas/DocumentPortalBulkDownloadIdList"
+          },
+          "excludeFolderIds": {
+            "$ref": "#/components/schemas/DocumentPortalBulkDownloadIdList"
+          }
+        }
+      },
+      "DocumentPortalBulkDownloadIdList": {
+        "type": "array",
+        "description": "Portal document or folder UUIDs; duplicates are listed once.",
+        "items": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      },
+      "DocumentPortalBulkDownloadFilter": {
+        "type": "object",
+        "description": "The search listing filter, with the keys and sentinels of GET /document-portal/search. An empty object selects everything inside the scope. A folderId inside the filter is ignored; the scope is the top-level folderId.",
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "string",
+            "description": "Category UUID or __no_category__"
+          },
+          "fileFormat": {
+            "type": "string",
+            "description": "Document format or extension, or __folder__ for folders only"
+          },
+          "relatedFolderId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "creatorId": {
+            "type": "string",
+            "description": "Creator UUID, __system__ or __merchant__"
+          },
+          "createdAtFrom": {
+            "type": "string",
+            "format": "date"
+          },
+          "createdAtTo": {
+            "type": "string",
+            "format": "date"
+          },
+          "currencyId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "valueFrom": {
+            "type": "number"
+          },
+          "valueTo": {
+            "type": "number"
+          }
+        }
+      },
+      "DocumentPortalDownloadJob": {
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "progress",
+          "fileName",
+          "expiresAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "processing",
+              "ready",
+              "failed",
+              "expired",
+              "cancelled"
+            ]
+          },
+          "progress": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percent of the archive the worker has built; 100 once the job is ready"
+          },
+          "fileName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Archive name, set when the job is ready"
+          },
+          "fileSize": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64"
+          },
+          "errorCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DocumentPortalDownloadTicket": {
+        "type": "object",
+        "required": [
+          "downloadUrl"
+        ],
+        "properties": {
+          "downloadUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Short-lived private download URL. Navigate directly to this URL; do not buffer the ZIP in a Blob. The URL expires after five minutes and may be reused for Range requests until expiry."
+          }
+        }
+      },
+      "DocumentPortalRecipientIds": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{32}$"
+        }
       },
       "B2bComponentsOrganizationCustomerAddress": {
         "required": [
@@ -8245,6 +9182,134 @@
           }
         },
         "type": "object"
+      },
+      "CheckoutDraft": {
+        "description": "The checkout of a context: its cart, selected and available methods and the stored address of a visitor without a customer.",
+        "type": "object",
+        "required": [
+          "cart",
+          "prospectiveCustomer",
+          "shippingMethod",
+          "paymentMethod",
+          "currency",
+          "language",
+          "shippingMethods",
+          "paymentMethods",
+          "shippingCosts",
+          "apiAlias"
+        ],
+        "properties": {
+          "cart": {
+            "$ref": "#/components/schemas/Cart"
+          },
+          "prospectiveCustomer": {
+            "description": "The stored addresses of a visitor without a customer, to restore a checkout form. `null` for logged in customers and before an address was sent.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "shippingMethod": {
+            "$ref": "#/components/schemas/ShippingMethod"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "language": {
+            "type": "object",
+            "required": [
+              "name",
+              "localeCode"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "localeCode": {
+                "type": "string"
+              }
+            }
+          },
+          "shippingMethods": {
+            "description": "The shipping methods available for the context, with their prices. `null` with `methods=false`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ShippingMethod"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "paymentMethods": {
+            "description": "The payment methods available for the context. `null` with `methods=false`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PaymentMethod"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "shippingCosts": {
+            "description": "The costs per available shipping method with `shippingCosts=true`, otherwise `null`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "shippingCost",
+                    "deliveryDate",
+                    "shippingMethod"
+                  ],
+                  "properties": {
+                    "shippingCost": {
+                      "$ref": "#/components/schemas/CalculatedPrice"
+                    },
+                    "deliveryDate": {
+                      "type": "object",
+                      "properties": {
+                        "earliest": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "latest": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    },
+                    "shippingMethod": {
+                      "$ref": "#/components/schemas/ShippingMethod"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "checkout_draft"
+          }
+        }
       },
       "CmsBlock": {
         "description": "Added since version: 6.0.0.0",
@@ -13209,6 +14274,111 @@
         },
         "type": "object"
       },
+      "ProspectiveCustomerAddress": {
+        "type": "object",
+        "description": "The parts of an address that rules, tax rules and shipping costs read. Only `countryId` is required, so that an address can be sent while it is still being typed.",
+        "required": [
+          "countryId"
+        ],
+        "properties": {
+          "countryId": {
+            "description": "Country of the address. It also becomes the country of the context.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "description": "Country state of the address, it has to belong to the country.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "zipcode": {
+            "description": "Zip code, validated with the zip code rules of the country.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "city": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "street": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          }
+        }
+      },
+      "ProspectiveCustomer": {
+        "type": "object",
+        "description": "The addresses a visitor without a customer has entered. Rules are matched as if the visitor registered as a new guest of the default customer group right now. Removed when a customer logs in or registers.",
+        "required": [
+          "shippingAddress",
+          "billingAddress",
+          "apiAlias"
+        ],
+        "properties": {
+          "shippingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "apiAlias"
+                ],
+                "properties": {
+                  "apiAlias": {
+                    "type": "string",
+                    "const": "prospective_customer_address"
+                  }
+                }
+              }
+            ]
+          },
+          "billingAddress": {
+            "description": "`null` when the billing address is the shipping address.",
+            "oneOf": [
+              {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "apiAlias"
+                    ],
+                    "properties": {
+                      "apiAlias": {
+                        "type": "string",
+                        "const": "prospective_customer_address"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "prospective_customer"
+          }
+        }
+      },
       "ReferencePrice": {
         "type": "object",
         "properties": {
@@ -13543,6 +14713,17 @@
               },
               {
                 "$ref": "#/components/schemas/Customer"
+              }
+            ]
+          },
+          "prospectiveCustomer": {
+            "description": "Only set without a customer, after the visitor has sent a `shippingAddress`.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomer"
+              },
+              {
+                "type": "null"
               }
             ]
           },
@@ -16813,6 +17994,2678 @@
         ]
       }
     },
+    "/document-portal/categories": {
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "List the categories visible to the company",
+        "operationId": "listDocumentPortalCategories",
+        "description": "Requires login, Document Portal license, company activation and any Document Portal permission for employees. Searches the b2b_components_document_portal_category entity with Store API criteria. Every scope is limited to active categories owned by the authenticated company that are not hidden by the merchant, including its system/global template copies. Use the returned category id, not templateId, in document and reassignment payloads. The Storefront account page sorts its category filter by name ASC, id ASC.",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Store API criteria filters, e.g. filter[0][type]=equals&filter[0][field]=parentId&filter[0][value]=null for the root folders. The company of the authenticated customer is always applied.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Store API criteria sorting, e.g. sort[0][field]=name&sort[0][order]=ASC.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "associations",
+            "in": "query",
+            "description": "Store API criteria associations to load, e.g. associations[organization][]= and associations[relatedFolder][]=.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "includes",
+            "in": "query",
+            "description": "Store API response fields per entity, e.g. includes[b2b_components_document_portal_folder][]=id.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The visible categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "elements",
+                    "total"
+                  ],
+                  "properties": {
+                    "total": {
+                      "type": "integer"
+                    },
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/B2bComponentsDocumentPortalCategory"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid criteria"
+          },
+          "403": {
+            "description": "Login, company feature or permission denied."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "operationId": "createDocumentPortalCategory",
+        "summary": "Create a local category; requires document_portal.create. Customer, scope and creator are server-assigned.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created local category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "categoryId"
+                  ],
+                  "properties": {
+                    "categoryId": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid name, duplicate or reserved name, or invalid reassignment target"
+          },
+          "403": {
+            "description": "Document Portal is unavailable or the employee lacks the required permission"
+          },
+          "404": {
+            "description": "Category is not local to the authenticated customer"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/document-portal/categories/{categoryId}": {
+      "patch": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "operationId": "updateDocumentPortalCategory",
+        "summary": "Rename or enable a local category; requires document_portal.update",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "description": "The company category copy ID, not its template ID."
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Updated"
+          },
+          "400": {
+            "description": "Invalid name, duplicate or reserved name, or invalid reassignment target"
+          },
+          "403": {
+            "description": "Document Portal is unavailable, the employee lacks the required permission, or the category is read-only for this action"
+          },
+          "404": {
+            "description": "Category is missing, hidden by the merchant or belongs to another company"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "minProperties": 1,
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                  },
+                  "active": {
+                    "type": "boolean",
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Local categories, including those created by the merchant, accept name and active=true. Global and system copies are read-only in the Storefront and Store API. Categories hidden by the merchant cannot be managed. Use the deactivate action to disable a local category."
+      }
+    },
+    "/document-portal/categories/{categoryId}/deactivate": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "operationId": "deactivateDocumentPortalCategory",
+        "summary": "Deactivate a local category and optionally reassign files; requires document_portal.update",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "description": "The company category copy ID, not its template ID."
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Applied atomically"
+          },
+          "400": {
+            "description": "Invalid name, duplicate or reserved name, or invalid reassignment target"
+          },
+          "403": {
+            "description": "Document Portal is unavailable, the employee lacks the required permission, or the category is read-only for this action"
+          },
+          "404": {
+            "description": "Category is missing, hidden by the merchant or belongs to another company"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reassignCategoryId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Changes only the authenticated company's local category. A reassignment target must be active, not hidden by the merchant, owned by the same company and different from the source. Without reassignment, documents are unassigned. Re-enabling the category does not restore previous assignments. Global and system copies are read-only in the Storefront and Store API."
+      }
+    },
+    "/document-portal/categories/{categoryId}/delete": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "operationId": "deleteDocumentPortalCategory",
+        "summary": "Delete a local category and optionally reassign files; requires document_portal.delete. Without reassignment, files remain without a category.",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "description": "The company category copy ID, not its template ID."
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Applied atomically"
+          },
+          "400": {
+            "description": "Invalid name, duplicate or reserved name, or invalid reassignment target"
+          },
+          "403": {
+            "description": "Document Portal is unavailable, the employee lacks the required permission, or the category is read-only for this action"
+          },
+          "404": {
+            "description": "Category is missing, hidden by the merchant or belongs to another company"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reassignCategoryId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Merchant-created local categories, global copies and system copies cannot be deleted. The category and reassignment target must not be hidden by the merchant."
+      }
+    },
+    "/document-portal/categories/manage-file": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "operationId": "manageDocumentPortalFileCategory",
+        "summary": "Assign or clear the category of selected documents; requires document_portal.update",
+        "description": "Requires login, Document Portal license and company activation. All document IDs must belong to the authenticated business partner. A non-null category must be active, not hidden by the merchant and owned by the same partner, including its system/global category copies. Use the category ID, not templateId. Supports manual, order and quote documents. The entire selection is validated before a single batch write; missing or inaccessible documents reject the request without partial updates. Duplicate IDs are deduplicated and unchanged assignments are skipped. UUIDs are normalized to lowercase.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "documentIds",
+                  "categoryId"
+                ],
+                "properties": {
+                  "documentIds": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-fA-F]{32}$"
+                    }
+                  },
+                  "categoryId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-fA-F]{32}$",
+                    "description": "An active category of the authenticated company, or null to clear the category."
+                  }
+                }
+              },
+              "examples": {
+                "clear": {
+                  "value": {
+                    "documentIds": [
+                      "11111111111111111111111111111111"
+                    ],
+                    "categoryId": null
+                  }
+                },
+                "assign": {
+                  "value": {
+                    "documentIds": [
+                      "11111111111111111111111111111111"
+                    ],
+                    "categoryId": "22222222222222222222222222222222"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Categories updated, or all documents already had the requested category"
+          },
+          "400": {
+            "description": "Malformed JSON or invalid payload, or category missing, inactive or owned by another company"
+          },
+          "403": {
+            "description": "Login, company feature or employee update permission denied"
+          },
+          "404": {
+            "description": "A selected document is missing or belongs to another company"
+          },
+          "500": {
+            "description": "The existing route license guard rejects a missing or expired Document Portal license"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ]
+      }
+    },
+    "/document-portal/changes": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Check the displayed company portal levels for changes",
+        "operationId": "loadDocumentPortalChangeToken",
+        "description": "Requires login, the Document Portal license and company activation, and any Document Portal permission for employees. Customer ownership comes from the authenticated sales channel context. The opaque token covers the viewed level, direct items of expanded folders and category state. It uses counts and latest timestamps, not a full content checksum. Polling responses must not be cached. Up to 50 expanded folders can be checked in one request.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "folderId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-f]{32}$",
+                    "default": null,
+                    "description": "Viewed folder; null or omitted for the portal root."
+                  },
+                  "expandedFolderIds": {
+                    "type": "array",
+                    "maxItems": 50,
+                    "default": [],
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The current token for the requested levels",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "token"
+                  ],
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    },
+                    "apiAlias": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "DOCUMENT_PORTAL__INVALID_CHANGE_REQUEST: malformed folder IDs or expanded-folder list"
+          },
+          "403": {
+            "description": "Login, feature or employee permission denied"
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NOT_FOUND: viewed folder missing or outside the authenticated company"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ]
+      }
+    },
+    "/document-portal/comments": {
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "List comments of the authenticated company",
+        "operationId": "loadDocumentPortalComments",
+        "description": "Lists company comments through standard Store API Criteria. Filter documentPortalId or folderId to select an item. Missing or foreign item filters return an empty collection. Comment entities use standard DAL serialization; author formatting and item unread badges belong to the Storefront controller. Returns the standard EntitySearchResult with elements, total and pagination metadata. The total uses DAL lookahead, rather than an exact global count; clients compare total with the number of elements returned on that page to detect another page.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number interpreted by the core RequestCriteriaBuilder using the requested limit. Reading does not mark comments as seen."
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Core Criteria filters, including documentPortalId or folderId. Authenticated company scope is always enforced.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Store API sorting, as a comma-separated field list or a sorting array. Include id as a tie-breaker for stable pagination.",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "associations",
+            "in": "query",
+            "description": "Creator and custom associations to load. Only DAL ApiAware fields are serialized.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "includes",
+            "in": "query",
+            "description": "Store API response fields per entity.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Page size validated against the core Store API limit configuration. The storefront sidebar defaults to 25.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "elements",
+                    "total"
+                  ],
+                  "properties": {
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/B2bComponentsDocumentPortalComment"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "DAL lookahead count from the current offset; greater than the returned element count when another page exists."
+                    },
+                    "entity": {
+                      "type": "string",
+                      "enum": [
+                        "b2b_components_document_portal_comment"
+                      ]
+                    },
+                    "page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "limit": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "minimum": 1
+                    },
+                    "aggregations": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "maxItems": 0
+                        }
+                      ]
+                    },
+                    "apiAlias": {
+                      "type": "string",
+                      "enum": [
+                        "dal_entity_search_result"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid page, comment or read selection."
+          },
+          "403": {
+            "description": "Login, company feature or Document Portal employee access denied."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Send a file or folder comment",
+        "operationId": "sendDocumentPortalComment",
+        "description": "Creates a comment on a document or folder selected in the payload. Attribution comes from the authenticated customer or employee; company ownership is checked before creation.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "elements",
+                    "total"
+                  ],
+                  "properties": {
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/B2bComponentsDocumentPortalComment"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "The number of comments matching the newly created comment ID."
+                    },
+                    "entity": {
+                      "type": "string",
+                      "enum": [
+                        "b2b_components_document_portal_comment"
+                      ]
+                    },
+                    "page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "limit": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "minimum": 1
+                    },
+                    "aggregations": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "maxItems": 0
+                        }
+                      ]
+                    },
+                    "apiAlias": {
+                      "type": "string",
+                      "enum": [
+                        "dal_entity_search_result"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid page, comment or read selection."
+          },
+          "403": {
+            "description": "Login, company feature or Document Portal employee access denied."
+          },
+          "404": {
+            "description": "The file or folder is missing or belongs to another company."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "comment"
+                ],
+                "properties": {
+                  "comment": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 10000
+                  },
+                  "documentPortalId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "folderId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-f]{32}$"
+                  }
+                },
+                "description": "Supply comment and exactly one non-null documentPortalId or folderId. The target must belong to the authenticated company. Actor fields and seenAt are server-controlled; existing notifications are reused.",
+                "anyOf": [
+                  {
+                    "required": [
+                      "documentPortalId"
+                    ],
+                    "properties": {
+                      "documentPortalId": {
+                        "type": "string"
+                      },
+                      "folderId": {
+                        "type": "null"
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "folderId"
+                    ],
+                    "properties": {
+                      "folderId": {
+                        "type": "string"
+                      },
+                      "documentPortalId": {
+                        "type": "null"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/document-portal/comments/{commentId}/read": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Mark one incoming comment as read",
+        "operationId": "readDocumentPortalComment",
+        "description": "Identifies the comment directly, derives ownership through its document or folder and enforces authenticated company scope. Already-read or outgoing comments are left unchanged. No request body is required.",
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Comment read state processed."
+          },
+          "403": {
+            "description": "Login, license, feature or employee access denied."
+          },
+          "404": {
+            "description": "Malformed, missing or inaccessible comment."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/comments/read": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Mark selected incoming comments as read",
+        "operationId": "readDocumentPortalComments",
+        "description": "Marks only selected incoming Administration comments of the authenticated company. Missing, foreign, already-read and outgoing comments are ignored. The response has no UI-specific unread badge metadata.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Read selection processed."
+          },
+          "400": {
+            "description": "Invalid read selection or criteria."
+          },
+          "403": {
+            "description": "Login, license, feature or employee access denied."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "ids"
+                ],
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "maxItems": 100,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    }
+                  },
+                  "filter": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    },
+                    "description": "Optional core Criteria filters, for example a documentPortalId or folderId constraint."
+                  }
+                },
+                "description": "At most 100 selected comment UUIDs, optionally narrowed by core Criteria filters. Entries outside the selection remain unread."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/document-portal/creators": {
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "List the creators of the authenticated company's documents and folders",
+        "operationId": "listDocumentPortalCreators",
+        "description": "Requires login, the Document Portal license and company activation, and any Document Portal permission for employees. The company is taken from the authenticated sales channel context; a supplied customerId does not change it. Creators are deduplicated across documents and folders. Admin users are represented by one anonymous Merchant entry. Employee creators are included only when Employee Management is available for the company. Merchant and System labels are untranslated identifiers. Results are not sorted. This endpoint supports term, page and limit; it does not implement DAL search criteria.",
+        "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "description": "Trimmed, case-insensitive substring search on the creator label.",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number. Values below 1 are normalized to 1.",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Page size. Values below 1 are normalized to 1.",
+            "schema": {
+              "type": "integer",
+              "default": 25
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The creator listing, with an exact total before pagination",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "creators",
+                    "total",
+                    "page",
+                    "limit"
+                  ],
+                  "properties": {
+                    "creators": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "id",
+                          "label"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "system",
+                              "user",
+                              "employee",
+                              "customer"
+                            ]
+                          },
+                          "id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "pattern": "^[0-9a-f]{32}$",
+                            "description": "Employee membership or customer ID. Null for anonymous Merchant and System entries."
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "apiAlias": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed term, page or limit query parameter"
+          },
+          "403": {
+            "description": "Login, feature or employee permission denied"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/documents": {
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "List company documents",
+        "operationId": "listDocumentPortalDocuments",
+        "description": "Requires login, Document Portal license, company activation and any Document Portal permission for employees. Searches the b2b_components_document_portal entity with Store API criteria; the result is limited to the documents of the authenticated company and encoded like any other Store API entity. The category association only hydrates categories visible to the company (active, system/global or local of the company). The Storefront account page lists the documents of a folder with a folderId filter, the category, currency, organization and relatedFolder associations and the sorting documentDate DESC, createdAt DESC, id ASC. The runtime field creator is the label of the creator; Administration users are displayed as Merchant.",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Store API criteria filters, e.g. filter[0][type]=equals&filter[0][field]=parentId&filter[0][value]=null for the root folders. The company of the authenticated customer is always applied.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Store API criteria sorting, e.g. sort[0][field]=name&sort[0][order]=ASC.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "associations",
+            "in": "query",
+            "description": "Store API criteria associations to load, e.g. associations[organization][]= and associations[relatedFolder][]=.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "includes",
+            "in": "query",
+            "description": "Store API response fields per entity, e.g. includes[b2b_components_document_portal_folder][]=id.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The matching documents of the authenticated company",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "elements",
+                    "total"
+                  ],
+                  "properties": {
+                    "total": {
+                      "type": "integer"
+                    },
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/B2bComponentsDocumentPortal"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid criteria"
+          },
+          "403": {
+            "description": "Login, company feature or permission denied."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/documents/{documentId}": {
+      "patch": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Update company document metadata",
+        "operationId": "updateDocumentPortalDocument",
+        "description": "Requires login, Document Portal license, company activation and document_portal.update for employees. Partial update with at least one supported field: omitted fields are preserved; fileName is optional, and an empty payload is rejected with HTTP 400. JSON clients must send Content-Type application/json; core parsing handles malformed JSON. Manual documents accept the four listed fields; synced documents accept only categoryId and relatedFolderId. Unknown fields, including folderId, ownership, source/media/file identity and creator fields, are rejected. All fields are validated before writing. Names are case-insensitively unique in the current company and folder/root, excluding the current document. Name checks at the company root are best effort: concurrent root writes can still create duplicate names.",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": false,
+                "properties": {
+                  "fileName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Manual documents only. Trimmed portal display name must contain 1–255 characters after trimming; the stored file and extension are unchanged."
+                  },
+                  "documentFormat": {
+                    "type": "string",
+                    "enum": [
+                      "pdf",
+                      "xml",
+                      "xlsx",
+                      "xls",
+                      "csv",
+                      "docx",
+                      "jpg",
+                      "jpeg",
+                      "png",
+                      "html",
+                      "htm",
+                      "zugferd_embedded_pdf",
+                      "zugferd_xml"
+                    ],
+                    "description": "Manual documents only. Trimmed and lowercased. ZUGFeRD embedded PDF requires stored extension pdf; ZUGFeRD XML requires xml. Other selections need not match the extension."
+                  },
+                  "categoryId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-f]{32}$",
+                    "description": "Active system/global category or active local category of the company. Null clears; omission preserves even an inactive category."
+                  },
+                  "relatedFolderId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-f]{32}$",
+                    "description": "Existing folder of the authenticated company. Editable for manual and synced documents. Null clears. Does not move the document."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Metadata updated; no response body"
+          },
+          "400": {
+            "description": "DOCUMENT_PORTAL__INVALID_DOCUMENT_UPDATE_REQUEST: empty payload, forbidden field or invalid name/format; malformed application/json is rejected by the core HTTP layer"
+          },
+          "403": {
+            "description": "Login, company feature or UPDATE permission denied"
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_NOT_FOUND, CATEGORY_NOT_FOUND or FOLDER_NOT_FOUND: missing or outside the allowed scope"
+          },
+          "409": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_FILE_NAME_TAKEN: display name already used in the company folder/root, or a database unique constraint rejects the rename"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Delete a manual company document",
+        "operationId": "deleteDocumentPortalDocument",
+        "description": "Requires login, Document Portal license, company activation and document_portal.delete for employees. Only manual documents can be deleted. Deletes the portal record; existing unused-media cleanup retains referenced media and uses its one-day grace period based on media age. Audit history cascades with the document; no persistent delete audit row or activity notification is created by this action.",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Document deleted; no response body"
+          },
+          "400": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_DELETION_NOT_ALLOWED: synced documents cannot be deleted"
+          },
+          "403": {
+            "description": "Login, company feature or DELETE permission denied"
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_NOT_FOUND: missing or outside the authenticated company"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/documents/{documentId}/move": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Move a manual company document",
+        "operationId": "moveDocumentPortalDocument",
+        "description": "Requires login, Document Portal license, company activation and document_portal.update for employees. Moves only a manual document of the authenticated company. The required folderId must be a Shopware UUID of an existing company folder or explicit null for the company root. Local, global and system company folders are valid destinations. Omitted, empty or invalid values and unknown fields are rejected. Same-location moves return 204 without writing. Only folderId changes; file, source, creator, category and related-folder metadata are preserved. Name conflicts are case-insensitive in the destination company folder/root, excluding this document, and are never automatically renamed. Root name checks are best effort for concurrent writes. Actual changes use the shared audit and activity-notification pipeline.",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "folderId"
+                ],
+                "properties": {
+                  "folderId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-fA-F]{32}$",
+                    "description": "Destination folder UUID of the authenticated company, normalized to lowercase. Only explicit null moves to the company root; no root folder entity ID is needed."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Document moved or already in the destination; no response body"
+          },
+          "400": {
+            "description": "DOCUMENT_PORTAL__INVALID_DOCUMENT_MOVE_REQUEST: missing/empty/invalid folderId or unknown field after core request parsing; DOCUMENT_PORTAL__DOCUMENT_MOVE_NOT_ALLOWED: source is not manual. Malformed application/json can be rejected by the core request transformer before this action with its standard HTTP 400 error"
+          },
+          "403": {
+            "description": "Login, company feature or UPDATE permission denied"
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_NOT_FOUND or DOCUMENT_PORTAL__FOLDER_NOT_FOUND: missing or outside the authenticated company; invalid document IDs use the same not-found response"
+          },
+          "409": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_FILE_NAME_TAKEN: current display name is already used in the destination company folder/root, or the database unique constraint rejects the move"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/document/{documentId}/{deepLinkCode}": {
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Preview or download the exact Document Portal document file",
+        "operationId": "downloadDocumentPortalDocument",
+        "description": "Requires login, Document Portal license, company activation and any Document Portal employee permission. The portal ID and required case-sensitive deepLinkCode are checked in the authenticated company before opening media. The stored portal format determines the file; client company, media, source IDs or fileType cannot override it. Files are streamed through the shop origin, including remote storage; no storage redirect is returned.",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "name": "deepLinkCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Exact code from the authenticated listing. It does not grant guest access and need not be unique across source formats."
+          },
+          {
+            "name": "download",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "Use download=1 to force an attachment. Otherwise safe extension/MIME combinations render inline; HTML is sandboxed and other formats are attachments."
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Streamed document bytes, private and no-store",
+            "headers": {
+              "Content-Disposition": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Length": {
+                "description": "Present when file size is known, including zero",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "sandbox for inline HTML",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "const": "nosniff"
+                }
+              }
+            },
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Login, company feature or employee permission denied"
+          },
+          "404": {
+            "description": "Invalid, missing or foreign document, wrong/empty code, or unavailable represented file"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/download-jobs": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Queue a ZIP of the selected documents and folders",
+        "responses": {
+          "202": {
+            "description": "Download job accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentPortalDownloadJob"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid selection"
+          },
+          "403": {
+            "description": "Login, company feature, license or employee permission denied"
+          },
+          "404": {
+            "description": "Selected item or owned job not found"
+          },
+          "410": {
+            "description": "The archive has expired"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentPortalBulkDownloadRequest"
+              }
+            }
+          }
+        },
+        "description": "The authenticated context supplies the company and actor; customerId in the request is ignored. The request is stored as sent and resolved again when the worker runs, so the ZIP reflects the documents at that time: items deleted meanwhile are left out and items added meanwhile are included. A scope folder that no longer exists, or a selection that no longer resolves to any folder or document, fails the job; an empty folder still yields a ZIP with that directory. ZIP creation runs on the low_priority message queue. Poll the job, prepare a download ticket when ready, then navigate to the returned URL; fileName is set once the job is ready. A document whose file is missing fails the whole job. Archives expire one hour after completion.",
+        "operationId": "createDocumentPortalDownloadJob",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ]
+      }
+    },
+    "/document-portal/download-jobs/{jobId}": {
+      "delete": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Cancel the current actor’s download job",
+        "description": "Stops a job the actor no longer waits for. A queued job is never built, a job being built is dropped by the worker, a ready archive is deleted. Cancelling a failed, expired or already cancelled job changes nothing.",
+        "responses": {
+          "204": {
+            "description": "The job is cancelled"
+          },
+          "403": {
+            "description": "Login, company feature, license or employee permission denied"
+          },
+          "404": {
+            "description": "Owned job not found"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "operationId": "cancelDocumentPortalDownloadJob"
+      },
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Get the current actor’s download job",
+        "responses": {
+          "200": {
+            "description": "Get the current actor’s download job",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentPortalDownloadJob"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid selection"
+          },
+          "403": {
+            "description": "Login, company feature, license or employee permission denied"
+          },
+          "404": {
+            "description": "Selected item or owned job not found"
+          },
+          "410": {
+            "description": "The archive has expired"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "operationId": "getDocumentPortalDownloadJob"
+      }
+    },
+    "/document-portal/download-jobs/{jobId}/prepare-download": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Prepare a native ZIP download",
+        "responses": {
+          "200": {
+            "description": "Prepare a native ZIP download",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentPortalDownloadTicket"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid selection"
+          },
+          "403": {
+            "description": "Login, company feature, license or employee permission denied"
+          },
+          "404": {
+            "description": "Selected item or owned job not found"
+          },
+          "410": {
+            "description": "The archive has expired"
+          },
+          "409": {
+            "description": "The job is queued, processing or failed"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "operationId": "prepareDocumentPortalDownloadJob"
+      }
+    },
+    "/document-portal/duplicate/{documentId}": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Duplicate a manual company document",
+        "operationId": "duplicateDocumentPortalDocument",
+        "description": "Requires login, Document Portal license and company activation, and document_portal.create for employees. Only manual documents of the authenticated company can be duplicated; order and quote documents are rejected. The physical file is copied to a new private media record, and the copy keeps the category, folder, document date and custom fields of the source. Its display name is the source name with a ` (1)` suffix, repeated while the name is taken case-insensitively in the destination folder. The authenticated employee or company customer becomes the creator. Notification recipients are not copied. A failed duplication removes the new media and portal record.",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "description": "The portal document ID of the manual source document.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The duplicate document and its private media were created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "documentId"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "documentId": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$",
+                      "description": "The ID of the new portal document."
+                    },
+                    "apiAlias": {
+                      "type": "string",
+                      "description": "Store API alias of the response struct"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_DUPLICATION_NOT_ALLOWED: the source is an order or quote document"
+          },
+          "403": {
+            "description": "Login, company feature or employee permission denied"
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_NOT_FOUND or DOCUMENT_PORTAL__DOCUMENT_FILE_NOT_FOUND: the document is missing, outside the company, has no media or its physical file cannot be read"
+          },
+          "500": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_DUPLICATION_LOCK_NOT_ACQUIRED: the company and destination folder duplication lock could not be acquired"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/folders": {
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "List company folders",
+        "operationId": "listDocumentPortalFolders",
+        "description": "Requires login, Document Portal license, company activation and any Document Portal permission for employees. Searches the b2b_components_document_portal_folder entity with Store API criteria; the result is limited to the folders of the authenticated company and encoded like any other Store API entity. The Storefront account page lists the direct children of a folder with a parentId filter, the organization and relatedFolder associations and the sorting name ASC, id ASC. The runtime fields creator (the label of the creator; Administration users are displayed as Merchant) and itemCount (persisted descendant folders plus documents of the complete subtree) are part of every folder.",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Store API criteria filters, e.g. filter[0][type]=equals&filter[0][field]=parentId&filter[0][value]=null for the root folders. The company of the authenticated customer is always applied.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Store API criteria sorting, e.g. sort[0][field]=name&sort[0][order]=ASC.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "associations",
+            "in": "query",
+            "description": "Store API criteria associations to load, e.g. associations[organization][]= and associations[relatedFolder][]=.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "includes",
+            "in": "query",
+            "description": "Store API response fields per entity, e.g. includes[b2b_components_document_portal_folder][]=id.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The matching folders of the authenticated company",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "elements",
+                    "total"
+                  ],
+                  "properties": {
+                    "total": {
+                      "type": "integer"
+                    },
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/B2bComponentsDocumentPortalFolder"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid criteria"
+          },
+          "403": {
+            "description": "Login, company feature or permission denied."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Create a local company folder",
+        "operationId": "createDocumentPortalFolder",
+        "description": "Requires login, Document Portal license, company activation and document_portal.create for employees. Company, local scope, ID and creator are server-derived. Names are checked case-insensitively at the company parent/root. Validation is best effort without a database name uniqueness constraint or cross-operation locking.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Trimmed name must contain 1–255 characters."
+                  },
+                  "parentId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-fA-F]{32}$",
+                    "description": "Omitted or null selects company root. Existing local/system/global company folders are valid parents."
+                  },
+                  "relatedFolderId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-fA-F]{32}$",
+                    "description": "Omitted or null means no relation. Existing local/system/global company folder; independent navigation reference, never a self-reference."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Create a local company folder succeeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "folderId"
+                  ],
+                  "properties": {
+                    "folderId": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    },
+                    "apiAlias": {
+                      "type": "string",
+                      "description": "Store API alias of the response struct"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "DOCUMENT_PORTAL__INVALID_FOLDER_CREATE_REQUEST: missing required fields, forbidden fields or invalid name/reference syntax after core request parsing. Core JSON parsing can reject malformed JSON before the action."
+          },
+          "403": {
+            "description": "Login, company feature or action permission denied."
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NOT_FOUND: missing or outside the authenticated company."
+          },
+          "409": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NAME_TAKEN: case-insensitive name conflict in company + parent/root, including siblings of every scope. No suffix is added."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ]
+      }
+    },
+    "/document-portal/folders/{folderId}": {
+      "patch": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Rename or relate a local company folder",
+        "operationId": "updateDocumentPortalFolder",
+        "description": "Requires login, Document Portal license, company activation and document_portal.update for employees. Any company local folder is eligible regardless of creator. Accepts the name and the related folder, each optional; an unchanged value is not written. Moving uses the separate /move operation. Case-insensitive sibling check excludes self and is best effort. Invalid requests do not change the tree.",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "minProperties": 1,
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Trimmed name must contain 1–255 characters."
+                  },
+                  "relatedFolderId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-fA-F]{32}$",
+                    "description": "A company folder the folder relates to, e.g. the folder of an order or quote; null clears the relation. The folder itself is rejected."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Update of a local company folder succeeded; no response body"
+          },
+          "400": {
+            "description": "DOCUMENT_PORTAL__INVALID_FOLDER_UPDATE_REQUEST: no fields, forbidden fields, invalid name/reference syntax or a relation to the folder itself after core request parsing. Core JSON parsing can reject malformed JSON before the action."
+          },
+          "403": {
+            "description": "Login, company feature or action permission denied. DOCUMENT_PORTAL__SYSTEM_FOLDER_READ_ONLY or DOCUMENT_PORTAL__GLOBAL_FOLDER_READ_ONLY: protected mutation target."
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NOT_FOUND: the folder or the related folder is missing or outside the authenticated company; meta.parameters.id names which."
+          },
+          "409": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NAME_TAKEN: case-insensitive name conflict in company + parent/root, including siblings of every scope. No suffix is added."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Delete a local company folder tree",
+        "operationId": "deleteDocumentPortalFolder",
+        "description": "Requires login, Document Portal license, company activation and document_portal.delete for employees. Deletes the selected local folder, all descendant folders and all portal document records inside the persisted subtree, regardless of source or descendant scope. Existing DAL cascade and SET NULL semantics apply. Related-only records outside the subtree and core order/quote source records are preserved. Media and physical files are retained for existing unused-media cleanup with its one-day media-age grace period.",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete a local company folder tree succeeded; no response body"
+          },
+          "403": {
+            "description": "Login, company feature or action permission denied. DOCUMENT_PORTAL__SYSTEM_FOLDER_READ_ONLY or DOCUMENT_PORTAL__GLOBAL_FOLDER_READ_ONLY: protected mutation target."
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NOT_FOUND: missing or outside the authenticated company."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/folders/{folderId}/move": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Move a local company folder",
+        "operationId": "moveDocumentPortalFolder",
+        "description": "Requires login, Document Portal license, company activation and document_portal.update for employees. Any company local folder is eligible regardless of creator. Local/system/global parents of the company are valid. Self/descendant moves are rejected. Moving to the current parent is success without a DAL write. Destination name conflicts are best effort and exclude self.",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "parentId"
+                ],
+                "properties": {
+                  "parentId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[0-9a-fA-F]{32}$",
+                    "description": "Required. Explicit JSON null selects company root. Omitted, empty or malformed values are invalid. UUIDs are normalized to lowercase."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Move a local company folder succeeded; no response body"
+          },
+          "400": {
+            "description": "DOCUMENT_PORTAL__INVALID_FOLDER_MOVE_REQUEST: missing required fields, forbidden fields or invalid name/reference syntax after core request parsing. Core JSON parsing can reject malformed JSON before the action. DOCUMENT_PORTAL__FOLDER_PARENT_CYCLE: self/descendant destination."
+          },
+          "403": {
+            "description": "Login, company feature or action permission denied. DOCUMENT_PORTAL__SYSTEM_FOLDER_READ_ONLY or DOCUMENT_PORTAL__GLOBAL_FOLDER_READ_ONLY: protected mutation target."
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NOT_FOUND: missing or outside the authenticated company."
+          },
+          "409": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NAME_TAKEN: case-insensitive name conflict in company + parent/root, including siblings of every scope. No suffix is added."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/folders/{folderId}/delete-impact": {
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Read local company folder deletion impact",
+        "operationId": "readDocumentPortalFolderDeleteImpact",
+        "description": "Requires login, Document Portal license, company activation and document_portal.delete for employees. Read-only, with the same ownership/local-target checks as delete. Counts the full persisted subtree. Does not count the selected folder or records referenced only through related links.",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{32}$"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Read local company folder deletion impact succeeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "descendantFolderCount",
+                    "documentCount"
+                  ],
+                  "properties": {
+                    "descendantFolderCount": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "All descendant folders, excluding the selected folder."
+                    },
+                    "documentCount": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "All portal documents directly in the selected folder or its descendants, regardless of source."
+                    },
+                    "apiAlias": {
+                      "type": "string",
+                      "description": "Store API alias of the response struct"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Login, company feature or action permission denied. DOCUMENT_PORTAL__SYSTEM_FOLDER_READ_ONLY or DOCUMENT_PORTAL__GLOBAL_FOLDER_READ_ONLY: protected mutation target."
+          },
+          "404": {
+            "description": "DOCUMENT_PORTAL__FOLDER_NOT_FOUND: missing or outside the authenticated company."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/history": {
+      "get": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "List audit history of the authenticated company",
+        "operationId": "loadDocumentPortalHistory",
+        "description": "Requires login, the Document Portal license, company activation and any Document Portal employee permission. Company scope is always enforced independently of request filters and IDs. Returns raw audit entities using the standard DAL ApiAware serialization. Filter documentPortalId or folderId to select an item; missing or foreign item filters produce an empty collection. The Storefront controller formats authors as Merchant and resolves safe folder links. document_portal.history.load exposes pre, post and error hooks with mutable Criteria.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "One-based page number interpreted by the core RequestCriteriaBuilder using the requested limit.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "description": "Page size validated against the core Store API configuration. The sidebar defaults to 25."
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "description": "Core Criteria filters, including documentPortalId, folderId and action. Authenticated customerId is enforced server-side."
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              ]
+            },
+            "description": "Comma-separated fields or a core sorting array. Add id as a tie-breaker for stable pagination."
+          },
+          {
+            "name": "associations",
+            "in": "query",
+            "schema": {
+              "type": "object"
+            },
+            "description": "Additional associations to load. Protected associations remain excluded by DAL serialization."
+          },
+          {
+            "name": "aggregations",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "description": "Core Criteria aggregations, restricted to the authenticated company and supplied filters."
+          },
+          {
+            "name": "includes",
+            "in": "query",
+            "schema": {
+              "type": "object"
+            },
+            "description": "Store API response fields per entity."
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Raw audit search result with standard DAL pagination and aggregation metadata for the authenticated company.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "elements",
+                    "total"
+                  ],
+                  "properties": {
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/B2bComponentsDocumentPortalAuditLog"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "DAL lookahead count from the current offset; greater than the returned element count when another page exists."
+                    },
+                    "entity": {
+                      "type": "string",
+                      "enum": [
+                        "b2b_components_document_portal_audit_log"
+                      ]
+                    },
+                    "page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "limit": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "minimum": 1
+                    },
+                    "aggregations": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "maxItems": 0
+                        }
+                      ]
+                    },
+                    "apiAlias": {
+                      "type": "string",
+                      "enum": [
+                        "dal_entity_search_result"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid criteria."
+          },
+          "403": {
+            "description": "Login, company feature or employee permission denied."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/document-portal/recipients": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Add or remove document or folder recipients",
+        "operationId": "updateDocumentPortalRecipients",
+        "description": "Updates subscriptions for exactly one document or folder owned by the authenticated company. Send documentId or folderId as a non-null portal UUID; the virtual root is not a folder target. Both selectIds and unselectIds are required lists of recipient UUID strings and may be empty. Fields are validated after core request normalization; JSON clients must send Content-Type application/json. IDs are lowercased and deduplicated, and the lists must not overlap. The authenticated customer ID identifies the business partner; every other selected ID must be an eligible active company employee with a Document Portal permission. Unselected employees need not remain eligible. Unmentioned subscriptions are preserved, document and folder subscriptions are independent, and folder subscriptions are not copied to descendants. Both entry points require login, the Document Portal license and company activation; employees need either document_portal.create or document_portal.update. Having only document_portal.delete does not authorize recipient changes. Success returns no body, including an empty delta.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "selectIds",
+                  "unselectIds"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "documentId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{32}$"
+                  },
+                  "folderId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{32}$"
+                  },
+                  "selectIds": {
+                    "$ref": "#/components/schemas/DocumentPortalRecipientIds"
+                  },
+                  "unselectIds": {
+                    "$ref": "#/components/schemas/DocumentPortalRecipientIds"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "required": [
+                      "documentId"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "folderId"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Recipients updated successfully"
+          },
+          "400": {
+            "description": "Exactly one valid target UUID and both recipient lists are required; invalid list items, overlap, unknown fields or ineligible selections reject the whole write. Malformed application/json is rejected by the core HTTP layer."
+          },
+          "403": {
+            "description": "Login, company feature or CREATE/UPDATE permission denied"
+          },
+          "404": {
+            "description": "Document or folder missing or outside the authenticated company; responses use the same not-found error for missing and foreign targets of each kind."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ]
+      }
+    },
+    "/document-portal/upload": {
+      "post": {
+        "tags": [
+          "B2B Document Portal"
+        ],
+        "summary": "Upload a private company document",
+        "operationId": "uploadDocumentPortalDocument",
+        "description": "Requires login, Document Portal license and company activation, and document_portal.create for employees. Omitted category and folder remain null (company root). Display names are trimmed and must be unique case-insensitively within the company and folder, including root. customFields is ignored and is not persisted. Optional recipientIds are normalized, deduplicated and validated before media creation. The authenticated customer ID identifies the business partner; other IDs must identify eligible active company employees with a Document Portal permission. Recipients are saved together with the document so the existing upload activity notification includes them.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "file",
+                  "documentFormat"
+                ],
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Default maximum 20 MiB; pdf, xml, xlsx, xls, csv, docx, jpg, jpeg, png, html, htm, subject to the private-media whitelist and content validation. The Document Portal adds htm to the core whitelist while its license is active. The backend derives fileExtension from the uploaded filename independently of documentFormat."
+                  },
+                  "categoryId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$",
+                    "description": "An active category visible to the authenticated company."
+                  },
+                  "folderId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$",
+                    "description": "A folder belonging to the authenticated company; omitted means company root."
+                  },
+                  "documentDate": {
+                    "type": "string",
+                    "description": "ISO date (YYYY-MM-DD) or RFC 3339 timestamp. Defaults to the upload time."
+                  },
+                  "documentFormat": {
+                    "type": "string",
+                    "enum": [
+                      "pdf",
+                      "xml",
+                      "xlsx",
+                      "xls",
+                      "csv",
+                      "docx",
+                      "jpg",
+                      "jpeg",
+                      "png",
+                      "html",
+                      "htm",
+                      "zugferd_embedded_pdf",
+                      "zugferd_xml"
+                    ],
+                    "description": "Required. Trimmed and lowercased, then stored as documentFormat independently of fileExtension. ZUGFeRD embedded PDF requires pdf; ZUGFeRD XML requires xml."
+                  },
+                  "recipientIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[0-9a-fA-F]{32}$"
+                    },
+                    "description": "Optional recipient UUIDs, sent as repeated recipientIds[] multipart fields. Omit for no selected recipients. Invalid or ineligible selections reject the upload."
+                  },
+                  "relatedFolderId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$",
+                    "description": "A synced order, quote or return folder of the authenticated company the document is linked to (\"Related to\")."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The document and private media were created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "documentId"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "documentId": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{32}$"
+                    },
+                    "apiAlias": {
+                      "type": "string",
+                      "description": "Store API alias of the response struct"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid upload request, file or recipient selection"
+          },
+          "403": {
+            "description": "Login, company feature or employee permission denied"
+          },
+          "404": {
+            "description": "Category or folder missing, invalid or outside company scope"
+          },
+          "409": {
+            "description": "DOCUMENT_PORTAL__DOCUMENT_FILE_NAME_TAKEN: display name already exists in this company location"
+          },
+          "413": {
+            "description": "DOCUMENT_PORTAL__MEDIA_FILE_SIZE_LIMIT_EXCEEDED"
+          },
+          "503": {
+            "description": "Upload lock could not be acquired"
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ]
+      }
+    },
     "/employee/create": {
       "post": {
         "tags": [
@@ -17463,6 +21316,9 @@
                           "type": "boolean"
                         },
                         "ADVANCED_PRODUCT_CATALOGS": {
+                          "type": "boolean"
+                        },
+                        "DOCUMENT_PORTAL": {
                           "type": "boolean"
                         }
                       },
