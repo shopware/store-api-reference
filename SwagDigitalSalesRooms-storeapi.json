@@ -5221,6 +5221,134 @@
         },
         "type": "object"
       },
+      "CheckoutDraft": {
+        "description": "The checkout of a context: its cart, selected and available methods and the stored address of a visitor without a customer.",
+        "type": "object",
+        "required": [
+          "cart",
+          "prospectiveCustomer",
+          "shippingMethod",
+          "paymentMethod",
+          "currency",
+          "language",
+          "shippingMethods",
+          "paymentMethods",
+          "shippingCosts",
+          "apiAlias"
+        ],
+        "properties": {
+          "cart": {
+            "$ref": "#/components/schemas/Cart"
+          },
+          "prospectiveCustomer": {
+            "description": "The stored addresses of a visitor without a customer, to restore a checkout form. `null` for logged in customers and before an address was sent.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "shippingMethod": {
+            "$ref": "#/components/schemas/ShippingMethod"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "language": {
+            "type": "object",
+            "required": [
+              "name",
+              "localeCode"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "localeCode": {
+                "type": "string"
+              }
+            }
+          },
+          "shippingMethods": {
+            "description": "The shipping methods available for the context, with their prices. `null` with `methods=false`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ShippingMethod"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "paymentMethods": {
+            "description": "The payment methods available for the context. `null` with `methods=false`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PaymentMethod"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "shippingCosts": {
+            "description": "The costs per available shipping method with `shippingCosts=true`, otherwise `null`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "shippingCost",
+                    "deliveryDate",
+                    "shippingMethod"
+                  ],
+                  "properties": {
+                    "shippingCost": {
+                      "$ref": "#/components/schemas/CalculatedPrice"
+                    },
+                    "deliveryDate": {
+                      "type": "object",
+                      "properties": {
+                        "earliest": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "latest": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    },
+                    "shippingMethod": {
+                      "$ref": "#/components/schemas/ShippingMethod"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "checkout_draft"
+          }
+        }
+      },
       "CmsBlock": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -11325,6 +11453,111 @@
         },
         "type": "object"
       },
+      "ProspectiveCustomerAddress": {
+        "type": "object",
+        "description": "The parts of an address that rules, tax rules and shipping costs read. Only `countryId` is required, so that an address can be sent while it is still being typed.",
+        "required": [
+          "countryId"
+        ],
+        "properties": {
+          "countryId": {
+            "description": "Country of the address. It also becomes the country of the context.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "description": "Country state of the address, it has to belong to the country.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "zipcode": {
+            "description": "Zip code, validated with the zip code rules of the country.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "city": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "street": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          }
+        }
+      },
+      "ProspectiveCustomer": {
+        "type": "object",
+        "description": "The addresses a visitor without a customer has entered. Rules are matched as if the visitor registered as a new guest of the default customer group right now. Removed when a customer logs in or registers.",
+        "required": [
+          "shippingAddress",
+          "billingAddress",
+          "apiAlias"
+        ],
+        "properties": {
+          "shippingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "apiAlias"
+                ],
+                "properties": {
+                  "apiAlias": {
+                    "type": "string",
+                    "const": "prospective_customer_address"
+                  }
+                }
+              }
+            ]
+          },
+          "billingAddress": {
+            "description": "`null` when the billing address is the shipping address.",
+            "oneOf": [
+              {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "apiAlias"
+                    ],
+                    "properties": {
+                      "apiAlias": {
+                        "type": "string",
+                        "const": "prospective_customer_address"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "prospective_customer"
+          }
+        }
+      },
       "ReferencePrice": {
         "type": "object",
         "properties": {
@@ -11693,6 +11926,17 @@
               },
               {
                 "$ref": "#/components/schemas/Customer"
+              }
+            ]
+          },
+          "prospectiveCustomer": {
+            "description": "Only set without a customer, after the visitor has sent a `shippingAddress`.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomer"
+              },
+              {
+                "type": "null"
               }
             ]
           },
