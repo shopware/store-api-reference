@@ -2307,6 +2307,134 @@
         },
         "type": "object"
       },
+      "CheckoutDraft": {
+        "description": "The checkout of a context: its cart, selected and available methods and the stored address of a visitor without a customer.",
+        "type": "object",
+        "required": [
+          "cart",
+          "prospectiveCustomer",
+          "shippingMethod",
+          "paymentMethod",
+          "currency",
+          "language",
+          "shippingMethods",
+          "paymentMethods",
+          "shippingCosts",
+          "apiAlias"
+        ],
+        "properties": {
+          "cart": {
+            "$ref": "#/components/schemas/Cart"
+          },
+          "prospectiveCustomer": {
+            "description": "The stored addresses of a visitor without a customer, to restore a checkout form. `null` for logged in customers and before an address was sent.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "shippingMethod": {
+            "$ref": "#/components/schemas/ShippingMethod"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "language": {
+            "type": "object",
+            "required": [
+              "name",
+              "localeCode"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "localeCode": {
+                "type": "string"
+              }
+            }
+          },
+          "shippingMethods": {
+            "description": "The shipping methods available for the context, with their prices. `null` with `methods=false`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ShippingMethod"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "paymentMethods": {
+            "description": "The payment methods available for the context. `null` with `methods=false`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PaymentMethod"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "shippingCosts": {
+            "description": "The costs per available shipping method with `shippingCosts=true`, otherwise `null`.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "shippingCost",
+                    "deliveryDate",
+                    "shippingMethod"
+                  ],
+                  "properties": {
+                    "shippingCost": {
+                      "$ref": "#/components/schemas/CalculatedPrice"
+                    },
+                    "deliveryDate": {
+                      "type": "object",
+                      "properties": {
+                        "earliest": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "latest": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    },
+                    "shippingMethod": {
+                      "$ref": "#/components/schemas/ShippingMethod"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "checkout_draft"
+          }
+        }
+      },
       "CmsBlock": {
         "description": "Added since version: 6.0.0.0",
         "required": [
@@ -5627,30 +5755,48 @@
           },
           "mimeType": {
             "description": "A string sent along with a file indicating the type of the file. For example: image/jpeg.",
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "fileExtension": {
             "description": "Type of file indication. For example: jpeg, png.",
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "uploadedAt": {
             "description": "Date and time at which media was added.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "readOnly": true
           },
           "fileName": {
             "description": "Name of the media file uploaded.",
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "fileSize": {
             "description": "Size of the file media file uploaded.",
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "format": "int64",
             "readOnly": true
           },
           "metaData": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "readOnly": true,
             "properties": {
               "height": {
@@ -5665,14 +5811,23 @@
             "description": "Details of the media file uploaded."
           },
           "config": {
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           },
           "alt": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Alternate text for media."
           },
           "title": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Title name give to the media."
           },
           "url": {
@@ -5680,7 +5835,10 @@
             "type": "string"
           },
           "path": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "hasFile": {
             "description": "Runtime field, cannot be used as part of the criteria.",
@@ -5691,7 +5849,10 @@
             "type": "boolean"
           },
           "customFields": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
           },
           "createdAt": {
@@ -5700,7 +5861,10 @@
             "readOnly": true
           },
           "updatedAt": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "readOnly": true
           },
@@ -5746,7 +5910,10 @@
             "pattern": "^[0-9a-f]{32}$"
           },
           "mediaThumbnailSizeId": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "pattern": "^[0-9a-f]{32}$"
           },
           "width": {
@@ -5766,10 +5933,16 @@
             "type": "string"
           },
           "path": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "customFields": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
           },
           "createdAt": {
@@ -5778,7 +5951,10 @@
             "readOnly": true
           },
           "updatedAt": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "readOnly": true
           }
@@ -8666,6 +8842,67 @@
           "product"
         ]
       },
+      "ProductDocument": {
+        "description": "Added since version: 6.7.17.0",
+        "required": [
+          "id",
+          "productId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "versionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "productId": {
+            "description": "Unique identity of the product.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "productVersionId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "position": {
+            "description": "The order in which the documents of a product are displayed.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "description": "Display name of the document in this language.",
+            "type": "string"
+          },
+          "mediaId": {
+            "description": "Unique identity of the file of the document in this language.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object"
+          },
+          "media": {
+            "$ref": "#/components/schemas/Media",
+            "description": "File of the document in the current language. Only set by the product documents route and the CMS slot; `null` when documents are loaded as an association."
+          }
+        },
+        "type": "object"
+      },
       "ProductDownload": {
         "description": "Added since version: 6.4.19.0",
         "required": [
@@ -9931,6 +10168,111 @@
         },
         "type": "object"
       },
+      "ProspectiveCustomerAddress": {
+        "type": "object",
+        "description": "The parts of an address that rules, tax rules and shipping costs read. Only `countryId` is required, so that an address can be sent while it is still being typed.",
+        "required": [
+          "countryId"
+        ],
+        "properties": {
+          "countryId": {
+            "description": "Country of the address. It also becomes the country of the context.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "description": "Country state of the address, it has to belong to the country.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "zipcode": {
+            "description": "Zip code, validated with the zip code rules of the country.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "city": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "street": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          }
+        }
+      },
+      "ProspectiveCustomer": {
+        "type": "object",
+        "description": "The addresses a visitor without a customer has entered. Rules are matched as if the visitor registered as a new guest of the default customer group right now. Removed when a customer logs in or registers.",
+        "required": [
+          "shippingAddress",
+          "billingAddress",
+          "apiAlias"
+        ],
+        "properties": {
+          "shippingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "apiAlias"
+                ],
+                "properties": {
+                  "apiAlias": {
+                    "type": "string",
+                    "const": "prospective_customer_address"
+                  }
+                }
+              }
+            ]
+          },
+          "billingAddress": {
+            "description": "`null` when the billing address is the shipping address.",
+            "oneOf": [
+              {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "apiAlias"
+                    ],
+                    "properties": {
+                      "apiAlias": {
+                        "type": "string",
+                        "const": "prospective_customer_address"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "prospective_customer"
+          }
+        }
+      },
       "ReferencePrice": {
         "type": "object",
         "properties": {
@@ -10515,6 +10857,17 @@
                 "description": "Anonymous IP address of the customer for last session."
               }
             }
+          },
+          "prospectiveCustomer": {
+            "description": "Only set without a customer, after the visitor has sent a `shippingAddress`.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProspectiveCustomer"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "paymentMethod": {
             "$ref": "#/components/schemas/PaymentMethod",
@@ -16222,6 +16575,299 @@
         ]
       }
     },
+    "/checkout/draft": {
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Fetch the checkout draft",
+        "description": "Returns the recalculated cart together with the available shipping and payment methods and the stored addresses of a visitor without a customer. Never changes the context or the token.",
+        "operationId": "readCheckoutDraft",
+        "parameters": [
+          {
+            "name": "methods",
+            "in": "query",
+            "required": false,
+            "description": "Set to `false` to skip the available shipping and payment methods, they are returned as `null`.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "shippingCosts",
+            "in": "query",
+            "required": false,
+            "description": "Calculates the costs of every available shipping method, like `/store-api/shipping-cost/cart`. Recalculates the cart once per shipping method and asks the Checkout Gateway for the available methods.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "checkoutGateway",
+            "in": "query",
+            "required": false,
+            "description": "Runs the Checkout Gateway of the installed apps, which can remove methods and add cart errors.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "taxed",
+            "in": "query",
+            "required": false,
+            "description": "Runs the tax providers, like `GET /store-api/checkout/cart?taxed=1`.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The recalculated checkout of the current context.",
+            "headers": {
+              "sw-context-token": {
+                "description": "The context token to continue with. A Context Gateway command can replace it.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckoutDraft"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400",
+            "description": "`contextGateway` was sent, it is only accepted with `PATCH`."
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "The `sw-access-key` header is missing."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Change the checkout and fetch the recalculated draft",
+        "description": "Accepts every field of `PATCH /store-api/context` and applies the change through that route, then returns the same draft as `GET`. Unlike `PATCH /store-api/context`, unknown fields are rejected. Changes of an address or a method are rate limited per context token; clients should debounce input and only enable the optional parts when they show them.",
+        "operationId": "updateCheckoutDraft",
+        "parameters": [
+          {
+            "name": "methods",
+            "in": "query",
+            "required": false,
+            "description": "Set to `false` to skip the available shipping and payment methods, they are returned as `null`.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "shippingCosts",
+            "in": "query",
+            "required": false,
+            "description": "Calculates the costs of every available shipping method, like `/store-api/shipping-cost/cart`. Recalculates the cart once per shipping method and asks the Checkout Gateway for the available methods.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "checkoutGateway",
+            "in": "query",
+            "required": false,
+            "description": "Runs the Checkout Gateway of the installed apps, which can remove methods and add cart errors.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "taxed",
+            "in": "query",
+            "required": false,
+            "description": "Runs the tax providers, like `GET /store-api/checkout/cart?taxed=1`.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "currencyId": {
+                    "description": "Currency",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "languageId": {
+                    "description": "Language",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "billingAddressId": {
+                    "description": "Billing Address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingAddressId": {
+                    "description": "Shipping Address",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "paymentMethodId": {
+                    "description": "Payment Method",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingMethodId": {
+                    "description": "Shipping Method",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "countryId": {
+                    "description": "Country",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "countryStateId": {
+                    "description": "Country State",
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingAddress": {
+                    "description": "Only without a logged in customer: the address the visitor has entered so far, stored as the `prospectiveCustomer` of the context. Replaces the stored shipping address, its country becomes the context country. `null` removes the prospective customer.",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "billingAddress": {
+                    "description": "Only without a logged in customer: a billing address that differs from the shipping address. `null` removes it.",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "contextGateway": {
+                    "description": "Runs the Context Gateway of the app named in `appName` after the change. The app can change the context and the token.",
+                    "type": "boolean",
+                    "default": false
+                  },
+                  "appName": {
+                    "description": "The installed app whose Context Gateway runs with `contextGateway`.",
+                    "type": "string"
+                  },
+                  "data": {
+                    "description": "Passed on to the Context Gateway of the app with `contextGateway`, like the `data` of `POST /store-api/context/gateway`.",
+                    "type": "object"
+                  },
+                  "methods": {
+                    "description": "Same as the query parameter.",
+                    "type": "boolean"
+                  },
+                  "shippingCosts": {
+                    "description": "Same as the query parameter.",
+                    "type": "boolean"
+                  },
+                  "checkoutGateway": {
+                    "description": "Same as the query parameter.",
+                    "type": "boolean"
+                  },
+                  "taxed": {
+                    "description": "Same as the query parameter.",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The recalculated checkout of the current context.",
+            "headers": {
+              "sw-context-token": {
+                "description": "The context token to continue with. A Context Gateway command can replace it.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckoutDraft"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400",
+            "description": "An unknown field was sent, or a field is invalid, see `PATCH /store-api/context`."
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "The `sw-access-key` header is missing."
+          },
+          "403": {
+            "$ref": "#/components/responses/403",
+            "description": "A billing or shipping address id was sent without a logged in customer."
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "Too many address or method changes for this context token. Wait for the number of seconds in the `Retry-After` header before retrying."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
     "/cms/{id}": {
       "post": {
         "tags": [
@@ -16709,14 +17355,36 @@
                     "pattern": "^[0-9a-f]{32}$"
                   },
                   "countryId": {
-                    "description": "Country",
+                    "description": "Country. Without a logged in customer, a country that differs from the stored `shippingAddress` removes the prospective customer.",
                     "type": "string",
                     "pattern": "^[0-9a-f]{32}$"
                   },
                   "countryStateId": {
-                    "description": "Country State",
+                    "description": "Country State. Without a logged in customer, a state that differs from the stored `shippingAddress` removes the prospective customer.",
                     "type": "string",
                     "pattern": "^[0-9a-f]{32}$"
+                  },
+                  "shippingAddress": {
+                    "description": "Only without a logged in customer: the address the visitor has entered so far, stored as the `prospectiveCustomer` of the context. Replaces the stored shipping address, its country becomes the context country. `null` removes the prospective customer. Can not be combined with `countryId` or `countryStateId`.",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "billingAddress": {
+                    "description": "Only without a logged in customer: a billing address that differs from the shipping address. `null` removes it.",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/ProspectiveCustomerAddress"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   }
                 },
                 "type": "object"
@@ -16730,7 +17398,7 @@
           },
           "400": {
             "$ref": "#/components/responses/400",
-            "description": "One of the submitted ids is not a string, or does not reference an entity that is available in the current sales channel."
+            "description": "One of the submitted ids is not a string, or does not reference an entity that is available in the current sales channel, an address is invalid, an address was sent for a logged in customer, or a shipping address was sent together with a country."
           },
           "401": {
             "$ref": "#/components/responses/401",
@@ -21970,6 +22638,220 @@
           "403": {
             "$ref": "#/components/responses/403",
             "description": "Product reviews are disabled for this sales channel."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
+    "/product/{productId}/documents": {
+      "post": {
+        "tags": [
+          "Product",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch the documents of a product",
+        "description": "Lists the documents of a product, such as manuals, datasheets or certificates, with their file in the requested language. A variant without documents of its own returns the documents of its parent product. For a product with variants, pass the product id of the `/product/{productId}` response, which is the resolved variant. Documents with a private file are left out.",
+        "operationId": "readProductDocuments",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Identifier of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sw-include-search-info",
+            "in": "header",
+            "description": "Controls whether API search information is included in the response. Default is 1 (enabled), will be 0 (disabled) in the next major version.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "0",
+                "1"
+              ],
+              "default": "1"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Criteria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity search result containing the product documents",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/ProductDocument"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400",
+            "description": "The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association."
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "The `sw-access-key` header is missing."
+          },
+          "404": {
+            "$ref": "#/components/responses/404",
+            "description": "The product does not exist or is not visible in the sales channel."
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Product",
+          "Endpoints supporting Criteria "
+        ],
+        "summary": "Fetch the documents of a product",
+        "description": "Lists the documents of a product, such as manuals, datasheets or certificates, with their file in the requested language. A variant without documents of its own returns the documents of its parent product. For a product with variants, pass the product id of the `/product/{productId}` response, which is the resolved variant. Documents with a private file are left out.",
+        "operationId": "readProductDocumentsGet",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Identifier of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/criteriaPage"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaLimit"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaTerm"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaFilter"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaIds"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaQuery"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaAssociations"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaPostFilter"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaSort"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaAggregations"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaFields"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaGrouping"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaTotalCountMode"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaIncludes"
+          },
+          {
+            "$ref": "#/components/parameters/criteriaExcludes"
+          },
+          {
+            "$ref": "#/components/parameters/CompressedCriteria"
+          },
+          {
+            "$ref": "#/components/parameters/swLanguageId"
+          },
+          {
+            "$ref": "#/components/parameters/swContextSource"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Entity search result containing the product documents",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "elements": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/ProductDocument"
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EntitySearchResult"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400",
+            "description": "The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association."
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "The `sw-access-key` header is missing."
+          },
+          "404": {
+            "$ref": "#/components/responses/404",
+            "description": "The product does not exist or is not visible in the sales channel."
           }
         },
         "security": [
