@@ -20,12 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - shell: bash
         run: |
           cp storeapi.json storeapi-original.json
       - name: Upload original file
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: original-file
           path: storeapi-original.json
@@ -49,15 +49,15 @@ jobs:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: download api schema
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: ${{needs.generate-schema.outputs.api_schema}}
 
       - name: install yq
-        uses: cachix/install-nix-action@v18
+        uses: cachix/install-nix-action@v31
 
       - name: Add custom descriptions
         run: |
@@ -68,7 +68,7 @@ jobs:
           done
 
       - name: Download original file
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: original-file
 
@@ -86,7 +86,7 @@ jobs:
           ./.github/scripts/extract.sh storeapi.json storeapi.summary.json
 
       - name: Create PR
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           add-paths: |
             storeapi.json
