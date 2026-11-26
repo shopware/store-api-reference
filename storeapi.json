@@ -19331,7 +19331,7 @@
           "Product"
         ],
         "summary": "Render the EU legal guarantee notice",
-        "description": "This route renders the EU-harmonised legal guarantee notice SVG and the matching europa.eu \"Your Europe\" guarantees page link in the customer-facing language of the sales channel context.",
+        "description": "This route renders the EU-harmonised legal guarantee notice SVG, its text alternative as HTML and the matching europa.eu \"Your Europe\" guarantees page link in the customer-facing language of the sales channel context.",
         "operationId": "renderLegalGuaranteeNotice",
         "parameters": [
           {
@@ -19343,7 +19343,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Rendered legal guarantee notice SVG and link.",
+            "description": "Rendered legal guarantee notice SVG, text alternative and link.",
             "content": {
               "application/json": {
                 "schema": {
@@ -19360,11 +19360,19 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "text": {
+                      "description": "Text alternative of the notice as HTML, in the language of the SVG.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
                     "svg",
-                    "link"
+                    "link",
+                    "text"
                   ]
                 }
               }
@@ -24883,6 +24891,7 @@
                         "hideCloseoutProductsWhenOutOfStock",
                         "showVariantOptionInSearchSuggestionResult",
                         "findBestVariant",
+                        "ignoreMainVariantOnPriceSorting",
                         "autoplayVideoInListing",
                         "beforeListPriceSnippetKey",
                         "afterListPriceSnippetKey"
@@ -24927,6 +24936,10 @@
                         "findBestVariant": {
                           "type": "boolean",
                           "description": "Whether the best matching variant is previewed in search results"
+                        },
+                        "ignoreMainVariantOnPriceSorting": {
+                          "type": "boolean",
+                          "description": "Whether price sorted listings display the variant which determines the position instead of the configured main variant or main product"
                         },
                         "autoplayVideoInListing": {
                           "type": "boolean",
