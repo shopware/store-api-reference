@@ -11,3 +11,35 @@ The `storeapi.json` file contains the OpenAPI schema. Please do not make manual 
 ## Version branches
 
 Different branches (e.g. `trunk`, `latest`, `v6.6`) hold API schemas for different Shopware 6 versions. Workflows and docs are maintained on the default branch and can be synced into version branches by merging from main; generated schema JSON files on each branch are kept automatically. See [Version branches and syncing workflows](docs/concepts/version-branches.md). If you work with version branches, run once per clone: `git config merge.keepSchema.driver true`.
+
+## Docs
+
+*This repository is embedded into [nextgen-portal](https://github.com/shopware/nextgen-portal) under the [/resources/store-api/](https://developer.shopware.com/store-api/). This repository is also connected to the Shopware Dev Docs connector GitHub app which manages commit status checks in PRs and triggers production deployments.
+
+### Development
+
+1. Clone this repository
+
+```
+cd /www/
+git clone git@github.com:shopware/store-api-reference.git
+cd store-api-reference
+```
+
+2. Make sure you have your local copy of the nextgen-portal repository in the same parent directory.
+
+```
+pnpm docs:env
+```
+
+3. Link articles from your local copy of the release-notes into the nextgen-portal.
+
+```
+pnpm docs:link
+```
+
+4. Start the development server.
+
+```
+pnpm docs:preview
+```
